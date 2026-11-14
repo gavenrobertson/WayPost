@@ -181,6 +181,7 @@ function M.install()
 	G.GetRealmName = function() return M.player.realm end
 	G.UnitXP = function() return M.player.xp end
 	G.UnitXPMax = function() return M.player.xpMax end
+	G.GetXPExhaustion = function() return M.player.rested end
 	G.UnitPosition = function() return nil end
 	G.UnitOnTaxi = function() return M.player.taxi end
 	G.GetUnitSpeed = function() return 7 end

@@ -119,6 +119,7 @@ end
 
 local function wantsGroup()
 	if W.opt.route.saferRoute then return false end
+	if E.forceGroup then return true end
 	if IsInGroup and IsInGroup() then return true end
 	return W.opt.route.groupQuests and true or false
 end
@@ -222,10 +223,17 @@ local function objectiveState(g)
 	return false, nil, nil
 end
 
+-- A quest you have but put off (Skip or Later on a step you could not finish):
+-- its goals stop holding the route up until the quest is ready to hand in.
+local function deferred(q)
+	return q and W.char.deferred[q] and Q.IsOn(q) and not Q.IsReady(q)
+end
+
 local function goalState(g, si)
 	local t = g.t
 	local gi = g._i or 0
 	if latched(si, gi) then return true end
+	if g.quest and t ~= "accept" and deferred(g.quest) then return true end
 
 	if t == "accept" then
 		local q = g.quest
@@ -394,12 +402,29 @@ end
 -- have picked up are left out of later steps too, so a hand-in further on
 -- never waits for a quest the route chose not to take. If the player picks
 -- the quest up anyway, its goals count again.
-local function passOver(step)
+-- Quests set aside to come back to: [questID] = { guide, step, title, reason, level, at }
+-- reason: "later" (the player chose Later) or "group" (a group quest passed over while solo)
+local function setAside(q, si, title, reason)
+	local t = W.char.setAside
+	if t[q] then return end
+	t[q] = { guide = E.guide.id, step = si, title = title, reason = reason, level = W.player.level or 1, at = time and time() or 0 }
+end
+
+local function isGroupStep(step)
+	local ws = step.when
+	if not ws then return false end
+	for i = 1, #ws do if ws[i].k == "group" and not ws[i].neg then return true end end
+	return false
+end
+
+local function passOver(step, si)
 	local goals = step.goals
+	local group = isGroupStep(step) and not wantsGroup()
 	for i = 1, #goals do
 		local g = goals[i]
 		if g.t == "accept" and g.quest and G.OnlyOk(g.only) and not Q.IsOn(g.quest) and not Q.IsDone(g.quest) then
 			W.char.skippedQuests[g.quest] = true
+			if group then setAside(g.quest, si, g.title, "group") end
 		end
 	end
 end
@@ -413,7 +438,7 @@ local function seek(from, softBefore)
 				if not stepComplete(si, softBefore) then return si end
 				if step.label then W.char.labels[step.label] = true end
 			elseif G.OnlyOk(step.only) then
-				passOver(step)
+				passOver(step, si)
 			end
 		end
 	end
@@ -483,7 +508,12 @@ function E.Rescan()
 	if not E.guide then return end
 	prog.skipped, prog.done = {}, {}
 	-- forget which of this guide's quests were skipped or passed over, and decide again
-	for q in pairs(E.QuestSet()) do W.char.skippedQuests[q] = nil end
+	for q in pairs(E.QuestSet()) do
+		W.char.skippedQuests[q] = nil
+		W.char.deferred[q] = nil
+		local e = W.char.setAside[q]
+		if e and e.reason == "group" then W.char.setAside[q] = nil end
+	end
 	E.Advance(1, lastTouched() + 1)
 end
 
@@ -551,9 +581,10 @@ local function pushUndo(entry)
 	if #u > 20 then table.remove(u, 1) end
 end
 
--- Skip the current step. Quests it would have accepted are marked skipped so
--- their follow-up goals do not block later steps.
-function E.Skip()
+-- Skip the current step. Every quest it needs that you do not have is left out
+-- of later steps too. With `later`, those quests are also set aside, to be
+-- offered back when you join a party or gain a couple of levels.
+local function skipStep(later)
 	if not E.guide or not E.index then return end
 	if E.view then E.view = nil end
 	local si = E.index
@@ -561,15 +592,112 @@ function E.Skip()
 	local vis = visible(E.guide.steps[si])
 	for i = 1, #vis do
 		local g = vis[i]
-		-- Any quest this step needs that you do not have is left out of later steps too.
-		if g.quest and not Q.IsOn(g.quest) and not Q.IsDone(g.quest) and not W.char.skippedQuests[g.quest] then
-			W.char.skippedQuests[g.quest] = true
-			quests[#quests + 1] = g.quest
+		local q = g.quest
+		if q and not Q.IsDone(q) then
+			if not Q.IsOn(q) then
+				-- you do not have it: leave it out of later steps
+				if not W.char.skippedQuests[q] then
+					W.char.skippedQuests[q] = true
+					quests[#quests + 1] = q
+				end
+				if later then setAside(q, si, g.title or Q.Title(q), g.group and "group" or "later") end
+			elseif not Q.IsReady(q) and g.t ~= "accept" and not goalState(g, si) then
+				-- you have it but cannot finish it now: stop its goals holding the route up
+				if not W.char.deferred[q] then
+					W.char.deferred[q] = true
+					quests[#quests + 1] = q
+				end
+				if later then setAside(q, si, g.title or Q.Title(q), g.group and "group" or "later") end
+			end
 		end
 	end
 	prog.skipped[si] = true
 	pushUndo({ guide = E.guide.id, step = si, quests = quests })
 	E.Advance(si + 1)
+	if later then W.Fire("WP_SET_ASIDE") end
+end
+
+function E.Skip() skipStep(false) end
+function E.Later() skipStep(true) end
+
+-- Go back to a quest that was set aside: its step becomes the current one again.
+function E.ReturnTo(q)
+	local entry = W.char.setAside[q]
+	if not entry then return false end
+	if not E.guide or E.guide.id ~= entry.guide then
+		if not E.Load(entry.guide) then return false end
+	end
+	local si = entry.step
+	-- everything set aside at that step comes back together
+	for id, e in pairs(W.char.setAside) do
+		if e.guide == entry.guide and e.step == si then
+			W.char.setAside[id] = nil
+			W.char.skippedQuests[id] = nil
+			W.char.deferred[id] = nil
+		end
+	end
+	if entry.reason == "group" then E.forceGroup = true end
+	if E.guide.steps[si] then
+		prog.skipped[si] = nil
+		E.JumpTo(si)
+	end
+	W.Fire("WP_SET_ASIDE")
+	return true
+end
+
+-- Forget a set-aside quest (it stays out of the route).
+function E.Forget(q)
+	W.char.setAside[q] = nil
+	W.Fire("WP_SET_ASIDE")
+end
+
+-- Set-aside quests that are still worth offering (not picked up or finished since).
+function E.SetAsideList()
+	local out = {}
+	for q, e in pairs(W.char.setAside) do
+		if Q.IsDone(q) or (Q.IsOn(q) and not W.char.deferred[q]) or not G.Meta(e.guide) then
+			W.char.setAside[q] = nil
+			W.char.deferred[q] = nil
+		else
+			out[#out + 1] = { quest = q, title = e.title or Q.Title(q) or (L["Quest"] .. " " .. q), reason = e.reason,
+				guide = e.guide, step = e.step, level = e.level, offered = e.offered }
+		end
+	end
+	table.sort(out, function(a, b)
+		if a.guide ~= b.guide then return a.guide < b.guide end
+		if a.step ~= b.step then return a.step < b.step end
+		return a.quest < b.quest
+	end)
+	return out
+end
+
+-- Somewhere to make up experience: the nearest enemies the route itself sends
+-- you to that are about your level. Returns a goal for the arrow, or nil.
+function E.GrindSpot()
+	if not E.guide or not E.index then return nil end
+	local level = W.player.level or 1
+	local steps = E.guide.steps
+	local best, bestScore
+	for si = math.max(1, E.index - 40), math.min(#steps, E.index + 15) do
+		local step = steps[si]
+		if G.OnlyOk(step.only) then
+			for _, g in ipairs(step.goals) do
+				if g.t == "kill" and g.x and g.map and G.OnlyOk(g.only) and not g.group then
+					local ml = g.mobLevel or level
+					if ml >= level - 3 and ml <= level + 1 then
+						local d = C.GoalDistance(g)
+						if d then
+							local score = d + math.abs(ml - level) * 150
+							if not bestScore or score < bestScore then best, bestScore = g, score end
+						end
+					end
+				end
+			end
+		end
+	end
+	if not best then return nil end
+	return { t = "goto", map = best.map, x = best.x, y = best.y, era = best.era, spots = best.spots,
+		text = best.target or best.npc or L["enemies"], mobLevel = best.mobLevel }
 end
 
 function E.UndoSkip()
@@ -584,7 +712,11 @@ function E.UndoSkip()
 		if not E.Load(entry.guide) then return false end
 	end
 	prog.skipped[entry.step] = nil
-	for _, q in ipairs(entry.quests or {}) do W.char.skippedQuests[q] = nil end
+	for _, q in ipairs(entry.quests or {}) do
+		W.char.skippedQuests[q] = nil
+		W.char.deferred[q] = nil
+		W.char.setAside[q] = nil
+	end
 	setIndex(entry.step)
 	return true
 end
@@ -794,6 +926,22 @@ function E.GoalInfo(g, si, out)
 			add((g.srcKind == "object" and L["Loot"] or L["Drops from"]) .. " " .. (g.srcKind == "object" and PLACE or ENEMY) .. g.src .. "|r")
 		end
 		if g.mobLevel then add((L["Level %d enemy"]):format(g.mobLevel)) end
+	elseif t == "level" then
+		local level = W.player.level or 1
+		if level < (g.level or 1) then
+			local cur, max = Readable(UnitXP and UnitXP("player")), Readable(UnitXPMax and UnitXPMax("player"))
+			if type(cur) == "number" and type(max) == "number" and max > 0 then
+				add((L["You are level %d: %s XP to level %d"]):format(level, W.FormatNumber(max - cur), level + 1))
+			end
+			if (g.level or 1) - level > 1 then add((L["%d levels to go"]):format((g.level or 1) - level)) end
+			local ttl = W.XP and W.XP.TimeToLevel()
+			if ttl then add((L["About %s at your current pace"]):format(W.FormatTime(ttl))) end
+			local rested = GetXPExhaustion and Readable(GetXPExhaustion())
+			if type(rested) == "number" and rested > 0 then
+				add(GOOD .. (L["Rested: the next %s XP from kills counts double"]):format(W.FormatNumber(rested)) .. "|r")
+			end
+			add(L["The next quests need this level. Make it up with the options below."])
+		end
 	elseif t == "fly" then
 		if g.location and next(W.char.fps) and not W.char.fps[g.location] then
 			add(WARN .. L["You have not learned this flight path yet: travel on foot."] .. "|r")

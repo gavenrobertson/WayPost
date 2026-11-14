@@ -13,6 +13,9 @@ First release.
 - Auto accept and turn-in for guide quests, quest item and target buttons with key bindings,
   flight point tracking and auto-flight.
 - Skip, undo, look ahead, "why this step", danger warnings, safer-route and XP-skip options.
+- Later: quests set aside and offered back when you group up or gain levels; a catch-up card at
+  level checkpoints.
+- Welcome window on first login and an in-game help window.
 - XP per hour, level and guide timers, run history with time saved.
 - Talent guide, gear upgrade hints (Pawn supported), orphaned-quest cleanup.
 - Party sync, guild leveling board, guild route and officer announcements.

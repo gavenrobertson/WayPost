@@ -4,6 +4,8 @@ The automated tests run the addon against a mock of the game API. These checks n
 
 ## First login (new character)
 
+- [ ] The welcome window opens a couple of seconds after the first login on the account, and its
+      Start button loads the suggested guide. `/waypost help` reopens it; every topic shows text.
 - [ ] No Lua errors on login (`/console scriptErrors 1`).
 - [ ] The Waypost window appears and recommends your race's starting guide. **Start** loads it.
 - [ ] The arrow points at the first quest giver and turns smoothly as you turn.
@@ -23,6 +25,9 @@ The automated tests run the addon against a mock of the game API. These checks n
 
 ## Controls
 
+- [ ] Later on a step sets its quests aside; `/waypost later` lists them; Go back returns to the step.
+- [ ] Solo, a group quest is passed over; joining a party shows a notice offering it back.
+- [ ] At a "Reach level N" step below that level, the card shows the XP missing and the two links work.
 - [ ] Skip, `/waypost undo`, Shift-click Next (look ahead), Back.
 - [ ] Compact mode, each window style, font size, scale, lock.
 - [ ] Drag the window and the arrow; `/reload`; both stay where they were.

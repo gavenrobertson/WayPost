@@ -72,11 +72,12 @@ W.charDefaults = {
 	progress = {},           -- [guideId] = { step = n, skipped = { [i] = true }, manual = { ["i:j"] = true } }
 	undo = {},
 	skippedQuests = {},
+	deferred = {},           -- quests in the log whose goals were put off
 	fps = {},                -- known flight points by name
 	labels = {},
+	setAside = {},           -- quests to come back to (see Engine)
 	xp = { levels = {}, guides = {}, runs = {}, played = 0, levelStart = nil },
 	profile = nil,
-	seenWelcome = false,
 }
 
 local function merge(dst, src)

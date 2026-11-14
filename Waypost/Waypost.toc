@@ -32,6 +32,7 @@ UI\Options.lua
 UI\Editor.lua
 UI\MinimapButton.lua
 UI\GameMenu.lua
+UI\Help.lua
 
 Modules\Automation.lua
 Modules\XP.lua
@@ -41,6 +42,7 @@ Modules\Comm.lua
 Modules\Group.lua
 Modules\Guild.lua
 Modules\Orphans.lua
+Modules\SetAside.lua
 Modules\Recorder.lua
 Modules\Report.lua
 Modules\Export.lua

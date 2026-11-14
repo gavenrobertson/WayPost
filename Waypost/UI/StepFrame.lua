@@ -195,9 +195,11 @@ local function openMenu(owner)
 		{ text = L["Guild leveling board"], icon = "users", func = function() W.Guild.Toggle(true) end },
 		{ text = L["Talents"], icon = "star", func = function() W.Talents.Toggle(true) end },
 		{ text = L["Leveling speed"], icon = "clock", func = function() W.XP.ToggleWindow(true) end },
+		{ text = L["Quests set aside"], icon = "clock", func = function() W.SetAside.Toggle(true) end },
 		{ text = L["Quests outside your route"], icon = "pinoff", func = function() W.Orphans.Toggle(true) end },
 		{ text = L["Guide editor"], icon = "book", func = function() W.Editor.Open() end },
 		{ text = L["Report a problem"], icon = "bug", func = function() W.Report.Open() end },
+		{ text = L["Help"], icon = "note", func = function() W.Help.Open() end },
 		{ text = L["Window"], title = true },
 		{ text = L["Lock in place"], checked = o.locked, func = function() W.Set("ui.locked", not o.locked) end },
 		{ text = L["Compact"], checked = o.compact, func = function() W.Set("ui.compact", not o.compact) end },
@@ -351,6 +353,24 @@ local function build()
 	now:SetScript("OnEnter", goalTooltip)
 	now:SetScript("OnLeave", function() GameTooltip:Hide() end)
 
+	-- Catch-up: shown under the card when the route needs a level you have not reached
+	body.catch = CreateFrame("Frame", nil, body)
+	body.catch:SetHeight(18)
+	body.catch.aside = UI.Link(body.catch, "", UI.FontSmall, function() W.SetAside.Toggle(true) end)
+	body.catch.aside:SetPoint("LEFT", 34, 0)
+	UI.Tooltip(body.catch.aside, L["Quests you set aside"], L["Go back to a quest you saved for later and earn its experience."])
+	body.catch.grind = UI.Link(body.catch, L["Nearest enemies your level"], UI.FontSmall, function()
+		local spot = E.GrindSpot()
+		if not spot then
+			W.Print(L["No enemies of your level are known near here on this route."])
+			return
+		end
+		E.SetOverride(spot)
+		W.Print((L["The arrow points at %s%s. Type /waypost resume to return to your step."]):format(spot.text or "?",
+			spot.mobLevel and (" (" .. (L["level %d"]):format(spot.mobLevel) .. ")") or ""))
+	end)
+	UI.Tooltip(body.catch.grind, L["Nearest enemies your level"], L["Points the arrow at the closest enemies on this route that are about your level."])
+
 	body.done = CreateFrame("Button", nil, body)
 	body.done:SetHeight(16)
 	body.done.icon = UI.Icon(body.done, "check", 12, "ARTWORK", Col.good)
@@ -424,12 +444,15 @@ local function build()
 	UI.Tooltip(footer.next, L["Next step"], L["Finish or skip this step. Shift-click to look ahead without moving on."])
 	footer.skip = UI.Link(footer, L["Skip"], UI.FontSmall, function() E.Skip() end)
 	footer.skip:SetPoint("LEFT", footer.next, "RIGHT", 4, 0)
-	UI.Tooltip(footer.skip, L["Skip this step"], L["Its quests are left out of later steps too. Bring it back with Undo in the menu."])
+	UI.Tooltip(footer.skip, L["Skip this step"], L["Drops it for good: its quests are left out of later steps too. Undo in the menu brings it back. Use Later if you want to return to it."])
+	footer.later = UI.Link(footer, L["Later"], UI.FontSmall, function() E.Later() end)
+	footer.later:SetPoint("LEFT", footer.skip, "RIGHT", 0, 0)
+	UI.Tooltip(footer.later, L["Come back to this later"], L["Sets this step's quests aside. Waypost offers them back when you join a party or gain two levels."])
 	footer.why = UI.Link(footer, L["Why?"], UI.FontSmall, function()
 		SF.showWhy = not SF.showWhy
 		SF.Render()
 	end)
-	footer.why:SetPoint("LEFT", footer.skip, "RIGHT", 0, 0)
+	footer.why:SetPoint("LEFT", footer.later, "RIGHT", 0, 0)
 	UI.Tooltip(footer.why, L["Why this step"], L["Explains what this step is for."])
 	footer.steps = UI.Link(footer, L["Steps"], UI.FontSmall, function() W.Set("ui.listOpen", not W.opt.ui.listOpen) end)
 	footer.steps:SetPoint("LEFT", footer.why, "RIGHT", 0, 0)
@@ -659,6 +682,7 @@ function SF.Render()
 	body.tip:Hide()
 	now:Hide()
 	body.done:Hide()
+	body.catch:Hide()
 	body.danger:Hide()
 	body.why:Hide()
 	body.nextLine:Hide()
@@ -723,6 +747,19 @@ function SF.Render()
 			now:Show()
 			place(now, y)
 			y = y + fillNow(current, si, inner) + 7
+			if current.t == "level" and (W.player.level or 1) < (current.level or 1) and not E.view then
+				local c = body.catch
+				local n = W.SetAside.Count()
+				c:Show()
+				c:SetWidth(inner)
+				place(c, y - 3)
+				c.aside:SetShown(n > 0)
+				c.aside.text:SetText((L["Quests you set aside (%d)"]):format(n))
+				c.aside:SetWidth(c.aside.text:GetStringWidth() + 12)
+				c.grind:ClearAllPoints()
+				if n > 0 then c.grind:SetPoint("LEFT", c.aside, "RIGHT", 4, 0) else c.grind:SetPoint("LEFT", 34, 0) end
+				y = y + 20
+			end
 		end
 
 		local n = 0
@@ -855,6 +892,8 @@ function SF.Render()
 			local xp = W.XP.ShortText()
 			footer.xp.text:SetText(xp)
 			footer.xp:SetWidth(max(10, footer.xp.text:GetStringWidth() + 4))
+			local links = 44 + footer.skip:GetWidth() + footer.later:GetWidth() + footer.why:GetWidth() + footer.steps:GetWidth()
+			footer.steps:SetShown(links + footer.xp:GetWidth() + 2 * PAD < width)
 			footer.why.text:SetTextColor(SF.showWhy and 1 or Col.gold[1], SF.showWhy and 1 or Col.gold[2], SF.showWhy and 1 or Col.gold[3])
 			y = y + 4 + 24 - 6
 		end
@@ -932,7 +971,7 @@ W.On("WP_LOGIN", function()
 	if C_Timer and C_Timer.NewTicker then C_Timer.NewTicker(0.5, tickWhere) end
 end)
 
-for _, ev in ipairs({ "WP_STEP", "WP_PROGRESS", "WP_GUIDE", "WP_GUIDES_CHANGED", "WP_XP", "WP_ENGINE_READY", "WP_LEVEL" }) do
+for _, ev in ipairs({ "WP_STEP", "WP_PROGRESS", "WP_GUIDE", "WP_GUIDES_CHANGED", "WP_XP", "WP_ENGINE_READY", "WP_LEVEL", "WP_SET_ASIDE" }) do
 	W.On(ev, renderSoon)
 end
 W.On("WP_SETTINGS", function(path)

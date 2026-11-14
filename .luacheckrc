@@ -11,7 +11,7 @@ globals = {
 	"Waypost_OnAddonCompartmentClick", "Waypost_OnAddonCompartmentEnter", "Waypost_OnAddonCompartmentLeave",
 }
 read_globals = {
-	"ITEM_QUALITY_COLORS", "CreateColor",
+	"ITEM_QUALITY_COLORS", "CreateColor", "GetXPExhaustion",
 	"AcceptQuest", "AcknowledgeAutoAcceptQuest", "CLOSE", "C_AddOns", "C_ChatInfo", "C_Container", "C_EncodingUtil",
 	"C_GossipInfo", "C_GuildInfo", "C_Item", "C_Map", "C_MerchantFrame", "C_Minimap", "C_QuestLog", "C_SpellBook",
 	"C_Timer", "CompleteQuest", "ConfirmAcceptQuest", "CreateFont", "CreateFrame", "CreateVector2D",

@@ -142,7 +142,13 @@ do
 	M.player.inGroup = false
 	E.Load("test/group", true)
 	check(E.index == 4, "solo: the group quest and its hand-in are passed over (step " .. tostring(E.index) .. ")")
+	check(W.char.setAside[9001] and W.char.setAside[9001].reason == "group", "the passed-over group quest is set aside")
 	M.player.inGroup = true
+	M.chat = {}
+	M.fire("GROUP_ROSTER_UPDATE")
+	local offered = false
+	for _, line in ipairs(M.chat) do if line:find("group quest") then offered = true end end
+	check(offered, "joining a party offers the set-aside group quest back")
 	E.Rescan()
 	check(E.index == 1, "in a party: the group quest is back in the route (step " .. tostring(E.index) .. ")")
 	M.player.inGroup = false
@@ -154,8 +160,57 @@ do
 	E.Rescan()
 	M.accept(9002, "Next Quest")
 	W.Guides.Unregister("test/group")
-	W.char.skippedQuests = {}
+	W.char.skippedQuests, W.char.setAside = {}, {}
 	M.quests = {}
+	M.fire("GROUP_ROSTER_UPDATE")
+end
+
+---------------------------------------------------------------------------
+section("later: set aside, catch up at a level gate, offered back, returned to")
+do
+	W.RegisterGuide({ id = "test/later", title = "Later test", steps = {
+		{ title = "Hard quest", goals = { { t = "accept", quest = 9101, title = "Too Hard" } } },
+		{ title = "Do it", goals = { { t = "kill", quest = 9101, oi = 1, target = "Ogre", count = 5, map = 1429, x = 50, y = 50, era = true, mobLevel = 1 } } },
+		{ title = "Hand in", goals = { { t = "turnin", quest = 9101, title = "Too Hard" } } },
+		{ title = "Level gate", goals = { { t = "level", level = 5 } } },
+	} })
+	E.Load("test/later", true)
+	E.Later()
+	check(E.index == 4, "Later moves past the quest and everything that needed it (step " .. tostring(E.index) .. ")")
+	check(W.SetAside.Count() == 1, "the quest is on the set-aside list")
+	local info = table.concat(E.GoalInfo(E.Current(), 4), " | ")
+	check(info:find("XP to level 2") ~= nil, "level gate says how much XP is missing: " .. info)
+	local spot = E.GrindSpot()
+	check(spot and spot.text == "Ogre", "a grind spot of the right level is offered")
+	local okRender = pcall(W.StepFrame.Render)
+	check(okRender, "the catch-up card renders")
+	M.chat = {}
+	M.player.level = 3
+	M.fire("PLAYER_LEVEL_UP", 3)
+	M.advance(1)
+	local offered = false
+	for _, line in ipairs(M.chat) do if line:find("set aside") then offered = true end end
+	check(offered, "two levels later the quest is offered back")
+	check(E.ReturnTo(9101) and E.index == 1, "Go back makes its step current again (step " .. tostring(E.index) .. ")")
+	check(W.SetAside.Count() == 0 and not W.char.skippedQuests[9101], "and it is no longer skipped or set aside")
+	local okWin = pcall(function() E.Later() W.SetAside.Toggle(true) W.SetAside.Toggle(false) E.Forget(9101) end)
+	check(okWin and W.SetAside.Count() == 0, "set-aside window opens; Forget removes the entry")
+	-- a quest you have but cannot finish: Later stops it holding the route up
+	W.char.skippedQuests, W.char.setAside, W.char.undo = {}, {}, {}
+	E.Load("test/later", true)
+	M.accept(9101, "Too Hard", { { text = "Ogre slain: 0/5", finished = false, numFulfilled = 0, numRequired = 5, type = "monster" } })
+	check(E.index == 2, "on the kill step with the quest in the log (step " .. tostring(E.index) .. ")")
+	E.Later()
+	check(E.index == 4, "Later on a quest you hold passes its objective and hand-in (step " .. tostring(E.index) .. ")")
+	check(W.SetAside.Count() == 1, "and keeps it on the set-aside list")
+	E.UndoSkip()
+	check(E.index == 2 and W.SetAside.Count() == 0, "Undo puts it back")
+	M.quests = {}
+	M.player.level = 1
+	W.RefreshPlayer()
+	W.Guides.Unregister("test/later")
+	W.char.deferred = {}
+	W.char.skippedQuests, W.char.setAside, W.char.undo = {}, {}, {}
 end
 
 ---------------------------------------------------------------------------
@@ -370,10 +425,15 @@ try("guild window (guild)", function() M.player.guild = "Dragon Warriors" W.Guil
 try("orphans window", function() M.quests[424242] = { title = "Stray quest" } W.Orphans.Toggle(true) end)
 check(#W.Orphans.Find() == 1 and W.Orphans.Find()[1].id == 424242, "orphan detection finds the stray quest only")
 try("report", function() W.Report.Open("test note") end)
+try("welcome and help topics", function()
+	for _, key in ipairs({ "welcome", "window", "arrow", "auto", "stuck", "group", "own", "commands" }) do W.Help.Open(key) end
+	W.Help.Toggle()
+end)
+check(W.db.seenWelcome == true, "the welcome was shown on first login")
 try("toast", function() W.UI.Toast("Title", "Body") end)
 try("empty state", function() E.Unload() W.StepFrame.Render() end)
 try("slash commands", function()
-	for _, c in ipairs({ "help", "guides", "config", "why", "where", "xp", "talents", "party", "guild", "orphans", "editor",
+	for _, c in ipairs({ "help", "commands", "later", "guides", "config", "why", "where", "xp", "talents", "party", "guild", "orphans", "editor",
 		"nearest trainer", "resume", "rescan", "reset", "version", "next", "back", "skip", "undo", "show" }) do
 		SlashCmdList["WAYPOST"](c)
 	end

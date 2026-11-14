@@ -20,11 +20,13 @@ From a clone of this repository, copy (or symlink) those same four folders into 
 | `/waypost guides` | choose a guide |
 | `/waypost config` | settings (searchable) |
 | `/waypost skip`, `undo`, `next`, `back` | move through the guide; `undo` brings a skipped step back |
+| `/waypost later` | quests you set aside to come back to |
+| `/waypost help` | the welcome and help window |
 | `/waypost party`, `/waypost guild` | party progress and the guild leveling board |
 | `/waypost nearest trainer` | point the arrow at the nearest class trainer (also `vendor`, `flight`, `inn`) |
 | `/waypost record start` / `stop` | record your own route as a draft guide |
 | `/waypost report` | a copyable report when a step or coordinate is wrong |
-| `/waypost help` | everything else |
+| `/waypost commands` | the full command list in chat |
 
 Key bindings (step, skip, quest item button, target button) are under **Options > Keybindings > Waypost**.
 Hold **Shift** while opening an NPC to switch automation off for that conversation.
@@ -41,6 +43,10 @@ Hold **Shift** while opening an NPC to switch automation off for that conversati
   item and target. Tracks flight points.
 - Skip, undo, look ahead, "why this step", warnings on elite and group quests, a safer route for
   Hardcore.
+- Later: set a step's quests aside and get them offered back when you join a party or gain two
+  levels. Group quests are set aside automatically while you are solo. At a level checkpoint the
+  window shows how much XP you are short and points you at set-aside quests or enemies your level.
+- A welcome window on first login and a help window (`/waypost help`).
 - XP per hour, level and guide timers, a history of finished guides.
 - Talent suggestions, gear upgrade hints (uses Pawn when installed), a list of quests the route will
   not finish.

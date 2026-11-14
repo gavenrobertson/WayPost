@@ -9,6 +9,8 @@ local HELP = {
 	{ "guides", "choose a guide" },
 	{ "config", "open settings" },
 	{ "next | back | skip | undo", "move through the guide; undo brings back a skipped step" },
+	{ "later", "the quests you set aside; on a step, the Later button sets its quests aside" },
+	{ "help", "the welcome and help window" },
 	{ "rescan", "re-read the whole guide against your quest log" },
 	{ "why", "explain the current step" },
 	{ "where", "print your coordinates for writing guides" },
@@ -25,6 +27,8 @@ local HELP = {
 	{ "report [note]", "copyable problem report" },
 	{ "reset", "reset window and arrow positions" },
 }
+
+W.Commands = { HELP = HELP }
 
 local function help()
 	W.Print("v" .. W.version)
@@ -47,6 +51,9 @@ local function handle(msg)
 	elseif cmd == "back" or cmd == "prev" then E.Back()
 	elseif cmd == "skip" then E.Skip()
 	elseif cmd == "undo" then E.UndoSkip()
+	elseif cmd == "later" or cmd == "aside" then W.SetAside.Toggle(true)
+	elseif cmd == "help" or cmd == "welcome" or cmd == "?" then W.Help.Open(cmd == "welcome" and "welcome" or nil)
+	elseif cmd == "commands" then help()
 	elseif cmd == "rescan" then
 		E.Rescan()
 		W.Print(L["Guide re-read from the first step."])
@@ -126,11 +133,4 @@ W.On("WP_LOGIN", function()
 	end
 	SLASH_WAYPOSTREPORT2 = "/wpreport"
 	SlashCmdList["WAYPOSTREPORT"] = function(msg) W.Report.Open(msg) end
-
-	if not W.char.seenWelcome then
-		W.char.seenWelcome = true
-		W.After(5, function()
-			W.Print(L["Welcome! Pick a guide in the Waypost window, or type /waypost help."])
-		end)
-	end
 end)

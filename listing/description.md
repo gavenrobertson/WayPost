@@ -12,6 +12,8 @@ It comes with routes from 1 to 60 for every race on both factions, plus guides f
 - A button for the step's quest item and one to target the mob or NPC. Both can be bound to keys.
 - Keeps track of your flight paths and takes the flight the guide wants.
 - Skip a step, undo the skip, or peek ahead and come back.
+- Can't do a quest yet? Hit Later. It's set aside and offered back when you join a party or gain a couple of levels. Group quests are set aside for you while you're solo.
+- If the route needs a level you haven't reached, it shows how much XP you're short and points you at the quests you set aside or the nearest mobs your level.
 - XP per hour and time to level sit in the corner of the window.
 
 ## Other things it does
@@ -29,7 +31,7 @@ Objectives tick off as they happen, in combat too. If you'd rather Waypost staye
 
 ## Commands
 
-`/waypost` shows or hides the window. `/waypost guides` picks a guide. `/waypost config` opens settings. `/waypost help` lists the rest.
+`/waypost` shows or hides the window. `/waypost guides` picks a guide. `/waypost config` opens settings. `/waypost help` opens the help window.
 
 ## What's missing
 
