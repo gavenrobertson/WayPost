@@ -1,0 +1,19 @@
+name: CI
+on:
+  push:
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Lua 5.1 and luacheck
+        run: sudo apt-get update && sudo apt-get install -y lua5.1 lua-check
+      - name: TOC check
+        run: python3 tools/check_toc.py
+      - name: Syntax of route packs and data
+        run: for f in Waypost/Data/*.lua Waypost_Routes_*/Routes.lua; do luac5.1 -p "$f"; done
+      - name: Lint
+        run: luacheck Waypost tests/run.lua
+      - name: Tests (engine, parser, every shipped guide)
+        run: lua5.1 tests/run.lua

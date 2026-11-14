@@ -1,0 +1,19 @@
+<Bindings>
+	<Binding name="WAYPOST_TOGGLE" header="WAYPOST" category="Waypost">
+		Waypost.StepFrame.Toggle()
+	</Binding>
+	<Binding name="WAYPOST_NEXT" category="Waypost">
+		Waypost.Engine.Next()
+	</Binding>
+	<Binding name="WAYPOST_PREV" category="Waypost">
+		Waypost.Engine.Back()
+	</Binding>
+	<Binding name="WAYPOST_SKIP" category="Waypost">
+		Waypost.Engine.Skip()
+	</Binding>
+	<Binding name="WAYPOST_GUIDES" category="Waypost">
+		Waypost.Picker.Toggle()
+	</Binding>
+	<Binding name="CLICK WaypostItemButton:LeftButton" category="Waypost"/>
+	<Binding name="CLICK WaypostTargetButton:LeftButton" category="Waypost"/>
+</Bindings>

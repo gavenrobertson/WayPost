@@ -1,0 +1,57 @@
+## Interface: 16001
+## Title: |cffe8c35cWaypost|r
+## Notes: Free leveling guides for WoW Forever: 1-60 routes, a 3D arrow, party and guild sync.
+## Author: Dragon Warriors
+## Version: 1.0.0
+## X-License: GPL-3.0-only
+## X-Website: https://github.com/gavenrobertson/waypost
+## Category: Quests
+## IconTexture: Interface\AddOns\Waypost\Media\Logo
+## AddonCompartmentFunc: Waypost_OnAddonCompartmentClick
+## AddonCompartmentFuncOnEnter: Waypost_OnAddonCompartmentEnter
+## AddonCompartmentFuncOnLeave: Waypost_OnAddonCompartmentLeave
+## OptionalDeps: TomTom, Pawn
+## SavedVariables: WaypostDB, WaypostBackup
+## SavedVariablesPerCharacter: WaypostCharDB
+
+Core\Init.lua
+Core\DB.lua
+Locales\Locales.lua
+Core\Coords.lua
+Core\Guides.lua
+Core\Parser.lua
+Core\Engine.lua
+
+UI\Skin.lua
+UI\StepFrame.lua
+UI\Arrow.lua
+UI\Pins.lua
+UI\Buttons.lua
+UI\Picker.lua
+UI\Options.lua
+UI\Editor.lua
+UI\MinimapButton.lua
+UI\GameMenu.lua
+UI\Help.lua
+UI\Ding.lua
+UI\XPTracker.lua
+
+Modules\Automation.lua
+Modules\XP.lua
+Modules\Talents.lua
+Modules\Upgrades.lua
+Modules\Comm.lua
+Modules\Group.lua
+Modules\Guild.lua
+Modules\Orphans.lua
+Modules\SetAside.lua
+Modules\Recorder.lua
+Modules\Report.lua
+Modules\Export.lua
+Modules\Nearby.lua
+Modules\Commands.lua
+
+Data\MapFrames.lua
+Data\Trainers.lua
+Data\Talents.lua
+Data\GuideIndex.lua
