@@ -8,7 +8,32 @@ OUT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 
 SS = 8
 
 
+EMBLEM = os.path.join(os.path.dirname(OUT), "..", "listing", "source", "emblem.webp")
+EMBLEM_CIRCLE = (1010, 981, 892)   # centre x, centre y, radius of the medallion in the source art
+
+
+def emblem(size):
+    """The painted emblem (listing/source/emblem.webp), cut to its medallion with a soft edge."""
+    cx, cy, r = EMBLEM_CIRCLE
+    im = Image.open(EMBLEM).convert("RGBA").crop((cx - r - 8, cy - r - 8, cx + r + 8, cy + r + 8))
+    n = im.size[0]
+    mask = Image.new("L", (n, n), 0)
+    ImageDraw.Draw(mask).ellipse([8, 8, n - 8, n - 8], fill=255)
+    im.putalpha(mask.filter(ImageFilter.GaussianBlur(3)))
+    out = im.resize((size, size), Image.LANCZOS)
+    if size <= 96:
+        out = out.filter(ImageFilter.UnsharpMask(radius=1, percent=80, threshold=2))
+    return out
+
+
 def logo(size=64):
+    """The logo: the painted emblem when its source art is in the repo, else the drawn signpost."""
+    if os.path.exists(EMBLEM):
+        return emblem(size)
+    return drawn_logo(size)
+
+
+def drawn_logo(size=64):
     """A signpost: gold ring, dark field, two pointing boards on a post."""
     n = size * SS
     img = Image.new("RGBA", (n, n), (0, 0, 0, 0))

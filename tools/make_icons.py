@@ -4,6 +4,18 @@
 8 columns x 5 rows of 64 px cells in a 512x512 texture. The glyphs are white
 on transparent so the addon tints them. The order here is the order in
 UI/Skin.lua's ICON table. Needs Pillow.
+
+Replacing a glyph with your own art: put an image named after the glyph in
+art/icons/ (for example art/icons/kill.png; png, webp or jpg) and run this
+script again. The image should be a light shape on a black background, or a
+shape on a transparent background; it is turned into a white silhouette,
+trimmed and centred in its cell. Glyphs without a file are drawn by the code
+below. To cut up one sheet instead:
+
+  python3 tools/make_icons.py --sheet art/icons-sheet.png --grid 8x5
+
+slices the sheet left to right, top to bottom into art/icons/ using the
+names in NAMES (check the order before relying on it).
 """
 import math
 import os
@@ -294,14 +306,72 @@ DRAW = {
 }
 
 
+ART = os.path.join(os.path.dirname(OUT), "..", "art", "icons")
+
+
+def silhouette(path):
+    """Any picture of a glyph -> white shape with alpha, trimmed to its content, as a square."""
+    im = Image.open(path).convert("RGBA")
+    r, g, b, a = im.split()
+    if a.getextrema()[0] < 250:
+        alpha = a                                   # already cut out: keep its shape
+    else:
+        lum = im.convert("L")                       # light on dark: brightness is the shape
+        lo, hi = lum.getextrema()
+        if hi - lo < 30:
+            raise ValueError("%s has no visible shape" % path)
+        alpha = lum.point(lambda v: max(0, min(255, int((v - lo - 20) * 255.0 / max(1, hi - lo - 40)))))
+    box = alpha.point(lambda v: 255 if v > 40 else 0).getbbox()
+    if not box:
+        raise ValueError("%s is empty" % path)
+    alpha = alpha.crop(box)
+    side = max(alpha.size)
+    square = Image.new("L", (side, side), 0)
+    square.paste(alpha, ((side - alpha.size[0]) // 2, (side - alpha.size[1]) // 2))
+    out = Image.new("RGBA", (side, side), (255, 255, 255, 0))
+    out.putalpha(square)
+    return out
+
+
+def custom(name):
+    for ext in ("png", "webp", "jpg", "jpeg"):
+        path = os.path.join(ART, name + "." + ext)
+        if os.path.exists(path):
+            return silhouette(path)
+    return None
+
+
+def slice_sheet(path, grid):
+    cols, rows = (int(v) for v in grid.lower().split("x"))
+    im = Image.open(path).convert("RGBA")
+    cw, ch = im.size[0] / cols, im.size[1] / rows
+    os.makedirs(ART, exist_ok=True)
+    for i, name in enumerate(NAMES[:cols * rows]):
+        c, r = i % cols, i // cols
+        im.crop((int(c * cw), int(r * ch), int((c + 1) * cw), int((r + 1) * ch))).save(os.path.join(ART, name + ".png"))
+    print("sliced %d cells into art/icons/ (check each file shows the glyph its name says)" % min(len(NAMES), cols * rows))
+
+
 def main():
+    import sys
+    if "--sheet" in sys.argv:
+        grid = sys.argv[sys.argv.index("--grid") + 1] if "--grid" in sys.argv else "8x5"
+        slice_sheet(sys.argv[sys.argv.index("--sheet") + 1], grid)
     sheet = Image.new("RGBA", (512, 512), (255, 255, 255, 0))
+    used = []
     for i, name in enumerate(NAMES):
-        cell = Image.new("RGBA", (N, N), (255, 255, 255, 0))
-        DRAW[name](ImageDraw.Draw(cell))
+        art = custom(name)
+        if art:
+            used.append(name)
+            cell = art
+        else:
+            cell = Image.new("RGBA", (N, N), (255, 255, 255, 0))
+            DRAW[name](ImageDraw.Draw(cell))
         # shrink a little inside the cell so neighbours never bleed when scaled
         small = cell.resize((CELL - 8, CELL - 8), Image.LANCZOS)
         sheet.paste(small, ((i % COLS) * CELL + 4, (i // COLS) * CELL + 4))
+    if used:
+        print("used your art for: " + ", ".join(used))
     os.makedirs(OUT, exist_ok=True)
     sheet.save(os.path.join(OUT, "Icons.tga"), compression=None, orientation=1)
     print("wrote Icons.tga with %d glyphs" % len(NAMES))

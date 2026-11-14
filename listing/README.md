@@ -2,9 +2,11 @@
 
 | File | Use |
 |---|---|
-| `logo-400.png` | Project avatar. CurseForge wants a square image, 400x400 or larger. |
-| `logo-256.png` | Smaller avatar for Wago or Discord. |
+| `logo-400.png` | Project avatar (square, on its dark ground). CurseForge wants 400x400 or larger. |
+| `logo-256.png` | The emblem cut out round, transparent corners, for Wago or Discord. |
 | `banner-1600x400.png` | Header image for the top of the description. |
+| `gallery-art.jpg` | The golden arrow on the road, for the gallery. |
+| `source/` | The original pictures the files above are built from. |
 | `arrow-headings.png` | The arrow at different headings, cut from the sprite sheet the addon ships. |
 | `midjourney-prompts.md` | Prompts for generating better logo, banner and gallery art. |
 | `summary.txt` | The short summary field. |
@@ -25,7 +27,9 @@ The images are made by `tools/make_listing.py`.
 
 ## Screenshots
 
-There are none in here because they have to come from the game. These would cover it:
+There are none in here because they have to come from the game. Once you have them,
+`python3 tools/make_listing.py --frame shot1.png shot2.png` sets each inside the leather backdrop.
+These would cover it:
 
 1. The guide window on a new character, arrow pointing at the first quest giver.
 2. The guide list.
