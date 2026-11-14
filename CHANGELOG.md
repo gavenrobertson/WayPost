@@ -1,0 +1,18 @@
+# Changelog
+
+## 1.0.0
+
+First release.
+
+- Leveling routes 1-60 for every Alliance and Horde race (65 guides), plus 194 class, profession,
+  reputation, exploration and collection guides, converted from Polestar Guides (GPL-3.0).
+- Guide window: current step, upcoming steps, full step list, compact mode, three window styles.
+- 3D navigation arrow with distance and time to arrive; world map and minimap pins; TomTom hand-off.
+- Auto accept and turn-in for guide quests, quest item and target buttons with key bindings,
+  flight point tracking and auto-flight.
+- Skip, undo, look ahead, "why this step", danger warnings, safer-route and XP-skip options.
+- XP per hour, level and guide timers, run history with time saved.
+- Talent guide, gear upgrade hints (Pawn supported), orphaned-quest cleanup.
+- Party sync, guild leveling board, guild route and officer announcements.
+- Custom guides: plain-text format, in-game editor, import/export strings, web editor, route recorder.
+- Progress export for dragonwarriors.app with a companion uploader.

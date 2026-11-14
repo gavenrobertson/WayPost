@@ -1,0 +1,26 @@
+name: Release
+on:
+  push:
+    tags: ["v*"]
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Lua 5.1
+        run: sudo apt-get update && sudo apt-get install -y lua5.1 zip
+      - name: Tests
+        run: python3 tools/check_toc.py && lua5.1 tests/run.lua
+      - name: Tag must match the TOC version
+        run: test "v$(sed -n 's/^## Version: //p' Waypost/Waypost.toc)" = "${GITHUB_REF_NAME}"
+      - name: Package
+        run: tools/package.sh "${GITHUB_REF_NAME#v}"
+      - name: GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*.zip
+          body_path: CHANGELOG.md
+      # CurseForge and Wago: add the project IDs to listing/README.md's steps and the
+      # CF_API_KEY / WAGO_API_TOKEN secrets, then upload dist/*.zip from here.

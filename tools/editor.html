@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Waypost Route Editor</title>
+<style>
+  :root {
+    --bg: #14110d; --panel: #1e1913; --panel2: #262019; --edge: #5a4a2c; --gold: #ffd100; --gold2: #e8c35c;
+    --text: #f2ead8; --dim: #a39a86; --bad: #ff6a55; --good: #5fe07a; --blue: #7ec8ff;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.45 "Segoe UI", system-ui, sans-serif; }
+  header { padding: 14px 20px; border-bottom: 1px solid var(--edge); display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
+    background: linear-gradient(#2a2218, #1a150f); }
+  header h1 { margin: 0; font: 600 20px Georgia, "Times New Roman", serif; color: var(--gold); letter-spacing: .3px; }
+  header p { margin: 0; color: var(--dim); font-size: 13px; flex: 1 1 260px; }
+  main { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; padding: 16px 20px; }
+  @media (max-width: 900px) { main { grid-template-columns: 1fr; padding: 12px 16px; } }
+  section { background: var(--panel); border: 1px solid var(--edge); border-radius: 6px; min-width: 0; }
+  section > h2 { margin: 0; padding: 8px 12px; font: 600 14px Georgia, serif; color: var(--gold2); border-bottom: 1px solid var(--edge);
+    background: var(--panel2); border-radius: 6px 6px 0 0; }
+  .bar { display: flex; flex-wrap: wrap; gap: 8px; padding: 10px 12px; border-bottom: 1px solid var(--edge); }
+  button { background: linear-gradient(#8a1d12, #5e120b); color: var(--gold); border: 1px solid #c9a24a; border-radius: 4px;
+    padding: 6px 12px; font: 600 13px Georgia, serif; cursor: pointer; }
+  button:hover { background: linear-gradient(#a52a1b, #701810); color: #fff; }
+  button:focus-visible, textarea:focus-visible, input:focus-visible { outline: 2px solid var(--blue); outline-offset: 1px; }
+  .editor { display: flex; height: 62vh; min-height: 320px; font: 13px/19px ui-monospace, Consolas, monospace; }
+  #gutter { padding: 8px 6px 8px 8px; text-align: right; color: #7d6a3c; background: #17130e; user-select: none; overflow: hidden;
+    white-space: pre; min-width: 40px; }
+  #gutter .err { color: var(--bad); font-weight: 700; }
+  #src { flex: 1; min-width: 0; border: 0; resize: none; padding: 8px; background: #100d0a; color: var(--text); font: inherit;
+    white-space: pre; overflow: auto; tab-size: 2; }
+  #status { padding: 10px 12px; font-size: 13px; border-top: 1px solid var(--edge); min-height: 44px; }
+  #status.ok { color: var(--good); } #status.bad { color: var(--bad); }
+  #status div { cursor: pointer; } #status div:hover { text-decoration: underline; }
+  #preview { padding: 10px 12px; max-height: 62vh; overflow: auto; }
+  .meta { color: var(--dim); font-size: 13px; margin-bottom: 10px; }
+  .step { border: 1px solid #3c3220; border-radius: 5px; margin-bottom: 8px; background: #17130e; }
+  .step h3 { margin: 0; padding: 6px 10px; font: 600 14px Georgia, serif; color: var(--gold); }
+  .step .n { color: var(--dim); font-weight: 400; margin-right: 6px; }
+  .step .tip { padding: 0 10px 6px; color: #e9e0c8; font-size: 13px; }
+  .step .only { padding: 0 10px 6px; color: var(--blue); font-size: 12px; }
+  .step ul { list-style: none; margin: 0; padding: 0 10px 8px; }
+  .step li { padding: 2px 0; font-size: 13px; overflow-wrap: anywhere; }
+  .verb { color: var(--gold2); } .at { color: var(--dim); } .opt { color: var(--dim); font-style: italic; }
+  .io { padding: 10px 12px; border-top: 1px solid var(--edge); }
+  .io textarea { width: 100%; height: 70px; background: #100d0a; color: var(--text); border: 1px solid var(--edge); border-radius: 4px;
+    font: 12px ui-monospace, Consolas, monospace; padding: 6px; }
+  details { padding: 0 20px 24px; color: var(--dim); font-size: 13px; }
+  details code { color: var(--text); }
+  summary { cursor: pointer; color: var(--gold2); padding: 6px 0; }
+  table { border-collapse: collapse; } td { padding: 2px 14px 2px 0; vertical-align: top; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Waypost Route Editor</h1>
+  <p>Write a leveling route in plain text, check it, and copy the import string into the game (Waypost &rsaquo; Guides &rsaquo; Write or import a guide).</p>
+</header>
+<main>
+  <section>
+    <h2>Guide text</h2>
+    <div class="bar">
+      <button id="bNew">New</button>
+      <button id="bExport">Make import string</button>
+      <button id="bImport">Read import string</button>
+      <button id="bSave">Download .txt</button>
+    </div>
+    <div class="editor">
+      <div id="gutter" aria-hidden="true">1</div>
+      <textarea id="src" spellcheck="false" aria-label="Guide text"></textarea>
+    </div>
+    <div id="status" role="status"></div>
+    <div class="io">
+      <label for="str">Import string</label>
+      <textarea id="str" spellcheck="false" placeholder="WP1:... appears here; or paste one and press Read import string"></textarea>
+    </div>
+  </section>
+  <section>
+    <h2>Preview</h2>
+    <div id="preview"></div>
+  </section>
+</main>
+<details>
+  <summary>Format cheat sheet</summary>
+  <table>
+    <tr><td><code>title</code>, <code>faction</code>, <code>levels 1-10</code>, <code>races</code>, <code>classes</code>, <code>zone</code>, <code>next</code></td><td>Header lines, before the first step.</td></tr>
+    <tr><td><code>map 1429</code></td><td>Default map for coordinates (uiMapID). <code>/waypost where</code> prints it in game.</td></tr>
+    <tr><td><code>step Title</code></td><td>Starts a step. Then, indented: <code>tip</code>, <code>why</code>, <code>danger</code>, <code>only Warrior, Mage</code>, <code>label name</code>.</td></tr>
+    <tr><td><code>accept 783 Title @48.2,42.9</code></td><td>Also <code>turnin</code>, <code>complete</code>.</td></tr>
+    <tr><td><code>kill 10 Kobold Vermin quest 7 obj 1 @48.1,37</code></td><td>Counts from the quest's first objective.</td></tr>
+    <tr><td><code>collect 8 750 Tough Wolf Meat quest 33 obj 1</code></td><td>count, item ID, name. <code>buy</code> works the same way.</td></tr>
+    <tr><td><code>goto 48.2,42.9 The abbey</code></td><td>Also <code>use</code>, <code>talk</code>, <code>interact</code>, <code>level 6</code>, <code>train</code>, <code>fly</code>, <code>getfp</code>, <code>sethome</code>, <code>vendor</code>, <code>hearth</code>, <code>note</code>.</td></tr>
+    <tr><td><code>@x,y</code> / <code>@x,y,mapID</code> / <code>optional</code> / <code>-- note</code></td><td>Go at the end of any goal line.</td></tr>
+  </table>
+</details>
+<script>
+"use strict";
+const TEMPLATE = `title My route
+faction Alliance
+levels 1-10
+map 1429
+
+step Northshire Abbey
+  tip Lines starting with "tip" explain the step.
+  accept 783 A Threat Within @48.2,42.9
+  turnin 783 @48.9,41.6 -- Marshal McBride, inside
+
+step Wolves
+  kill 8 Young Wolf quest 33 obj 1 @50.9,44.4
+  goto 48.9,40.2 Back to Eagan
+`;
+const HEADER = { guide: "id", id: "id", title: "title", faction: "faction", zone: "zone", category: "category", next: "next", why: "why", author: "author" };
+const CLASSES = ["WARRIOR", "PALADIN", "HUNTER", "ROGUE", "PRIEST", "SHAMAN", "MAGE", "WARLOCK", "DRUID"];
+const RACES = ["Human", "Dwarf", "NightElf", "Gnome", "Orc", "Troll", "Scourge", "Tauren", "Skyborne"];
+const RACE_ALIAS = { "night elf": "NightElf", nightelf: "NightElf", undead: "Scourge", forsaken: "Scourge", scourge: "Scourge" };
+const GOALS = ["accept", "turnin", "complete", "kill", "collect", "use", "interact", "talk", "goto", "level", "train", "fly", "getfp",
+  "sethome", "buy", "vendor", "learn", "money", "hearth", "note", "explore", "enter"];
+
+function normRace(s) {
+  const low = s.toLowerCase();
+  if (RACE_ALIAS[low]) return RACE_ALIAS[low];
+  return RACES.find(r => r.toLowerCase() === low) || null;
+}
+
+function extract(rest, defMap, defEra) {
+  const g = {};
+  const note = rest.match(/\s*--\s*(.*?)\s*$/);
+  if (note) { rest = rest.replace(/\s*--.*$/, ""); if (note[1]) g.note = note[1]; }
+  if (/\boptional\b/.test(rest)) { g.optional = true; rest = rest.replace(/\s*\boptional\b/, ""); }
+  const at = rest.match(/@\s*([\w.,\s]*?)\s*$/);
+  if (at) {
+    const parts = at[1].split(",").map(s => s.trim()).filter(Boolean);
+    const x = parseFloat(parts[0]), y = parseFloat(parts[1]);
+    if (isNaN(x) || isNaN(y)) return { err: "bad coordinates after @ (use @x,y or @x,y,mapID)" };
+    g.x = x; g.y = y;
+    g.map = /^\d+$/.test(parts[2] || "") ? +parts[2] : defMap;
+    if (parts[2] === "era" || parts[3] === "era" || (!parts[2] && defEra)) g.era = true;
+    rest = rest.replace(/\s*@[^@]*$/, "");
+    if (!g.map) return { err: "coordinates need a map: add 'map <uiMapID>' to the header or @x,y,mapID" };
+  }
+  let m = rest.match(/\bquest\s+(\d+)/);
+  if (m) { g.quest = +m[1]; rest = rest.replace(/\s*\bquest\s+\d+/, ""); }
+  m = rest.match(/\bobj\s+(\d+)/);
+  if (m) { g.oi = +m[1]; rest = rest.replace(/\s*\bobj\s+\d+/, ""); }
+  return { g, args: rest.trim() };
+}
+
+function goalFrom(verb, rest, defMap, defEra) {
+  const r = extract(rest, defMap, defEra);
+  if (r.err) return r;
+  const g = r.g, args = r.args;
+  g.t = verb;
+  const m = args.match(/^(\d+)\s*(.*)$/);
+  const n = m && +m[1], tail = m ? m[2] : "";
+  const need = msg => ({ err: msg });
+  if (["accept", "turnin", "complete"].includes(verb)) {
+    if (!m) return need(verb + " needs a quest ID");
+    g.quest = n; if (tail) g.title = tail;
+  } else if (verb === "kill") {
+    if (m) { g.count = n; g.target = tail || null; } else g.target = args;
+    if (!g.target) return need("kill needs a target name");
+    g.count = g.count || 1;
+  } else if (verb === "collect" || verb === "buy") {
+    const mm = tail.match(/^(\d+)\s*(.*)$/);
+    if (!m || !mm) return need(verb + " needs <count> <itemID>");
+    g.count = n; g.item = +mm[1]; if (mm[2]) g.itemName = mm[2];
+  } else if (verb === "use") {
+    if (!m) return need("use needs an itemID");
+    g.item = n; if (tail) g.itemName = tail;
+  } else if (verb === "interact" || verb === "talk") {
+    if (!args) return need(verb + " needs a name");
+    g.npc = args;
+  } else if (["goto", "explore", "enter"].includes(verb)) {
+    const c = args.match(/^([\d.]+)\s*,\s*([\d.]+)\s*,?\s*(\d*)\s*(.*)$/);
+    if (c) {
+      g.x = +c[1]; g.y = +c[2]; g.map = c[3] ? +c[3] : defMap;
+      if (!c[3] && defEra) g.era = true;
+      if (c[4]) g.text = c[4];
+      if (!g.map) return need("goto needs a map: add 'map <uiMapID>' to the header");
+    } else if (args) g.text = args;
+    if (g.x === undefined) return need(verb + " needs coordinates");
+  } else if (verb === "level") {
+    if (!m) return need("level needs a number");
+    g.level = n;
+  } else if (["fly", "getfp", "sethome"].includes(verb)) {
+    if (!args) return need(verb + " needs a location name");
+    g.location = args;
+  } else if (verb === "learn") {
+    if (!m) return need("learn needs a spellID");
+    g.spell = n; if (tail) g.spellName = tail;
+  } else if (verb === "money") {
+    if (!m) return need("money needs copper");
+    g.money = n;
+  } else if (verb === "note") {
+    if (!args) return need("note needs text");
+    g.text = args;
+  } else if (verb === "train") {
+    g.class = true; if (args) g.text = args;
+  }
+  return { g };
+}
+
+function parse(text) {
+  const guide = { steps: [], minLevel: 1, maxLevel: 60 };
+  const errors = [];
+  let step = null, defMap = null, defEra = false;
+  text.split("\n").forEach((raw, i) => {
+    const ln = i + 1, line = raw.replace(/\r/g, "").trim();
+    const err = msg => errors.push({ line: ln, msg });
+    if (!line || line.startsWith("#") || line.startsWith("--")) return;
+    const m = line.match(/^(\S+)\s*(.*)$/);
+    const key = m[1].toLowerCase(), rest = m[2];
+    if (HEADER[key] && !step) guide[HEADER[key]] = rest;
+    else if (key === "races" && !step) guide.races = rest.split(",").map(s => s.trim()).filter(Boolean).map(r => normRace(r) || (err("unknown race '" + r + "'"), r));
+    else if (key === "classes" && !step) guide.classes = rest.split(",").map(s => s.trim()).filter(Boolean).map(c => CLASSES.includes(c.toUpperCase()) ? c.toUpperCase() : (err("unknown class '" + c + "'"), c));
+    else if (key === "levels" && !step) {
+      const lv = rest.match(/^(\d+)\s*-\s*(\d+)$/);
+      if (lv) { guide.minLevel = +lv[1]; guide.maxLevel = +lv[2]; } else err("levels must look like 1-10");
+    } else if (key === "map") {
+      const mm = rest.match(/^(\d+)\s*([a-z]*)$/i);
+      if (!mm) err("map needs a uiMapID number"); else { defMap = +mm[1]; defEra = mm[2] === "era"; }
+    } else if (key === "step") {
+      step = { title: rest || "Step " + (guide.steps.length + 1), goals: [] };
+      guide.steps.push(step);
+    } else if (!step) err("'" + key + "' must come after a 'step' line (or is not a header keyword)");
+    else if (key === "tip") step.note = step.note ? step.note + " " + rest : rest;
+    else if (key === "why") step.why = rest;
+    else if (key === "danger") step.danger = rest;
+    else if (key === "label") step.label = rest;
+    else if (key === "only") {
+      const bad = rest.replace(/night elf/ig, "NightElf").split(/[\s,]+/).filter(Boolean).find(w =>
+        !CLASSES.includes(w.toUpperCase()) && !normRace(w) && !["Alliance", "Horde", "race", "class"].includes(w));
+      if (bad) err("unknown class or race '" + bad + "'"); else step.only = rest;
+    } else if (GOALS.includes(key)) {
+      const r = goalFrom(key, rest, defMap, defEra);
+      if (r.err) err(r.err); else step.goals.push(r.g);
+    } else err("unknown keyword '" + key + "'");
+  });
+  if (!guide.title) errors.push({ line: 1, msg: "missing 'title' line" });
+  if (!guide.steps.length) errors.push({ line: 1, msg: "a guide needs at least one 'step'" });
+  return { guide, errors };
+}
+
+// Import strings: WP1:<base64 of UTF-8 text> (same as the addon).
+function toB64(text) {
+  let bin = "";
+  new TextEncoder().encode(text).forEach(b => { bin += String.fromCharCode(b); });
+  return btoa(bin);
+}
+function fromB64(b64) {
+  const bin = atob(b64.replace(/[^A-Za-z0-9+/=]/g, ""));
+  return new TextDecoder().decode(Uint8Array.from(bin, c => c.charCodeAt(0)));
+}
+
+const $ = id => document.getElementById(id);
+const src = $("src"), gutter = $("gutter"), statusEl = $("status"), preview = $("preview"), strBox = $("str");
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+function goalLine(g) {
+  const at = g.x !== undefined ? ` <span class="at">@${g.x}, ${g.y}${g.map ? " (map " + g.map + ")" : ""}</span>` : "";
+  const cnt = g.count > 1 ? g.count + " " : "";
+  const what = {
+    accept: () => "Accept <b>" + esc(g.title || "quest " + g.quest) + "</b>",
+    turnin: () => "Turn in <b>" + esc(g.title || "quest " + g.quest) + "</b>",
+    complete: () => "Complete <b>" + esc(g.title || "quest " + g.quest) + "</b>",
+    kill: () => "Kill " + cnt + esc(g.target),
+    collect: () => "Collect " + cnt + esc(g.itemName || "item " + g.item),
+    buy: () => "Buy " + cnt + esc(g.itemName || "item " + g.item),
+    use: () => "Use " + esc(g.itemName || "item " + g.item),
+    interact: () => "Interact with " + esc(g.npc), talk: () => "Talk to " + esc(g.npc),
+    goto: () => "Go to " + esc(g.text || ""), explore: () => "Explore " + esc(g.text || ""), enter: () => "Enter " + esc(g.text || ""),
+    level: () => "Reach level " + g.level, train: () => "Visit your class trainer", fly: () => "Fly to " + esc(g.location),
+    getfp: () => "Get the flight path: " + esc(g.location), sethome: () => "Set your hearthstone: " + esc(g.location),
+    vendor: () => "Sell junk and repair", hearth: () => "Use your hearthstone", learn: () => "Learn " + esc(g.spellName || g.spell),
+    money: () => "Have " + g.money + " copper", note: () => esc(g.text),
+  }[g.t]();
+  return `<li><span class="verb">&bull;</span> ${what}${at}${g.optional ? ' <span class="opt">(optional)</span>' : ""}${g.note ? ' <span class="at">&mdash; ' + esc(g.note) + "</span>" : ""}</li>`;
+}
+
+function refresh() {
+  const text = src.value;
+  const { guide, errors } = parse(text);
+  const errLines = new Set(errors.map(e => e.line));
+  const n = text.split("\n").length;
+  let g = "";
+  for (let i = 1; i <= n; i++) g += (errLines.has(i) ? `<span class="err">${i}</span>` : i) + "\n";
+  gutter.innerHTML = g;
+  gutter.scrollTop = src.scrollTop;
+  if (errors.length) {
+    statusEl.className = "bad";
+    statusEl.innerHTML = errors.slice(0, 8).map(e => `<div data-line="${e.line}">Line ${e.line}: ${esc(e.msg)}</div>`).join("") +
+      (errors.length > 8 ? `<div>...and ${errors.length - 8} more.</div>` : "");
+  } else {
+    statusEl.className = "ok";
+    const goals = guide.steps.reduce((a, s) => a + s.goals.length, 0);
+    statusEl.textContent = `Looks good: ${guide.steps.length} steps, ${goals} goals.`;
+  }
+  let html = `<div class="meta"><b style="color:var(--gold)">${esc(guide.title || "Untitled")}</b> &middot; levels ${guide.minLevel}-${guide.maxLevel}` +
+    (guide.faction ? " &middot; " + esc(guide.faction) : "") + (guide.races ? " &middot; " + esc(guide.races.join(", ")) : "") +
+    (guide.classes ? " &middot; " + esc(guide.classes.join(", ")) : "") + "</div>";
+  guide.steps.forEach((s, i) => {
+    html += `<div class="step"><h3><span class="n">${i + 1}.</span>${esc(s.title)}</h3>` +
+      (s.note ? `<div class="tip">${esc(s.note)}</div>` : "") + (s.only ? `<div class="only">Only: ${esc(s.only)}</div>` : "") +
+      (s.danger ? `<div class="only" style="color:var(--bad)">Danger: ${esc(s.danger)}</div>` : "") +
+      `<ul>${s.goals.map(goalLine).join("")}</ul></div>`;
+  });
+  preview.innerHTML = html;
+  try { localStorage.setItem("waypost-editor", text); } catch (e) { /* storage may be unavailable */ }
+  return errors.length === 0;
+}
+
+src.addEventListener("input", refresh);
+src.addEventListener("scroll", () => { gutter.scrollTop = src.scrollTop; });
+src.addEventListener("keydown", e => {
+  if (e.key === "Tab") { e.preventDefault(); src.setRangeText("  ", src.selectionStart, src.selectionEnd, "end"); refresh(); }
+});
+statusEl.addEventListener("click", e => {
+  const line = +(e.target.dataset && e.target.dataset.line);
+  if (!line) return;
+  const lines = src.value.split("\n");
+  const start = lines.slice(0, line - 1).reduce((a, l) => a + l.length + 1, 0);
+  src.focus();
+  src.setSelectionRange(start, start + lines[line - 1].length);
+});
+$("bNew").onclick = () => { src.value = TEMPLATE; refresh(); };
+$("bExport").onclick = () => {
+  if (!refresh()) { strBox.value = "Fix the errors first."; return; }
+  strBox.value = "WP1:" + toB64(src.value);
+  strBox.focus(); strBox.select();
+};
+$("bImport").onclick = () => {
+  const v = strBox.value.trim();
+  const m = v.match(/^WP(\d):(.+)$/s);
+  if (!m) { statusEl.className = "bad"; statusEl.textContent = "Not a Waypost import string."; return; }
+  if (m[1] !== "1") { statusEl.className = "bad"; statusEl.textContent = "WP2 strings are compressed by the game client; export with this page or ask for a WP1 string."; return; }
+  try { src.value = fromB64(m[2]); refresh(); } catch (e) { statusEl.className = "bad"; statusEl.textContent = "The import string is damaged."; }
+};
+$("bSave").onclick = () => {
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([src.value], { type: "text/plain" }));
+  a.download = (parse(src.value).guide.title || "route").replace(/[^\w-]+/g, "-") + ".txt";
+  a.click();
+  URL.revokeObjectURL(a.href);
+};
+let saved = null;
+try { saved = localStorage.getItem("waypost-editor"); } catch (e) { /* ignore */ }
+src.value = saved || TEMPLATE;
+refresh();
+</script>
+</body>
+</html>
