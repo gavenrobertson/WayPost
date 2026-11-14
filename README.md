@@ -31,8 +31,10 @@ Hold **Shift** while opening an NPC to switch automation off for that conversati
 
 ## What it does
 
-- Guide window with the current step, the next few, and the full step list. It is built from the
-  game's own frames and fonts.
+- Guide window with a "Now" card: what to do, who or what it involves, and where it is, with live
+  distance and direction. Under it the step's other goals, what is done, and what comes next. It
+  uses the game's typeface and colours (quest gold, item quality, hostile red) on its own panels.
+  `docs/preview-guide-window.png` is a drawing of the layout.
 - 3D arrow with distance and time to arrive, pins on the world map and minimap, optional TomTom
   hand-off.
 - Accepts and turns in the guide's quests (it stops at reward choices). Buttons for the step's quest
@@ -48,8 +50,8 @@ Hold **Shift** while opening an NPC to switch automation off for that conversati
   errors, import/export strings, a browser editor (`tools/editor.html`), and a recorder.
 - Progress export for dragonwarriors.app (`tools/upload_progress.py`).
 
-Waypost is event driven and by default does nothing during combat; it catches up when the fight
-ends. Only the guide you are on is held in memory. In the test harness that comes to about 2.5 MB
+Waypost is event driven. Objectives tick off as they happen; a setting makes it wait until combat
+ends instead. Only the guide you are on is held in memory. In the test harness that comes to about 2.5 MB
 with one faction's routes loaded; it has not been measured in the game client yet.
 
 ## Not in this release

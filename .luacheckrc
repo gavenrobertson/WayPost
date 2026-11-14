@@ -11,6 +11,7 @@ globals = {
 	"Waypost_OnAddonCompartmentClick", "Waypost_OnAddonCompartmentEnter", "Waypost_OnAddonCompartmentLeave",
 }
 read_globals = {
+	"ITEM_QUALITY_COLORS", "CreateColor",
 	"AcceptQuest", "AcknowledgeAutoAcceptQuest", "CLOSE", "C_AddOns", "C_ChatInfo", "C_Container", "C_EncodingUtil",
 	"C_GossipInfo", "C_GuildInfo", "C_Item", "C_Map", "C_MerchantFrame", "C_Minimap", "C_QuestLog", "C_SpellBook",
 	"C_Timer", "CompleteQuest", "ConfirmAcceptQuest", "CreateFont", "CreateFrame", "CreateVector2D",
@@ -32,4 +33,4 @@ read_globals = {
 	"WorldMapFrame", "YES", "geterrorhandler", "hash_SlashCmdList", "hooksecurefunc", "issecretvalue", "strsplit",
 	"time", "tinsert",
 }
-files["tests/run.lua"] = { globals = { "WaypostFrame", "WaypostArrow", "WaypostItemButton", "WorldMapFrame", "C_AddOns" } }
+files["tests/run.lua"] = { globals = { "WaypostFrame", "WaypostArrow", "WaypostItemButton", "WorldMapFrame", "C_AddOns", "GameMenuFrame" } }

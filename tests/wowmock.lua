@@ -82,6 +82,11 @@ function real:GetValue() return self._value end
 function real:SetChecked(v) self._checked = v and true or false end
 function real:GetChecked() return self._checked end
 function real:IsMouseOver() return false end
+function real:IsEnabled() return self._disabled ~= true end
+function real:Enable() self._disabled = false; if self._scripts.OnEnable then self._scripts.OnEnable(self) end end
+function real:Disable() self._disabled = true; if self._scripts.OnDisable then self._scripts.OnDisable(self) end end
+function real:SetEnabled(v) if v then self:Enable() else self:Disable() end end
+function real:GetFrameStrata() return "DIALOG" end
 function real:GetFont() return "Fonts\\FRIZQT__.TTF", 12, "" end
 function real:SetFont() return true end
 function real:GetVerticalScroll() return 0 end
@@ -136,6 +141,11 @@ function M.install()
 	G.WorldMapFrame = newWidget("Frame", "WorldMapFrame")
 	G.WorldMapFrame._shown = false
 	G.GameTooltip = newWidget("GameTooltip", "GameTooltip")
+	G.GameMenuFrame = newWidget("Frame", "GameMenuFrame")
+	G.GameMenuFrame._shown = false
+	G.CreateColor = function(r, g, b, a) return { r = r, g = g, b = b, a = a } end
+	G.HideUIPanel = function(f) f:Hide() end
+	G.ITEM_QUALITY_COLORS = { [1] = { hex = "|cffffffff" }, [2] = { hex = "|cff1eff00" } }
 	G.DEFAULT_CHAT_FRAME = { AddMessage = function(_, msg) M.chat[#M.chat + 1] = msg end }
 	G.UISpecialFrames = {}
 	G.StaticPopupDialogs = { ABANDON_QUEST = {} }

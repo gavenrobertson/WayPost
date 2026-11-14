@@ -6,6 +6,7 @@
 | `logo-256.png` | Smaller avatar for Wago or Discord. |
 | `banner-1600x400.png` | Header image for the top of the description. |
 | `arrow-headings.png` | The arrow at different headings, cut from the sprite sheet the addon ships. |
+| `midjourney-prompts.md` | Prompts for generating better logo, banner and gallery art. |
 | `summary.txt` | The short summary field. |
 | `description.md` | The description. Upload the banner to CurseForge first, then swap its path for the uploaded URL. |
 | `../CHANGELOG.md` | Paste the newest section into the file's changelog when uploading. |

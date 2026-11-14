@@ -644,19 +644,33 @@ function E.Applies(si) return E.guide and E.guide.steps[si] and stepApplies(E.gu
 -- Display text
 ---------------------------------------------------------------------------
 local GOLD, WHITE, GREY = "|cffffd100", "|cffffffff", "|cff9d9d9d"
+local NPC, ENEMY, PLACE = "|cff8fe68f", "|cffff856b", "|cffffe69e"
+local GOOD, WARN = "|cff4df259", "|cffff9933"
 
 local function questName(g)
 	return g.title or Q.Title(g.quest) or (L["Quest"] .. " " .. tostring(g.quest))
 end
 
+-- An item's name in its quality colour (white until the client has the item cached).
+local function itemText(g)
+	local name = g.itemName or ("item " .. tostring(g.item))
+	local hex
+	if g.item and C_Item and C_Item.GetItemQualityByID and ITEM_QUALITY_COLORS then
+		local q = C_Item.GetItemQualityByID(g.item)
+		local c = q and ITEM_QUALITY_COLORS[q]
+		if c and c.hex then hex = c.hex end
+	end
+	return (hex or WHITE) .. name .. "|r"
+end
+
 local function counted(text, cur, need)
 	if need and need > 1 or (need and cur and cur < need and need > 0) then
-		return ("%s %s(%d/%d)|r"):format(text, WHITE, cur or 0, need)
+		return ("%s %s%d/%d|r"):format(text, WHITE, cur or 0, need)
 	end
 	return text
 end
 
--- Returns the main line and an optional secondary line for a goal.
+-- The main line for a goal, and one secondary line (who, or the route's note).
 function E.GoalText(g, si)
 	local t = g.t
 	local _, cur, need = goalState(g, si or E.view or E.index)
@@ -664,40 +678,39 @@ function E.GoalText(g, si)
 	local main
 	if t == "accept" then
 		main = L["Accept"] .. " " .. GOLD .. questName(g) .. "|r"
-		if g.startItemName then main = main .. " " .. GREY .. "(" .. L["use"] .. " " .. g.startItemName .. ")|r" end
 	elseif t == "turnin" then
 		main = L["Turn in"] .. " " .. GOLD .. questName(g) .. "|r"
 	elseif t == "complete" then
 		main = L["Complete"] .. " " .. GOLD .. questName(g) .. "|r"
 		if g.objs and g.objs[1] then main = main .. GREY .. ": " .. table.concat(g.objs, ", ") .. "|r" end
 	elseif t == "kill" then
-		main = counted(L["Kill"] .. " " .. WHITE .. (g.target or g.npc or "?") .. "|r", cur, need)
+		main = counted(L["Kill"] .. " " .. ENEMY .. (g.target or g.npc or "?") .. "|r", cur, need)
 	elseif t == "collect" then
-		main = counted(L["Collect"] .. " " .. WHITE .. (g.itemName or ("item " .. tostring(g.item))) .. "|r", cur, need)
+		main = counted(L["Collect"] .. " " .. itemText(g), cur, need)
 	elseif t == "buy" then
-		main = counted(L["Buy"] .. " " .. WHITE .. (g.itemName or ("item " .. tostring(g.item))) .. "|r", cur, need)
+		main = counted(L["Buy"] .. " " .. itemText(g), cur, need)
 	elseif t == "use" then
-		main = L["Use"] .. " " .. WHITE .. (g.itemName or ("item " .. tostring(g.item))) .. "|r"
+		main = L["Use"] .. " " .. itemText(g)
 	elseif t == "interact" then
-		main = L["Interact with"] .. " " .. WHITE .. (g.npc or g.text or "?") .. "|r"
+		main = L["Interact with"] .. " " .. PLACE .. (g.npc or g.text or "?") .. "|r"
 	elseif t == "talk" then
-		main = L["Talk to"] .. " " .. WHITE .. (g.npc or "?") .. "|r"
+		main = L["Talk to"] .. " " .. NPC .. (g.npc or "?") .. "|r"
 	elseif t == "goto" then
-		main = L["Go to"] .. " " .. WHITE .. (g.text or g.location or (g.x and C.Format(g.x, g.y)) or "?") .. "|r"
+		main = L["Go to"] .. " " .. PLACE .. (g.text or g.location or (g.x and C.Format(g.x, g.y)) or "?") .. "|r"
 	elseif t == "enter" then
-		main = L["Enter"] .. " " .. WHITE .. (g.location or g.text or "?") .. "|r"
+		main = L["Enter"] .. " " .. PLACE .. (g.location or g.text or "?") .. "|r"
 	elseif t == "explore" then
-		main = L["Explore"] .. " " .. WHITE .. (g.text or g.location or "?") .. "|r"
+		main = L["Explore"] .. " " .. PLACE .. (g.text or g.location or "?") .. "|r"
 	elseif t == "level" then
 		main = (L["Reach level %d"]):format(g.level or 1)
 	elseif t == "train" then
 		main = g.class and L["Visit your class trainer"] or (g.text or L["Train"])
 	elseif t == "fly" then
-		main = L["Fly to"] .. " " .. WHITE .. (g.location or "?") .. "|r"
+		main = L["Fly to"] .. " " .. PLACE .. (g.location or "?") .. "|r"
 	elseif t == "getfp" then
-		main = L["Get the flight path"] .. ": " .. WHITE .. (g.location or "?") .. "|r"
+		main = L["Get the flight path"] .. ": " .. PLACE .. (g.location or "?") .. "|r"
 	elseif t == "sethome" then
-		main = L["Set your hearthstone"] .. ": " .. WHITE .. (g.location or "?") .. "|r"
+		main = L["Set your hearthstone"] .. ": " .. PLACE .. (g.location or "?") .. "|r"
 	elseif t == "hearth" then
 		main = L["Use your hearthstone"]
 	elseif t == "vendor" then
@@ -722,12 +735,79 @@ function E.GoalText(g, si)
 		sub = nil
 	elseif g.note then
 		sub = g.note
-	elseif t == "fly" and g.location and next(W.char.fps) and not W.char.fps[g.location] then
-		sub = L["You have not learned this flight path yet: travel on foot."]
 	elseif g.npc and (t == "accept" or t == "turnin" or t == "buy" or t == "getfp" or t == "sethome") then
-		sub = g.npc
+		sub = NPC .. g.npc .. "|r"
 	end
 	return main, sub
+end
+
+-- Everything else worth knowing about a goal, as short lines: who gives or
+-- takes the quest, where an item drops, how tough the enemy is, and what is
+-- holding the goal up if the game has not confirmed it.
+function E.GoalInfo(g, si, out)
+	out = out or {}
+	for i = #out, 1, -1 do out[i] = nil end
+	local t = g.t
+	local function add(s) out[#out + 1] = s end
+	if t == "accept" then
+		if g.npc then add(L["From"] .. " " .. NPC .. g.npc .. "|r") end
+		if g.startItemName then add(L["Starts from the item"] .. " " .. WHITE .. g.startItemName .. "|r") end
+		local tags = {}
+		if g.qlvl and g.qlvl > 0 then tags[#tags + 1] = (L["Level %d quest"]):format(g.qlvl) end
+		if g.group then tags[#tags + 1] = WARN .. L["group quest"] .. "|r" end
+		if g.escort then tags[#tags + 1] = WARN .. L["escort"] .. "|r" end
+		if #tags > 0 then add(table.concat(tags, "  ")) end
+	elseif t == "turnin" then
+		if g.npc then add(L["To"] .. " " .. NPC .. g.npc .. "|r") end
+		if Q.IsReady(g.quest) then
+			add(GOOD .. L["Ready to hand in"] .. "|r")
+		elseif Q.IsOn(g.quest) then
+			add(WARN .. L["Its objectives are not finished yet"] .. "|r")
+		elseif not Q.IsDone(g.quest) then
+			add(WARN .. L["This quest is not in your log"] .. "|r")
+		end
+	elseif t == "kill" then
+		if g.mobLevel then add((L["Level %d enemy"]):format(g.mobLevel)) end
+	elseif t == "collect" then
+		if g.src then
+			add((g.srcKind == "object" and L["Loot"] or L["Drops from"]) .. " " .. (g.srcKind == "object" and PLACE or ENEMY) .. g.src .. "|r")
+		end
+		if g.mobLevel then add((L["Level %d enemy"]):format(g.mobLevel)) end
+	elseif t == "fly" then
+		if g.location and next(W.char.fps) and not W.char.fps[g.location] then
+			add(WARN .. L["You have not learned this flight path yet: travel on foot."] .. "|r")
+		end
+	elseif (t == "talk" or t == "buy" or t == "getfp" or t == "sethome") and g.npc and t ~= "talk" then
+		add(L["At"] .. " " .. NPC .. g.npc .. "|r")
+	end
+	if g.quest and t ~= "accept" and t ~= "turnin" and t ~= "complete" then
+		add(L["For"] .. " " .. GOLD .. questName(g) .. "|r")
+	end
+	if g.quest and (t == "accept" or t == "kill" or t == "collect" or t == "interact" or t == "talk" or t == "use")
+		and not Q.IsOn(g.quest) and not Q.IsDone(g.quest) and t ~= "accept" then
+		add(WARN .. L["You are not on this quest"] .. "|r")
+	end
+	if g.note then add(g.note) end
+	if t == "note" and g.text then add(g.text) end
+	return out
+end
+
+-- The goal to act on now: the first one in the step that is not done.
+function E.Current(si)
+	if not E.guide then return nil end
+	si = si or E.view or E.index
+	local step = E.guide.steps[si]
+	if not step then return nil end
+	local vis = visible(step)
+	local fallback
+	for i = 1, #vis do
+		local g = vis[i]
+		if g.t ~= "note" and not goalState(g, si) then
+			if not g.optional then return g end
+			fallback = fallback or g
+		end
+	end
+	return fallback
 end
 
 -- Danger line for a step: explicit text, group/elite quests, or enemies well above the character.

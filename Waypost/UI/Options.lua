@@ -27,6 +27,7 @@ local function sections()
 			{ type = "check", path = "ui.compact", label = L["Compact mode (current step only)"] },
 			{ type = "check", path = "ui.locked", label = L["Lock the window in place"] },
 			{ type = "check", path = "ui.hideInCombat", label = L["Hide the window in combat"] },
+			{ type = "check", path = "ui.gameMenu", label = L["Waypost button in the game menu (Esc)"] },
 			{ type = "button", label = L["Reset window position"], func = function() W.StepFrame.ResetPosition() end },
 		},
 		{ title = L["Arrow"],
@@ -83,8 +84,8 @@ local function sections()
 			{ type = "check", path = "guild.banner", label = L["Show officer announcements"] },
 		},
 		{ title = L["Performance and sound"],
-			{ type = "check", path = "combatUpdates", label = L["Keep the arrow, pins and progress live in combat"],
-				tip = L["Off by default: Waypost does nothing during a fight and catches up when it ends."] },
+			{ type = "check", path = "combatUpdates", label = L["Keep updating during combat"],
+				tip = L["On: objectives tick off the moment they happen. Off: Waypost does nothing during a fight and catches up when it ends."] },
 			{ type = "check", path = "sound", label = L["Sounds"] },
 			{ type = "check", path = "minimap.hide", label = L["Hide the minimap button"] },
 		},
@@ -113,7 +114,7 @@ local function makeControl(def)
 	local c
 	if def.type == "check" then
 		c = UI.Check(content, def.label, get, set, def.tip)
-		c.h = 26
+		c.h = 25
 	elseif def.type == "slider" then
 		c = UI.Slider(content, def.label, def.min, def.max, def.step, get, set, def.fmt, def.tip)
 		c:SetWidth(260)
@@ -161,16 +162,16 @@ end
 local function build()
 	win = UI.Window("WaypostOptions", L["Waypost Settings"], 420, 540)
 	searchBox = UI.EditBox(win, 240, 24, L["Search settings"])
-	searchBox:SetPoint("TOPLEFT", 20, -34)
+	searchBox:SetPoint("TOPLEFT", 16, -38)
 	searchBox:HookScript("OnTextChanged", function() layout() end)
 
-	local version = win:CreateFontString(nil, "ARTWORK", "GameFontDisableSmall")
+	local version = win:CreateFontString(nil, "ARTWORK", "WaypostFontMuted")
 	version:SetPoint("LEFT", searchBox, "RIGHT", 10, 0)
 	version:SetText("v" .. W.version)
 
 	local box = CreateFrame("Frame", nil, win, "BackdropTemplate")
-	box:SetPoint("TOPLEFT", 18, -64)
-	box:SetPoint("BOTTOMRIGHT", -18, 48)
+	box:SetPoint("TOPLEFT", 14, -68)
+	box:SetPoint("BOTTOMRIGHT", -14, 46)
 	UI.Backdrop(box, "inset")
 	scroll, content = UI.Scroll(box)
 	scroll:SetPoint("TOPLEFT", 8, -8)
@@ -183,7 +184,7 @@ local function build()
 	end
 
 	local about = UI.Button(win, L["About and credits"], 140, 22, function() W.About.Show() end)
-	about:SetPoint("BOTTOMLEFT", 18, 18)
+	about:SetPoint("BOTTOMLEFT", 14, 14)
 	local keys = UI.Button(win, L["Key bindings"], 110, 22, function()
 		win:Hide()
 		if Settings and Settings.OpenToCategory and Settings.KEYBINDINGS_CATEGORY_ID then
@@ -194,7 +195,7 @@ local function build()
 	end)
 	keys:SetPoint("LEFT", about, "RIGHT", 6, 0)
 	local done = UI.Button(win, CLOSE or L["Close"], 90, 22, function() win:Hide() end)
-	done:SetPoint("BOTTOMRIGHT", -18, 18)
+	done:SetPoint("BOTTOMRIGHT", -14, 14)
 
 	win:HookScript("OnShow", function() layout() end)
 end
@@ -226,17 +227,21 @@ W.On("WP_LOGIN", function()
 	if not (Settings and Settings.RegisterCanvasLayoutCategory and Settings.RegisterAddOnCategory) then return end
 	local panel = CreateFrame("Frame")
 	panel:Hide()
-	local title = panel:CreateFontString(nil, "ARTWORK", "GameFontNormalLarge")
+	local title = panel:CreateFontString(nil, "ARTWORK", "WaypostFontHead")
 	title:SetPoint("TOPLEFT", 16, -16)
 	title:SetText("Waypost")
-	local sub = panel:CreateFontString(nil, "ARTWORK", "GameFontHighlight")
+	local sub = panel:CreateFontString(nil, "ARTWORK", "WaypostFontText")
 	sub:SetPoint("TOPLEFT", title, "BOTTOMLEFT", 0, -8)
 	sub:SetText(L["Free leveling guides for WoW Forever. Type /waypost for help."])
-	local open = UI.Button(panel, L["Open Waypost settings"], 200, 24, function()
+	local function leave()
 		if SettingsPanel and SettingsPanel:IsShown() and HideUIPanel then pcall(HideUIPanel, SettingsPanel) end
-		O.Toggle(true)
-	end)
+	end
+	local open = UI.Button(panel, L["Waypost settings"], 200, 26, function() leave() O.Toggle(true) end)
 	open:SetPoint("TOPLEFT", sub, "BOTTOMLEFT", 0, -14)
+	local guides = UI.Button(panel, L["Choose a guide"], 200, 26, function() leave() W.StepFrame.Toggle(true) W.Picker.Toggle(true) end)
+	guides:SetPoint("LEFT", open, "RIGHT", 8, 0)
+	local show = UI.Button(panel, L["Show the guide window"], 200, 26, function() leave() W.StepFrame.Toggle(true) end)
+	show:SetPoint("TOPLEFT", open, "BOTTOMLEFT", 0, -8)
 	local ok, category = pcall(Settings.RegisterCanvasLayoutCategory, panel, "Waypost")
 	if ok and category then pcall(Settings.RegisterAddOnCategory, category) end
 end)

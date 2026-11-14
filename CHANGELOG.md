@@ -6,7 +6,9 @@ First release.
 
 - Leveling routes 1-60 for every Alliance and Horde race (65 guides), plus 194 class, profession,
   reputation, exploration and collection guides, converted from Polestar Guides (GPL-3.0).
-- Guide window: current step, upcoming steps, full step list, compact mode, three window styles.
+- Guide window with a "Now" card (what, who, where, live distance and direction), the step's other
+  goals, upcoming steps, full step list, compact mode, three window styles.
+- A Waypost button on the game menu (Esc).
 - 3D navigation arrow with distance and time to arrive; world map and minimap pins; TomTom hand-off.
 - Auto accept and turn-in for guide quests, quest item and target buttons with key bindings,
   flight point tracking and auto-flight.

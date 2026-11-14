@@ -233,14 +233,14 @@ local function build()
 	tex2:SetAllPoints(tex)
 	tex2:SetAlpha(0)
 
-	title = frame:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+	title = frame:CreateFontString(nil, "OVERLAY", "WaypostFontGoldSmall")
 	title:SetPoint("BOTTOM", tex, "TOP", 0, -8)
 	title:SetWidth(220)
 	title:SetWordWrap(false)
 
-	distText = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlightLarge")
+	distText = frame:CreateFontString(nil, "OVERLAY", "WaypostFontBig")
 	distText:SetPoint("TOP", frame, "CENTER", 0, -32)
-	etaText = frame:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+	etaText = frame:CreateFontString(nil, "OVERLAY", "WaypostFontGoldSmall")
 	etaText:SetPoint("TOP", distText, "BOTTOM", 0, -1)
 	etaText:SetTextColor(0.8, 0.8, 0.8)
 

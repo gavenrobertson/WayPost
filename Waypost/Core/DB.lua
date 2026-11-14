@@ -12,7 +12,7 @@ local DB_VERSION = 1
 
 W.defaults = {
 	ui = {
-		skin = "classic",        -- classic | slim | stone
+		skin = "panel",          -- panel | glass | bare
 		scale = 1.0,
 		alpha = 1.0,
 		font = "game",
@@ -21,7 +21,9 @@ W.defaults = {
 		compact = false,
 		showNext = 3,
 		listOpen = false,
-		width = 300,
+		width = 320,
+		showDone = false,
+		gameMenu = true,
 		hideInCombat = false,
 		fadeOutOfCombat = false,
 		hidden = false,
@@ -62,7 +64,7 @@ W.defaults = {
 	upgrades = { enabled = true, pawn = true },
 	minimap = { hide = false, angle = 205 },
 	sound = true,
-	combatUpdates = false,   -- keep arrow, pins and progress live in combat
+	combatUpdates = true,    -- objectives tick off the moment they happen, in combat too
 }
 
 W.charDefaults = {

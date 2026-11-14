@@ -121,14 +121,14 @@ Waypost.RegisterSteps("class/mage/astral-knot-garment", function() return {
 		{ t = "accept", quest = 1938, title = "Ur's Treatise on Shadow Magic", npc = "High Sorcerer Andromath", map = 1453, x = 48.71, y = 87.62, qlvl = 28 },
 	} },
 	{ title = "The Tower of Ilgalar", note = "Head east through Elwynn Forest into Redridge, or fly to Lakeshire. The Tower of Ilgalar stands alone in the east of the zone. Climb to the very top floor (not the one below): the treatise is the book sticking out of the shelf where the stairs come up. Two gnoll dogs and a gnoll caster guard the shelf; the dogs' Mana Burn interrupts the click, so fight them on the stairs out of their sight. Morganth (level 26 elite) stands across the top floor: you do not need him, keep to the left edge of the ramp so he stays put. The book is back two seconds after anyone takes it. If you die, your ghost can run up and come back to life beside it.", goals = {
-		{ t = "collect", quest = 1938, title = "Ur's Treatise on Shadow Magic", map = 1433, x = 73.77, y = 47.61, count = 1, item = 7266, itemName = "Ur's Treatise on Shadow Magic", oi = 1 },
+		{ t = "collect", quest = 1938, title = "Ur's Treatise on Shadow Magic", map = 1433, x = 73.77, y = 47.61, count = 1, item = 7266, itemName = "Ur's Treatise on Shadow Magic", oi = 1, src = "Ur's Treatise on Shadow Magic", srcKind = "object" },
 	} },
 	{ title = "Back to Andromath", goals = {
 		{ t = "turnin", quest = 1938, title = "Ur's Treatise on Shadow Magic", npc = "High Sorcerer Andromath", map = 1453, x = 48.71, y = 87.62 },
 		{ t = "accept", quest = 1940, title = "Pristine Spider Silk", npc = "High Sorcerer Andromath", map = 1453, x = 48.71, y = 87.62, qlvl = 26 },
 	} },
 	{ title = "Carrion Recluses", note = "Raven Hill Cemetery in western Duskwood: the six Carrion Recluses (level 25-26, green, Paralyzing Poison) walk the graves, the central statue and the riverbank, and every one drops a silk; they come back after 5 minutes. The Black Widow Hatchlings (24-25) on the slopes east of the cemetery drop it about one time in six, so mix them in while you wait. Mor'Ladim, a level 35 elite skeleton, walks the cemetery: watch for him.", goals = {
-		{ t = "collect", quest = 1940, title = "Pristine Spider Silk", map = 1431, x = 19.99, y = 41.24, era = true, count = 8, item = 7267, itemName = "Pristine Spider Silk", oi = 1, mobLevel = 26, spots = "21,39.1;17.9,40.9;18.1,43.7;21.5,46.3;23.4,36.7" },
+		{ t = "collect", quest = 1940, title = "Pristine Spider Silk", map = 1431, x = 19.99, y = 41.24, era = true, count = 8, item = 7267, itemName = "Pristine Spider Silk", oi = 1, mobLevel = 26, src = "Carrion Recluse", srcKind = "npc", spots = "21,39.1;17.9,40.9;18.1,43.7;21.5,46.3;23.4,36.7" },
 	} },
 	{ title = "Wynne Larson", note = "Wynne Larson works at Larson Clothiers in the Mage Quarter. The robe gives intellect, stamina and spirit; the blouse more intellect and stamina but no spirit.", goals = {
 		{ t = "turnin", quest = 1940, title = "Pristine Spider Silk", npc = "Wynne Larson", map = 1453, x = 51.84, y = 83.51 },
@@ -149,8 +149,8 @@ Waypost.RegisterSteps("class/mage/manaweave-robe", function() return {
 	{ title = "Jennea Cannon", note = "Jennea Cannon stands at the top of the Wizard's Sanctum, the violet tower of the Mage Quarter: climb the spiral ramp and take the portal near the top. The Chest of Containment Coffers and the Cantation of Manifestation lie on the table behind her (both come back 5 minutes after someone takes them). You hand both in at the end, so keep them.", goals = {
 		{ t = "turnin", quest = 1919, title = "Report to Jennea", npc = "Jennea Cannon", map = 1453, x = 49.56, y = 85.8 },
 		{ t = "accept", quest = 1920, title = "Investigate the Blue Recluse", npc = "Jennea Cannon", map = 1453, x = 49.56, y = 85.8, qlvl = 16 },
-		{ t = "collect", quest = 1920, title = "Investigate the Blue Recluse", map = 1453, x = 49.45, y = 85.48, count = 1, item = 7247, itemName = "Chest of Containment Coffers", oi = 2 },
-		{ t = "collect", quest = 1920, title = "Investigate the Blue Recluse", map = 1453, x = 49.61, y = 85.36, count = 1, item = 7308, itemName = "Cantation of Manifestation", oi = 3 },
+		{ t = "collect", quest = 1920, title = "Investigate the Blue Recluse", map = 1453, x = 49.45, y = 85.48, count = 1, item = 7247, itemName = "Chest of Containment Coffers", oi = 2, src = "Chest of Containment Coffers", srcKind = "object" },
+		{ t = "collect", quest = 1920, title = "Investigate the Blue Recluse", map = 1453, x = 49.61, y = 85.36, count = 1, item = 7308, itemName = "Cantation of Manifestation", oi = 3, src = "Cantation of Manifestation", srcKind = "object" },
 	} },
 	{ title = "The Blue Recluse", note = "The Blue Recluse is the tavern in the Mage Quarter. Read the Cantation of Manifestation inside to make the invisible Rift Spawns (level 16-17) show: in the basement it brings out one, on the balcony or in the kitchen two, in the main room or by the door three, so read it downstairs. They hit hard and break out of Frost Nova fast. Beat one down: it does not die but sits stunned with a spiral over its head; use the Chest of Containment Coffers on it while it is stunned, then click the Filled Containment Coffer it leaves on the floor (clicking before it appears wastes a charge). You need three, and the cantation works only once every 5 minutes (logging out does not reset it), so plan on three rounds.", goals = {
 		{ t = "use", map = 1453, x = 51.3, y = 93.3, item = 7308, itemName = "Cantation of Manifestation", optional = true },
@@ -163,10 +163,10 @@ Waypost.RegisterSteps("class/mage/manaweave-robe", function() return {
 		{ t = "accept", quest = 1921, title = "Gathering Materials", npc = "Jennea Cannon", map = 1453, x = 49.56, y = 85.8, qlvl = 15 },
 	} },
 	{ title = "Linen Cloth", note = "Any humanoid drops Linen Cloth, and the Tunnel Rats in the Silver Stream Mine drop it while you gather the gems; the Auction House in the Trade District sells it. You hand in ten.", goals = {
-		{ t = "collect", quest = 1921, title = "Gathering Materials", map = 1453, x = 49.77, y = 85.79, count = 10, item = 2589, itemName = "Linen Cloth", oi = 1 },
+		{ t = "collect", quest = 1921, title = "Gathering Materials", map = 1453, x = 49.77, y = 85.79, count = 10, item = 2589, itemName = "Linen Cloth", oi = 1, src = "Lisan Pierce", srcKind = "npc" },
 	} },
 	{ title = "The Silver Stream Mine", note = "Take the Deeprun Tram to Ironforge, then the road east through the South Gate tunnel into Loch Modan. The Silver Stream Mine is at the north end of the loch, north of Thelsamar; Tunnel Rat kobolds hold it. The gems come only from the tall stacked Miners' League Crates (the cursor shows a cog over them; single boxes hold nothing): every crate gives one, there are fourteen and they come back after 3 to 5 minutes. You may have to go as deep as the end chamber for six. The same crates serve the dwarves' Filthy Paws quest.", goals = {
-		{ t = "collect", quest = 1921, title = "Gathering Materials", map = 1432, x = 35.49, y = 24.3, era = true, count = 6, item = 7249, itemName = "Charged Rift Gem", oi = 2, note = "Charged Rift Gem: Miners' League Crates", spots = "35.4,25.6;35.8,21.2" },
+		{ t = "collect", quest = 1921, title = "Gathering Materials", map = 1432, x = 35.49, y = 24.3, era = true, count = 6, item = 7249, itemName = "Charged Rift Gem", oi = 2, note = "Charged Rift Gem: Miners' League Crates", src = "Miners' League Crates", srcKind = "object", spots = "35.4,25.6;35.8,21.2" },
 	} },
 	{ title = "Wynne Larson", note = "Back to Stormwind by the tram. Wynne Larson works at Larson Clothiers in the Mage Quarter.", goals = {
 		{ t = "turnin", quest = 1921, title = "Gathering Materials", npc = "Wynne Larson", map = 1453, x = 51.84, y = 83.51 },
@@ -183,7 +183,7 @@ Waypost.RegisterSteps("class/mage/staff-or-orb-alliance", function() return {
 		{ t = "accept", quest = 93797, title = "Boughs in the Wind", npc = "Belann Windwood", map = 2521, x = 62.89, y = 77.44, qlvl = 10 },
 	} },
 	{ title = "The Windstone Formations", note = "The bough lies on the ground among the Windstone Formations, the wind shrine on the rise west of Fillion's camp, south of Falaath Village. It does not sparkle, so look at the ground by the stones; there are two spots for it.", only = { races = {"Skyborne"} }, goals = {
-		{ t = "collect", quest = 93797, title = "Boughs in the Wind", map = 2521, x = 48.7, y = 67.4, count = 1, item = 262668, itemName = "Wind-Infused Bough", oi = 1 },
+		{ t = "collect", quest = 93797, title = "Boughs in the Wind", map = 2521, x = 48.7, y = 67.4, count = 1, item = 262668, itemName = "Wind-Infused Bough", oi = 1, src = "Wind-Infused Bough", srcKind = "object" },
 	} },
 	{ title = "Back to Belann", only = { races = {"Skyborne"} }, goals = {
 		{ t = "turnin", quest = 93797, title = "Boughs in the Wind", npc = "Belann Windwood", map = 2521, x = 62.89, y = 77.44, note = "Belann Windwood: Windbough Wand" },
@@ -203,7 +203,7 @@ Waypost.RegisterSteps("class/mage/staff-or-orb-alliance", function() return {
 	} },
 	{ title = "The Mirror Lake waterfall", note = "Leave Stormwind by the main gate and head south-west to the waterfall that feeds Mirror Lake. Wade in under the falling water to the rock behind it and use Jennea's Flask there (a 5 second cast); it fails anywhere else. Level 10 Defias casters stand on the rocks either side of the falls and shoot from range: pull them one at a time or fill the flask from the water.", only = { races = {"Human", "Gnome", "Skyborne"} }, when = {{ k = "onquest", q = {1861} }}, goals = {
 		{ t = "use", quest = 1861, title = "Mirror Lake", map = 1429, x = 28.57, y = 61.39, era = true, item = 7207, itemName = "Jennea's Flask", oi = 1, note = "Jennea's Flask, under the falls" },
-		{ t = "collect", quest = 1861, title = "Mirror Lake", map = 1429, x = 28.57, y = 61.39, era = true, count = 1, item = 7206, itemName = "Mirror Lake Water Sample", oi = 1 },
+		{ t = "collect", quest = 1861, title = "Mirror Lake", map = 1429, x = 28.57, y = 61.39, era = true, count = 1, item = 7206, itemName = "Mirror Lake Water Sample", oi = 1, src = "Mirror Lake Waterwall", srcKind = "object" },
 	} },
 	{ title = "Back to Jennea", note = "Back up the Wizard's Sanctum and through the portal. The orb is an off-hand for a one-hand weapon; the staff is a two-hander.", only = { races = {"Human", "Gnome", "Skyborne"} }, when = {{ k = "onquest", q = {1861} }}, goals = {
 		{ t = "turnin", quest = 1861, title = "Mirror Lake", npc = "Jennea Cannon", map = 1453, x = 49.56, y = 85.8, note = "Jennea Cannon: Ley Orb or Ley Staff" },
@@ -214,7 +214,7 @@ Waypost.RegisterSteps("class/mage/staff-or-orb-alliance", function() return {
 	} },
 	{ title = "Bink's Toolbox", note = "Head west along the road to Gnomeregan. Just north of its entrance stand two huts; the toolbox is in the taller, eastern one, the hut with the lift: a small grey box on the ground floor, half under the table beside the lift. Leper Gnomes (level 8) guard the huts: pull them singly. There is only one toolbox and it takes 15 minutes to come back after someone opens it, so wait nearby if it is gone.", only = { races = {"Human", "Gnome"} }, when = {{ k = "onquest", q = {1880} }}, goals = {
 		{ t = "interact", npc = "Bink's Toolbox", map = 1426, x = 27.72, y = 36.42, era = true },
-		{ t = "collect", quest = 1880, title = "Mage-tastic Gizmonitor", map = 1426, x = 27.72, y = 36.42, era = true, count = 1, item = 7226, itemName = "Mage-tastic Gizmonitor", oi = 1 },
+		{ t = "collect", quest = 1880, title = "Mage-tastic Gizmonitor", map = 1426, x = 27.72, y = 36.42, era = true, count = 1, item = 7226, itemName = "Mage-tastic Gizmonitor", oi = 1, src = "Bink's Toolbox", srcKind = "object" },
 	} },
 	{ title = "Back to Bink", only = { races = {"Human", "Gnome"} }, when = {{ k = "onquest", q = {1880} }}, goals = {
 		{ t = "turnin", quest = 1880, title = "Mage-tastic Gizmonitor", npc = "Bink", map = 1455, x = 27.25, y = 8.3, era = true, note = "Bink: Arcane Orb or Arcane Staff" },
@@ -223,7 +223,7 @@ Waypost.RegisterSteps("class/mage/staff-or-orb-alliance", function() return {
 		{ t = "accept", quest = 93791, title = "Speak with Belann", npc = "Anathamaas Aetherwind", map = 2521, x = 65.91, y = 80.57, qlvl = 10, optional = true },
 		{ t = "turnin", quest = 93791, title = "Speak with Belann", npc = "Belann Windwood", map = 2521, x = 62.89, y = 77.44, optional = true },
 		{ t = "accept", quest = 93797, title = "Boughs in the Wind", npc = "Belann Windwood", map = 2521, x = 62.89, y = 77.44, qlvl = 10, optional = true },
-		{ t = "collect", quest = 93797, title = "Boughs in the Wind", map = 2521, x = 48.7, y = 67.4, count = 1, item = 262668, itemName = "Wind-Infused Bough", oi = 1, optional = true },
+		{ t = "collect", quest = 93797, title = "Boughs in the Wind", map = 2521, x = 48.7, y = 67.4, count = 1, item = 262668, itemName = "Wind-Infused Bough", oi = 1, optional = true, src = "Wind-Infused Bough", srcKind = "object" },
 		{ t = "turnin", quest = 93797, title = "Boughs in the Wind", npc = "Belann Windwood", map = 2521, x = 62.89, y = 77.44, optional = true, note = "Belann Windwood: Windbough Wand" },
 	} },
 } end)
@@ -276,14 +276,14 @@ Waypost.RegisterSteps("class/paladin/cloak-of-the-divine-storm", function() retu
 		{ t = "accept", quest = 78091, title = "Earning Your Salt", npc = "Ursula Deline", map = 1453, x = 39.89, y = 84.19, qlvl = 30 },
 	} },
 	{ title = "Summoner's Salt", note = "The Blackrock Summoners, Champions and Trackers (level 22-25, not elite) camp in the north-west of Redridge and drop the Summoner's Salt; you need 14. Two elite Blackrock Shadowcasters (22-23) stand at the cave mouth at the camp's east end: pull around them. The Blackrock camps east of Lakeshire drop the salt too, but their Shadowcasters, Sentries and Hunters are elite (level 21-24), and so is Gath'Ilzogg (26): stay in the north-west.", goals = {
-		{ t = "collect", quest = 78091, title = "Earning Your Salt", map = 1433, x = 23.5, y = 12, count = 14, item = 209778, itemName = "Summoner's Salt", oi = 1, mobLevel = 23, spots = "23.5,12;29.5,8.2;33.1,13.5;37.8,11.9;38.8,19.6" },
+		{ t = "collect", quest = 78091, title = "Earning Your Salt", map = 1433, x = 23.5, y = 12, count = 14, item = 209778, itemName = "Summoner's Salt", oi = 1, mobLevel = 23, src = "Blackrock Summoner, Blackrock Champion, Blackrock Tracker", srcKind = "npc", spots = "23.5,12;29.5,8.2;33.1,13.5;37.8,11.9;38.8,19.6" },
 	} },
 	{ title = "Back to Ursula", goals = {
 		{ t = "turnin", quest = 78091, title = "Earning Your Salt", npc = "Ursula Deline", map = 1453, x = 39.89, y = 84.19 },
 		{ t = "accept", quest = 78092, title = "It Must Be Destroyed", npc = "Ursula Deline", map = 1453, x = 39.89, y = 84.19, qlvl = 30 },
 	} },
 	{ title = "Motes of Mannoroth", note = "Demon Fall Canyon is in south-east Ashenvale, east of Splintertree Post (a Horde camp: go round it). The Mannoroc Lashers, Searing Infernals, Felguards and Legion Hounds (level 29-30, not elite) drop the Motes of Mannoroth; you need 12. Below about 27 they are hard alone: come with a second player or later. Felguards knock you down, Lashers cast Shadow Bolt and Immolate, Infernals keep a fire shield up. They respawn in five minutes.", goals = {
-		{ t = "collect", quest = 78092, title = "It Must Be Destroyed", map = 1440, x = 78.48, y = 81.61, era = true, count = 12, item = 209779, itemName = "Mote of Mannoroth", oi = 1, mobLevel = 30, spots = "79.3,81.6;78,84.1;81.1,79.9;83,78.5;85.3,78" },
+		{ t = "collect", quest = 78092, title = "It Must Be Destroyed", map = 1440, x = 78.48, y = 81.61, era = true, count = 12, item = 209779, itemName = "Mote of Mannoroth", oi = 1, mobLevel = 30, src = "Legion Hound, Searing Infernal, Felguard and others", srcKind = "npc", spots = "79.3,81.6;78,84.1;81.1,79.9;83,78.5;85.3,78" },
 	} },
 	{ title = "The Spear of Mannoroth", note = "The Spear of Mannoroth stands at the east end of Demon Fall Canyon. Hand in the motes at the spear with the Althalaxx Orb in your bags: the orb shatters, and the Shattered Orb beside it starts the last quest.", goals = {
 		{ t = "turnin", quest = 78092, title = "It Must Be Destroyed", npc = "Spear of Mannoroth", map = 1440, x = 89.4, y = 77.1, era = true },
@@ -312,7 +312,7 @@ Waypost.RegisterSteps("class/paladin/holy-mightstone", function() return {
 		{ t = "turnin", quest = 5401, title = "Argent Dawn Commission", npc = "Argent Officer Pureheart", map = 1422, x = 42.97, y = 83.55, era = true, note = "the Argent Dawn Commission trinket: equip it" },
 	} },
 	{ title = "Minion's Scourgestones", note = "Kill the Scourge of the Western Plaguelands with the Commission on: skeletons, ghouls and cultists (level 50-58) drop a Minion's Scourgestone about two kills in five. Sorrow Hill, just east of Chillwind Camp around Uther's Tomb, is the closest farm. Avoid the Flesh Golems that patrol the fields; Skeletal Guardians cast Cone of Cold and Arcane Explosion up close, Dark Summoners run for help at low health.", goals = {
-		{ t = "collect", quest = 8414, title = "Dispelling Evil", map = 1422, x = 47.37, y = 84.3, era = true, count = 20, item = 12840, itemName = "Minion's Scourgestone", oi = 1, mobLevel = 56, note = "Minion's Scourgestone x20", spots = "47.6,83;49.9,77;47.1,71.6;48.7,63.3;43.5,63.3" },
+		{ t = "collect", quest = 8414, title = "Dispelling Evil", map = 1422, x = 47.37, y = 84.3, era = true, count = 20, item = 12840, itemName = "Minion's Scourgestone", oi = 1, mobLevel = 56, note = "Minion's Scourgestone x20", src = "Skeletal Flayer, Skeletal Terror, Skeletal Sorcerer and others", srcKind = "npc", spots = "47.6,83;49.9,77;47.1,71.6;48.7,63.3;43.5,63.3" },
 	} },
 	{ title = "High Priest Thel'danis", note = "High Priest Thel'danis keeps watch at Uther's Tomb on Sorrow Hill, east of the camp. He turns your 20 stones into one Inert Scourgestone: keep it.", goals = {
 		{ t = "turnin", quest = 8414, title = "Dispelling Evil", npc = "High Priest Thel'danis", map = 1422, x = 52.05, y = 83.27, era = true },
@@ -357,7 +357,7 @@ Waypost.RegisterSteps("class/paladin/tome-of-divinity", function() return {
 	{ title = "Stephanie Turner", note = "Stephanie Turner stands at a corner in the middle of the Trade District, outside a general goods store. She wants 10 Linen Cloth: humanoids drop it (Riverpaw gnolls in Westfall about every other kill, Defias and kobolds a little less), or buy it at the Auction House a few steps away in the Trade District.", only = { races = {"Human"} }, goals = {
 		{ t = "turnin", quest = 1643, title = "The Tome of Divinity", npc = "Stephanie Turner", map = 1453, x = 63.84, y = 72.21 },
 		{ t = "accept", quest = 1644, title = "The Tome of Divinity", npc = "Stephanie Turner", map = 1453, x = 63.84, y = 72.21, qlvl = 13 },
-		{ t = "collect", quest = 1644, title = "The Tome of Divinity", map = 1453, x = 49.77, y = 85.79, count = 10, item = 2589, itemName = "Linen Cloth", oi = 1, note = "Linen Cloth x10" },
+		{ t = "collect", quest = 1644, title = "The Tome of Divinity", map = 1453, x = 49.77, y = 85.79, count = 10, item = 2589, itemName = "Linen Cloth", oi = 1, note = "Linen Cloth x10", src = "Lisan Pierce", srcKind = "npc" },
 		{ t = "turnin", quest = 1644, title = "The Tome of Divinity", npc = "Stephanie Turner", map = 1453, x = 63.84, y = 72.21 },
 		{ t = "accept", quest = 1780, title = "The Tome of Divinity", npc = "Stephanie Turner", map = 1453, x = 63.84, y = 72.21, qlvl = 13 },
 	} },
@@ -373,7 +373,7 @@ Waypost.RegisterSteps("class/paladin/tome-of-divinity", function() return {
 		{ t = "accept", quest = 1787, title = "The Tome of Divinity", npc = "Henze Faulk", map = 1429, x = 72.6, y = 51.41, era = true, qlvl = 13 },
 	} },
 	{ title = "The Defias Script", note = "The Defias Rogue Wizards around the big stone tablet east of Henze carry the Defias Script: about one kill in two drops it, but some players need many kills. They respawn in three minutes.", only = { races = {"Human"} }, goals = {
-		{ t = "collect", quest = 1787, title = "The Tome of Divinity", map = 1429, x = 74.16, y = 52, era = true, count = 1, item = 6846, itemName = "Defias Script", oi = 1, mobLevel = 10, note = "Defias Script: Defias Rogue Wizards", spots = "74.16,52;73.3,55;76.9,52.5;76.4,48;73.5,46.7" },
+		{ t = "collect", quest = 1787, title = "The Tome of Divinity", map = 1429, x = 74.16, y = 52, era = true, count = 1, item = 6846, itemName = "Defias Script", oi = 1, mobLevel = 10, note = "Defias Script: Defias Rogue Wizards", src = "Defias Rogue Wizard", srcKind = "npc", spots = "74.16,52;73.3,55;76.9,52.5;76.4,48;73.5,46.7" },
 	} },
 	{ title = "Redemption", note = "Back to the Cathedral of Light: Gazin takes the script, Duthorian teaches you Redemption.", only = { races = {"Human"} }, goals = {
 		{ t = "turnin", quest = 1787, title = "The Tome of Divinity", npc = "Gazin Tenorm", map = 1453, x = 49.53, y = 44.99 },
@@ -398,7 +398,7 @@ Waypost.RegisterSteps("class/paladin/tome-of-divinity", function() return {
 	{ title = "John Turner", note = "John Turner walks the outer ring of the Commons, past the front gate, the bank and the Auction House. He wants 10 Linen Cloth: humanoids drop it (Kogan Forgestone in Kharanos every time, Dark Iron Ambushers about two kills in five), or buy it at the Auction House on his ring.", only = { races = {"Dwarf"} }, goals = {
 		{ t = "turnin", quest = 1647, title = "The Tome of Divinity", npc = "John Turner", map = 1455, x = 23.34, y = 61.86, era = true },
 		{ t = "accept", quest = 1648, title = "The Tome of Divinity", npc = "John Turner", map = 1455, x = 23.34, y = 61.86, era = true, qlvl = 13 },
-		{ t = "collect", quest = 1648, title = "The Tome of Divinity", map = 1453, x = 49.77, y = 85.79, count = 10, item = 2589, itemName = "Linen Cloth", oi = 1, note = "Linen Cloth x10" },
+		{ t = "collect", quest = 1648, title = "The Tome of Divinity", map = 1453, x = 49.77, y = 85.79, count = 10, item = 2589, itemName = "Linen Cloth", oi = 1, note = "Linen Cloth x10", src = "Lisan Pierce", srcKind = "npc" },
 		{ t = "turnin", quest = 1648, title = "The Tome of Divinity", npc = "John Turner", map = 1455, x = 23.34, y = 61.86, era = true },
 		{ t = "accept", quest = 1778, title = "The Tome of Divinity", npc = "John Turner", map = 1455, x = 23.34, y = 61.86, era = true, qlvl = 13 },
 	} },
@@ -414,7 +414,7 @@ Waypost.RegisterSteps("class/paladin/tome-of-divinity", function() return {
 		{ t = "accept", quest = 1784, title = "The Tome of Divinity", npc = "Narm Faulk", map = 1426, x = 78.32, y = 58.09, era = true, qlvl = 13 },
 	} },
 	{ title = "The Dark Iron Script", note = "The Dark Iron Spies (level 9-11, twelve of them) sneak around the little house below the lake, just south of Narm; you see them from his hill. About one kill in two drops the Dark Iron Script. They run for help at low health: finish them or step back. They respawn in three minutes.", only = { races = {"Dwarf"} }, goals = {
-		{ t = "collect", quest = 1784, title = "The Tome of Divinity", map = 1426, x = 77.53, y = 61.18, era = true, count = 1, item = 6847, itemName = "Dark Iron Script", oi = 1, mobLevel = 11, note = "Dark Iron Script: Dark Iron Spies" },
+		{ t = "collect", quest = 1784, title = "The Tome of Divinity", map = 1426, x = 77.53, y = 61.18, era = true, count = 1, item = 6847, itemName = "Dark Iron Script", oi = 1, mobLevel = 11, note = "Dark Iron Script: Dark Iron Spies", src = "Dark Iron Spy", srcKind = "npc" },
 	} },
 	{ title = "Redemption", note = "Back up to the Hall of Mysteries: Muiredon takes the script, Tiza teaches you Redemption.", only = { races = {"Dwarf"} }, goals = {
 		{ t = "turnin", quest = 1784, title = "The Tome of Divinity", npc = "Muiredon Battleforge", map = 1455, x = 23.54, y = 8.3, era = true },
@@ -454,11 +454,11 @@ Waypost.RegisterSteps("class/paladin/verigans-fist", function() return {
 		{ t = "accept", quest = 1655, title = "Bailor's Ore Shipment", npc = "Bailor Stonehand", map = 1432, x = 35.95, y = 44.91, era = true, qlvl = 22 },
 	} },
 	{ title = "Bailor's Ore", note = "The crate of ore sits outdoors in the middle of the Mo'grosh ogre camp in north-east Loch Modan, beside a big tree and a broken wagon, between the caves. The camp holds about fifteen Mo'grosh ogres, elite (level 18-19), who knock you down and come back after five minutes: grouping up is encouraged; at 20-22 it needs a group of about three. The crate is back two seconds after each loot, so every paladin in the group gets one.", goals = {
-		{ t = "collect", quest = 1655, title = "Bailor's Ore Shipment", map = 1432, x = 71.6, y = 21.61, era = true, count = 1, item = 6992, itemName = "Jordan's Ore Shipment", oi = 1, note = "Bailor's Ore crate" },
+		{ t = "collect", quest = 1655, title = "Bailor's Ore Shipment", map = 1432, x = 71.6, y = 21.61, era = true, count = 1, item = 6992, itemName = "Jordan's Ore Shipment", oi = 1, note = "Bailor's Ore crate", src = "Bailor's Ore", srcKind = "object" },
 	} },
 	{ title = "Back to Bailor", note = "Bailor turns the ore into Jordan's Refined Ore Shipment, the part Jordan wants.", goals = {
 		{ t = "turnin", quest = 1655, title = "Bailor's Ore Shipment", npc = "Bailor Stonehand", map = 1432, x = 35.95, y = 44.91, era = true },
-		{ t = "collect", quest = 1654, title = "The Test of Righteousness", map = 1432, x = 35.95, y = 44.91, era = true, count = 1, item = 6993, itemName = "Jordan's Refined Ore Shipment", oi = 2 },
+		{ t = "collect", quest = 1654, title = "The Test of Righteousness", map = 1432, x = 35.95, y = 44.91, era = true, count = 1, item = 6993, itemName = "Jordan's Refined Ore Shipment", oi = 2, src = "Bailor Stonehand", srcKind = "npc" },
 	} },
 	{ title = "Whitestone Oak Lumber", note = "The Deadmines is a group of five under Moonbrook; the instance portal is at the bottom of the Moonbrook mine. The Goblin Woodcarvers (elite, level 18-19) in the mast room with Sneed drop the lumber every time.", goals = {
 		{ t = "goto", map = 1436, x = 42.5, y = 71.7, text = "The Deadmines, in the Moonbrook mine" },
@@ -472,11 +472,11 @@ Waypost.RegisterSteps("class/paladin/verigans-fist", function() return {
 		{ t = "accept", quest = 1442, title = "Seeking the Kor Gem", npc = "Thundris Windweaver", map = 1439, x = 37.4, y = 40.13, era = true, qlvl = 22 },
 	} },
 	{ title = "The Corrupted Kor Gem", note = "The Blackfathom naga in the flooded passages around the Blackfathom Deeps entrance, on Ashenvale's north-west coast, drop the Corrupted Kor Gem: Tide Priestesses (level 20-21), Oracles (21-22) and Sea Witches (23-24), one in two. You do not need to enter the instance. All are elite: grouping up is encouraged; players solo them one at a time, with difficulty. They heal themselves, run for help at low health, satyrs stand near some, and the Sea Witches cast Frost Nova up close. Some players report no drop while in a raid group.", goals = {
-		{ t = "collect", quest = 1442, title = "Seeking the Kor Gem", map = 1440, x = 13.55, y = 12.06, era = true, count = 1, item = 6995, itemName = "Corrupted Kor Gem", oi = 1, mobLevel = 22, group = true, spots = "13.8,9.3;16.2,11.3;13.6,12.1;17.7,11.1" },
+		{ t = "collect", quest = 1442, title = "Seeking the Kor Gem", map = 1440, x = 13.55, y = 12.06, era = true, count = 1, item = 6995, itemName = "Corrupted Kor Gem", oi = 1, mobLevel = 22, group = true, src = "Blackfathom Tide Priestess, Blackfathom Oracle", srcKind = "npc", spots = "13.8,9.3;16.2,11.3;13.6,12.1;17.7,11.1" },
 	} },
 	{ title = "The Purified Kor Gem", note = "Back to Thundris in Auberdine: he purifies the gem.", goals = {
 		{ t = "turnin", quest = 1442, title = "Seeking the Kor Gem", npc = "Thundris Windweaver", map = 1439, x = 37.4, y = 40.13, era = true },
-		{ t = "collect", quest = 1654, title = "The Test of Righteousness", map = 1439, x = 37.4, y = 40.13, era = true, count = 1, item = 7083, itemName = "Purified Kor Gem", oi = 4 },
+		{ t = "collect", quest = 1654, title = "The Test of Righteousness", map = 1439, x = 37.4, y = 40.13, era = true, count = 1, item = 7083, itemName = "Purified Kor Gem", oi = 4, src = "Thundris Windweaver", srcKind = "npc" },
 	} },
 	{ title = "Verigan's Fist", note = "Bring the four parts to Jordan Stilwell outside Ironforge. Accept his last quest and wait by him while he forges the mace at his anvil.", goals = {
 		{ t = "turnin", quest = 1654, title = "The Test of Righteousness", npc = "Jordan Stilwell", map = 1426, x = 52.49, y = 36.92, era = true },
@@ -782,7 +782,7 @@ Waypost.RegisterSteps("class/rogue/blade-of-cunning-alliance", function() return
 		{ t = "accept", quest = 2206, title = "Snatch and Grab", npc = "Master Mathias Shaw", map = 1453, x = 78.31, y = 70.74, qlvl = 10 },
 	} },
 	{ title = "Defias Dockmaster", note = "The Defias Dockmaster (level 10, a goblin) works in the dock house at Jerod's Landing, on the river at Elwynn's southern edge, south of Goldshire. Stealth in and Pick Pocket him from behind: the schedule never drops from his corpse. Do not open with Sap or a fight: he calls in three waves of bodyguards. Keep away from the fireplaces in the house; they burn you out of stealth. He is back 2 to 5 minutes after a death.", only = { races = {"Human", "Skyborne"} }, goals = {
-		{ t = "collect", quest = 2206, title = "Snatch and Grab", map = 1429, x = 48.06, y = 86.96, era = true, count = 1, item = 7675, itemName = "Defias Shipping Schedule", oi = 1, text = "Pick Pocket the Defias Dockmaster for the Defias Shipping Schedule" },
+		{ t = "collect", quest = 2206, title = "Snatch and Grab", map = 1429, x = 48.06, y = 86.96, era = true, count = 1, item = 7675, itemName = "Defias Shipping Schedule", oi = 1, text = "Pick Pocket the Defias Dockmaster for the Defias Shipping Schedule", src = "Defias Dockmaster", srcKind = "npc" },
 	} },
 	{ title = "Back to Mathias Shaw", only = { races = {"Human", "Skyborne"} }, goals = {
 		{ t = "turnin", quest = 2206, title = "Snatch and Grab", npc = "Master Mathias Shaw", map = 1453, x = 78.31, y = 70.74, note = "Master Mathias Shaw, SI:7" },
@@ -811,7 +811,7 @@ Waypost.RegisterSteps("class/rogue/blade-of-cunning-alliance", function() return
 		{ t = "accept", quest = 2242, title = "Destiny Calls", npc = "Syurna", map = 1457, x = 36.99, y = 21.91, era = true, qlvl = 10 },
 	} },
 	{ title = "Sethir the Ancient", note = "Sethir the Ancient (level 12 satyr) lives out on a great branch north of the Oracle Glade: go through the V-shaped gap in the wall north of the glade and out along the branch. Pick his pocket for the journal; killing him does not give it, and a fight brings out three Minions of Sethir. He walks between the main branch and a side branch: wait stealthed at the far end of the main branch and pick him from behind when he comes back. Then Sprint away. He is back 8 1/2 minutes after a death.", only = { races = {"NightElf"} }, goals = {
-		{ t = "collect", quest = 2242, title = "Destiny Calls", map = 1438, x = 37.11, y = 22.83, era = true, count = 1, item = 7737, itemName = "Sethir's Journal", oi = 1, text = "Pick Pocket Sethir the Ancient for Sethir's Journal" },
+		{ t = "collect", quest = 2242, title = "Destiny Calls", map = 1438, x = 37.11, y = 22.83, era = true, count = 1, item = 7737, itemName = "Sethir's Journal", oi = 1, text = "Pick Pocket Sethir the Ancient for Sethir's Journal", src = "Sethir the Ancient", srcKind = "npc" },
 	} },
 	{ title = "Back to Syurna", only = { races = {"NightElf"} }, goals = {
 		{ t = "turnin", quest = 2242, title = "Destiny Calls", npc = "Syurna", map = 1457, x = 36.99, y = 21.91, era = true, note = "Syurna, Darnassus" },
@@ -850,7 +850,7 @@ Waypost.RegisterSteps("class/rogue/certificate-of-thievery", function() return {
 		{ t = "accept", quest = 2282, title = "Alther's Mill", npc = "Lucius", map = 1433, x = 22.97, y = 52.04, qlvl = 20 },
 	} },
 	{ title = "Alther's Mill", note = "Alther's Mill stands east of Lakeshire, up off the road; Blackrock orcs roam near it. Inside, the Practice Lockboxes come back almost at once: pick them until Lucius's Lockbox opens for you (about 25 Lockpicking). Your Lockpicking cap rises 5 per level, so a low character may stall. Some boxes are trapped (a frost trap, for one); the skill still goes up. On Forever level 20 spiders wander near the boxes: clear them first or bring a friend. The lockbox always holds the token and is back two seconds after use. Practise on while it still gives skill: the next class quest needs about 75.", goals = {
-		{ t = "collect", quest = 2282, title = "Alther's Mill", map = 1433, x = 46.95, y = 44.69, count = 1, item = 7871, itemName = "Token of Thievery", oi = 1, note = "Token of Thievery: Lucius's Lockbox" },
+		{ t = "collect", quest = 2282, title = "Alther's Mill", map = 1433, x = 46.95, y = 44.69, count = 1, item = 7871, itemName = "Token of Thievery", oi = 1, note = "Token of Thievery: Lucius's Lockbox", src = "Lucius's Lockbox", srcKind = "object" },
 	} },
 	{ title = "Back to Lucius", goals = {
 		{ t = "turnin", quest = 2282, title = "Alther's Mill", npc = "Lucius", map = 1433, x = 22.97, y = 52.04, note = "Lucius: Certificate of Thievery" },
@@ -867,10 +867,10 @@ Waypost.RegisterSteps("class/rogue/poisons-alliance", function() return {
 		{ t = "accept", quest = 2359, title = "Klaven's Tower", npc = "Agent Kearnen", map = 1436, x = 68.49, y = 70.08, era = true, qlvl = 24 },
 	} },
 	{ title = "The Defias Tower Key", note = "Get the key first. The Malformed Defias Drone (level 23, not elite) starts at the tower entrance and walks a loop around the outside; it is the spiky-haired one trailing yellow sparkles. Stealth up and Pick Pocket it from behind: it always has the key. It hits hard: if stealth breaks, Sprint away. Watch for the pair of Defias Drones that also patrol.", goals = {
-		{ t = "collect", quest = 2359, title = "Klaven's Tower", map = 1436, x = 69.47, y = 73.99, era = true, count = 1, item = 7923, itemName = "Defias Tower Key", oi = 2, text = "Pick Pocket the Malformed Defias Drone for the Defias Tower Key" },
+		{ t = "collect", quest = 2359, title = "Klaven's Tower", map = 1436, x = 69.47, y = 73.99, era = true, count = 1, item = 7923, itemName = "Defias Tower Key", oi = 2, text = "Pick Pocket the Malformed Defias Drone for the Defias Tower Key", src = "Malformed Defias Drone", srcKind = "npc" },
 	} },
 	{ title = "Klaven's journal", note = "Sneak up the tower. Defias Tower Patrollers (23) and Sentries (24) guard the floors; an Ambush with a dagger kills them outright if you would rather clear them. Klaven Mortwake, a level 26 elite, waits on the top floor: Sap him, or bring a friend. The Duskwood Chest beside his desk needs Lockpicking of about 70-75 (practise on the boxes at Alther's Mill in Redridge first). A trick: while the Sentries are away, jump from the chair to the lamp to the bookshelf above the chest, step out of stealth and open the chest from there. Opening it poisons you with the Touch of Zanzil, which stops your stealth for a while and lets the drone see you; that is why the key comes first. Then get out.", goals = {
-		{ t = "collect", quest = 2359, title = "Klaven's Tower", map = 1436, x = 70.4, y = 74, era = true, count = 1, item = 7908, itemName = "Klaven Mortwake's Journal", oi = 1, note = "Klaven Mortwake's Journal: the Duskwood Chest, top floor" },
+		{ t = "collect", quest = 2359, title = "Klaven's Tower", map = 1436, x = 70.4, y = 74, era = true, count = 1, item = 7908, itemName = "Klaven Mortwake's Journal", oi = 1, note = "Klaven Mortwake's Journal: the Duskwood Chest, top floor", src = "Duskwood Chest", srcKind = "object" },
 	} },
 	{ title = "Master Mathias Shaw", note = "Head north through Elwynn to Stormwind; Mathias Shaw is upstairs in SI:7. He teaches Poisons and gives you the Thistle Tea recipe. Poisons are made, not bought: each batch of Instant Poison takes a Dust of Decay and an Empty Vial, which Jasper Fel and Sloan McCoy sell in Old Town next to SI:7. Buy a stack of each, open Poisons from your spellbook to make them, then use a poison on your weapon.", goals = {
 		{ t = "turnin", quest = 2359, title = "Klaven's Tower", npc = "Master Mathias Shaw", map = 1453, x = 78.31, y = 70.74, note = "Master Mathias Shaw: Poisons" },
@@ -887,7 +887,7 @@ Waypost.RegisterSteps("class/rogue/poisons-alliance", function() return {
 		{ t = "buy", count = 1, item = 3421, itemName = "Simple Wildflowers" },
 		{ t = "buy", count = 1, item = 3372, itemName = "Leaded Vial" },
 		{ t = "collect", map = 1453, x = 61.2, y = 71.3, count = 1, item = 4371, itemName = "Bronze Tube", note = "Bronze Tube: the Auction House" },
-		{ t = "collect", quest = 2609, title = "The Touch of Zanzil", map = 1453, x = 50.58, y = 60.14, count = 1, item = 8431, itemName = "Spool of Light Chartreuse Silk Thread", oi = 4 },
+		{ t = "collect", quest = 2609, title = "The Touch of Zanzil", map = 1453, x = 50.58, y = 60.14, count = 1, item = 8431, itemName = "Spool of Light Chartreuse Silk Thread", oi = 4, src = "Spool of Light Chartreuse Silk Thread", srcKind = "object" },
 	} },
 	{ title = "Back to Doc Mixilpixil", goals = {
 		{ t = "turnin", quest = 2609, title = "The Touch of Zanzil", npc = "Doc Mixilpixil", map = 1453, x = 80.06, y = 69.9, note = "Doc Mixilpixil: Eau de Mixilpixil" },
@@ -912,19 +912,19 @@ Waypost.RegisterSteps("class/shaman/call-of-air-alliance", function() return {
 	} },
 	{ title = "Twisted Fire Totems", note = "Five Twisted Fire Totems. The Stonevault troggs (Skullthumpers, Bonesnappers and Shamans, level 37-41) south of Angor Fortress in the Badlands carry them; the Shamans drop Fire Nova Totems and a Healing Ward, the Bonesnappers run for help when hurt. Respawn about five minutes.", goals = {
 		{ t = "level", level = 36 },
-		{ t = "collect", quest = 79358, title = "Storm, Earth, and Fire", map = 1418, x = 50.46, y = 68.43, era = true, count = 5, item = 274044, itemName = "Twisted Fire Totem", oi = 3, mobLevel = 41, spots = "49.8,69.6;51,66.1" },
+		{ t = "collect", quest = 79358, title = "Storm, Earth, and Fire", map = 1418, x = 50.46, y = 68.43, era = true, count = 5, item = 274044, itemName = "Twisted Fire Totem", oi = 3, mobLevel = 41, src = "Stonevault Bonesnapper, Stonevault Shaman", srcKind = "npc", spots = "49.8,69.6;51,66.1" },
 	} },
 	{ title = "Twisted Earth Totems", note = "Five Twisted Earth Totems. The Lost Ones (murlocs, level 34-39) north and north-east of Stonard in the Swamp of Sorrows carry them; most run for help when hurt.", goals = {
 		{ t = "level", level = 33 },
-		{ t = "collect", quest = 79358, title = "Storm, Earth, and Fire", map = 1435, x = 48.46, y = 31.13, era = true, count = 5, item = 274045, itemName = "Twisted Earth Totem", oi = 2, mobLevel = 36, spots = "50.2,31.2;45.3,30;43.4,36.5;55.7,31.2;57.7,25.8" },
+		{ t = "collect", quest = 79358, title = "Storm, Earth, and Fire", map = 1435, x = 48.46, y = 31.13, era = true, count = 5, item = 274045, itemName = "Twisted Earth Totem", oi = 2, mobLevel = 36, src = "Lost One Mudlurker, Lost One Fisherman, Lost One Hunter and others", srcKind = "npc", spots = "50.2,31.2;45.3,30;43.4,36.5;55.7,31.2;57.7,25.8" },
 	} },
 	{ title = "Twisted Water Totems", note = "Five Twisted Water Totems. The Mirefin murlocs (level 35-38) north-east of Brackenwall Village in northern Dustwallow Marsh carry them.", goals = {
 		{ t = "level", level = 34 },
-		{ t = "collect", quest = 79358, title = "Storm, Earth, and Fire", map = 1445, x = 57.15, y = 21.37, era = true, count = 5, item = 274046, itemName = "Twisted Water Totem", oi = 1, mobLevel = 38, spots = "56.9,22;57.7,20.1;58.6,15.8;57.6,10.9;59.4,10.2" },
+		{ t = "collect", quest = 79358, title = "Storm, Earth, and Fire", map = 1445, x = 57.15, y = 21.37, era = true, count = 5, item = 274046, itemName = "Twisted Water Totem", oi = 1, mobLevel = 38, src = "Mirefin Puddlejumper, Mirefin Murloc, Mirefin Warrior and others", srcKind = "npc", spots = "56.9,22;57.7,20.1;58.6,15.8;57.6,10.9;59.4,10.2" },
 	} },
 	{ title = "Twisted Air Totems", note = "Five Twisted Air Totems. The Maraudine centaurs (level 36-40) north and north-east of Shadowprey Village in western Desolace carry them; the Scouts drop one nearly every other kill. Wranglers Net and Disarm, Windchasers heal, Stormers throw Jumping Lightning: pull one at a time. Respawn about five minutes.", goals = {
 		{ t = "level", level = 36 },
-		{ t = "collect", quest = 79358, title = "Storm, Earth, and Fire", map = 1443, x = 32.59, y = 59.75, era = true, count = 5, item = 274047, itemName = "Twisted Air Totem", oi = 4, mobLevel = 38, spots = "34.9,57.6;31,54.6;30.7,66.2;30.7,61.1;35.8,61.3" },
+		{ t = "collect", quest = 79358, title = "Storm, Earth, and Fire", map = 1443, x = 32.59, y = 59.75, era = true, count = 5, item = 274047, itemName = "Twisted Air Totem", oi = 4, mobLevel = 38, src = "Maraudine Scout", srcKind = "npc", spots = "34.9,57.6;31,54.6;30.7,66.2;30.7,61.1;35.8,61.3" },
 	} },
 	{ title = "Veyric Thunderhame", goals = {
 		{ t = "turnin", quest = 79358, title = "Storm, Earth, and Fire", npc = "Veyric Thunderhame", map = 1417, x = 59.84, y = 27.57, era = true },
@@ -932,7 +932,7 @@ Waypost.RegisterSteps("class/shaman/call-of-air-alliance", function() return {
 	} },
 	{ title = "The steam pools", note = "Veyric hands you the Corrupted Totems. Thousand Needles is far: the boat to Theramore and the road west, or fly to Thalanaar on the Feralas border and head east into the canyon. Place the Corrupted Totems at the steam pools north-west of Freewind Post to call the corrupted elementals and then the Ravaging Tempest; Razormane quilboar join the fight while the ritual runs. A group quest: bring at least one or two friends. The Eye of the Tempest drops about every other kill, and every group member can loot it.", goals = {
 		{ t = "level", level = 38 },
-		{ t = "collect", quest = 96135, title = "Heed My Call", map = 1441, x = 36.72, y = 39.25, era = true, count = 1, item = 212792, itemName = "Eye of the Tempest", oi = 1, mobLevel = 40, group = true, note = "Eye of the Tempest, from the Ravaging Tempest", spots = "36.5,37.8;37,40.7" },
+		{ t = "collect", quest = 96135, title = "Heed My Call", map = 1441, x = 36.72, y = 39.25, era = true, count = 1, item = 212792, itemName = "Eye of the Tempest", oi = 1, mobLevel = 40, group = true, note = "Eye of the Tempest, from the Ravaging Tempest", src = "Ravaging Tempest", srcKind = "npc", spots = "36.5,37.8;37,40.7" },
 	} },
 	{ title = "Veyric Thunderhame", goals = {
 		{ t = "turnin", quest = 96135, title = "Heed My Call", npc = "Veyric Thunderhame", map = 1417, x = 59.84, y = 27.57, era = true },
@@ -953,7 +953,7 @@ Waypost.RegisterSteps("class/shaman/call-of-earth-alliance", function() return {
 		{ t = "accept", quest = 94373, title = "Call of Earth", npc = "Teo Hammerstorm", map = 1426, x = 28.79, y = 66.18, era = true, qlvl = 4 },
 	} },
 	{ title = "Iceclaw Bear Pendants", note = "The Frostmane Troll Whelps (level 3-4) hold the snowy slopes west and south-west of Anvilmar, and the Frostmane Novices (level 3-4, they throw Frostbolts from range) camp south of it. Both carry the pendants; they respawn in about three minutes.", goals = {
-		{ t = "collect", quest = 94373, title = "Call of Earth", map = 1426, x = 27.7, y = 78.82, era = true, count = 2, item = 264356, itemName = "Iceclaw Bear Pendant", oi = 1, mobLevel = 4, spots = "26.7,79.4;28.6,80.5;29,82.5;30.2,80.4;22.8,79.5" },
+		{ t = "collect", quest = 94373, title = "Call of Earth", map = 1426, x = 27.7, y = 78.82, era = true, count = 2, item = 264356, itemName = "Iceclaw Bear Pendant", oi = 1, mobLevel = 4, src = "Frostmane Troll Whelp, Frostmane Novice", srcKind = "npc", spots = "26.7,79.4;28.6,80.5;29,82.5;30.2,80.4;22.8,79.5" },
 	} },
 	{ title = "Teo Hammerstorm", note = "Back to Teo inside Anvilmar. He hands you the Earth Sapta: do not drink it yet.", goals = {
 		{ t = "turnin", quest = 94373, title = "Call of Earth", npc = "Teo Hammerstorm", map = 1426, x = 28.79, y = 66.18, era = true },
@@ -987,10 +987,10 @@ Waypost.RegisterSteps("class/shaman/call-of-fire-alliance", function() return {
 		{ t = "accept", quest = 94466, title = "Call of Fire", npc = "Braldir Ashmantle", map = 1432, x = 32.17, y = 65.97, era = true, qlvl = 14 },
 	} },
 	{ title = "Reagent Pouch", note = "The Stonesplinter Seers (level 13-14) stand among the troggs of Stonesplinter Valley in the south of the loch, and in the trogg camps north-east of Thelsamar. They throw Lightning Bolts from 40 yards and run for help when hurt: pull one at a time. Respawn about five minutes.", goals = {
-		{ t = "collect", quest = 94466, title = "Call of Fire", map = 1432, x = 36.75, y = 77.75, era = true, count = 1, item = 6652, itemName = "Reagent Pouch", oi = 2, mobLevel = 14, spots = "36.7,78.7;35.4,82.7;34.7,88.4;28.6,85.3;28.8,81.3" },
+		{ t = "collect", quest = 94466, title = "Call of Fire", map = 1432, x = 36.75, y = 77.75, era = true, count = 1, item = 6652, itemName = "Reagent Pouch", oi = 2, mobLevel = 14, src = "Stonesplinter Seer", srcKind = "npc", spots = "36.7,78.7;35.4,82.7;34.7,88.4;28.6,85.3;28.8,81.3" },
 	} },
 	{ title = "Fire Tar", note = "The Tunnel Rat Geomancers (level 12-13) work only inside the Silver Stream Mine at the north end of the loch, past Thelsamar. They cast Fire Blast behind a Fire Shield and run for help at low health.", goals = {
-		{ t = "collect", quest = 94466, title = "Call of Fire", map = 1432, x = 35.55, y = 27.92, era = true, count = 1, item = 5026, itemName = "Fire Tar", oi = 1, mobLevel = 13, spots = "35.8,23.3;35.6,27.9" },
+		{ t = "collect", quest = 94466, title = "Call of Fire", map = 1432, x = 35.55, y = 27.92, era = true, count = 1, item = 5026, itemName = "Fire Tar", oi = 1, mobLevel = 13, src = "Tunnel Rat Geomancer", srcKind = "npc", spots = "35.8,23.3;35.6,27.9" },
 	} },
 	{ title = "Braldir Ashmantle", note = "Back up the trail to Braldir. He makes the Fire Sapta from the tar and the pouch: keep it with the torch.", goals = {
 		{ t = "turnin", quest = 94466, title = "Call of Fire", npc = "Braldir Ashmantle", map = 1432, x = 32.17, y = 65.97, era = true },
@@ -1001,7 +1001,7 @@ Waypost.RegisterSteps("class/shaman/call-of-fire-alliance", function() return {
 	} },
 	{ title = "The Shrine of Eternal Flame", note = "Climb on past Braldir to the peak. Drink the Fire Sapta beside the rock statue there to see the Minor Manifestation of Fire (level 12): it waits until you strike, but grows stronger the longer it is left, and it is immune to fire. Open at once with Rockbiter Weapon and Earth Shock. Its Glowing Ember drops every time.", goals = {
 		{ t = "use", quest = 94467, title = "Call of Fire", map = 1432, x = 31.9, y = 64.5, era = true, item = 6636, itemName = "Fire Sapta", oi = 1, note = "Fire Sapta, beside the statue" },
-		{ t = "collect", quest = 94467, title = "Call of Fire", map = 1432, x = 31.96, y = 64.42, era = true, count = 1, item = 6655, itemName = "Glowing Ember", oi = 1, note = "Glowing Ember: Minor Manifestation of Fire" },
+		{ t = "collect", quest = 94467, title = "Call of Fire", map = 1432, x = 31.96, y = 64.42, era = true, count = 1, item = 6655, itemName = "Glowing Ember", oi = 1, note = "Glowing Ember: Minor Manifestation of Fire", src = "Minor Manifestation of Fire", srcKind = "npc" },
 	} },
 	{ title = "The Brazier of the Dormant Flame", note = "Click the Brazier of the Dormant Flame atop the shrine with the torch in your bags to place the ember, then click it again for the next quest: the lit Torch of Eternal Flame.", goals = {
 		{ t = "turnin", quest = 94467, title = "Call of Fire", npc = "Brazier of the Dormant Flame", map = 1432, x = 31.79, y = 64.52, era = true },
@@ -1057,7 +1057,7 @@ Waypost.RegisterSteps("class/shaman/call-of-water-alliance", function() return {
 	} },
 	{ title = "Stendel's Pond", note = "Fly to Sentinel Hill and head south to Moonbrook: Stendel's Pond and the Forgotten Shrine lie just north of it. Drink the Water Sapta by the shrine to see the Corrupt Minor Manifestation of Water (level 22, Frost Shock and Frost Nova; one spawn, back three minutes after a kill), defeat it for its bracers (always dropped), then place them and the Remaining Drops of Purest Water on the Forgotten Shrine (this, not Norric, ends the quest). Click the shrine again: the Minor Manifestation of Water rises beside it; speak to it before you walk off (if it is gone, abandon and take the quest again at the shrine). It gives you the Shard of Water.", goals = {
 		{ t = "use", quest = 94502, title = "Call of Water", map = 1436, x = 45.6, y = 59.9, era = true, item = 6637, itemName = "Water Sapta", oi = 1 },
-		{ t = "collect", quest = 94502, title = "Call of Water", map = 1436, x = 45.6, y = 59.9, era = true, count = 1, item = 7812, itemName = "Corrupt Manifestation's Bracers", oi = 1 },
+		{ t = "collect", quest = 94502, title = "Call of Water", map = 1436, x = 45.6, y = 59.9, era = true, count = 1, item = 7812, itemName = "Corrupt Manifestation's Bracers", oi = 1, src = "Corrupt Minor Manifestation of Water", srcKind = "npc" },
 		{ t = "turnin", quest = 94502, title = "Call of Water", npc = "Forgotten Shrine", map = 1436, x = 45.6, y = 59.92, era = true },
 		{ t = "accept", quest = 94503, title = "Call of Water", npc = "Forgotten Shrine", map = 1436, x = 45.6, y = 59.92, era = true, qlvl = 23 },
 		{ t = "turnin", quest = 94503, title = "Call of Water", npc = "Minor Manifestation of Water", map = 1436, x = 46.4, y = 59.2, era = true, note = "Minor Manifestation of Water, beside the shrine" },
@@ -1074,10 +1074,10 @@ Waypost.RegisterSteps("class/warlock/dread-mage-hat", function() return {
 		{ t = "accept", quest = 335, title = "A Noble Brew", npc = "Zardeth of the Black Claw", map = 1453, x = 40.14, y = 85.31, qlvl = 30 },
 	} },
 	{ title = "Tear of Tilloa", note = "Manor Mistmantle stands in the north-east of Duskwood, north of Darkshire. The Tear of Tilloa is a small white flower low in the grass of the fenced garden beside Stalvan's house: hard to see, so sweep the garden with your mouse. Fetid Corpses (level 29) wander the grounds and come quickly: at 25, send your voidwalker at the nearest one, grab the flower and leave. Stalvan Mistmantle (32) is inside the house; leave him alone.", goals = {
-		{ t = "collect", quest = 335, title = "A Noble Brew", map = 1431, x = 78.35, y = 35.95, era = true, count = 1, item = 2779, itemName = "Tear of Tilloa", oi = 1 },
+		{ t = "collect", quest = 335, title = "A Noble Brew", map = 1431, x = 78.35, y = 35.95, era = true, count = 1, item = 2779, itemName = "Tear of Tilloa", oi = 1, src = "Tear of Tilloa", srcKind = "object" },
 	} },
 	{ title = "Musquash Root", note = "The root grows at the water's edge in the pool below the small falls east of Dun Algaz, beside the Dark Iron cave below the Stonewrought Dam: a tall, spiky wooden root, not at the foot of the dam itself.", goals = {
-		{ t = "collect", quest = 335, title = "A Noble Brew", map = 1437, x = 64.78, y = 75.32, era = true, count = 1, item = 2784, itemName = "Musquash Root", oi = 2 },
+		{ t = "collect", quest = 335, title = "A Noble Brew", map = 1437, x = 64.78, y = 75.32, era = true, count = 1, item = 2784, itemName = "Musquash Root", oi = 2, src = "Musquash Root", srcKind = "object" },
 	} },
 	{ title = "A Noble Brew", note = "Back to Zardeth. He brews the Black Claw Stout and gives it to you for Lord Baurles K. Wishock in the Hall of Petitioners, the first hall on the right inside Stormwind Keep.", goals = {
 		{ t = "turnin", quest = 335, title = "A Noble Brew", npc = "Zardeth of the Black Claw", map = 1453, x = 40.14, y = 85.31 },
@@ -1108,17 +1108,17 @@ Waypost.RegisterSteps("class/warlock/felhunter-alliance", function() return {
 		{ t = "accept", quest = 1802, title = "Tome of the Cabal", npc = "Krom Stoutarm", map = 1455, x = 74.19, y = 9.39, era = true, qlvl = 30 },
 	} },
 	{ title = "Moldy Tome", note = "The tome is a small grey-blue book lying in the sand of a murloc camp on the shore south-west of Southshore, near the water's edge. Six or seven murlocs guard it and more lurk underwater: they come in groups, so Fear one and keep your voidwalker on the rest. Walk down to the water to click it; from the hillside the crates block the cursor.", goals = {
-		{ t = "collect", quest = 1802, title = "Tome of the Cabal", map = 1424, x = 27.78, y = 72.79, era = true, count = 1, item = 6931, itemName = "Moldy Tome", oi = 1, note = "Moldy Tome, from the Tome of the Cabal on the sand" },
+		{ t = "collect", quest = 1802, title = "Tome of the Cabal", map = 1424, x = 27.78, y = 72.79, era = true, count = 1, item = 6931, itemName = "Moldy Tome", oi = 1, note = "Moldy Tome, from the Tome of the Cabal on the sand", src = "Tome of the Cabal", srcKind = "object" },
 	} },
 	{ title = "Tattered Manuscript", note = "The centaur cave opens in the cliffs north of Freewind Post, a Horde town: keep clear of its guards. Inside, keep right at each fork, cross the pool by the small waterfall, and open the small dark box against the wall beside a larger chest: the larger one is the wrong one. You can open it only while on the quest. The centaurs respawn behind you on the way out.", goals = {
-		{ t = "collect", quest = 1802, title = "Tome of the Cabal", map = 1441, x = 43.44, y = 32.69, era = true, count = 1, item = 6997, itemName = "Tattered Manuscript", oi = 2, note = "Tattered Manuscript, in the Damaged Chest" },
+		{ t = "collect", quest = 1802, title = "Tome of the Cabal", map = 1441, x = 43.44, y = 32.69, era = true, count = 1, item = 6997, itemName = "Tattered Manuscript", oi = 2, note = "Tattered Manuscript, in the Damaged Chest", src = "Damaged Chest", srcKind = "object" },
 	} },
 	{ title = "Back to Krom", note = "Krom pieces the tome together and gives you the Reconstructed Tome: keep it, Strahad takes it with the rods.", goals = {
 		{ t = "turnin", quest = 1802, title = "Tome of the Cabal", npc = "Krom Stoutarm", map = 1455, x = 74.19, y = 9.39, era = true },
 		{ t = "accept", quest = 1804, title = "Tome of the Cabal", npc = "Krom Stoutarm", map = 1455, x = 74.19, y = 9.39, era = true, qlvl = 30 },
 	} },
 	{ title = "Rods of Channeling", note = "The Dragonmaw hold Angerfang Encampment in the hills east of the road from Menethil Harbor to Dun Algaz. Only the casters drop the rods, four kills in five: the Bonewarders (level 27, with skeleton pets) and Shadowwarders (28). A steep path north of the central spirit healer leads up into the camp past most of the warriors.", goals = {
-		{ t = "collect", quest = 1804, title = "Tome of the Cabal", map = 1437, x = 52.38, y = 52.64, era = true, count = 3, item = 6930, itemName = "Rod of Channeling", oi = 1, mobLevel = 27, note = "Rods of Channeling, from the Dragonmaw casters", spots = "53.1,54.2;50.6,50.9;51.7,49;49,46.7;46.1,46.4" },
+		{ t = "collect", quest = 1804, title = "Tome of the Cabal", map = 1437, x = 52.38, y = 52.64, era = true, count = 3, item = 6930, itemName = "Rod of Channeling", oi = 1, mobLevel = 27, note = "Rods of Channeling, from the Dragonmaw casters", src = "Dragonmaw Shadowwarder, Dragonmaw Bonewarder", srcKind = "npc", spots = "53.1,54.2;50.6,50.9;51.7,49;49,46.7;46.1,46.4" },
 	} },
 	{ title = "The Binding", note = "Back to Strahad in Ratchet. When you accept, he draws the summoning circle and his acolytes channel a greater circle over it: wait inside the tower until both are done. Then use the Tome of the Cabal on the circle. The felhunter (level 30, not elite) silences and eats mana, and it vanishes after two minutes: have your voidwalker out, open with your damage over time at once and let the voidwalker tank. If you die or it wins, abandon The Binding and take it again from Strahad. Keep the tome: Strahad takes it back.", goals = {
 		{ t = "turnin", quest = 1804, title = "Tome of the Cabal", npc = "Strahad Farsan", map = 1413, x = 62.63, y = 35.5, era = true },
@@ -1134,7 +1134,7 @@ Waypost.RegisterSteps("class/warlock/imp-alliance", function() return {
 		{ t = "accept", quest = 1598, title = "The Stolen Tome", npc = "Drusilla La Salle", map = 1429, x = 49.87, y = 42.65, era = true, qlvl = 4 },
 	} },
 	{ title = "The Stolen Books", note = "The Defias tent stands in the vineyard east of the Abbey. The book is small: it lies on the ground just right of the tent's opening, beside a blue jug. Three Defias Thugs (level 3-4) guard the tent; pull them one at a time, or step inside the tent and click the book, where they cannot reach you. The book respawns three minutes after someone takes it.", only = { races = {"Human"} }, goals = {
-		{ t = "collect", quest = 1598, title = "The Stolen Tome", map = 1429, x = 56.71, y = 43.96, era = true, count = 1, item = 6785, itemName = "Powers of the Void", oi = 1, note = "Powers of the Void, from the Stolen Books" },
+		{ t = "collect", quest = 1598, title = "The Stolen Tome", map = 1429, x = 56.71, y = 43.96, era = true, count = 1, item = 6785, itemName = "Powers of the Void", oi = 1, note = "Powers of the Void, from the Stolen Books", src = "Stolen Books", srcKind = "object" },
 	} },
 	{ title = "Summon Imp", note = "Drusilla teaches you Summon Imp at the hand-in: summon it right away, it costs nothing and fights beside you.", only = { races = {"Human"} }, goals = {
 		{ t = "turnin", quest = 1598, title = "The Stolen Tome", npc = "Drusilla La Salle", map = 1429, x = 49.87, y = 42.65, era = true, note = "Drusilla La Salle: Summon Imp" },
@@ -1143,7 +1143,7 @@ Waypost.RegisterSteps("class/warlock/imp-alliance", function() return {
 		{ t = "accept", quest = 1599, title = "Beginnings", npc = "Alamar Grimm", map = 1426, x = 28.65, y = 66.14, era = true, qlvl = 4 },
 	} },
 	{ title = "Feather Charms", note = "The Frostmane Novices (level 3-4) sit at the back of the troll cave south of Anvilmar, near Grek'nir the Cold by the icy pool: take the left tunnel past the entrance. Four kills in five drop a charm, but only two or three novices spawn, so you may wait out their three-minute respawn. They throw frostbolts from range; the Troll Whelps at the cave mouth jump anyone who passes. With the charms, your hearthstone takes you straight back: a new character's is set to Coldridge Valley.", only = { races = {"Gnome"} }, goals = {
-		{ t = "collect", quest = 1599, title = "Beginnings", map = 1426, x = 30.48, y = 79.54, era = true, count = 3, item = 6753, itemName = "Feather Charm", oi = 1, mobLevel = 4, note = "Feather Charms", spots = "30.4,80.2;29.2,82.1" },
+		{ t = "collect", quest = 1599, title = "Beginnings", map = 1426, x = 30.48, y = 79.54, era = true, count = 3, item = 6753, itemName = "Feather Charm", oi = 1, mobLevel = 4, note = "Feather Charms", src = "Frostmane Novice", srcKind = "npc", spots = "30.4,80.2;29.2,82.1" },
 	} },
 	{ title = "Summon Imp", note = "Alamar teaches you Summon Imp at the hand-in: summon it right away, it costs nothing and fights beside you.", only = { races = {"Gnome"} }, goals = {
 		{ t = "turnin", quest = 1599, title = "Beginnings", npc = "Alamar Grimm", map = 1426, x = 28.65, y = 66.14, era = true, note = "Alamar Grimm: Summon Imp" },
@@ -1166,11 +1166,11 @@ Waypost.RegisterSteps("class/warlock/incubus-alliance", function() return {
 		{ t = "accept", quest = 65602, title = "What Is Love?", npc = "Takar the Seer", map = 1413, x = 49.31, y = 57.1, era = true, qlvl = 20, note = "the incubus" },
 	} },
 	{ title = "Heartswood", note = "Ordil'Aran lies in north-west Ashenvale, north of Astranaar along the road toward Darkshore. About twenty Dark Strand cultists hold the ruins around the great tree: keep to the outer wall, and click the Heartswood from as far away as it lets you. It is turned in to Gakin, not to Takar.", goals = {
-		{ t = "collect", quest = 1738, title = "Heartswood", map = 1440, x = 31.55, y = 31.57, era = true, count = 1, item = 6912, itemName = "Heartswood", oi = 1 },
+		{ t = "collect", quest = 1738, title = "Heartswood", map = 1440, x = 31.55, y = 31.57, era = true, count = 1, item = 6912, itemName = "Heartswood", oi = 1, src = "Heartswood", srcKind = "object" },
 	} },
 	{ title = "The Wooden Figurine", note = "The house stands alone in the trees of north-western Ashenvale, north-west of Ordil'Aran and well north of Maestra's Post: do it on the same trip as the Heartswood. Take the Unlit Torch from the table outside, light it at a campfire (a Basic Campfire of your own, or Talen's fire on Zoram Strand), and go straight back: the Burning Torch burns out after five minutes, so a fire of your own beside the house is quickest. Without it the figure in the house stops you. The figurine is upstairs.", goals = {
-		{ t = "collect", map = 1440, x = 26.79, y = 22.43, era = true, item = 190307, itemName = "Unlit Torch", optional = true, note = "Unlit Torch, on the table outside" },
-		{ t = "collect", quest = 65602, title = "What Is Love?", map = 1440, x = 26.61, y = 22.03, era = true, count = 1, item = 190309, itemName = "Wooden Figurine", oi = 1, note = "Wooden Figurine, upstairs" },
+		{ t = "collect", map = 1440, x = 26.79, y = 22.43, era = true, item = 190307, itemName = "Unlit Torch", optional = true, note = "Unlit Torch, on the table outside", src = "Unlit Torch", srcKind = "object" },
+		{ t = "collect", quest = 65602, title = "What Is Love?", map = 1440, x = 26.61, y = 22.03, era = true, count = 1, item = 190309, itemName = "Wooden Figurine", oi = 1, note = "Wooden Figurine, upstairs", src = "Wooden Figurine", srcKind = "object" },
 	} },
 	{ title = "The Binding: succubus", note = "Back to Gakin with the Heartswood. He hands you the Heartswood Core: take the stairs behind him down to the crypt; part way along the lowest corridor a side stair on the left leads to the room with the purple circle. Stand on it and use the core. Summon your voidwalker first and keep the succubus (level 20, not elite) on the circle, or the guards may kill her and the kill does not count. If she wins, use the core again; keep it, Gakin takes it back.", goals = {
 		{ t = "turnin", quest = 1738, title = "Heartswood", npc = "Gakin the Darkbinder", map = 1453, x = 39.22, y = 85.23 },
@@ -1203,7 +1203,7 @@ Waypost.RegisterSteps("class/warlock/voidwalker-alliance", function() return {
 	} },
 	{ title = "Surena Caledon", note = "Surena Caledon (level 9) is inside the farmhouse at the Brackwell Pumpkin Patch, south-east Elwynn near the Redridge road. Morgan the Collector (level 10) and a warrior stand with her and join the fight; Morgan gouges and goes for your imp, so keep him Feared. Put your damage over time on Surena first, Fear the others, and loot her choker before you finish them: it stays yours even if you die after. She throws fireballs from range and is back three minutes after she dies. Have the quest before you kill her, or the choker does not drop.", goals = {
 		{ t = "kill", map = 1429, x = 71.01, y = 80.77, era = true, target = "Surena Caledon", optional = true },
-		{ t = "collect", quest = 1688, title = "Surena Caledon", map = 1429, x = 71.01, y = 80.77, era = true, count = 1, item = 6810, itemName = "Surena's Choker", oi = 1 },
+		{ t = "collect", quest = 1688, title = "Surena Caledon", map = 1429, x = 71.01, y = 80.77, era = true, count = 1, item = 6810, itemName = "Surena's Choker", oi = 1, src = "Surena Caledon", srcKind = "npc" },
 	} },
 	{ title = "The Binding", note = "Back to Gakin. He hands you the Bloodstone Choker. The circle is hard to find: take the stairs behind Gakin down; part way along the lowest corridor a side stair on the left leads into a room with a glowing purple circle in the middle. Stand on it and use the choker. The voidwalker (level 10, not elite) gets dangerous below 30% health: Curse of Agony, Corruption and Immolate with your imp on it, Fear when it gets close. If it beats you, use the choker again. Keep the choker: Gakin takes it back.", goals = {
 		{ t = "turnin", quest = 1688, title = "Surena Caledon", npc = "Gakin the Darkbinder", map = 1453, x = 39.22, y = 85.23 },
@@ -1241,12 +1241,12 @@ Waypost.RegisterSteps("class/warrior/fire-hardened-armor", function() return {
 		{ t = "accept", quest = 1701, title = "Fire Hardened Mail", npc = "Furen Longbeard", map = 1453, x = 64.62, y = 37.23, qlvl = 28 },
 	} },
 	{ title = "Scorched Spider Fangs", note = "You need 50 fangs. The Leech Stalkers and Cave Stalkers (level 21-22) crawl in the middle of the Wetlands, north of Dun Algaz; every one drops a fang. They poison; back in 5 minutes.", goals = {
-		{ t = "collect", quest = 1701, title = "Fire Hardened Mail", map = 1437, x = 52.65, y = 63.09, era = true, count = 50, item = 6838, itemName = "Scorched Spider Fang", oi = 1, mobLevel = 22, spots = "51.7,62.3;54.3,64.5;49.9,59.7;49.1,62.2;56.3,62" },
+		{ t = "collect", quest = 1701, title = "Fire Hardened Mail", map = 1437, x = 52.65, y = 63.09, era = true, count = 50, item = 6838, itemName = "Scorched Spider Fang", oi = 1, mobLevel = 22, src = "Leech Stalker, Cave Stalker", srcKind = "npc", spots = "51.7,62.3;54.3,64.5;49.9,59.7;49.1,62.2;56.3,62" },
 	} },
 	{ title = "Charred and Galvanized Horns", note = "The chimaeras live south-west of Sun Rock Retreat in the Charred Vale; the guide waits for level 26 first. You need 12 Charred Horns from the Fledgling (level 25-27) and Young Chimaeras (23-25), four kills in five, and the Galvanized Horn from the Chimaera Matriarch (28, the big one), also four in five. Only three Fledglings, two Young and one Matriarch live there, each back in 5 minutes, so expect to wait. Fledglings and the Matriarch spit Corrosive Poison, the Young cast Lightning Bolt. Alliance: fly to Stonetalon Peak and head south.", goals = {
 		{ t = "level", level = 26 },
-		{ t = "collect", quest = 1701, title = "Fire Hardened Mail", map = 1442, x = 32.99, y = 72.07, era = true, count = 12, item = 6839, itemName = "Charred Horn", oi = 2, mobLevel = 25, note = "Charred Horn, from the young chimaeras", spots = "32.1,72.7;34.7,70.9;36.3,65.5;29,65.5" },
-		{ t = "collect", quest = 1701, title = "Fire Hardened Mail", map = 1442, x = 33.64, y = 74.66, era = true, count = 1, item = 6840, itemName = "Galvanized Horn", oi = 3, note = "Galvanized Horn, from the Chimaera Matriarch" },
+		{ t = "collect", quest = 1701, title = "Fire Hardened Mail", map = 1442, x = 32.99, y = 72.07, era = true, count = 12, item = 6839, itemName = "Charred Horn", oi = 2, mobLevel = 25, note = "Charred Horn, from the young chimaeras", src = "Fledgling Chimaera, Young Chimaera", srcKind = "npc", spots = "32.1,72.7;34.7,70.9;36.3,65.5;29,65.5" },
+		{ t = "collect", quest = 1701, title = "Fire Hardened Mail", map = 1442, x = 33.64, y = 74.66, era = true, count = 1, item = 6840, itemName = "Galvanized Horn", oi = 3, note = "Galvanized Horn, from the Chimaera Matriarch", src = "Chimaera Matriarch", srcKind = "npc" },
 	} },
 	{ title = "Roogug in Razorfen Kraul", note = "Roogug is an elite quilboar (level 28) inside Razorfen Kraul, the dungeon at the south end of the Barrens; a five-player dungeon: needs a group of five, and his guards come with him. Inside take the left path at the first fork, cross the root bridge, go past the big empty cauldron: he is in a dead end on the right, with about ten elites on the way. He casts Lightning Bolt and calls Earth Rumblers. The vial always drops.", goals = {
 		{ t = "collect", quest = 1701, title = "Fire Hardened Mail", map = 1413, x = 42.9, y = 90.2, count = 1, item = 6841, itemName = "Vial of Phlogiston", oi = 4, group = true, note = "Vial of Phlogiston, from Roogug" },
@@ -1264,11 +1264,11 @@ Waypost.RegisterSteps("class/warrior/fire-hardened-armor", function() return {
 		{ t = "accept", quest = 1705, title = "Burning Blood", npc = "Grimand Elmore", map = 1453, x = 59.73, y = 33.78, qlvl = 28 },
 	} },
 	{ title = "Burning Blood", note = "The Nightbane worgen of Duskwood (Dark Runners, Vile Fangs, Shadow Weavers, Worgen and Tainted Ones, level 26-31) south and west of Darkshire drop the Burning Blood four kills in five. The Tainted Ones poison and howl; Vile Fangs cause Infected Wound.", only = { races = {"Human", "Skyborne"} }, goals = {
-		{ t = "collect", quest = 1705, title = "Burning Blood", map = 1431, x = 64.05, y = 58.91, era = true, count = 20, item = 6844, itemName = "Burning Blood", oi = 1, mobLevel = 29, note = "Burning Blood, from the Nightbane worgen", spots = "61.9,53.4;60.9,46.7;61.1,40.6;66.2,38.9;67,47.7" },
+		{ t = "collect", quest = 1705, title = "Burning Blood", map = 1431, x = 64.05, y = 58.91, era = true, count = 20, item = 6844, itemName = "Burning Blood", oi = 1, mobLevel = 29, note = "Burning Blood, from the Nightbane worgen", src = "Nightbane Dark Runner, Nightbane Vile Fang, Nightbane Shadow Weaver and others", srcKind = "npc", spots = "61.9,53.4;60.9,46.7;61.1,40.6;66.2,38.9;67,47.7" },
 	} },
 	{ title = "Gutspill", note = "Gutspill (level 32, not elite) carries the Burning Rock, four kills in five; the guide waits for level 30 first. He walks between the inside and the mouth of the Roland's Doom mine south-east of Darkshire, so wait at the entrance and pull him outside. He poisons and howls.", only = { races = {"Human", "Skyborne"} }, goals = {
 		{ t = "level", level = 30 },
-		{ t = "collect", quest = 1705, title = "Burning Blood", map = 1431, x = 73.89, y = 77.17, era = true, count = 1, item = 6845, itemName = "Burning Rock", oi = 2, note = "Burning Rock, from Gutspill" },
+		{ t = "collect", quest = 1705, title = "Burning Blood", map = 1431, x = 73.89, y = 77.17, era = true, count = 1, item = 6845, itemName = "Burning Rock", oi = 2, note = "Burning Rock, from Gutspill", src = "Gutspill", srcKind = "npc" },
 	} },
 	{ title = "Grimand's Armor", only = { races = {"Human", "Skyborne"} }, goals = {
 		{ t = "turnin", quest = 1705, title = "Burning Blood", npc = "Grimand Elmore", map = 1453, x = 59.73, y = 33.78 },
@@ -1280,7 +1280,7 @@ Waypost.RegisterSteps("class/warrior/fire-hardened-armor", function() return {
 		{ t = "accept", quest = 1710, title = "Sunscorched Shells", npc = "Mathiel", map = 1457, x = 59.51, y = 45.38, era = true, qlvl = 30 },
 	} },
 	{ title = "Sunscorched Shells", note = "The shells lie on the ground under the wyvern nests at Highperch in western Thousand Needles, deeper into the gorge. Only nine exist and each returns 3 minutes after you pick it, so you will wait; some shell-like things there cannot be looted. Highperch Wyverns (level 28-31) guard them and sometimes come several at once.", only = { races = {"NightElf"} }, goals = {
-		{ t = "collect", quest = 1710, title = "Sunscorched Shells", map = 1441, x = 12.05, y = 37.11, era = true, count = 20, item = 6849, itemName = "Sunscorched Shell", oi = 1, spots = "13.7,38;10.8,40.6;10.5,35.2;17.6,41.6" },
+		{ t = "collect", quest = 1710, title = "Sunscorched Shells", map = 1441, x = 12.05, y = 37.11, era = true, count = 20, item = 6849, itemName = "Sunscorched Shell", oi = 1, src = "Sunscorched Shell", srcKind = "object", spots = "13.7,38;10.8,40.6;10.5,35.2;17.6,41.6" },
 	} },
 	{ title = "Mathiel's Armor", only = { races = {"NightElf"} }, goals = {
 		{ t = "turnin", quest = 1710, title = "Sunscorched Shells", npc = "Mathiel", map = 1457, x = 59.51, y = 45.38, era = true },
@@ -1292,7 +1292,7 @@ Waypost.RegisterSteps("class/warrior/fire-hardened-armor", function() return {
 		{ t = "accept", quest = 1708, title = "Iron Coral", npc = "Klockmort Spannerspan", map = 1455, x = 67.92, y = 46.1, era = true, qlvl = 29 },
 	} },
 	{ title = "Iron Coral", note = "The Iron Coral grows on the sea floor just south of Menethil Harbor, by the murloc huts and a wrecked boat: eight there and two south-east of the harbor, each back in 3 minutes, so you will wait for respawns to reach 20. The murlocs can net you underwater: watch your breath, and a Draught of Water Breathing removes the risk.", only = { races = {"Dwarf", "Gnome"} }, goals = {
-		{ t = "collect", quest = 1708, title = "Iron Coral", map = 1437, x = 9.31, y = 69.14, era = true, count = 20, item = 6848, itemName = "Searing Coral", oi = 1, note = "Searing Coral, from Iron Coral", spots = "8.7,70.9;11.3,65.5;6.8,72.5;9.3,68.3;12.7,63.8" },
+		{ t = "collect", quest = 1708, title = "Iron Coral", map = 1437, x = 9.31, y = 69.14, era = true, count = 20, item = 6848, itemName = "Searing Coral", oi = 1, note = "Searing Coral, from Iron Coral", src = "Iron Coral", srcKind = "object", spots = "8.7,70.9;11.3,65.5;6.8,72.5;9.3,68.3;12.7,63.8" },
 	} },
 	{ title = "Klockmort's Creation", only = { races = {"Dwarf", "Gnome"} }, goals = {
 		{ t = "turnin", quest = 1708, title = "Iron Coral", npc = "Klockmort Spannerspan", map = 1455, x = 67.92, y = 46.1, era = true },
@@ -1308,7 +1308,7 @@ Waypost.RegisterSteps("class/warrior/haggards-weapons", function() return {
 	} },
 	{ title = "Zaal Stormshield", note = "Head north-west from Valanaar to the Shrine of Akir. Zaal Stormshield stands west of the shrine's approach, among the cult's Guardians, Spiritcallers and Blademasters: pull them one at a time before you take him. He drops the Skybreaker Bulwark.", only = { races = {"Skyborne"} }, goals = {
 		{ t = "kill", map = 2521, x = 56.66, y = 50.4, target = "Zaal Stormshield" },
-		{ t = "collect", quest = 94003, title = "The Skybreaker Bulwark", map = 2521, x = 56.66, y = 50.4, count = 1, item = 263993, itemName = "Skybreaker Bulwark", oi = 1, note = "Skybreaker Bulwark, from Zaal Stormshield" },
+		{ t = "collect", quest = 94003, title = "The Skybreaker Bulwark", map = 2521, x = 56.66, y = 50.4, count = 1, item = 263993, itemName = "Skybreaker Bulwark", oi = 1, note = "Skybreaker Bulwark, from Zaal Stormshield", src = "Zaal Stormshield", srcKind = "npc" },
 	} },
 	{ title = "The Skybreaker Bulwark", note = "Back to Seena in Valanaar. She teaches Defensive Stance and gives you the Stormforged Protector, a shield to use it with. Bartleby's road below still gives a weapon, once you reach Stormwind.", only = { races = {"Skyborne"} }, goals = {
 		{ t = "turnin", quest = 94003, title = "The Skybreaker Bulwark", npc = "Seena Skybreaker", map = 2521, x = 59.89, y = 72.87, note = "Seena Skybreaker: Defensive Stance" },
@@ -1322,7 +1322,7 @@ Waypost.RegisterSteps("class/warrior/haggards-weapons", function() return {
 		{ t = "accept", quest = 1678, title = "Vejrek", npc = "Muren Stormpike", map = 1455, x = 70.77, y = 90.27, era = true, qlvl = 11 },
 	} },
 	{ title = "Vejrek", note = "Vejrek (level 11, a lone troll) waits at his hut on a hill south of Frostmane Hold, near the mountains at the top of a short ramp, with no other trolls around; the hut at the front of Frostmane Hold is the wrong one. He fights in Defensive Stance and sunders your armor; Thunder Clap slows him. His head always drops; he returns about 8 minutes after dying.", only = { races = {"Dwarf", "Gnome"} }, goals = {
-		{ t = "collect", quest = 1678, title = "Vejrek", map = 1426, x = 27.83, y = 57.96, era = true, count = 1, item = 6799, itemName = "Vejrek's Head", oi = 1 },
+		{ t = "collect", quest = 1678, title = "Vejrek", map = 1426, x = 27.83, y = 57.96, era = true, count = 1, item = 6799, itemName = "Vejrek's Head", oi = 1, src = "Vejrek", srcKind = "npc" },
 	} },
 	{ title = "Tormus Deepforge", note = "Back to Muren for Defensive Stance, then to Tormus Deepforge at the Great Forge in the middle of Ironforge.", only = { races = {"Dwarf", "Gnome"} }, goals = {
 		{ t = "turnin", quest = 1678, title = "Vejrek", npc = "Muren Stormpike", map = 1455, x = 70.77, y = 90.27, era = true, note = "Muren Stormpike: Defensive Stance" },
@@ -1331,7 +1331,7 @@ Waypost.RegisterSteps("class/warrior/haggards-weapons", function() return {
 		{ t = "accept", quest = 1681, title = "Ironband's Compound", npc = "Tormus Deepforge", map = 1455, x = 48.64, y = 42.48, era = true, qlvl = 11 },
 	} },
 	{ title = "Ironband's Compound", note = "Ironband's Compound lies in eastern Dun Morogh, below Helm's Bed Lake on its south side. Dark Iron Spies (level 8-10) stand along the way, far enough apart to pull one at a time. Ironband's Strongbox is in the basement of the southernmost house; Captain Beld (level 11) stands by it and charges on sight. The box always holds the ore and refills 15 minutes after opening.", only = { races = {"Dwarf", "Gnome"} }, goals = {
-		{ t = "collect", quest = 1681, title = "Ironband's Compound", map = 1426, x = 77.96, y = 62.16, era = true, count = 1, item = 6800, itemName = "Umbral Ore", oi = 1, note = "Umbral Ore, from Ironband's Strongbox" },
+		{ t = "collect", quest = 1681, title = "Ironband's Compound", map = 1426, x = 77.96, y = 62.16, era = true, count = 1, item = 6800, itemName = "Umbral Ore", oi = 1, note = "Umbral Ore, from Ironband's Strongbox", src = "Ironband's Strongbox", srcKind = "object" },
 	} },
 	{ title = "Grey Iron Weapons", only = { races = {"Dwarf", "Gnome"} }, goals = {
 		{ t = "turnin", quest = 1681, title = "Ironband's Compound", npc = "Tormus Deepforge", map = 1455, x = 48.64, y = 42.48, era = true },
@@ -1347,15 +1347,15 @@ Waypost.RegisterSteps("class/warrior/haggards-weapons", function() return {
 		{ t = "accept", quest = 1683, title = "Vorlus Vilehoof", npc = "Elanaria", map = 1457, x = 57.3, y = 34.61, era = true, qlvl = 10 },
 	} },
 	{ title = "Vorlus Vilehoof", note = "Vorlus Vilehoof (level 10, a satyr) stands at a hidden moonwell up a hillside west of Dolanaar. The trail is hard to spot: it starts behind a Gnarlpine camp and climbs in switchbacks lined with lamp posts. The furbolgs below can come in groups. His horn always drops; he returns 5 minutes after dying.", only = { races = {"NightElf"} }, goals = {
-		{ t = "collect", quest = 1683, title = "Vorlus Vilehoof", map = 1438, x = 47.25, y = 63.6, era = true, count = 1, item = 6805, itemName = "Horn of Vorlus", oi = 1 },
+		{ t = "collect", quest = 1683, title = "Vorlus Vilehoof", map = 1438, x = 47.25, y = 63.6, era = true, count = 1, item = 6805, itemName = "Horn of Vorlus", oi = 1, src = "Vorlus Vilehoof", srcKind = "npc" },
 	} },
 	{ title = "The Shade of Elura", only = { races = {"NightElf"} }, goals = {
 		{ t = "turnin", quest = 1683, title = "Vorlus Vilehoof", npc = "Elanaria", map = 1457, x = 57.3, y = 34.61, era = true, note = "Elanaria: Defensive Stance" },
 		{ t = "accept", quest = 1686, title = "The Shade of Elura", npc = "Elanaria", map = 1457, x = 57.3, y = 34.61, era = true, qlvl = 10 },
 	} },
 	{ title = "Elunite under Auberdine", note = "Take the boat from Rut'theran Village to Auberdine. The wreck lies underwater just south of Auberdine's southern pier, where the Menethil boat docks. Open Crates of Elunite on the sea floor around the wreck, by a huge sunken turtle, toward the beach and under the pier until you have eight; every crate holds ore and comes back in 3-5 minutes. The grey Shade of Elura (level 11) drifts around the middle of the wreck and always drops the medallion: target it when you see it, so you can find it after surfacing for air. Watch your breath; Threshers can join in.", only = { races = {"NightElf"} }, goals = {
-		{ t = "collect", quest = 1686, title = "The Shade of Elura", map = 1439, x = 32.45, y = 44.52, era = true, count = 8, item = 6808, itemName = "Elunite Ore", oi = 1, note = "Elunite Ore, from Crates of Elunite", spots = "31.6,44;32.5,43;33.6,44.7;32.5,46.4" },
-		{ t = "collect", quest = 1686, title = "The Shade of Elura", map = 1439, x = 31.64, y = 44.86, era = true, count = 1, item = 6809, itemName = "Elura's Medallion", oi = 2, note = "Elura's Medallion, from the Shade of Elura" },
+		{ t = "collect", quest = 1686, title = "The Shade of Elura", map = 1439, x = 32.45, y = 44.52, era = true, count = 8, item = 6808, itemName = "Elunite Ore", oi = 1, note = "Elunite Ore, from Crates of Elunite", src = "Crate of Elunite", srcKind = "object", spots = "31.6,44;32.5,43;33.6,44.7;32.5,46.4" },
+		{ t = "collect", quest = 1686, title = "The Shade of Elura", map = 1439, x = 31.64, y = 44.86, era = true, count = 1, item = 6809, itemName = "Elura's Medallion", oi = 2, note = "Elura's Medallion, from the Shade of Elura", src = "Shade of Elura", srcKind = "npc" },
 	} },
 	{ title = "Smith Mathiel", note = "Back on the Warrior's Terrace: Elanaria hands you the Case of Elunite; Mathiel works on the far, south side of the same terrace, easy to miss.", only = { races = {"NightElf"} }, goals = {
 		{ t = "turnin", quest = 1686, title = "The Shade of Elura", npc = "Elanaria", map = 1457, x = 57.3, y = 34.61, era = true },
@@ -1384,8 +1384,8 @@ Waypost.RegisterSteps("class/warrior/haggards-weapons", function() return {
 		{ t = "accept", quest = 1667, title = "Dead-tooth Jack", npc = "Marshal Haggard", map = 1429, x = 84.61, y = 69.38, era = true, qlvl = 10 },
 	} },
 	{ title = "Dead-tooth Jack", note = "Dead-Tooth Jack (level 11) camps in the far south-east of Elwynn. A guard stands beside him and Defias and wolves are spread around the camp (now and then a rarer guard too): clear them one at a time, then kill Jack. He always drops Dead-tooth's Key; open Dead-tooth's Strongbox in the crates by him for Marshal Haggard's Badge. Jack returns 3 minutes after dying, the box 1 minute after opening.", when = {{ k = "turnedin", neg = true, q = 1679 }, { k = "turnedin", neg = true, q = 1684 }}, goals = {
-		{ t = "collect", map = 1429, x = 89.36, y = 79.03, era = true, item = 6783, itemName = "Dead-tooth's Key", note = "from Dead-Tooth Jack" },
-		{ t = "collect", quest = 1667, title = "Dead-tooth Jack", map = 1429, x = 89.33, y = 78.88, era = true, count = 1, item = 6782, itemName = "Marshal Haggard's Badge", oi = 1, note = "Marshal Haggard's Badge, from Dead-tooth's Strongbox" },
+		{ t = "collect", map = 1429, x = 89.36, y = 79.03, era = true, item = 6783, itemName = "Dead-tooth's Key", note = "from Dead-Tooth Jack", src = "Dead-Tooth Jack", srcKind = "npc" },
+		{ t = "collect", quest = 1667, title = "Dead-tooth Jack", map = 1429, x = 89.33, y = 78.88, era = true, count = 1, item = 6782, itemName = "Marshal Haggard's Badge", oi = 1, note = "Marshal Haggard's Badge, from Dead-tooth's Strongbox", src = "Dead-tooth's Strongbox", srcKind = "object" },
 	} },
 	{ title = "Back to Marshal Haggard", when = {{ k = "turnedin", neg = true, q = 1679 }, { k = "turnedin", neg = true, q = 1684 }}, goals = {
 		{ t = "turnin", quest = 1667, title = "Dead-tooth Jack", npc = "Marshal Haggard", map = 1429, x = 84.61, y = 69.38, era = true },
@@ -1492,8 +1492,8 @@ Waypost.RegisterSteps("collectibles/mounts/alliance/paladin-charger", function()
 		{ t = "accept", quest = 7642, title = "Collection of Goods", npc = "Grimand Elmore", map = 1453, x = 59.73, y = 33.78, qlvl = 60 },
 	} },
 	{ title = "Grimand's materials", note = "Runecloth drops from humanoids of level 50 and up (Everlook's Bruisers, the Scarlet Crusade in the Plaguelands, the Dire Maul ogres). Arthas' Tears is a Plaguelands herb (Herbalism 220), common around Chillwind Camp. An Arcanite Bar is an alchemist's transmute from a Thorium Bar and an Arcane Crystal, once every two days per alchemist: ask a guild alchemist early, or buy the bars. The Auction House sells all three.", goals = {
-		{ t = "collect", quest = 7642, title = "Collection of Goods", map = 1453, x = 61.2, y = 71.3, count = 40, item = 14047, itemName = "Runecloth", oi = 3, note = "Runecloth x40" },
-		{ t = "collect", quest = 7642, title = "Collection of Goods", map = 1423, x = 45.06, y = 45.59, count = 10, item = 8836, itemName = "Arthas' Tears", oi = 2, note = "Arthas' Tears x10", spots = "44.2,51.8;41.4,32.8;47.2,19.9;54.8,26.9;65.2,27.5" },
+		{ t = "collect", quest = 7642, title = "Collection of Goods", map = 1453, x = 61.2, y = 71.3, count = 40, item = 14047, itemName = "Runecloth", oi = 3, note = "Runecloth x40", src = "General Marcus Jonathan", srcKind = "npc" },
+		{ t = "collect", quest = 7642, title = "Collection of Goods", map = 1423, x = 45.06, y = 45.59, count = 10, item = 8836, itemName = "Arthas' Tears", oi = 2, note = "Arthas' Tears x10", src = "Arthas' Tears", srcKind = "object", spots = "44.2,51.8;41.4,32.8;47.2,19.9;54.8,26.9;65.2,27.5" },
 		{ t = "collect", quest = 7642, title = "Collection of Goods", map = 1453, x = 61.2, y = 71.3, count = 6, item = 12360, itemName = "Arcanite Bar", oi = 4, note = "Arcanite Bars x6: an alchemist, or the Trade District Auction House" },
 	} },
 	{ title = "Stratholme Holy Water", note = "Stratholme is a dungeon for a group of five at 58-60, at the north end of the Eastern Plaguelands. Stratholme Supply Crates along the streets of both halves hold the Holy Water, one to three each; they come back after three minutes. Some crates let out a swarm of plagued rats or maggots: be ready. The main gate (the Scarlet half) needs no key.", goals = {
@@ -1530,7 +1530,7 @@ Waypost.RegisterSteps("collectibles/mounts/alliance/paladin-charger", function()
 	} },
 	{ title = "Two diamonds", note = "An Azerothian Diamond comes from Thorium veins and obsidian, about one vein in a hundred; a Pristine Black Diamond drops rarely from elites of level 59 and up (Revanchion and Lord Blackwood about one kill in nine and one in a hundred). The Auction House is the usual source of both.", goals = {
 		{ t = "collect", quest = 7646, title = "The Divination Scryer", map = 1444, x = 54.39, y = 66.38, era = true, count = 1, item = 12800, itemName = "Azerothian Diamond", oi = 1, spots = "62.2,69.3;61.6,84.1;73.5,63.6;47.8,57.5;45.4,69.4" },
-		{ t = "collect", quest = 7646, title = "The Divination Scryer", map = 1424, x = 15.49, y = 82.46, era = true, count = 1, item = 18335, itemName = "Pristine Black Diamond", oi = 2, mobLevel = 60, spots = "15,82;16.9,83.8" },
+		{ t = "collect", quest = 7646, title = "The Divination Scryer", map = 1424, x = 15.49, y = 82.46, era = true, count = 1, item = 18335, itemName = "Pristine Black Diamond", oi = 2, mobLevel = 60, src = "Cursed Justicar", srcKind = "npc", spots = "15,82;16.9,83.8" },
 	} },
 	{ title = "Lord Grayson Shadowbreaker", note = "Lord Grayson hands you Lord Grayson's Satchel: open it for the Divination Scryer and the Blessed Arcanite Barding. Keep both.", goals = {
 		{ t = "turnin", quest = 7646, title = "The Divination Scryer", npc = "Lord Grayson Shadowbreaker", map = 1453, x = 48.43, y = 50.22 },
@@ -1703,7 +1703,7 @@ Waypost.RegisterSteps("collectibles/pets/chicken-egg", function() return {
 	{ title = "CLUCK!", note = "Target one of the chickens around Saldean's farm and type /chicken at it, again and again, until it offers CLUCK!; this can take several minutes. Then /cheer at a chicken until it turns friendly (green) and hand in the feed; right-clicking a chicken before it is friendly attacks it. The chicken lays an egg on the ground: loot it for your Chicken Egg.", goals = {
 		{ t = "accept", quest = 3861, title = "CLUCK!", npc = "Chicken", map = 1436, x = 56.1, y = 30, era = true, qlvl = 1 },
 		{ t = "turnin", quest = 3861, title = "CLUCK!", npc = "Chicken", map = 1436, x = 56.1, y = 30, era = true },
-		{ t = "collect", map = 1436, x = 56.1, y = 30, era = true, item = 11110, itemName = "Chicken Egg", note = "Loot the Farm Chicken Egg the chicken lays", spots = "56.1,30;53.7,32.7;52.2,23.8;50.7,21.8;45.9,34.4" },
+		{ t = "collect", map = 1436, x = 56.1, y = 30, era = true, item = 11110, itemName = "Chicken Egg", note = "Loot the Farm Chicken Egg the chicken lays", src = "Harvest Watcher", srcKind = "npc", spots = "56.1,30;53.7,32.7;52.2,23.8;50.7,21.8;45.9,34.4" },
 	} },
 } end)
 
@@ -1755,9 +1755,9 @@ Waypost.RegisterSteps("reputation/darnassus", function() return {
 	{ title = "Shadowglen: the glade and the spider den", note = "The nightsabers and boars roam the glade; the grells around Aldrassil drop the Fel Moss; the totems stand in the furbolg camp north-west of the tree; the Webwood spiders live in the cave north of the glade. Iverron waits outside that cave.", when = {{ k = "done", label = "dn-shadowglen" }}, goals = {
 		{ t = "kill", quest = 456, title = "The Balance of Nature", map = 1438, x = 60.3, y = 45.99, era = true, count = 7, target = "Young Nightsaber", oi = 1, mobLevel = 1, spots = "61.3,44.9;58.5,46.1;57.2,44.6;62.4,42.1;61.5,40.1" },
 		{ t = "kill", quest = 456, title = "The Balance of Nature", map = 1438, x = 60.61, y = 46.26, era = true, count = 4, target = "Young Thistle Boar", oi = 2, mobLevel = 2, spots = "60.9,46;59,44.7;61.7,42.6;57.1,45;55.7,42.4" },
-		{ t = "collect", quest = 459, title = "The Woodland Protector", map = 1438, x = 56.2, y = 46.25, era = true, count = 8, item = 3297, itemName = "Fel Moss", oi = 1, mobLevel = 4, spots = "55.9,45.9;54.6,44.1;55.8,41.6;56.2,38.5;54.4,39.1" },
+		{ t = "collect", quest = 459, title = "The Woodland Protector", map = 1438, x = 56.2, y = 46.25, era = true, count = 8, item = 3297, itemName = "Fel Moss", oi = 1, mobLevel = 4, src = "Grell, Grellkin", srcKind = "npc", spots = "55.9,45.9;54.6,44.1;55.8,41.6;56.2,38.5;54.4,39.1" },
 		{ t = "collect", quest = 97977, title = "Nature's Call", map = 1438, x = 56, y = 46.1, era = true, count = 4, item = 279082, itemName = "Gnarlpine Totem", oi = 1, spots = "55.8,45.7;54.9,44;54.4,39.3;56.2,39.4;55.5,37.6" },
-		{ t = "collect", quest = 916, title = "Webwood Venom", map = 1438, x = 56.57, y = 34.34, era = true, count = 10, item = 5166, itemName = "Webwood Venom Sac", oi = 1, mobLevel = 4, spots = "57.1,33;56.7,29.9;56.2,27.3;57.7,27.1;56.4,25.4" },
+		{ t = "collect", quest = 916, title = "Webwood Venom", map = 1438, x = 56.57, y = 34.34, era = true, count = 10, item = 5166, itemName = "Webwood Venom Sac", oi = 1, mobLevel = 4, src = "Webwood Spider", srcKind = "npc", spots = "57.1,33;56.7,29.9;56.2,27.3;57.7,27.1;56.4,25.4" },
 		{ t = "turnin", quest = 4495, title = "A Good Friend", npc = "Iverron", map = 1438, x = 54.59, y = 32.99, era = true },
 		{ t = "accept", quest = 3519, title = "A Friend in Need", npc = "Iverron", map = 1438, x = 54.59, y = 32.99, era = true, qlvl = 4 },
 	} },
@@ -1774,10 +1774,10 @@ Waypost.RegisterSteps("reputation/darnassus", function() return {
 	{ title = "Shadowglen: the egg and the antidote", note = "The Webwood Egg lies at the back of the spider cave; the mushrooms grow by the trees, the lilies by the pools, and the Webwood Ichor drops from the Webwood Lurkers.", when = {{ k = "done", label = "dn-shadowglen" }}, goals = {
 		{ t = "kill", quest = 457, title = "The Balance of Nature", map = 1438, x = 61.25, y = 39.08, era = true, count = 7, target = "Mangy Nightsaber", oi = 1, mobLevel = 2, spots = "62.4,38;62.4,35.4;60.1,35.3;59.2,31.5" },
 		{ t = "kill", quest = 457, title = "The Balance of Nature", map = 1438, x = 61.83, y = 38.65, era = true, count = 7, target = "Thistle Boar", oi = 2, mobLevel = 3, spots = "59.9,37.9;61.7,35.4;60,34.5;57.7,35.3;56,37.9" },
-		{ t = "collect", quest = 917, title = "Webwood Egg", map = 1438, x = 57.01, y = 26.49, era = true, count = 1, item = 5167, itemName = "Webwood Egg", oi = 1 },
-		{ t = "collect", quest = 3521, title = "Iverron's Antidote", map = 1438, x = 60.9, y = 30.22, era = true, count = 7, item = 10639, itemName = "Hyacinth Mushroom", oi = 1, spots = "60.9,30.2;59.3,34.5;57.6,36.5;55.6,36.7;55.1,41.6" },
-		{ t = "collect", quest = 3521, title = "Iverron's Antidote", map = 1438, x = 58.08, y = 35.6, era = true, count = 4, item = 10641, itemName = "Moonpetal Lily", oi = 2, spots = "58,36.3;58.5,38;57,38.3" },
-		{ t = "collect", quest = 3521, title = "Iverron's Antidote", map = 1438, x = 57.59, y = 33.87, era = true, count = 1, item = 10640, itemName = "Webwood Ichor", oi = 3, mobLevel = 4, spots = "57.1,33;56.7,29.9;57.7,27.1;56.2,27.3;56.4,25.4" },
+		{ t = "collect", quest = 917, title = "Webwood Egg", map = 1438, x = 57.01, y = 26.49, era = true, count = 1, item = 5167, itemName = "Webwood Egg", oi = 1, src = "Webwood Eggs", srcKind = "object" },
+		{ t = "collect", quest = 3521, title = "Iverron's Antidote", map = 1438, x = 60.9, y = 30.22, era = true, count = 7, item = 10639, itemName = "Hyacinth Mushroom", oi = 1, src = "Grell, Grellkin", srcKind = "npc", spots = "60.9,30.2;59.3,34.5;57.6,36.5;55.6,36.7;55.1,41.6" },
+		{ t = "collect", quest = 3521, title = "Iverron's Antidote", map = 1438, x = 58.08, y = 35.6, era = true, count = 4, item = 10641, itemName = "Moonpetal Lily", oi = 2, src = "Moonpetal Lily", srcKind = "object", spots = "58,36.3;58.5,38;57,38.3" },
+		{ t = "collect", quest = 3521, title = "Iverron's Antidote", map = 1438, x = 57.59, y = 33.87, era = true, count = 1, item = 10640, itemName = "Webwood Ichor", oi = 3, mobLevel = 4, src = "Webwood Spider", srcKind = "npc", spots = "57.1,33;56.7,29.9;57.7,27.1;56.2,27.3;56.4,25.4" },
 	} },
 	{ title = "Shadowglen: last hand-in", when = {{ k = "done", label = "dn-shadowglen" }}, goals = {
 		{ t = "turnin", quest = 457, title = "The Balance of Nature", npc = "Conservator Ilthalaine", map = 1438, x = 58.69, y = 44.27, era = true },
@@ -1803,11 +1803,11 @@ Waypost.RegisterSteps("reputation/darnassus", function() return {
 		{ t = "accept", quest = 476, title = "Gnarlpine Corruption", npc = "Gaerolas Talvethren", map = 1438, x = 66.26, y = 58.52, era = true, qlvl = 6 },
 	} },
 	{ title = "Dolanaar: the woods around the village", note = "The timberlings by the lake drop seeds and sprouts; the Gnarlpine Ambushers lurk on the road west to Darnassus; Lord Melenas waits deep in Fel Rock, north-west of the village; the dreamcatcher lies in the furbolg camp east of the village, by Gaerolas; the Nightsabers west of the village carry the pelts.", when = {{ k = "done", label = "dn-dolanaar" }}, goals = {
-		{ t = "collect", quest = 918, title = "Timberling Seeds", map = 1438, x = 61.76, y = 66.06, era = true, count = 8, item = 5168, itemName = "Timberling Seed", oi = 1, mobLevel = 6, spots = "61.8,67.3;59.5,72.2;57.4,65;55.2,67;52.6,69.6" },
-		{ t = "collect", quest = 919, title = "Timberling Sprouts", map = 1438, x = 61.15, y = 65.9, era = true, count = 12, item = 5169, itemName = "Timberling Sprout", oi = 1, spots = "61.2,65.9;60.2,64.2;57.7,64.9;55.5,66.4;55.1,69.9" },
-		{ t = "collect", quest = 2438, title = "The Emerald Dreamcatcher", map = 1438, x = 68.02, y = 59.65, era = true, count = 1, item = 8048, itemName = "Emerald Dreamcatcher", oi = 1 },
-		{ t = "collect", quest = 932, title = "Twisted Hatred", map = 1438, x = 52.82, y = 50.21, era = true, count = 1, item = 5221, itemName = "Melenas' Head", oi = 1, mobLevel = 8, spots = "52.8,50.2;51.3,50.5" },
-		{ t = "collect", quest = 87288, title = "Soft Saber Pelts", map = 1438, x = 49.73, y = 52.44, era = true, count = 6, item = 280087, itemName = "Soft Nightsaber Pelt", oi = 1, mobLevel = 6, spots = "49.7,52.4;49.8,55.6;53.6,55.6;57.6,54.7;58.7,58.3" },
+		{ t = "collect", quest = 918, title = "Timberling Seeds", map = 1438, x = 61.76, y = 66.06, era = true, count = 8, item = 5168, itemName = "Timberling Seed", oi = 1, mobLevel = 6, src = "Timberling, Timberling Bark Ripper, Timberling Trampler and others", srcKind = "npc", spots = "61.8,67.3;59.5,72.2;57.4,65;55.2,67;52.6,69.6" },
+		{ t = "collect", quest = 919, title = "Timberling Sprouts", map = 1438, x = 61.15, y = 65.9, era = true, count = 12, item = 5169, itemName = "Timberling Sprout", oi = 1, src = "Timberling Sprout", srcKind = "object", spots = "61.2,65.9;60.2,64.2;57.7,64.9;55.5,66.4;55.1,69.9" },
+		{ t = "collect", quest = 2438, title = "The Emerald Dreamcatcher", map = 1438, x = 68.02, y = 59.65, era = true, count = 1, item = 8048, itemName = "Emerald Dreamcatcher", oi = 1, src = "Tallonkai's Dresser", srcKind = "object" },
+		{ t = "collect", quest = 932, title = "Twisted Hatred", map = 1438, x = 52.82, y = 50.21, era = true, count = 1, item = 5221, itemName = "Melenas' Head", oi = 1, mobLevel = 8, src = "Lord Melenas", srcKind = "npc", spots = "52.8,50.2;51.3,50.5" },
+		{ t = "collect", quest = 87288, title = "Soft Saber Pelts", map = 1438, x = 49.73, y = 52.44, era = true, count = 6, item = 280087, itemName = "Soft Nightsaber Pelt", oi = 1, mobLevel = 6, src = "Nightsaber", srcKind = "npc", spots = "49.7,52.4;49.8,55.6;53.6,55.6;57.6,54.7;58.7,58.3" },
 		{ t = "kill", quest = 487, title = "The Road to Darnassus", map = 1438, x = 48.29, y = 53.55, era = true, count = 6, target = "Gnarlpine Ambusher", oi = 1, mobLevel = 7, spots = "48.2,53.6;46.3,52.1;46,53.8" },
 	} },
 	{ title = "Dolanaar: first hand-in", when = {{ k = "done", label = "dn-dolanaar" }}, goals = {
@@ -1825,10 +1825,10 @@ Waypost.RegisterSteps("reputation/darnassus", function() return {
 		{ t = "goto", map = 1438, x = 44.3, y = 57.9, text = "Ban'ethil Barrow Den" },
 	} },
 	{ title = "Dolanaar: the relics and Ferocitas", note = "The four relics of Wakening lie in the Ban'ethil Barrow Den, south-west of Dolanaar; Ferocitas and the Gnarlpine Mystics camp east of the village.", when = {{ k = "done", label = "dn-dolanaar" }}, goals = {
-		{ t = "collect", quest = 483, title = "The Relics of Wakening", map = 1438, x = 45.65, y = 57.44, era = true, count = 1, item = 3405, itemName = "Raven Claw Talisman", oi = 1 },
-		{ t = "collect", quest = 483, title = "The Relics of Wakening", map = 1438, x = 43.7, y = 61.22, era = true, count = 1, item = 3406, itemName = "Black Feather Quill", oi = 2 },
-		{ t = "collect", quest = 483, title = "The Relics of Wakening", map = 1438, x = 44.7, y = 62.44, era = true, count = 1, item = 3407, itemName = "Sapphire of Sky", oi = 3 },
-		{ t = "collect", quest = 483, title = "The Relics of Wakening", map = 1438, x = 44.4, y = 60.66, era = true, count = 1, item = 3408, itemName = "Rune of Nesting", oi = 4 },
+		{ t = "collect", quest = 483, title = "The Relics of Wakening", map = 1438, x = 45.65, y = 57.44, era = true, count = 1, item = 3405, itemName = "Raven Claw Talisman", oi = 1, src = "Chest of the Raven Claw", srcKind = "object" },
+		{ t = "collect", quest = 483, title = "The Relics of Wakening", map = 1438, x = 43.7, y = 61.22, era = true, count = 1, item = 3406, itemName = "Black Feather Quill", oi = 2, src = "Chest of the Black Feather", srcKind = "object" },
+		{ t = "collect", quest = 483, title = "The Relics of Wakening", map = 1438, x = 44.7, y = 62.44, era = true, count = 1, item = 3407, itemName = "Sapphire of Sky", oi = 3, src = "Chest of the Sky", srcKind = "object" },
+		{ t = "collect", quest = 483, title = "The Relics of Wakening", map = 1438, x = 44.4, y = 60.66, era = true, count = 1, item = 3408, itemName = "Rune of Nesting", oi = 4, src = "Chest of Nesting", srcKind = "object" },
 		{ t = "kill", quest = 2459, title = "Ferocitas the Dream Eater", map = 1438, x = 68.27, y = 52.18, era = true, count = 7, target = "Gnarlpine Mystic", oi = 1, mobLevel = 7, spots = "68.8,52.5;69.6,55.3" },
 		{ t = "collect", quest = 2459, title = "Ferocitas the Dream Eater", map = 1438, x = 69.4, y = 53.4, era = true, count = 1, item = 8050, itemName = "Tallonkai's Jewel", oi = 2, note = "Tallonkai's Jewel, from Ferocitas the Dream Eater" },
 		{ t = "turnin", quest = 483, title = "The Relics of Wakening", npc = "Athridas Bearmantle", map = 1438, x = 55.96, y = 57.27, era = true },
@@ -1851,12 +1851,12 @@ Waypost.RegisterSteps("reputation/darnassus", function() return {
 	{ title = "Auberdine: the coast and the woods", note = "The furbolg camp south of town counts for How Big a Threat; the Rabid Thistle Bears roam the woods south of town; the Highborne ghosts of the Ruins of Ameth'Aran, south-east of town, carry the relics, and Anaya's ghost walks there too; the bones lie on the beach south of town; the mushrooms grow in the Cliffspring Falls cave to the north-east.", when = {{ k = "done", label = "dn-auberdine" }}, goals = {
 		{ t = "complete", quest = 984, title = "How Big a Threat?", objs = {"Find a corrupt furbolg camp"} },
 		{ t = "kill", quest = 2118, title = "Plagued Lands", map = 1439, x = 38.21, y = 52.59, era = true, count = 1, target = "Rabid Thistle Bear", oi = 1, mobLevel = 14, note = "Rabid Thistle Bear: use Tharnariun's Hope on it and lead it back to Tharnariun", text = "Capture a Rabid Thistle Bear", spots = "38.2,52.6;39.1,60.8;41.8,65.8;45,66.8;38.3,69.3" },
-		{ t = "collect", quest = 958, title = "Tools of the Highborne", map = 1439, x = 41.91, y = 57.32, era = true, count = 7, item = 5360, itemName = "Highborne Relic", oi = 1, mobLevel = 13, spots = "42.2,58.5;43.3,58.5;43.5,60.3;41.9,61.5;43.8,61.6" },
+		{ t = "collect", quest = 958, title = "Tools of the Highborne", map = 1439, x = 41.91, y = 57.32, era = true, count = 7, item = 5360, itemName = "Highborne Relic", oi = 1, mobLevel = 13, src = "Cursed Highborne, Writhing Highborne, Wailing Highborne", srcKind = "npc", spots = "42.2,58.5;43.3,58.5;43.5,60.3;41.9,61.5;43.8,61.6" },
 		{ t = "complete", quest = 954, title = "Bashal'Aran", map = 1439, x = 44.28, y = 36.37, era = true, note = "the blue aura in the ruins of Bashal'Aran", objs = {"Find the source of the strange blue aura in the ruins of Bashal'Aran."} },
-		{ t = "collect", quest = 3524, title = "Washed Ashore", map = 1439, x = 36.37, y = 50.92, era = true, count = 1, item = 12242, itemName = "Sea Creature Bones", oi = 1 },
-		{ t = "collect", quest = 947, title = "Cave Mushrooms", map = 1439, x = 55.01, y = 36.81, era = true, count = 5, item = 5271, itemName = "Scaber Stalk", oi = 1, spots = "55.3,36;55.2,34.1;56.7,34.5" },
-		{ t = "collect", quest = 947, title = "Cave Mushrooms", map = 1439, x = 55.45, y = 36.25, era = true, count = 1, item = 5270, itemName = "Death Cap", oi = 2, spots = "55.5,36.1;56.3,35.1" },
-		{ t = "collect", quest = 963, title = "For Love Eternal", map = 1439, x = 41.81, y = 60.73, era = true, count = 1, item = 5382, itemName = "Anaya's Pendant", oi = 1 },
+		{ t = "collect", quest = 3524, title = "Washed Ashore", map = 1439, x = 36.37, y = 50.92, era = true, count = 1, item = 12242, itemName = "Sea Creature Bones", oi = 1, src = "Beached Sea Creature", srcKind = "object" },
+		{ t = "collect", quest = 947, title = "Cave Mushrooms", map = 1439, x = 55.01, y = 36.81, era = true, count = 5, item = 5271, itemName = "Scaber Stalk", oi = 1, src = "Scaber Stalk", srcKind = "object", spots = "55.3,36;55.2,34.1;56.7,34.5" },
+		{ t = "collect", quest = 947, title = "Cave Mushrooms", map = 1439, x = 55.45, y = 36.25, era = true, count = 1, item = 5270, itemName = "Death Cap", oi = 2, src = "Death Cap", srcKind = "object", spots = "55.5,36.1;56.3,35.1" },
+		{ t = "collect", quest = 963, title = "For Love Eternal", map = 1439, x = 41.81, y = 60.73, era = true, count = 1, item = 5382, itemName = "Anaya's Pendant", oi = 1, src = "Anaya Dawnrunner", srcKind = "npc" },
 	} },
 	{ title = "Auberdine: first hand-in", when = {{ k = "done", label = "dn-auberdine" }}, goals = {
 		{ t = "turnin", quest = 984, title = "How Big a Threat?", npc = "Terenthis", map = 1439, x = 39.37, y = 43.48, era = true },
@@ -1875,8 +1875,8 @@ Waypost.RegisterSteps("reputation/darnassus", function() return {
 		{ t = "kill", quest = 985, title = "How Big a Threat?", map = 1439, x = 39.34, y = 52.24, era = true, count = 8, target = "Blackwood Pathfinder", oi = 1, mobLevel = 13, spots = "39.5,53.4;39.7,56.3" },
 		{ t = "kill", quest = 985, title = "How Big a Threat?", map = 1439, x = 39.06, y = 52.63, era = true, count = 5, target = "Blackwood Windtalker", oi = 2, mobLevel = 14, spots = "39.7,53.6;39.8,56.1" },
 		{ t = "kill", quest = 2138, title = "Cleansing of the Infected", map = 1439, x = 38.21, y = 52.59, era = true, count = 20, target = "Rabid Thistle Bear", oi = 1, mobLevel = 14, spots = "38.2,52.6;39.1,60.8;41.8,65.8;45,66.8;38.3,69.3" },
-		{ t = "collect", quest = 955, title = "Bashal'Aran", map = 1439, x = 44.87, y = 39.71, era = true, count = 8, item = 5336, itemName = "Grell Earring", oi = 1, mobLevel = 12, spots = "44.7,38.5;46,39.3;45.2,36.5;46.9,37.8;47.6,36.7" },
-		{ t = "collect", quest = 4681, title = "Washed Ashore", map = 1439, x = 31.82, y = 46.31, era = true, count = 1, item = 12289, itemName = "Sea Turtle Remains", oi = 1 },
+		{ t = "collect", quest = 955, title = "Bashal'Aran", map = 1439, x = 44.87, y = 39.71, era = true, count = 8, item = 5336, itemName = "Grell Earring", oi = 1, mobLevel = 12, src = "Vile Sprite, Wild Grell", srcKind = "npc", spots = "44.7,38.5;46,39.3;45.2,36.5;46.9,37.8;47.6,36.7" },
+		{ t = "collect", quest = 4681, title = "Washed Ashore", map = 1439, x = 31.82, y = 46.31, era = true, count = 1, item = 12289, itemName = "Sea Turtle Remains", oi = 1, src = "Skeletal Sea Turtle", srcKind = "object" },
 		{ t = "turnin", quest = 955, title = "Bashal'Aran", npc = "Asterion", map = 1439, x = 44.17, y = 36.29, era = true },
 		{ t = "accept", quest = 956, title = "Bashal'Aran", npc = "Asterion", map = 1439, x = 44.17, y = 36.29, era = true, qlvl = 13 },
 	} },
@@ -1888,13 +1888,13 @@ Waypost.RegisterSteps("reputation/darnassus", function() return {
 		{ t = "turnin", quest = 4681, title = "Washed Ashore", npc = "Gwennyth Bly'Leggonde", map = 1439, x = 36.62, y = 45.59, era = true },
 	} },
 	{ title = "Auberdine: the seal, the Den Mother and the pelts", note = "The Ancient Moonstone Seal drops from the satyrs of Bashal'Aran; destroy the seal at the flame there. The Den Mother lairs north-east of Bashal'Aran; the Moonstalker Sires and Matriarchs roam the south of Darkshore.", when = {{ k = "done", label = "dn-auberdine" }}, goals = {
-		{ t = "collect", quest = 956, title = "Bashal'Aran", map = 1439, x = 45.4, y = 39.73, era = true, count = 1, item = 5338, itemName = "Ancient Moonstone Seal", oi = 1, mobLevel = 13, spots = "45.4,39.7;46.6,39.2;45.5,36.5;47.6,37.1" },
+		{ t = "collect", quest = 956, title = "Bashal'Aran", map = 1439, x = 45.4, y = 39.73, era = true, count = 1, item = 5338, itemName = "Ancient Moonstone Seal", oi = 1, mobLevel = 13, src = "Deth'ryll Satyr", srcKind = "npc", spots = "45.4,39.7;46.6,39.2;45.5,36.5;47.6,37.1" },
 		{ t = "turnin", quest = 956, title = "Bashal'Aran", npc = "Asterion", map = 1439, x = 44.17, y = 36.29, era = true },
 		{ t = "accept", quest = 957, title = "Bashal'Aran", npc = "Asterion", map = 1439, x = 44.17, y = 36.29, era = true, qlvl = 13 },
 		{ t = "interact", quest = 957, title = "Bashal'Aran", npc = "Ancient Flame", map = 1439, x = 42.37, y = 61.82, era = true, oi = 1, note = "the seal at the ancient flame" },
 		{ t = "turnin", quest = 957, title = "Bashal'Aran", npc = "Asterion", map = 1439, x = 44.17, y = 36.29, era = true },
 		{ t = "kill", quest = 2139, title = "Tharnariun's Hope", map = 1439, x = 51.48, y = 38.26, era = true, count = 1, target = "Den Mother", oi = 1 },
-		{ t = "collect", quest = 986, title = "A Lost Master", map = 1439, x = 60.07, y = 13.37, era = true, count = 5, item = 5386, itemName = "Fine Moonstalker Pelt", oi = 1, mobLevel = 18, spots = "60.7,12.3;62.7,7;39.8,70.7;38.3,77.2;36.9,83" },
+		{ t = "collect", quest = 986, title = "A Lost Master", map = 1439, x = 60.07, y = 13.37, era = true, count = 5, item = 5386, itemName = "Fine Moonstalker Pelt", oi = 1, mobLevel = 18, src = "Moonstalker Sire, Moonstalker Matriarch", srcKind = "npc", spots = "60.7,12.3;62.7,7;39.8,70.7;38.3,77.2;36.9,83" },
 		{ t = "turnin", quest = 2139, title = "Tharnariun's Hope", npc = "Tharnariun Treetender", map = 1439, x = 38.84, y = 43.42, era = true },
 		{ t = "turnin", quest = 986, title = "A Lost Master", npc = "Terenthis", map = 1439, x = 39.37, y = 43.48, era = true },
 	} },
@@ -1940,7 +1940,7 @@ Waypost.RegisterSteps("reputation/darnassus", function() return {
 		{ t = "accept", quest = 3764, title = "Un'Goro Soil", npc = "Arch Druid Fandral Staghelm", map = 1457, x = 34.81, y = 9.26, era = true, qlvl = 50, note = "Un'Goro Soil, +100" },
 	} },
 	{ title = "Un'Goro Crater: Un'Goro Soil", note = "Dig Un'Goro Soil from the dirt mounds all over the crater; most of the crater's beasts and the Gorishi silithids drop it too, about one kill in three. Take far more than 20: every pouch use takes 2, about 18 for each 10 Morrowgrain.", when = {{ k = "done", label = "dn-morrowgrain" }}, goals = {
-		{ t = "collect", quest = 3764, title = "Un'Goro Soil", map = 1449, x = 46.7, y = 52.71, era = true, count = 20, item = 11018, itemName = "Un'Goro Soil", oi = 1, spots = "45.9,53.7;35.2,40.8;30,56.8;31.7,77.5;50.5,90.1" },
+		{ t = "collect", quest = 3764, title = "Un'Goro Soil", map = 1449, x = 46.7, y = 52.71, era = true, count = 20, item = 11018, itemName = "Un'Goro Soil", oi = 1, src = "Gorishi Hive Guard, Gorishi Worker, Gorishi Stinger and others", srcKind = "npc", spots = "45.9,53.7;35.2,40.8;30,56.8;31.7,77.5;50.5,90.1" },
 	} },
 	{ title = "Darnassus: Morrowgrain Research", note = "Jenal, beside Fandral in the Cenarion Enclave, takes the soil. Mathrengyl Bearwalker sells the Evergreen Pouch and Packets of Tharlendris Seeds. With a seed packet and 2 Un'Goro Soil in your bags, use the pouch to grow an Evergreen Herb Casing and open it: about one casing in three holds Morrowgrain (1 to 5), the rest other herbs. The pouch works once every 10 minutes, so use it whenever it is ready while you do other things.", when = {{ k = "done", label = "dn-morrowgrain" }}, goals = {
 		{ t = "turnin", quest = 3764, title = "Un'Goro Soil", npc = "Jenal", map = 1457, x = 31.49, y = 8.23, era = true },
@@ -1997,10 +1997,10 @@ Waypost.RegisterSteps("reputation/gnomeregan-exiles", function() return {
 		{ t = "accept", quest = 2160, title = "Supplies to Tannok", npc = "Hands Springsprocket", map = 1426, x = 33.85, y = 72.24, era = true, qlvl = 5 },
 	} },
 	{ title = "Coldridge: wolves, troggs and Felix's things", note = "The wolves roam the valley floor; the troggs dig in the camps east of Anvilmar; Felix's box, chest and bucket lie in the trogg camps.", when = {{ k = "done", label = "ge-coldridge" }}, goals = {
-		{ t = "collect", quest = 179, title = "Dwarven Outfitters", map = 1426, x = 32.28, y = 70.8, era = true, count = 8, item = 750, itemName = "Tough Wolf Meat", oi = 1, mobLevel = 2, spots = "31.6,70;30.5,73.7;29.9,75;28.7,73.4;26.7,70.7" },
-		{ t = "collect", quest = 3361, title = "A Refugee's Quandary", map = 1426, x = 20.88, y = 76.07, era = true, count = 1, item = 10438, itemName = "Felix's Box", oi = 1 },
-		{ t = "collect", quest = 3361, title = "A Refugee's Quandary", map = 1426, x = 22.78, y = 80, era = true, count = 1, item = 16313, itemName = "Felix's Chest", oi = 2 },
-		{ t = "collect", quest = 3361, title = "A Refugee's Quandary", map = 1426, x = 26.33, y = 79.28, era = true, count = 1, item = 16314, itemName = "Felix's Bucket of Bolts", oi = 3 },
+		{ t = "collect", quest = 179, title = "Dwarven Outfitters", map = 1426, x = 32.28, y = 70.8, era = true, count = 8, item = 750, itemName = "Tough Wolf Meat", oi = 1, mobLevel = 2, src = "Ragged Young Wolf, Ragged Timber Wolf", srcKind = "npc", spots = "31.6,70;30.5,73.7;29.9,75;28.7,73.4;26.7,70.7" },
+		{ t = "collect", quest = 3361, title = "A Refugee's Quandary", map = 1426, x = 20.88, y = 76.07, era = true, count = 1, item = 10438, itemName = "Felix's Box", oi = 1, src = "Felix's Box", srcKind = "object" },
+		{ t = "collect", quest = 3361, title = "A Refugee's Quandary", map = 1426, x = 22.78, y = 80, era = true, count = 1, item = 16313, itemName = "Felix's Chest", oi = 2, src = "Felix's Chest", srcKind = "object" },
+		{ t = "collect", quest = 3361, title = "A Refugee's Quandary", map = 1426, x = 26.33, y = 79.28, era = true, count = 1, item = 16314, itemName = "Felix's Bucket of Bolts", oi = 3, src = "Felix's Bucket of Bolts", srcKind = "object" },
 	} },
 	{ title = "Coldridge: Anvilmar and Talin", when = {{ k = "done", label = "ge-coldridge" }}, goals = {
 		{ t = "turnin", quest = 179, title = "Dwarven Outfitters", npc = "Sten Stoutarm", map = 1426, x = 29.93, y = 71.2, era = true },
@@ -2022,7 +2022,7 @@ Waypost.RegisterSteps("reputation/gnomeregan-exiles", function() return {
 		{ t = "kill", quest = 182, title = "The Troll Cave", map = 1426, x = 25.86, y = 78.26, era = true, count = 14, target = "Frostmane Troll Whelp", oi = 1, mobLevel = 4, spots = "26.7,79.4;28.5,80.4;28.7,82.4;30.1,80.4;22.8,79.5" },
 		{ t = "turnin", quest = 182, title = "The Troll Cave", npc = "Grelin Whitebeard", map = 1426, x = 25.08, y = 75.71, era = true },
 		{ t = "accept", quest = 218, title = "The Stolen Journal", npc = "Grelin Whitebeard", map = 1426, x = 25.08, y = 75.71, era = true, qlvl = 5 },
-		{ t = "collect", quest = 218, title = "The Stolen Journal", map = 1426, x = 30.48, y = 80.15, era = true, count = 1, item = 2004, itemName = "Grelin Whitebeard's Journal", oi = 1 },
+		{ t = "collect", quest = 218, title = "The Stolen Journal", map = 1426, x = 30.48, y = 80.15, era = true, count = 1, item = 2004, itemName = "Grelin Whitebeard's Journal", oi = 1, src = "Grik'nir the Cold", srcKind = "npc" },
 		{ t = "turnin", quest = 218, title = "The Stolen Journal", npc = "Grelin Whitebeard", map = 1426, x = 25.08, y = 75.71, era = true },
 		{ t = "accept", quest = 282, title = "Senir's Observations", npc = "Grelin Whitebeard", map = 1426, x = 25.08, y = 75.71, era = true, qlvl = 5 },
 		{ t = "accept", quest = 3364, title = "Scalding Mornbrew Delivery", npc = "Nori Pridedrift", map = 1426, x = 24.98, y = 75.96, era = true, qlvl = 5 },
@@ -2050,13 +2050,13 @@ Waypost.RegisterSteps("reputation/gnomeregan-exiles", function() return {
 		{ t = "accept", quest = 96408, title = "A Visitor to Dun Morogh", npc = "Beldin Steelgrill", map = 1426, x = 50.44, y = 49.09, era = true, qlvl = 13 },
 	} },
 	{ title = "Kharanos: the hills and the depot", note = "The boars and bears roam around Kharanos; the wendigos live in the Grizzled Den south-west of town; the leper gnomes at the Gnomeregan road carry the cogs and gears; Rumbleshot's ammo lies at his camp west of town.", when = {{ k = "done", label = "ge-kharanos" }}, goals = {
-		{ t = "collect", quest = 317, title = "Stocking Jetsteam", map = 1426, x = 50.49, y = 52.07, era = true, count = 4, item = 769, itemName = "Chunk of Boar Meat", oi = 1, mobLevel = 8, spots = "50.9,52.1;61.2,59.3;70.8,61.5;75.5,49;86.7,50.2" },
-		{ t = "collect", quest = 317, title = "Stocking Jetsteam", map = 1426, x = 50.55, y = 51.77, era = true, count = 2, item = 6952, itemName = "Thick Bear Fur", oi = 2, mobLevel = 8, spots = "50.4,52.8;43.7,46.2;37.4,44.3;29.5,42.1;35,30.9" },
-		{ t = "collect", quest = 313, title = "The Grizzled Den", map = 1426, x = 43.57, y = 49.61, era = true, count = 8, item = 2671, itemName = "Wendigo Mane", oi = 1, mobLevel = 7, spots = "42.3,49.3;41.9,51.8;42.2,46.9;41.1,45.9;42.3,54.7" },
-		{ t = "collect", quest = 412, title = "Operation Recombobulation", map = 1426, x = 27.25, y = 42.99, era = true, count = 8, item = 3083, itemName = "Restabilization Cog", oi = 1, mobLevel = 10, spots = "26.6,43;24.9,43.8;25,40.3;27.1,36.5" },
-		{ t = "collect", quest = 412, title = "Operation Recombobulation", map = 1426, x = 27.25, y = 42.99, era = true, count = 8, item = 3084, itemName = "Gyromechanic Gear", oi = 2, mobLevel = 10, spots = "26.6,43;24.9,43.8;25,40.3;27.1,36.5" },
-		{ t = "collect", quest = 98321, title = "Flintfire's Shipment", map = 1426, x = 39.1, y = 46.5, era = true, count = 8, item = 280413, itemName = "Flintfire's Shipment", oi = 1, spots = "40.8,46.2;41.8,49.3;42.3,52.3;43.5,49.4" },
-		{ t = "collect", quest = 5541, title = "Ammo for Rumbleshot", map = 1426, x = 44.13, y = 56.95, era = true, count = 1, item = 13850, itemName = "Rumbleshot's Ammo", oi = 1 },
+		{ t = "collect", quest = 317, title = "Stocking Jetsteam", map = 1426, x = 50.49, y = 52.07, era = true, count = 4, item = 769, itemName = "Chunk of Boar Meat", oi = 1, mobLevel = 8, src = "Large Crag Boar, Scarred Crag Boar, Elder Crag Boar and others", srcKind = "npc", spots = "50.9,52.1;61.2,59.3;70.8,61.5;75.5,49;86.7,50.2" },
+		{ t = "collect", quest = 317, title = "Stocking Jetsteam", map = 1426, x = 50.55, y = 51.77, era = true, count = 2, item = 6952, itemName = "Thick Bear Fur", oi = 2, mobLevel = 8, src = "Young Black Bear, Black Bear, Ice Claw Bear", srcKind = "npc", spots = "50.4,52.8;43.7,46.2;37.4,44.3;29.5,42.1;35,30.9" },
+		{ t = "collect", quest = 313, title = "The Grizzled Den", map = 1426, x = 43.57, y = 49.61, era = true, count = 8, item = 2671, itemName = "Wendigo Mane", oi = 1, mobLevel = 7, src = "Wendigo, Young Wendigo, Edan the Howler and others", srcKind = "npc", spots = "42.3,49.3;41.9,51.8;42.2,46.9;41.1,45.9;42.3,54.7" },
+		{ t = "collect", quest = 412, title = "Operation Recombobulation", map = 1426, x = 27.25, y = 42.99, era = true, count = 8, item = 3083, itemName = "Restabilization Cog", oi = 1, mobLevel = 10, src = "Leper Gnome, Gibblewilt", srcKind = "npc", spots = "26.6,43;24.9,43.8;25,40.3;27.1,36.5" },
+		{ t = "collect", quest = 412, title = "Operation Recombobulation", map = 1426, x = 27.25, y = 42.99, era = true, count = 8, item = 3084, itemName = "Gyromechanic Gear", oi = 2, mobLevel = 10, src = "Leper Gnome, Gibblewilt", srcKind = "npc", spots = "26.6,43;24.9,43.8;25,40.3;27.1,36.5" },
+		{ t = "collect", quest = 98321, title = "Flintfire's Shipment", map = 1426, x = 39.1, y = 46.5, era = true, count = 8, item = 280413, itemName = "Flintfire's Shipment", oi = 1, src = "Flintfire's Shipment", srcKind = "object", spots = "40.8,46.2;41.8,49.3;42.3,52.3;43.5,49.4" },
+		{ t = "collect", quest = 5541, title = "Ammo for Rumbleshot", map = 1426, x = 44.13, y = 56.95, era = true, count = 1, item = 13850, itemName = "Rumbleshot's Ammo", oi = 1, src = "Ammo Crate", srcKind = "object" },
 		{ t = "turnin", quest = 5541, title = "Ammo for Rumbleshot", npc = "Hegnar Rumbleshot", map = 1426, x = 40.68, y = 65.13, era = true },
 		{ t = "turnin", quest = 98322, title = "Secure the Mountain", npc = "Mountaineer Gretchen", map = 1426, x = 44.1, y = 57.07, era = true },
 		{ t = "accept", quest = 98319, title = "Secure the Mountain", npc = "Mountaineer Gretchen", map = 1426, x = 44.1, y = 57.07, era = true, qlvl = 8 },
@@ -2081,7 +2081,7 @@ Waypost.RegisterSteps("reputation/gnomeregan-exiles", function() return {
 		{ t = "kill", quest = 319, title = "A Favor for Evershine", map = 1426, x = 30.19, y = 42.26, era = true, count = 6, target = "Ice Claw Bear", oi = 1, mobLevel = 8, spots = "29.9,41.8;37.7,43.2;35.6,32.5;42.5,29;56.3,43.3" },
 		{ t = "kill", quest = 319, title = "A Favor for Evershine", map = 1426, x = 28.03, y = 42.69, era = true, count = 8, target = "Elder Crag Boar", oi = 2, mobLevel = 8, spots = "27.2,44.9;37.7,51.9;45.3,42.4;43.3,30.6;35.1,31.2" },
 		{ t = "kill", quest = 319, title = "A Favor for Evershine", map = 1426, x = 28.15, y = 44.98, era = true, count = 8, target = "Snow Leopard", oi = 3, mobLevel = 8, spots = "27.9,43.7;31.2,39.4;34.9,35.6;34.4,47.7;28.4,54" },
-		{ t = "collect", quest = 315, title = "The Perfect Stout", map = 1426, x = 40.34, y = 42.86, era = true, count = 6, item = 2676, itemName = "Shimmerweed", oi = 1, mobLevel = 9, spots = "41.3,44.5;41.9,35.3" },
+		{ t = "collect", quest = 315, title = "The Perfect Stout", map = 1426, x = 40.34, y = 42.86, era = true, count = 6, item = 2676, itemName = "Shimmerweed", oi = 1, mobLevel = 9, src = "Frostmane Seer", srcKind = "npc", spots = "41.3,44.5;41.9,35.3" },
 		{ t = "kill", quest = 287, title = "Frostmane Hold", map = 1426, x = 25.8, y = 51.5, era = true, count = 5, target = "Frostmane Headhunter", oi = 1, mobLevel = 9, spots = "25.8,51.5;23.8,51;23.9,53.3;21.9,54.6;21.7,51.1" },
 		{ t = "complete", quest = 287, title = "Frostmane Hold", map = 1426, x = 22.4, y = 51.8, era = true, note = "walk to the back of the cave", objs = {"Frostmane Headhunter", "Fully explore Frostmane Hold"} },
 		{ t = "turnin", quest = 319, title = "A Favor for Evershine", npc = "Rejold Barleybrew", map = 1426, x = 30.19, y = 45.73, era = true },
@@ -2106,7 +2106,7 @@ Waypost.RegisterSteps("reputation/gnomeregan-exiles", function() return {
 		{ t = "kill", quest = 96390, title = "Nip 'Em in the Bud", map = 1426, x = 76.91, y = 59.95, era = true, count = 10, target = "Dark Iron Spy", oi = 1, mobLevel = 11, spots = "77.5,59.9;77.6,61.8" },
 		{ t = "kill", quest = 432, title = "Those Blasted Troggs!", map = 1426, x = 73.23, y = 53.32, era = true, count = 6, target = "Rockjaw Skullthumper", oi = 1, mobLevel = 9, spots = "72.8,52.6;71.6,50.9;70.6,53.3;71,55.6;69.9,58.2" },
 		{ t = "kill", quest = 433, title = "The Public Servant", map = 1426, x = 72.94, y = 54.14, era = true, count = 10, target = "Rockjaw Bonesnapper", oi = 1, mobLevel = 10, spots = "72.8,53.1;71.9,50.9;70.6,52.8;70.8,55.4;74.8,56.1" },
-		{ t = "collect", quest = 314, title = "Protecting the Herd", map = 1426, x = 62.62, y = 46.05, era = true, count = 1, item = 3627, itemName = "Fang of Vagash", oi = 1, group = true },
+		{ t = "collect", quest = 314, title = "Protecting the Herd", map = 1426, x = 62.62, y = 46.05, era = true, count = 1, item = 3627, itemName = "Fang of Vagash", oi = 1, group = true, src = "Vagash", srcKind = "npc" },
 		{ t = "turnin", quest = 96390, title = "Nip 'Em in the Bud", npc = "Earthseer Farsen", map = 1426, x = 64.87, y = 58.47, era = true },
 		{ t = "turnin", quest = 432, title = "Those Blasted Troggs!", npc = "Foreman Stonebrow", map = 1426, x = 69.08, y = 56.33, era = true },
 		{ t = "turnin", quest = 433, title = "The Public Servant", npc = "Senator Mehr Stonehallow", map = 1426, x = 68.67, y = 55.97, era = true },
@@ -2138,15 +2138,15 @@ Waypost.RegisterSteps("reputation/gnomeregan-exiles", function() return {
 		{ t = "accept", quest = 4512, title = "A Little Slime Goes a Long Way", npc = "Laris Geardawdle", map = 1455, x = 75.77, y = 23.38, era = true, qlvl = 52, note = "A Little Slime Goes a Long Way, +150" },
 	} },
 	{ title = "Felwood: Cursed and Tainted Oozes", note = "The Cursed and Tainted Oozes slide about the streams and fel pools around Jaedenar and Bloodvenom Falls: kill one and use an empty jar on its remains.", goals = {
-		{ t = "collect", quest = 4512, title = "A Little Slime Goes a Long Way", map = 1448, x = 40.36, y = 69.57, era = true, count = 6, item = 11947, itemName = "Filled Cursed Ooze Jar", oi = 1, mobLevel = 50, spots = "40.6,71.3;40.4,67.6;39.2,71.9;41.8,67.4;40.5,66.2" },
-		{ t = "collect", quest = 4512, title = "A Little Slime Goes a Long Way", map = 1448, x = 40.72, y = 59.74, era = true, count = 6, item = 11949, itemName = "Filled Tainted Ooze Jar", oi = 2, mobLevel = 52, spots = "40.6,59.3;39.9,54.9;42.7,50.8;41.7,49.5;43.3,48.2" },
+		{ t = "collect", quest = 4512, title = "A Little Slime Goes a Long Way", map = 1448, x = 40.36, y = 69.57, era = true, count = 6, item = 11947, itemName = "Filled Cursed Ooze Jar", oi = 1, mobLevel = 50, src = "Cursed Ooze", srcKind = "npc", spots = "40.6,71.3;40.4,67.6;39.2,71.9;41.8,67.4;40.5,66.2" },
+		{ t = "collect", quest = 4512, title = "A Little Slime Goes a Long Way", map = 1448, x = 40.72, y = 59.74, era = true, count = 6, item = 11949, itemName = "Filled Tainted Ooze Jar", oi = 2, mobLevel = 52, src = "Tainted Ooze", srcKind = "npc", spots = "40.6,59.3;39.9,54.9;42.7,50.8;41.7,49.5;43.3,48.2" },
 	} },
 	{ title = "Tinker Town: the second jars", goals = {
 		{ t = "turnin", quest = 4512, title = "A Little Slime Goes a Long Way", npc = "Laris Geardawdle", map = 1455, x = 75.77, y = 23.38, era = true },
 		{ t = "accept", quest = 4513, title = "A Little Slime Goes a Long Way", npc = "Laris Geardawdle", map = 1455, x = 75.77, y = 23.38, era = true, qlvl = 54, note = "A Little Slime Goes a Long Way, +150" },
 	} },
 	{ title = "Un'Goro Crater: Primal Oozes", note = "The Primal Oozes live in the pools around Fire Plume Ridge in the middle of the crater; the Muculent and Glutinous Oozes fill the jars too. Kill one and use a jar on its remains.", goals = {
-		{ t = "collect", quest = 4513, title = "A Little Slime Goes a Long Way", map = 1449, x = 67.74, y = 37.78, era = true, count = 10, item = 11954, itemName = "Filled Pure Sample Jar", oi = 1, mobLevel = 54, spots = "66,36.7;51.2,32.2;51.8,17.9;38.6,19.3;38.4,39.4" },
+		{ t = "collect", quest = 4513, title = "A Little Slime Goes a Long Way", map = 1449, x = 67.74, y = 37.78, era = true, count = 10, item = 11954, itemName = "Filled Pure Sample Jar", oi = 1, mobLevel = 54, src = "Muculent Ooze, Primal Ooze, Glutinous Ooze", srcKind = "npc", spots = "66,36.7;51.2,32.2;51.8,17.9;38.6,19.3;38.4,39.4" },
 	} },
 	{ title = "Tinker Town: hand in", goals = {
 		{ t = "turnin", quest = 4513, title = "A Little Slime Goes a Long Way", npc = "Laris Geardawdle", map = 1455, x = 75.77, y = 23.38, era = true },
@@ -2190,10 +2190,10 @@ Waypost.RegisterSteps("reputation/ironforge", function() return {
 		{ t = "accept", quest = 2160, title = "Supplies to Tannok", npc = "Hands Springsprocket", map = 1426, x = 33.85, y = 72.24, era = true, qlvl = 5 },
 	} },
 	{ title = "Coldridge: wolves, troggs and Felix's things", note = "The wolves roam the valley floor; the troggs dig in the camps east of Anvilmar; Felix's box, chest and bucket lie in the trogg camps.", when = {{ k = "done", label = "if-coldridge" }}, goals = {
-		{ t = "collect", quest = 179, title = "Dwarven Outfitters", map = 1426, x = 32.28, y = 70.8, era = true, count = 8, item = 750, itemName = "Tough Wolf Meat", oi = 1, mobLevel = 2, spots = "31.6,70;30.5,73.7;29.9,75;28.7,73.4;26.7,70.7" },
-		{ t = "collect", quest = 3361, title = "A Refugee's Quandary", map = 1426, x = 20.88, y = 76.07, era = true, count = 1, item = 10438, itemName = "Felix's Box", oi = 1 },
-		{ t = "collect", quest = 3361, title = "A Refugee's Quandary", map = 1426, x = 22.78, y = 80, era = true, count = 1, item = 16313, itemName = "Felix's Chest", oi = 2 },
-		{ t = "collect", quest = 3361, title = "A Refugee's Quandary", map = 1426, x = 26.33, y = 79.28, era = true, count = 1, item = 16314, itemName = "Felix's Bucket of Bolts", oi = 3 },
+		{ t = "collect", quest = 179, title = "Dwarven Outfitters", map = 1426, x = 32.28, y = 70.8, era = true, count = 8, item = 750, itemName = "Tough Wolf Meat", oi = 1, mobLevel = 2, src = "Ragged Young Wolf, Ragged Timber Wolf", srcKind = "npc", spots = "31.6,70;30.5,73.7;29.9,75;28.7,73.4;26.7,70.7" },
+		{ t = "collect", quest = 3361, title = "A Refugee's Quandary", map = 1426, x = 20.88, y = 76.07, era = true, count = 1, item = 10438, itemName = "Felix's Box", oi = 1, src = "Felix's Box", srcKind = "object" },
+		{ t = "collect", quest = 3361, title = "A Refugee's Quandary", map = 1426, x = 22.78, y = 80, era = true, count = 1, item = 16313, itemName = "Felix's Chest", oi = 2, src = "Felix's Chest", srcKind = "object" },
+		{ t = "collect", quest = 3361, title = "A Refugee's Quandary", map = 1426, x = 26.33, y = 79.28, era = true, count = 1, item = 16314, itemName = "Felix's Bucket of Bolts", oi = 3, src = "Felix's Bucket of Bolts", srcKind = "object" },
 	} },
 	{ title = "Coldridge: Anvilmar and Talin", when = {{ k = "done", label = "if-coldridge" }}, goals = {
 		{ t = "turnin", quest = 179, title = "Dwarven Outfitters", npc = "Sten Stoutarm", map = 1426, x = 29.93, y = 71.2, era = true },
@@ -2215,7 +2215,7 @@ Waypost.RegisterSteps("reputation/ironforge", function() return {
 		{ t = "kill", quest = 182, title = "The Troll Cave", map = 1426, x = 25.86, y = 78.26, era = true, count = 14, target = "Frostmane Troll Whelp", oi = 1, mobLevel = 4, spots = "26.7,79.4;28.5,80.4;28.7,82.4;30.1,80.4;22.8,79.5" },
 		{ t = "turnin", quest = 182, title = "The Troll Cave", npc = "Grelin Whitebeard", map = 1426, x = 25.08, y = 75.71, era = true },
 		{ t = "accept", quest = 218, title = "The Stolen Journal", npc = "Grelin Whitebeard", map = 1426, x = 25.08, y = 75.71, era = true, qlvl = 5 },
-		{ t = "collect", quest = 218, title = "The Stolen Journal", map = 1426, x = 30.48, y = 80.15, era = true, count = 1, item = 2004, itemName = "Grelin Whitebeard's Journal", oi = 1 },
+		{ t = "collect", quest = 218, title = "The Stolen Journal", map = 1426, x = 30.48, y = 80.15, era = true, count = 1, item = 2004, itemName = "Grelin Whitebeard's Journal", oi = 1, src = "Grik'nir the Cold", srcKind = "npc" },
 		{ t = "turnin", quest = 218, title = "The Stolen Journal", npc = "Grelin Whitebeard", map = 1426, x = 25.08, y = 75.71, era = true },
 		{ t = "accept", quest = 282, title = "Senir's Observations", npc = "Grelin Whitebeard", map = 1426, x = 25.08, y = 75.71, era = true, qlvl = 5 },
 		{ t = "accept", quest = 3364, title = "Scalding Mornbrew Delivery", npc = "Nori Pridedrift", map = 1426, x = 24.98, y = 75.96, era = true, qlvl = 5 },
@@ -2243,13 +2243,13 @@ Waypost.RegisterSteps("reputation/ironforge", function() return {
 		{ t = "accept", quest = 96408, title = "A Visitor to Dun Morogh", npc = "Beldin Steelgrill", map = 1426, x = 50.44, y = 49.09, era = true, qlvl = 13 },
 	} },
 	{ title = "Kharanos: the hills and the depot", note = "The boars and bears roam around Kharanos; the wendigos live in the Grizzled Den south-west of town; the leper gnomes at the Gnomeregan road carry the cogs and gears; Rumbleshot's ammo lies at his camp west of town.", when = {{ k = "done", label = "if-kharanos" }}, goals = {
-		{ t = "collect", quest = 317, title = "Stocking Jetsteam", map = 1426, x = 50.49, y = 52.07, era = true, count = 4, item = 769, itemName = "Chunk of Boar Meat", oi = 1, mobLevel = 8, spots = "50.9,52.1;61.2,59.3;70.8,61.5;75.5,49;86.7,50.2" },
-		{ t = "collect", quest = 317, title = "Stocking Jetsteam", map = 1426, x = 50.55, y = 51.77, era = true, count = 2, item = 6952, itemName = "Thick Bear Fur", oi = 2, mobLevel = 8, spots = "50.4,52.8;43.7,46.2;37.4,44.3;29.5,42.1;35,30.9" },
-		{ t = "collect", quest = 313, title = "The Grizzled Den", map = 1426, x = 43.57, y = 49.61, era = true, count = 8, item = 2671, itemName = "Wendigo Mane", oi = 1, mobLevel = 7, spots = "42.3,49.3;41.9,51.8;42.2,46.9;41.1,45.9;42.3,54.7" },
-		{ t = "collect", quest = 412, title = "Operation Recombobulation", map = 1426, x = 27.25, y = 42.99, era = true, count = 8, item = 3083, itemName = "Restabilization Cog", oi = 1, mobLevel = 10, spots = "26.6,43;24.9,43.8;25,40.3;27.1,36.5" },
-		{ t = "collect", quest = 412, title = "Operation Recombobulation", map = 1426, x = 27.25, y = 42.99, era = true, count = 8, item = 3084, itemName = "Gyromechanic Gear", oi = 2, mobLevel = 10, spots = "26.6,43;24.9,43.8;25,40.3;27.1,36.5" },
-		{ t = "collect", quest = 98321, title = "Flintfire's Shipment", map = 1426, x = 39.1, y = 46.5, era = true, count = 8, item = 280413, itemName = "Flintfire's Shipment", oi = 1, spots = "40.8,46.2;41.8,49.3;42.3,52.3;43.5,49.4" },
-		{ t = "collect", quest = 5541, title = "Ammo for Rumbleshot", map = 1426, x = 44.13, y = 56.95, era = true, count = 1, item = 13850, itemName = "Rumbleshot's Ammo", oi = 1 },
+		{ t = "collect", quest = 317, title = "Stocking Jetsteam", map = 1426, x = 50.49, y = 52.07, era = true, count = 4, item = 769, itemName = "Chunk of Boar Meat", oi = 1, mobLevel = 8, src = "Large Crag Boar, Scarred Crag Boar, Elder Crag Boar and others", srcKind = "npc", spots = "50.9,52.1;61.2,59.3;70.8,61.5;75.5,49;86.7,50.2" },
+		{ t = "collect", quest = 317, title = "Stocking Jetsteam", map = 1426, x = 50.55, y = 51.77, era = true, count = 2, item = 6952, itemName = "Thick Bear Fur", oi = 2, mobLevel = 8, src = "Young Black Bear, Black Bear, Ice Claw Bear", srcKind = "npc", spots = "50.4,52.8;43.7,46.2;37.4,44.3;29.5,42.1;35,30.9" },
+		{ t = "collect", quest = 313, title = "The Grizzled Den", map = 1426, x = 43.57, y = 49.61, era = true, count = 8, item = 2671, itemName = "Wendigo Mane", oi = 1, mobLevel = 7, src = "Wendigo, Young Wendigo, Edan the Howler and others", srcKind = "npc", spots = "42.3,49.3;41.9,51.8;42.2,46.9;41.1,45.9;42.3,54.7" },
+		{ t = "collect", quest = 412, title = "Operation Recombobulation", map = 1426, x = 27.25, y = 42.99, era = true, count = 8, item = 3083, itemName = "Restabilization Cog", oi = 1, mobLevel = 10, src = "Leper Gnome, Gibblewilt", srcKind = "npc", spots = "26.6,43;24.9,43.8;25,40.3;27.1,36.5" },
+		{ t = "collect", quest = 412, title = "Operation Recombobulation", map = 1426, x = 27.25, y = 42.99, era = true, count = 8, item = 3084, itemName = "Gyromechanic Gear", oi = 2, mobLevel = 10, src = "Leper Gnome, Gibblewilt", srcKind = "npc", spots = "26.6,43;24.9,43.8;25,40.3;27.1,36.5" },
+		{ t = "collect", quest = 98321, title = "Flintfire's Shipment", map = 1426, x = 39.1, y = 46.5, era = true, count = 8, item = 280413, itemName = "Flintfire's Shipment", oi = 1, src = "Flintfire's Shipment", srcKind = "object", spots = "40.8,46.2;41.8,49.3;42.3,52.3;43.5,49.4" },
+		{ t = "collect", quest = 5541, title = "Ammo for Rumbleshot", map = 1426, x = 44.13, y = 56.95, era = true, count = 1, item = 13850, itemName = "Rumbleshot's Ammo", oi = 1, src = "Ammo Crate", srcKind = "object" },
 		{ t = "turnin", quest = 5541, title = "Ammo for Rumbleshot", npc = "Hegnar Rumbleshot", map = 1426, x = 40.68, y = 65.13, era = true },
 		{ t = "turnin", quest = 98322, title = "Secure the Mountain", npc = "Mountaineer Gretchen", map = 1426, x = 44.1, y = 57.07, era = true },
 		{ t = "accept", quest = 98319, title = "Secure the Mountain", npc = "Mountaineer Gretchen", map = 1426, x = 44.1, y = 57.07, era = true, qlvl = 8 },
@@ -2274,7 +2274,7 @@ Waypost.RegisterSteps("reputation/ironforge", function() return {
 		{ t = "kill", quest = 319, title = "A Favor for Evershine", map = 1426, x = 30.19, y = 42.26, era = true, count = 6, target = "Ice Claw Bear", oi = 1, mobLevel = 8, spots = "29.9,41.8;37.7,43.2;35.6,32.5;42.5,29;56.3,43.3" },
 		{ t = "kill", quest = 319, title = "A Favor for Evershine", map = 1426, x = 28.03, y = 42.69, era = true, count = 8, target = "Elder Crag Boar", oi = 2, mobLevel = 8, spots = "27.2,44.9;37.7,51.9;45.3,42.4;43.3,30.6;35.1,31.2" },
 		{ t = "kill", quest = 319, title = "A Favor for Evershine", map = 1426, x = 28.15, y = 44.98, era = true, count = 8, target = "Snow Leopard", oi = 3, mobLevel = 8, spots = "27.9,43.7;31.2,39.4;34.9,35.6;34.4,47.7;28.4,54" },
-		{ t = "collect", quest = 315, title = "The Perfect Stout", map = 1426, x = 40.34, y = 42.86, era = true, count = 6, item = 2676, itemName = "Shimmerweed", oi = 1, mobLevel = 9, spots = "41.3,44.5;41.9,35.3" },
+		{ t = "collect", quest = 315, title = "The Perfect Stout", map = 1426, x = 40.34, y = 42.86, era = true, count = 6, item = 2676, itemName = "Shimmerweed", oi = 1, mobLevel = 9, src = "Frostmane Seer", srcKind = "npc", spots = "41.3,44.5;41.9,35.3" },
 		{ t = "kill", quest = 287, title = "Frostmane Hold", map = 1426, x = 25.8, y = 51.5, era = true, count = 5, target = "Frostmane Headhunter", oi = 1, mobLevel = 9, spots = "25.8,51.5;23.8,51;23.9,53.3;21.9,54.6;21.7,51.1" },
 		{ t = "complete", quest = 287, title = "Frostmane Hold", map = 1426, x = 22.4, y = 51.8, era = true, note = "walk to the back of the cave", objs = {"Frostmane Headhunter", "Fully explore Frostmane Hold"} },
 		{ t = "turnin", quest = 319, title = "A Favor for Evershine", npc = "Rejold Barleybrew", map = 1426, x = 30.19, y = 45.73, era = true },
@@ -2299,7 +2299,7 @@ Waypost.RegisterSteps("reputation/ironforge", function() return {
 		{ t = "kill", quest = 96390, title = "Nip 'Em in the Bud", map = 1426, x = 76.91, y = 59.95, era = true, count = 10, target = "Dark Iron Spy", oi = 1, mobLevel = 11, spots = "77.5,59.9;77.6,61.8" },
 		{ t = "kill", quest = 432, title = "Those Blasted Troggs!", map = 1426, x = 73.23, y = 53.32, era = true, count = 6, target = "Rockjaw Skullthumper", oi = 1, mobLevel = 9, spots = "72.8,52.6;71.6,50.9;70.6,53.3;71,55.6;69.9,58.2" },
 		{ t = "kill", quest = 433, title = "The Public Servant", map = 1426, x = 72.94, y = 54.14, era = true, count = 10, target = "Rockjaw Bonesnapper", oi = 1, mobLevel = 10, spots = "72.8,53.1;71.9,50.9;70.6,52.8;70.8,55.4;74.8,56.1" },
-		{ t = "collect", quest = 314, title = "Protecting the Herd", map = 1426, x = 62.62, y = 46.05, era = true, count = 1, item = 3627, itemName = "Fang of Vagash", oi = 1, group = true },
+		{ t = "collect", quest = 314, title = "Protecting the Herd", map = 1426, x = 62.62, y = 46.05, era = true, count = 1, item = 3627, itemName = "Fang of Vagash", oi = 1, group = true, src = "Vagash", srcKind = "npc" },
 		{ t = "turnin", quest = 96390, title = "Nip 'Em in the Bud", npc = "Earthseer Farsen", map = 1426, x = 64.87, y = 58.47, era = true },
 		{ t = "turnin", quest = 432, title = "Those Blasted Troggs!", npc = "Foreman Stonebrow", map = 1426, x = 69.08, y = 56.33, era = true },
 		{ t = "turnin", quest = 433, title = "The Public Servant", npc = "Senator Mehr Stonehallow", map = 1426, x = 68.67, y = 55.97, era = true },
@@ -2344,8 +2344,8 @@ Waypost.RegisterSteps("reputation/ironforge", function() return {
 	} },
 	{ title = "Thaurissan and Blackrock Stronghold", note = "The Thaurissan relics are the carved stones in the ruins around Flame Crest, west along the road: click twelve of them. Gor'tesh and the Blackrock orcs and worgs hold the camps at the foot of Blackrock Mountain, further west; each may drop a Blackrock Medallion (about one kill in three), and Oralius wants fifty. The orcs are level 50 and up, so they drop Runecloth too: keep it for Additional Runecloth.", goals = {
 		{ t = "interact", quest = 3701, title = "The Smoldering Ruins of Thaurissan", npc = "Thaurissan Relic", map = 1428, x = 67.59, y = 43.73, era = true, oi = 1, spots = "66.3,42.6;68.8,37.5;63,36.5;59.1,40.9;54.8,38.1" },
-		{ t = "collect", quest = 3824, title = "Gor'tesh the Brute Lord", map = 1428, x = 39.33, y = 55.3, era = true, count = 1, item = 11080, itemName = "Gor'tesh's Lopped Off Head", oi = 1 },
-		{ t = "collect", quest = 4283, title = "FIFTY! YEP!", map = 1428, x = 39.33, y = 55.58, era = true, count = 50, item = 11467, itemName = "Blackrock Medallion", oi = 1, mobLevel = 57, spots = "39.5,54.9;50.8,54.1;61.5,59.9;72.4,46.9;75.5,32.9" },
+		{ t = "collect", quest = 3824, title = "Gor'tesh the Brute Lord", map = 1428, x = 39.33, y = 55.3, era = true, count = 1, item = 11080, itemName = "Gor'tesh's Lopped Off Head", oi = 1, src = "Gor'tesh", srcKind = "npc" },
+		{ t = "collect", quest = 4283, title = "FIFTY! YEP!", map = 1428, x = 39.33, y = 55.58, era = true, count = 50, item = 11467, itemName = "Blackrock Medallion", oi = 1, mobLevel = 57, src = "Blackrock Slayer, Blackrock Worg, Ember Worg and others", srcKind = "npc", spots = "39.5,54.9;50.8,54.1;61.5,59.9;72.4,46.9;75.5,32.9" },
 	} },
 	{ title = "Morgan's Vigil: hand in", note = "Plant Gor'tesh's head on the soft dirt mound at the top of Dreadmaul Rock.", goals = {
 		{ t = "turnin", quest = 4283, title = "FIFTY! YEP!", npc = "Oralius", map = 1428, x = 84.56, y = 68.68, era = true },
@@ -2365,8 +2365,8 @@ Waypost.RegisterSteps("reputation/ironforge", function() return {
 		{ t = "accept", quest = 4863, title = "Enraged Wildkin", npc = "Damaged Crate", map = 1452, x = 58.99, y = 59.79, era = true, qlvl = 59 },
 		{ t = "turnin", quest = 4863, title = "Enraged Wildkin", npc = "Jaron's Wagon", map = 1452, x = 61.44, y = 60.68, era = true },
 		{ t = "accept", quest = 4864, title = "Enraged Wildkin", npc = "Jaron's Wagon", map = 1452, x = 61.44, y = 60.68, era = true, qlvl = 59, note = "Enraged Wildkin, +100" },
-		{ t = "collect", quest = 4864, title = "Enraged Wildkin", map = 1452, x = 61.41, y = 60.73, era = true, count = 1, item = 12525, itemName = "Jaron's Supplies", oi = 1 },
-		{ t = "collect", quest = 4864, title = "Enraged Wildkin", map = 1452, x = 59.41, y = 59.79, era = true, count = 1, item = 12524, itemName = "Blue-feathered Amulet", oi = 2, mobLevel = 59, spots = "58.9,59.6;64.2,59.1;64.9,61.3;66.3,60.2;64.8,64.6" },
+		{ t = "collect", quest = 4864, title = "Enraged Wildkin", map = 1452, x = 61.41, y = 60.73, era = true, count = 1, item = 12525, itemName = "Jaron's Supplies", oi = 1, src = "Jaron's Supplies", srcKind = "object" },
+		{ t = "collect", quest = 4864, title = "Enraged Wildkin", map = 1452, x = 59.41, y = 59.79, era = true, count = 1, item = 12524, itemName = "Blue-feathered Amulet", oi = 2, mobLevel = 59, src = "Crazed Owlbeast, Moontouched Owlbeast, Berserk Owlbeast", srcKind = "npc", spots = "58.9,59.6;64.2,59.1;64.9,61.3;66.3,60.2;64.8,64.6" },
 		{ t = "turnin", quest = 4864, title = "Enraged Wildkin", npc = "Jaron Stoneshaper", map = 1452, x = 52.14, y = 30.43, era = true },
 	} },
 	{ title = "Additional Runecloth to Honored", note = "Additional Runecloth: 50 reputation for 20 Runecloth, as often as you like. After the four first donations a Human, Night Elf or Gnome stands at Friendly 700 of 6,000, so Honored is 5,300 away: 106 turn-ins, 2,120 Runecloth (Dwarves start 900 higher: 88 turn-ins; Skyborne start at Neutral 2,000, so 6,400 away: 128, two fewer after Exploring the Alliance). The level 52-59 quests above take 12 turn-ins off; each Dun Morogh hub you did takes 10 to 26 more off. More hubs pay Ironforge, in full while they are no more than 5 levels below you: Thelsamar in Loch Modan (about 3,500 in all) and Menethil Harbor in the Wetlands (about 2,500). From level 51 Alterac Valley's one-time quests add about 1,900. Every city gain also gives a quarter as much to the other three Alliance cities (not counted here). Hand in all your Runecloth at once.", goals = {
@@ -2479,9 +2479,9 @@ Waypost.RegisterSteps("reputation/stormwind", function() return {
 	} },
 	{ title = "Northshire: kobolds, wolves and bandanas", note = "The Kobold Vermin dig at the camp north of the abbey; the wolves roam the valley; the Defias at the vineyard east of the abbey drop the bandanas. Keep any Nibbled-On Book a kobold drops: it starts Forever's book chain.", when = {{ k = "done", label = "sw-northshire" }}, goals = {
 		{ t = "kill", quest = 7, title = "Kobold Camp Cleanup", map = 1429, x = 49.27, y = 37.05, era = true, count = 10, target = "Kobold Vermin", oi = 1, mobLevel = 2, spots = "48.6,36;51.2,36.9" },
-		{ t = "collect", quest = 33, title = "Wolves Across the Border", map = 1429, x = 49.41, y = 37.75, era = true, count = 8, item = 750, itemName = "Tough Wolf Meat", oi = 1, mobLevel = 2, spots = "48.1,38.7;45.9,36.9;47.5,34.4;52.7,35.1;52.3,39.4" },
-		{ t = "collect", quest = 18, title = "Brotherhood of Thieves", map = 1429, x = 54.98, y = 40.19, era = true, count = 12, item = 752, itemName = "Red Burlap Bandana", oi = 1, mobLevel = 4, spots = "55.7,42;54.6,45.2;55.2,48.3;52.5,49.4;54.4,51" },
-		{ t = "collect", map = 1429, x = 51.52, y = 38.02, era = true, count = 1, item = 247834, itemName = "Nibbled-On Book", mobLevel = 4, note = "Nibbled-On Book, from the kobolds", spots = "50.8,36.8;49.5,34.6;47.5,34.3;48.5,29.1;49.6,26.3" },
+		{ t = "collect", quest = 33, title = "Wolves Across the Border", map = 1429, x = 49.41, y = 37.75, era = true, count = 8, item = 750, itemName = "Tough Wolf Meat", oi = 1, mobLevel = 2, src = "Timber Wolf, Young Wolf", srcKind = "npc", spots = "48.1,38.7;45.9,36.9;47.5,34.4;52.7,35.1;52.3,39.4" },
+		{ t = "collect", quest = 18, title = "Brotherhood of Thieves", map = 1429, x = 54.98, y = 40.19, era = true, count = 12, item = 752, itemName = "Red Burlap Bandana", oi = 1, mobLevel = 4, src = "Defias Thug", srcKind = "npc", spots = "55.7,42;54.6,45.2;55.2,48.3;52.5,49.4;54.4,51" },
+		{ t = "collect", map = 1429, x = 51.52, y = 38.02, era = true, count = 1, item = 247834, itemName = "Nibbled-On Book", mobLevel = 4, note = "Nibbled-On Book, from the kobolds", src = "Kobold Worker, Kobold Vermin, Kobold Laborer", srcKind = "npc", spots = "50.8,36.8;49.5,34.6;47.5,34.3;48.5,29.1;49.6,26.3" },
 	} },
 	{ title = "Northshire: back at the abbey", when = {{ k = "done", label = "sw-northshire" }}, goals = {
 		{ t = "turnin", quest = 7, title = "Kobold Camp Cleanup", npc = "Marshal McBride", map = 1429, x = 48.92, y = 41.61, era = true },
@@ -2498,11 +2498,11 @@ Waypost.RegisterSteps("reputation/stormwind", function() return {
 	} },
 	{ title = "Northshire: Echo Ridge, Garrick and the vineyard", note = "The Kobold Workers are in Echo Ridge Mine north of the abbey; Garrick Padfoot stands in the Defias camp east of the vineyard; Milly's Harvest crates lie in the vineyard; the rats carrying the Stolen Books run about the abbey grounds.", when = {{ k = "done", label = "sw-northshire" }}, goals = {
 		{ t = "kill", quest = 15, title = "Investigate Echo Ridge", map = 1429, x = 50.83, y = 37.92, era = true, count = 10, target = "Kobold Worker", oi = 1, mobLevel = 3, spots = "51.5,37;49.4,34.5;47.3,33.3" },
-		{ t = "collect", quest = 6, title = "Bounty on Garrick Padfoot", map = 1429, x = 57.52, y = 48.25, era = true, count = 1, item = 182, itemName = "Garrick's Head", oi = 1 },
+		{ t = "collect", quest = 6, title = "Bounty on Garrick Padfoot", map = 1429, x = 57.52, y = 48.25, era = true, count = 1, item = 182, itemName = "Garrick's Head", oi = 1, src = "Garrick Padfoot", srcKind = "npc" },
 		{ t = "turnin", quest = 3903, title = "Milly Osworth", npc = "Milly Osworth", map = 1429, x = 50.69, y = 39.35, era = true },
 		{ t = "accept", quest = 3904, title = "Milly's Harvest", npc = "Milly Osworth", map = 1429, x = 50.69, y = 39.35, era = true, qlvl = 4 },
-		{ t = "collect", quest = 3904, title = "Milly's Harvest", map = 1429, x = 53.65, y = 47.01, era = true, count = 8, item = 11119, itemName = "Milly's Harvest", oi = 1 },
-		{ t = "collect", quest = 91743, title = "Rascally Rodents", map = 1429, x = 51.52, y = 38.02, era = true, count = 8, item = 247839, itemName = "Stolen Book", oi = 1, mobLevel = 4, spots = "50.8,36.8;49.5,34.6;47.5,34.3;48.5,29.1;49.6,26.3" },
+		{ t = "collect", quest = 3904, title = "Milly's Harvest", map = 1429, x = 53.65, y = 47.01, era = true, count = 8, item = 11119, itemName = "Milly's Harvest", oi = 1, src = "Milly's Harvest", srcKind = "object" },
+		{ t = "collect", quest = 91743, title = "Rascally Rodents", map = 1429, x = 51.52, y = 38.02, era = true, count = 8, item = 247839, itemName = "Stolen Book", oi = 1, mobLevel = 4, src = "Kobold Worker, Kobold Vermin, Kobold Laborer", srcKind = "npc", spots = "50.8,36.8;49.5,34.6;47.5,34.3;48.5,29.1;49.6,26.3" },
 	} },
 	{ title = "Northshire: second hand-in", when = {{ k = "done", label = "sw-northshire" }}, goals = {
 		{ t = "turnin", quest = 15, title = "Investigate Echo Ridge", npc = "Marshal McBride", map = 1429, x = 48.92, y = 41.61, era = true },
@@ -2518,7 +2518,7 @@ Waypost.RegisterSteps("reputation/stormwind", function() return {
 		{ t = "kill", quest = 21, title = "Skirmish at Echo Ridge", map = 1429, x = 47.79, y = 31.64, era = true, count = 12, target = "Kobold Laborer", oi = 1, mobLevel = 4, note = "Kobold Laborer, deep in Echo Ridge Mine", spots = "48.3,29.7;49.5,26.8" },
 		{ t = "turnin", quest = 91745, title = "Mining Consultant", npc = "Kelsey Fargo", map = 1429, x = 47.18, y = 32.16, era = true },
 		{ t = "accept", quest = 91752, title = "The Big Picture", npc = "Kelsey Fargo", map = 1429, x = 47.18, y = 32.16, era = true, qlvl = 3 },
-		{ t = "collect", quest = 91752, title = "The Big Picture", map = 1429, x = 49.22, y = 28.01, era = true, count = 1, item = 247886, itemName = "Sack of \"Picture\" Books", oi = 1, group = true },
+		{ t = "collect", quest = 91752, title = "The Big Picture", map = 1429, x = 49.22, y = 28.01, era = true, count = 1, item = 247886, itemName = "Sack of \"Picture\" Books", oi = 1, group = true, src = "Shinyfinder Narf", srcKind = "npc" },
 	} },
 	{ title = "Northshire: last hand-in", when = {{ k = "done", label = "sw-northshire" }}, goals = {
 		{ t = "turnin", quest = 21, title = "Skirmish at Echo Ridge", npc = "Marshal McBride", map = 1429, x = 48.92, y = 41.61, era = true },
@@ -2533,12 +2533,12 @@ Waypost.RegisterSteps("reputation/stormwind", function() return {
 		{ t = "turnin", quest = 54, title = "Report to Goldshire", npc = "Marshal Dughan", map = 1429, x = 42.11, y = 65.93, era = true },
 		{ t = "turnin", quest = 91772, title = "Shhh! We're Hunting Kobolds", npc = "Marshal Dughan", map = 1429, x = 42.11, y = 65.93, era = true },
 		{ t = "accept", quest = 91775, title = "Book Return", npc = "Marshal Dughan", map = 1429, x = 42.11, y = 65.93, era = true, qlvl = 6 },
-		{ t = "collect", quest = 91775, title = "Book Return", map = 1429, x = 41.62, y = 79.9, era = true, count = 1, item = 248002, itemName = "Picture Book: Fun with Elementals", oi = 1, group = true },
-		{ t = "collect", quest = 91775, title = "Book Return", map = 1429, x = 41.43, y = 79.87, era = true, count = 6, item = 248001, itemName = "Lost Book", oi = 2, mobLevel = 7, spots = "40.8,79.5;38.7,82.5;37.8,85.2;37.4,79.3;58,59.8" },
+		{ t = "collect", quest = 91775, title = "Book Return", map = 1429, x = 41.62, y = 79.9, era = true, count = 1, item = 248002, itemName = "Picture Book: Fun with Elementals", oi = 1, group = true, src = "Nimsy", srcKind = "npc" },
+		{ t = "collect", quest = 91775, title = "Book Return", map = 1429, x = 41.43, y = 79.87, era = true, count = 6, item = 248001, itemName = "Lost Book", oi = 2, mobLevel = 7, src = "Kobold Miner, Kobold Tunneler", srcKind = "npc", spots = "40.8,79.5;38.7,82.5;37.8,85.2;37.4,79.3;58,59.8" },
 		{ t = "turnin", quest = 91775, title = "Book Return", npc = "Marshal Dughan", map = 1429, x = 42.11, y = 65.93, era = true },
 		{ t = "accept", quest = 91777, title = "Rare Books", npc = "Marshal Dughan", map = 1429, x = 42.11, y = 65.93, era = true, qlvl = 7 },
-		{ t = "collect", quest = 91777, title = "Rare Books", map = 1429, x = 61.38, y = 48.93, era = true, count = 1, item = 248003, itemName = "Geomancy for Curious Young Wizards", oi = 1, group = true },
-		{ t = "collect", quest = 91777, title = "Rare Books", map = 1429, x = 62.14, y = 48.05, era = true, count = 1, item = 248004, itemName = "Arcane Explainer: Magical Stuff in Simple Words", oi = 2, group = true, note = "Arcane Explainer" },
+		{ t = "collect", quest = 91777, title = "Rare Books", map = 1429, x = 61.38, y = 48.93, era = true, count = 1, item = 248003, itemName = "Geomancy for Curious Young Wizards", oi = 1, group = true, src = "Geosculptor Yip", srcKind = "npc" },
+		{ t = "collect", quest = 91777, title = "Rare Books", map = 1429, x = 62.14, y = 48.05, era = true, count = 1, item = 248004, itemName = "Arcane Explainer: Magical Stuff in Simple Words", oi = 2, group = true, note = "Arcane Explainer", src = "Mother Fang", srcKind = "npc" },
 		{ t = "turnin", quest = 91777, title = "Rare Books", npc = "Brother Paxton", map = 1429, x = 49.61, y = 40.41, era = true, note = "Brother Paxton, back at the abbey" },
 	} },
 	{ title = "Goldshire", note = "Optional: Goldshire, Westbrook and the farms south of Goldshire: about 1,450 reputation in an hour at 60. Marshal Dughan, Remy and William Pestle stand around the Lion's Pride Inn. Forever pays these old quests in full at any level. Skip this step to skip the hub.", label = "sw-goldshire", goals = {
@@ -2552,9 +2552,9 @@ Waypost.RegisterSteps("reputation/stormwind", function() return {
 	} },
 	{ title = "Goldshire: the mines", note = "Fargodeep Mine is south of Goldshire, Jasperlode Mine north-east of it. The kobolds in both drop the candles and the Gold Dust; the wolves around Goldshire the pelts.", when = {{ k = "done", label = "sw-goldshire" }}, goals = {
 		{ t = "complete", quest = 62, title = "The Fargodeep Mine", objs = {"Scout through the Fargodeep Mine"} },
-		{ t = "collect", quest = 47, title = "Gold Dust Exchange", map = 1429, x = 41.71, y = 78.03, era = true, count = 10, item = 773, itemName = "Gold Dust", oi = 1, mobLevel = 8, spots = "40.8,79.5;38.7,82.5;37.8,85.2;37.4,79.3;58,59.8" },
-		{ t = "collect", quest = 60, title = "Kobold Candles", map = 1429, x = 41.71, y = 78.03, era = true, count = 8, item = 772, itemName = "Large Candle", oi = 1, mobLevel = 8, spots = "40.8,79.5;38.7,82.5;37.8,85.2;37.4,79.3;58,59.8" },
-		{ t = "collect", quest = 91751, title = "Rough Wolf Pelts", map = 1429, x = 59.25, y = 69.43, era = true, count = 7, item = 247877, itemName = "Rough Wolf Pelt", oi = 1, skillName = "Skinning", skillRank = 1, mobLevel = 10, spots = "60.2,67.5;64.6,60.3;70.6,62.1;78.1,62.1;84.7,61" },
+		{ t = "collect", quest = 47, title = "Gold Dust Exchange", map = 1429, x = 41.71, y = 78.03, era = true, count = 10, item = 773, itemName = "Gold Dust", oi = 1, mobLevel = 8, src = "Goldtooth, Kobold Miner, Kobold Tunneler and others", srcKind = "npc", spots = "40.8,79.5;38.7,82.5;37.8,85.2;37.4,79.3;58,59.8" },
+		{ t = "collect", quest = 60, title = "Kobold Candles", map = 1429, x = 41.71, y = 78.03, era = true, count = 8, item = 772, itemName = "Large Candle", oi = 1, mobLevel = 8, src = "Goldtooth, Kobold Miner, Kobold Tunneler and others", srcKind = "npc", spots = "40.8,79.5;38.7,82.5;37.8,85.2;37.4,79.3;58,59.8" },
+		{ t = "collect", quest = 91751, title = "Rough Wolf Pelts", map = 1429, x = 59.25, y = 69.43, era = true, count = 7, item = 247877, itemName = "Rough Wolf Pelt", oi = 1, skillName = "Skinning", skillRank = 1, mobLevel = 10, src = "Gray Forest Wolf, Prowler", srcKind = "npc", spots = "60.2,67.5;64.6,60.3;70.6,62.1;78.1,62.1;84.7,61" },
 	} },
 	{ title = "Goldshire: back at the inn", when = {{ k = "done", label = "sw-goldshire" }}, goals = {
 		{ t = "turnin", quest = 62, title = "The Fargodeep Mine", npc = "Marshal Dughan", map = 1429, x = 42.11, y = 65.93, era = true },
@@ -2573,8 +2573,8 @@ Waypost.RegisterSteps("reputation/stormwind", function() return {
 		{ t = "turnin", quest = 239, title = "Westbrook Garrison Needs Help!", npc = "Deputy Rainer", map = 1429, x = 24.23, y = 74.45, era = true },
 		{ t = "accept", quest = 11, title = "Riverpaw Gnoll Bounty", npc = "Deputy Rainer", map = 1429, x = 24.23, y = 74.45, era = true, qlvl = 10 },
 		{ t = "accept", quest = 176, title = "WANTED: \"Hogger\"", npc = "Wanted Poster", map = 1429, x = 24.55, y = 74.69, era = true, qlvl = 11 },
-		{ t = "collect", quest = 11, title = "Riverpaw Gnoll Bounty", map = 1429, x = 27.45, y = 79.89, era = true, count = 8, item = 782, itemName = "Painted Gnoll Armband", oi = 1, mobLevel = 10, note = "Painted Gnoll Armband, from the Riverpaw gnolls", spots = "27.3,81.3;31.2,81.7;30.9,89.1;27.6,94.3;25,93.2" },
-		{ t = "collect", quest = 176, title = "WANTED: \"Hogger\"", map = 1429, x = 25.02, y = 92.9, era = true, count = 1, item = 1931, itemName = "Huge Gnoll Claw", oi = 1, group = true, note = "Huge Gnoll Claw, from Hogger" },
+		{ t = "collect", quest = 11, title = "Riverpaw Gnoll Bounty", map = 1429, x = 27.45, y = 79.89, era = true, count = 8, item = 782, itemName = "Painted Gnoll Armband", oi = 1, mobLevel = 10, note = "Painted Gnoll Armband, from the Riverpaw gnolls", src = "Riverpaw Outrunner, Riverpaw Runt", srcKind = "npc", spots = "27.3,81.3;31.2,81.7;30.9,89.1;27.6,94.3;25,93.2" },
+		{ t = "collect", quest = 176, title = "WANTED: \"Hogger\"", map = 1429, x = 25.02, y = 92.9, era = true, count = 1, item = 1931, itemName = "Huge Gnoll Claw", oi = 1, group = true, note = "Huge Gnoll Claw, from Hogger", src = "Hogger", srcKind = "npc" },
 		{ t = "turnin", quest = 11, title = "Riverpaw Gnoll Bounty", npc = "Deputy Rainer", map = 1429, x = 24.23, y = 74.45, era = true },
 	} },
 	{ title = "The farms south of Goldshire", note = "The Stonefields' farm and the Maclures' farm lie on either side of the road south of Goldshire. Goldtooth guards the back of Fargodeep Mine; Princess the boar roams the Brackwell Pumpkin Patch.", when = {{ k = "done", label = "sw-goldshire" }}, goals = {
@@ -2583,8 +2583,8 @@ Waypost.RegisterSteps("reputation/stormwind", function() return {
 		{ t = "accept", quest = 86, title = "Pie for Billy", npc = "Billy Maclure", map = 1429, x = 43.13, y = 85.72, era = true, qlvl = 6 },
 		{ t = "accept", quest = 106, title = "Young Lovers", npc = "Maybell Maclure", map = 1429, x = 43.15, y = 89.62, era = true, qlvl = 6 },
 		{ t = "accept", quest = 88, title = "Princess Must Die!", npc = "Ma Stonefield", map = 1429, x = 34.66, y = 84.48, era = true, qlvl = 9 },
-		{ t = "collect", quest = 86, title = "Pie for Billy", map = 1429, x = 33.37, y = 85.14, era = true, count = 4, item = 769, itemName = "Chunk of Boar Meat", oi = 1, mobLevel = 8, spots = "32.4,86;37.5,90;45.3,88.8;43.3,77.9;39.6,69.9" },
-		{ t = "collect", quest = 88, title = "Princess Must Die!", map = 1429, x = 69.66, y = 79.25, era = true, count = 1, item = 1006, itemName = "Brass Collar", oi = 1, note = "Brass Collar, from Princess" },
+		{ t = "collect", quest = 86, title = "Pie for Billy", map = 1429, x = 33.37, y = 85.14, era = true, count = 4, item = 769, itemName = "Chunk of Boar Meat", oi = 1, mobLevel = 8, src = "Stonetusk Boar, Longsnout, Young Goretusk and others", srcKind = "npc", spots = "32.4,86;37.5,90;45.3,88.8;43.3,77.9;39.6,69.9" },
+		{ t = "collect", quest = 88, title = "Princess Must Die!", map = 1429, x = 69.66, y = 79.25, era = true, count = 1, item = 1006, itemName = "Brass Collar", oi = 1, note = "Brass Collar, from Princess", src = "Princess", srcKind = "npc" },
 		{ t = "turnin", quest = 86, title = "Pie for Billy", npc = "\"Auntie\" Bernice Stonefield", map = 1429, x = 34.49, y = 84.25, era = true },
 		{ t = "accept", quest = 84, title = "Back to Billy", npc = "\"Auntie\" Bernice Stonefield", map = 1429, x = 34.49, y = 84.25, era = true, qlvl = 6 },
 		{ t = "turnin", quest = 84, title = "Back to Billy", npc = "Billy Maclure", map = 1429, x = 43.13, y = 85.72, era = true },
@@ -2596,11 +2596,11 @@ Waypost.RegisterSteps("reputation/stormwind", function() return {
 		{ t = "turnin", quest = 88, title = "Princess Must Die!", npc = "Ma Stonefield", map = 1429, x = 34.66, y = 84.48, era = true },
 	} },
 	{ title = "Goldtooth and the kelp", when = {{ k = "done", label = "sw-goldshire" }}, goals = {
-		{ t = "collect", quest = 87, title = "Goldtooth", map = 1429, x = 41.71, y = 78.03, era = true, count = 1, item = 981, itemName = "Bernice's Necklace", oi = 1, note = "Bernice's Necklace, from Goldtooth" },
+		{ t = "collect", quest = 87, title = "Goldtooth", map = 1429, x = 41.71, y = 78.03, era = true, count = 1, item = 981, itemName = "Bernice's Necklace", oi = 1, note = "Bernice's Necklace, from Goldtooth", src = "Goldtooth", srcKind = "npc" },
 		{ t = "turnin", quest = 87, title = "Goldtooth", npc = "\"Auntie\" Bernice Stonefield", map = 1429, x = 34.49, y = 84.25, era = true },
 		{ t = "turnin", quest = 107, title = "Note to William", npc = "William Pestle", map = 1429, x = 43.32, y = 65.7, era = true },
 		{ t = "accept", quest = 112, title = "Collecting Kelp", npc = "William Pestle", map = 1429, x = 43.32, y = 65.7, era = true, qlvl = 7 },
-		{ t = "collect", quest = 112, title = "Collecting Kelp", map = 1429, x = 49.83, y = 66.41, era = true, count = 4, item = 1256, itemName = "Crystal Kelp Frond", oi = 1, mobLevel = 7, note = "Crystal Kelp Frond, from the murlocs of Crystal Lake", spots = "51.1,66.9;54.4,67.3;54.3,64.1;56.9,67;57.2,63" },
+		{ t = "collect", quest = 112, title = "Collecting Kelp", map = 1429, x = 49.83, y = 66.41, era = true, count = 4, item = 1256, itemName = "Crystal Kelp Frond", oi = 1, mobLevel = 7, note = "Crystal Kelp Frond, from the murlocs of Crystal Lake", src = "Murloc, Murloc Streamrunner", srcKind = "npc", spots = "51.1,66.9;54.4,67.3;54.3,64.1;56.9,67;57.2,63" },
 	} },
 	{ title = "Goldshire: last hand-in", when = {{ k = "done", label = "sw-goldshire" }}, goals = {
 		{ t = "turnin", quest = 112, title = "Collecting Kelp", npc = "William Pestle", map = 1429, x = 43.32, y = 65.7, era = true },
@@ -2630,13 +2630,13 @@ Waypost.RegisterSteps("reputation/stormwind", function() return {
 		{ t = "accept", quest = 39, title = "Deliver Thomas' Report", npc = "Guard Thomas", map = 1429, x = 73.97, y = 72.18, era = true, qlvl = 10 },
 		{ t = "kill", quest = 52, title = "Protect the Frontier", map = 1429, x = 75.49, y = 76.54, era = true, count = 8, target = "Prowler", oi = 1, mobLevel = 10, spots = "76.3,75.9;81.6,77.5;82.9,84.5;87.7,78.1;90,82.4" },
 		{ t = "kill", quest = 52, title = "Protect the Frontier", map = 1429, x = 73.4, y = 80.4, era = true, count = 5, target = "Young Forest Bear", oi = 2, mobLevel = 9, spots = "73.4,81;82.8,84;88.7,77.4;87.1,64.6;78.2,60.9" },
-		{ t = "collect", quest = 83, title = "Red Linen Goods", map = 1429, x = 71.09, y = 80.65, era = true, count = 6, item = 1019, itemName = "Red Linen Bandana", oi = 1, mobLevel = 9, spots = "70.9,80.5;73.3,55;73.5,46.7;55.3,59.9;47.5,74.1" },
+		{ t = "collect", quest = 83, title = "Red Linen Goods", map = 1429, x = 71.09, y = 80.65, era = true, count = 6, item = 1019, itemName = "Red Linen Bandana", oi = 1, mobLevel = 9, src = "Morgan the Collector, Defias Bandit, Defias Rogue Wizard and others", srcKind = "npc", spots = "70.9,80.5;73.3,55;73.5,46.7;55.3,59.9;47.5,74.1" },
 		{ t = "kill", quest = 91723, title = "Delicate Instruments", map = 1429, x = 63.53, y = 58.32, era = true, count = 8, target = "Kobold Geomancer", oi = 1, mobLevel = 8, spots = "63.2,56.8;61.2,50.5" },
-		{ t = "collect", quest = 91725, title = "Stolen Enchanting Supplies", map = 1429, x = 68.7, y = 51.1, era = true, count = 5, item = 247805, itemName = "Stolen Enchanting Supplies", oi = 1, spots = "68.3,50.4;68.3,45.5;67,42.3;68.8,39.2;65.5,40.2" },
-		{ t = "collect", quest = 91732, title = "Good Steel", map = 1429, x = 61.5, y = 51.4, era = true, count = 4, item = 247816, itemName = "Mining Tools", oi = 1 },
-		{ t = "collect", quest = 91733, title = "Downstream", map = 1429, x = 76.7, y = 82.4, era = true, count = 1, item = 247817, itemName = "Waterlogged Axe", oi = 1 },
-		{ t = "collect", quest = 91733, title = "Downstream", map = 1429, x = 74.5, y = 76.4, era = true, count = 1, item = 247813, itemName = "Waterlogged Saw", oi = 2 },
-		{ t = "collect", quest = 91733, title = "Downstream", map = 1429, x = 77.3, y = 86.7, era = true, count = 1, item = 247818, itemName = "Waterlogged Toolbox", oi = 3 },
+		{ t = "collect", quest = 91725, title = "Stolen Enchanting Supplies", map = 1429, x = 68.7, y = 51.1, era = true, count = 5, item = 247805, itemName = "Stolen Enchanting Supplies", oi = 1, src = "Stolen Enchanting Supplies", srcKind = "object", spots = "68.3,50.4;68.3,45.5;67,42.3;68.8,39.2;65.5,40.2" },
+		{ t = "collect", quest = 91732, title = "Good Steel", map = 1429, x = 61.5, y = 51.4, era = true, count = 4, item = 247816, itemName = "Mining Tools", oi = 1, src = "Mining Tools", srcKind = "object" },
+		{ t = "collect", quest = 91733, title = "Downstream", map = 1429, x = 76.7, y = 82.4, era = true, count = 1, item = 247817, itemName = "Waterlogged Axe", oi = 1, src = "Waterlogged Axe", srcKind = "object" },
+		{ t = "collect", quest = 91733, title = "Downstream", map = 1429, x = 74.5, y = 76.4, era = true, count = 1, item = 247813, itemName = "Waterlogged Saw", oi = 2, src = "Waterlogged Saw", srcKind = "object" },
+		{ t = "collect", quest = 91733, title = "Downstream", map = 1429, x = 77.3, y = 86.7, era = true, count = 1, item = 247818, itemName = "Waterlogged Toolbox", oi = 3, src = "Waterlogged Toolbox", srcKind = "object" },
 	} },
 	{ title = "Eastvale: hand in", when = {{ k = "done", label = "sw-eastvale" }}, goals = {
 		{ t = "turnin", quest = 52, title = "Protect the Frontier", npc = "Guard Thomas", map = 1429, x = 73.97, y = 72.18, era = true },
@@ -2654,7 +2654,7 @@ Waypost.RegisterSteps("reputation/stormwind", function() return {
 		{ t = "accept", quest = 59, title = "Cloth and Leather Armor", npc = "Marshal Dughan", map = 1429, x = 42.11, y = 65.93, era = true, qlvl = 10 },
 		{ t = "accept", quest = 46, title = "Bounty on Murlocs", npc = "Guard Thomas", map = 1429, x = 73.97, y = 72.18, era = true, qlvl = 10, note = "opens with Thomas' report" },
 		{ t = "turnin", quest = 59, title = "Cloth and Leather Armor", npc = "Sara Timberlain", map = 1429, x = 79.46, y = 68.79, era = true, note = "Sara Timberlain, Eastvale Logging Camp" },
-		{ t = "collect", quest = 46, title = "Bounty on Murlocs", map = 1429, x = 78.52, y = 60.2, era = true, count = 8, item = 780, itemName = "Torn Murloc Fin", oi = 1, mobLevel = 10, note = "Torn Murloc Fin, from the murlocs south of the bridge", spots = "78.5,60.2;79.8,54.2;78.7,44.8;77.1,81.7;79.3,84.9" },
+		{ t = "collect", quest = 46, title = "Bounty on Murlocs", map = 1429, x = 78.52, y = 60.2, era = true, count = 8, item = 780, itemName = "Torn Murloc Fin", oi = 1, mobLevel = 10, note = "Torn Murloc Fin, from the murlocs south of the bridge", src = "Murloc Lurker, Murloc Forager", srcKind = "npc", spots = "78.5,60.2;79.8,54.2;78.7,44.8;77.1,81.7;79.3,84.9" },
 		{ t = "turnin", quest = 46, title = "Bounty on Murlocs", npc = "Guard Thomas", map = 1429, x = 73.97, y = 72.18, era = true },
 	} },
 	{ title = "The Stockade: two quests", note = "Optional: the Stockade is Stormwind's prison, a dungeon in the canals of the Mage Quarter. At 60 you clear it alone in ten minutes: 300 reputation. Warden Thelwater stands at the gate, Nikova Raskol in Old Town. Two more Stockade quests start outside the city, 100 each, if you pass by: What Comes Around... (Targorr the Dread) from Guard Berton in Lakeshire and Crime and Punishment (Dextren Ward) from Councilman Millstipe in Darkshire. (The Stockade Riots, 100 more, needs the Unsent Letter from Edwin VanCleef in the Deadmines first.) Forever pays these old quests in full at any level. Skip this step to skip the hub.", label = "sw-stockade", goals = {
@@ -2706,7 +2706,7 @@ Waypost.RegisterSteps("reputation/stormwind", function() return {
 		{ t = "kill", quest = 5097, title = "All Along the Watchtowers", map = 1422, x = 42.33, y = 66.24, era = true, count = 1, target = "Andorhal Tower Two", oi = 2, text = "Mark Andorhal Tower Two with the Beacon Torch" },
 		{ t = "kill", quest = 5097, title = "All Along the Watchtowers", map = 1422, x = 44.3, y = 63.25, era = true, count = 1, target = "Andorhal Tower Three", oi = 3, text = "Mark Andorhal Tower Three with the Beacon Torch" },
 		{ t = "kill", quest = 5097, title = "All Along the Watchtowers", map = 1422, x = 46.62, y = 71.05, era = true, count = 1, target = "Andorhal Tower Four", oi = 4, text = "Mark Andorhal Tower Four with the Beacon Torch" },
-		{ t = "collect", quest = 5216, title = "Target: Felstone Field", map = 1422, x = 36.93, y = 57.41, era = true, count = 1, item = 13194, itemName = "Felstone Field Cauldron Key", oi = 1, note = "Felstone Field Cauldron Key, from Cauldron Lord Bilemaw" },
+		{ t = "collect", quest = 5216, title = "Target: Felstone Field", map = 1422, x = 36.93, y = 57.41, era = true, count = 1, item = 13194, itemName = "Felstone Field Cauldron Key", oi = 1, note = "Felstone Field Cauldron Key, from Cauldron Lord Bilemaw", src = "Cauldron Lord Bilemaw", srcKind = "npc" },
 		{ t = "turnin", quest = 5216, title = "Target: Felstone Field", npc = "Scourge Cauldron", map = 1422, x = 37.25, y = 56.78, era = true, note = "the Scourge Cauldron" },
 		{ t = "accept", quest = 5217, title = "Return to Chillwind Camp", npc = "Scourge Cauldron", map = 1422, x = 37.25, y = 56.78, era = true, qlvl = 53, note = "Return to Chillwind Camp, +50" },
 		{ t = "accept", quest = 5021, title = "Better Late Than Never", npc = "Janice Felstone", map = 1422, x = 38.4, y = 54.05, era = true, qlvl = 52 },
@@ -2719,7 +2719,7 @@ Waypost.RegisterSteps("reputation/stormwind", function() return {
 		{ t = "accept", quest = 5219, title = "Target: Dalson's Tears", npc = "High Priestess MacDonnell", map = 1422, x = 42.97, y = 84.5, era = true, qlvl = 55, note = "Target: Dalson's Tears, +100" },
 	} },
 	{ title = "Dalson's Tears", note = "Cauldron Lord Malvinious guards the cauldron at Dalson's Tears, north-east of Felstone Field.", goals = {
-		{ t = "collect", quest = 5219, title = "Target: Dalson's Tears", map = 1422, x = 46.11, y = 52.61, era = true, count = 1, item = 13195, itemName = "Dalson's Tears Cauldron Key", oi = 1 },
+		{ t = "collect", quest = 5219, title = "Target: Dalson's Tears", map = 1422, x = 46.11, y = 52.61, era = true, count = 1, item = 13195, itemName = "Dalson's Tears Cauldron Key", oi = 1, src = "Cauldron Lord Malvinious", srcKind = "npc" },
 		{ t = "turnin", quest = 5219, title = "Target: Dalson's Tears", npc = "Scourge Cauldron", map = 1422, x = 46.18, y = 51.9, era = true, note = "the Scourge Cauldron" },
 		{ t = "accept", quest = 5220, title = "Return to Chillwind Camp", npc = "Scourge Cauldron", map = 1422, x = 46.18, y = 51.9, era = true, qlvl = 55, note = "Return to Chillwind Camp, +50" },
 	} },
@@ -2728,7 +2728,7 @@ Waypost.RegisterSteps("reputation/stormwind", function() return {
 		{ t = "accept", quest = 5222, title = "Target: Writhing Haunt", npc = "High Priestess MacDonnell", map = 1422, x = 42.97, y = 84.5, era = true, qlvl = 55, note = "Target: Writhing Haunt, +100" },
 	} },
 	{ title = "The Writhing Haunt", note = "Cauldron Lord Razarch guards the cauldron at the Writhing Haunt, the farm east of Dalson's Tears.", goals = {
-		{ t = "collect", quest = 5222, title = "Target: Writhing Haunt", map = 1422, x = 52.88, y = 66.08, era = true, count = 1, item = 13197, itemName = "Writhing Haunt Cauldron Key", oi = 1 },
+		{ t = "collect", quest = 5222, title = "Target: Writhing Haunt", map = 1422, x = 52.88, y = 66.08, era = true, count = 1, item = 13197, itemName = "Writhing Haunt Cauldron Key", oi = 1, src = "Cauldron Lord Razarch", srcKind = "npc" },
 		{ t = "turnin", quest = 5222, title = "Target: Writhing Haunt", npc = "Scourge Cauldron", map = 1422, x = 53.02, y = 65.61, era = true, note = "the Scourge Cauldron" },
 		{ t = "accept", quest = 5223, title = "Return to Chillwind Camp", npc = "Scourge Cauldron", map = 1422, x = 53.02, y = 65.61, era = true, qlvl = 55, note = "Return to Chillwind Camp, +50" },
 	} },
@@ -2737,7 +2737,7 @@ Waypost.RegisterSteps("reputation/stormwind", function() return {
 		{ t = "accept", quest = 5225, title = "Target: Gahrron's Withering", npc = "High Priestess MacDonnell", map = 1422, x = 42.97, y = 84.5, era = true, qlvl = 58, note = "Target: Gahrron's Withering, +100" },
 	} },
 	{ title = "Gahrron's Withering", note = "Cauldron Lord Soulwrath guards the cauldron at Gahrron's Withering, in the east of the zone.", goals = {
-		{ t = "collect", quest = 5225, title = "Target: Gahrron's Withering", map = 1422, x = 62.18, y = 59.06, era = true, count = 1, item = 13196, itemName = "Gahrron's Withering Cauldron Key", oi = 1 },
+		{ t = "collect", quest = 5225, title = "Target: Gahrron's Withering", map = 1422, x = 62.18, y = 59.06, era = true, count = 1, item = 13196, itemName = "Gahrron's Withering Cauldron Key", oi = 1, src = "Cauldron Lord Soulwrath", srcKind = "npc" },
 		{ t = "turnin", quest = 5225, title = "Target: Gahrron's Withering", npc = "Scourge Cauldron", map = 1422, x = 62.54, y = 58.47, era = true, note = "the Scourge Cauldron" },
 		{ t = "accept", quest = 5226, title = "Return to Chillwind Camp", npc = "Scourge Cauldron", map = 1422, x = 62.54, y = 58.47, era = true, qlvl = 58, note = "Return to Chillwind Camp, +50" },
 	} },
@@ -2794,8 +2794,8 @@ Waypost.RegisterSteps("reputation/wintersaber-trainers", function() return {
 		{ t = "accept", quest = 4970, title = "Frostsaber Provisions", npc = "Rivern Frostwind", map = 1452, x = 49.94, y = 9.84, era = true, qlvl = 60 },
 	} },
 	{ title = "Shardtooth and Chillwind meat", note = "The meat only drops while the quest is in your log, and a group shares no loot: farm it alone. The best droppers live right below the rock: Elder Shardtooth bears (about half the time) and Chillwind Ravagers (half the time) roam the snowfields east and south-east of it. Around Everlook the Chillwind Chimaeras drop it as often and the Shardtooth Bears a little less; the Rabid Shardtooth by the giants' gorge in the south drop it most often (six in ten).", goals = {
-		{ t = "collect", quest = 4970, title = "Frostsaber Provisions", map = 1452, x = 57.77, y = 12.59, era = true, count = 5, item = 12622, itemName = "Shardtooth Meat", oi = 1, mobLevel = 56, note = "Shardtooth Meat: the bears", spots = "59,13.1;57.4,28.5;68,32.4;62.4,47.6;69,53.8" },
-		{ t = "collect", quest = 4970, title = "Frostsaber Provisions", map = 1452, x = 57.86, y = 13.54, era = true, count = 5, item = 12623, itemName = "Chillwind Meat", oi = 2, mobLevel = 59, note = "Chillwind Meat: the chimaeras", spots = "58.5,13.6;57.7,24.2;62,30;67.6,30.5;63.4,46.5" },
+		{ t = "collect", quest = 4970, title = "Frostsaber Provisions", map = 1452, x = 57.77, y = 12.59, era = true, count = 5, item = 12622, itemName = "Shardtooth Meat", oi = 1, mobLevel = 56, note = "Shardtooth Meat: the bears", src = "Elder Shardtooth, Rabid Shardtooth, Shardtooth Bear and others", srcKind = "npc", spots = "59,13.1;57.4,28.5;68,32.4;62.4,47.6;69,53.8" },
+		{ t = "collect", quest = 4970, title = "Frostsaber Provisions", map = 1452, x = 57.86, y = 13.54, era = true, count = 5, item = 12623, itemName = "Chillwind Meat", oi = 2, mobLevel = 59, note = "Chillwind Meat: the chimaeras", src = "Chillwind Ravager, Fledgling Chillwind, Chillwind Chimaera", srcKind = "npc", spots = "58.5,13.6;57.7,24.2;62,30;67.6,30.5;63.4,46.5" },
 	} },
 	{ title = "Back to Rivern Frostwind", goals = {
 		{ t = "turnin", quest = 4970, title = "Frostsaber Provisions", npc = "Rivern Frostwind", map = 1452, x = 49.94, y = 9.84, era = true },
@@ -2803,8 +2803,8 @@ Waypost.RegisterSteps("reputation/wintersaber-trainers", function() return {
 	{ title = "Neutral to Friendly: Frostsaber Provisions, then Winterfall Intrusion", note = "Repeat Frostsaber Provisions: 30 turn-ins reach Neutral 1,500, and then Winterfall Intrusion opens: 5 Winterfall Shamans and 5 Winterfall Ursas in Winterfall Village, just east of Everlook. The village has only a few Shamans, but every furbolg there shares their spawn points: kill all of them, not just the ones you need, and more Shamans and Ursas appear; more Ursas walk the ridge just south-west of the village. Take both quests on every trip: kill the furbolgs, pick up meat on the way back. Neutral to Friendly is 60 turn-ins.", goals = {
 		{ t = "accept", quest = 4970, title = "Frostsaber Provisions", npc = "Rivern Frostwind", map = 1452, x = 49.94, y = 9.84, era = true, qlvl = 60, optional = true },
 		{ t = "accept", quest = 5201, title = "Winterfall Intrusion", npc = "Rivern Frostwind", map = 1452, x = 49.94, y = 9.84, era = true, qlvl = 60, optional = true },
-		{ t = "collect", quest = 4970, title = "Frostsaber Provisions", map = 1452, x = 57.77, y = 12.59, era = true, count = 5, item = 12622, itemName = "Shardtooth Meat", oi = 1, mobLevel = 56, optional = true, spots = "59,13.1;57.4,28.5;68,32.4;62.4,47.6;69,53.8" },
-		{ t = "collect", quest = 4970, title = "Frostsaber Provisions", map = 1452, x = 57.86, y = 13.54, era = true, count = 5, item = 12623, itemName = "Chillwind Meat", oi = 2, mobLevel = 59, optional = true, spots = "58.5,13.6;57.7,24.2;62,30;67.6,30.5;63.4,46.5" },
+		{ t = "collect", quest = 4970, title = "Frostsaber Provisions", map = 1452, x = 57.77, y = 12.59, era = true, count = 5, item = 12622, itemName = "Shardtooth Meat", oi = 1, mobLevel = 56, optional = true, src = "Elder Shardtooth, Rabid Shardtooth, Shardtooth Bear and others", srcKind = "npc", spots = "59,13.1;57.4,28.5;68,32.4;62.4,47.6;69,53.8" },
+		{ t = "collect", quest = 4970, title = "Frostsaber Provisions", map = 1452, x = 57.86, y = 13.54, era = true, count = 5, item = 12623, itemName = "Chillwind Meat", oi = 2, mobLevel = 59, optional = true, src = "Chillwind Ravager, Fledgling Chillwind, Chillwind Chimaera", srcKind = "npc", spots = "58.5,13.6;57.7,24.2;62,30;67.6,30.5;63.4,46.5" },
 		{ t = "kill", quest = 5201, title = "Winterfall Intrusion", map = 1452, x = 67.37, y = 35.22, era = true, count = 5, target = "Winterfall Shaman", oi = 1, mobLevel = 57, optional = true, spots = "67.5,35.4;68,37.5;69.5,38.3;67.5,39.8" },
 		{ t = "kill", quest = 5201, title = "Winterfall Intrusion", map = 1452, x = 68.08, y = 36.86, era = true, count = 5, target = "Winterfall Ursa", oi = 2, mobLevel = 58, optional = true, spots = "68.3,37.6;67.2,39.4;65.8,37.6" },
 		{ t = "turnin", quest = 4970, title = "Frostsaber Provisions", npc = "Rivern Frostwind", map = 1452, x = 49.94, y = 9.84, era = true, optional = true },
@@ -2814,8 +2814,8 @@ Waypost.RegisterSteps("reputation/wintersaber-trainers", function() return {
 	{ title = "Friendly to Honored", note = "Friendly to Honored is 6,000: 120 turn-ins. Winterfall Intrusion is the quickest; do Frostsaber Provisions when the village is crowded or you pass the bears and chimaeras anyway. Every Winterfall furbolg you kill counts for Timbermaw Hold too: 50 Timbermaw reputation per Winterfall Intrusion up to the end of Honored with them, and about four Winterfall Spirit Beads. Take Salfa's Winterfall Activity (the Timbermaw guide) the first time you are in the village, and keep the beads until your Timbermaw kills stop counting: then each 5 pay 50. You will reach Exalted with the Timbermaw long before the Wintersaber Trainers.", goals = {
 		{ t = "accept", quest = 4970, title = "Frostsaber Provisions", npc = "Rivern Frostwind", map = 1452, x = 49.94, y = 9.84, era = true, qlvl = 60, optional = true },
 		{ t = "accept", quest = 5201, title = "Winterfall Intrusion", npc = "Rivern Frostwind", map = 1452, x = 49.94, y = 9.84, era = true, qlvl = 60, optional = true },
-		{ t = "collect", quest = 4970, title = "Frostsaber Provisions", map = 1452, x = 57.77, y = 12.59, era = true, count = 5, item = 12622, itemName = "Shardtooth Meat", oi = 1, mobLevel = 56, optional = true, spots = "59,13.1;57.4,28.5;68,32.4;62.4,47.6;69,53.8" },
-		{ t = "collect", quest = 4970, title = "Frostsaber Provisions", map = 1452, x = 57.86, y = 13.54, era = true, count = 5, item = 12623, itemName = "Chillwind Meat", oi = 2, mobLevel = 59, optional = true, spots = "58.5,13.6;57.7,24.2;62,30;67.6,30.5;63.4,46.5" },
+		{ t = "collect", quest = 4970, title = "Frostsaber Provisions", map = 1452, x = 57.77, y = 12.59, era = true, count = 5, item = 12622, itemName = "Shardtooth Meat", oi = 1, mobLevel = 56, optional = true, src = "Elder Shardtooth, Rabid Shardtooth, Shardtooth Bear and others", srcKind = "npc", spots = "59,13.1;57.4,28.5;68,32.4;62.4,47.6;69,53.8" },
+		{ t = "collect", quest = 4970, title = "Frostsaber Provisions", map = 1452, x = 57.86, y = 13.54, era = true, count = 5, item = 12623, itemName = "Chillwind Meat", oi = 2, mobLevel = 59, optional = true, src = "Chillwind Ravager, Fledgling Chillwind, Chillwind Chimaera", srcKind = "npc", spots = "58.5,13.6;57.7,24.2;62,30;67.6,30.5;63.4,46.5" },
 		{ t = "kill", quest = 5201, title = "Winterfall Intrusion", map = 1452, x = 67.37, y = 35.22, era = true, count = 5, target = "Winterfall Shaman", oi = 1, mobLevel = 57, optional = true, spots = "67.5,35.4;68,37.5;69.5,38.3;67.5,39.8" },
 		{ t = "kill", quest = 5201, title = "Winterfall Intrusion", map = 1452, x = 68.08, y = 36.86, era = true, count = 5, target = "Winterfall Ursa", oi = 2, mobLevel = 58, optional = true, spots = "68.3,37.6;67.2,39.4;65.8,37.6" },
 		{ t = "turnin", quest = 4970, title = "Frostsaber Provisions", npc = "Rivern Frostwind", map = 1452, x = 49.94, y = 9.84, era = true, optional = true },
@@ -2830,8 +2830,8 @@ Waypost.RegisterSteps("reputation/wintersaber-trainers", function() return {
 		{ t = "kill", quest = 5201, title = "Winterfall Intrusion", map = 1452, x = 68.08, y = 36.86, era = true, count = 5, target = "Winterfall Ursa", oi = 2, mobLevel = 58, optional = true, spots = "68.3,37.6;67.2,39.4;65.8,37.6" },
 		{ t = "kill", quest = 5981, title = "Rampaging Giants", map = 1452, x = 64.28, y = 66.24, era = true, count = 4, target = "Frostmaul Giant", oi = 1, mobLevel = 60, optional = true, group = true, note = "Frostmaul Giant, elite", spots = "64.3,66.2;65.7,69.3;63.4,69.9;60.8,66.2;58.6,68.7" },
 		{ t = "kill", quest = 5981, title = "Rampaging Giants", map = 1452, x = 63.83, y = 67.11, era = true, count = 4, target = "Frostmaul Preserver", oi = 2, mobLevel = 60, optional = true, group = true, note = "Frostmaul Preserver, elite", spots = "63.8,67.1;62.7,68.8;60.5,67.1;60,70.2;58.3,67.5" },
-		{ t = "collect", quest = 4970, title = "Frostsaber Provisions", map = 1452, x = 66.82, y = 69.26, era = true, count = 5, item = 12622, itemName = "Shardtooth Meat", oi = 1, mobLevel = 56, optional = true, spots = "66.9,69.7;59.2,73.1;58.3,60.5;66.6,52.1;54.6,45.5" },
-		{ t = "collect", quest = 4970, title = "Frostsaber Provisions", map = 1452, x = 63.34, y = 62.07, era = true, count = 5, item = 12623, itemName = "Chillwind Meat", oi = 2, mobLevel = 59, optional = true, spots = "63.3,62.1;67.1,52.6;63.4,46.5;55.6,47.3;55.6,37.1" },
+		{ t = "collect", quest = 4970, title = "Frostsaber Provisions", map = 1452, x = 66.82, y = 69.26, era = true, count = 5, item = 12622, itemName = "Shardtooth Meat", oi = 1, mobLevel = 56, optional = true, src = "Rabid Shardtooth, Elder Shardtooth, Shardtooth Bear and others", srcKind = "npc", spots = "66.9,69.7;59.2,73.1;58.3,60.5;66.6,52.1;54.6,45.5" },
+		{ t = "collect", quest = 4970, title = "Frostsaber Provisions", map = 1452, x = 63.34, y = 62.07, era = true, count = 5, item = 12623, itemName = "Chillwind Meat", oi = 2, mobLevel = 59, optional = true, src = "Chillwind Ravager, Fledgling Chillwind, Chillwind Chimaera", srcKind = "npc", spots = "63.3,62.1;67.1,52.6;63.4,46.5;55.6,47.3;55.6,37.1" },
 		{ t = "turnin", quest = 4970, title = "Frostsaber Provisions", npc = "Rivern Frostwind", map = 1452, x = 49.94, y = 9.84, era = true, optional = true },
 		{ t = "turnin", quest = 5201, title = "Winterfall Intrusion", npc = "Rivern Frostwind", map = 1452, x = 49.94, y = 9.84, era = true, optional = true },
 		{ t = "turnin", quest = 5981, title = "Rampaging Giants", npc = "Rivern Frostwind", map = 1452, x = 49.94, y = 9.84, era = true, optional = true },
@@ -2942,7 +2942,7 @@ Waypost.RegisterSteps("class/mage/ju-ju-heaps", function() return {
 		{ t = "accept", quest = 1882, title = "The Balnir Farmstead", npc = "Anastasia Hartwell", map = 1458, x = 85.14, y = 10.03, era = true, qlvl = 10 },
 	} },
 	{ title = "The Balnir Farmstead", note = "The Balnir Farmstead lies south-east of Brill, south of the road east to the Bulwark. The snapdragons grow in the farm's garden and look more like bushes than flowers; any of them will do and you need no Herbalism. They come back within seconds.", only = { races = {"Scourge", "Troll"} }, when = {{ k = "onquest", q = {1882} }}, goals = {
-		{ t = "collect", quest = 1882, title = "The Balnir Farmstead", map = 1420, x = 77.47, y = 61.89, era = true, count = 1, item = 7227, itemName = "Balnir Snapdragons", oi = 1 },
+		{ t = "collect", quest = 1882, title = "The Balnir Farmstead", map = 1420, x = 77.47, y = 61.89, era = true, count = 1, item = 7227, itemName = "Balnir Snapdragons", oi = 1, src = "Balnir Snapdragons", srcKind = "object" },
 	} },
 	{ title = "Back to Anastasia", only = { races = {"Scourge", "Troll"} }, when = {{ k = "onquest", q = {1882} }}, goals = {
 		{ t = "turnin", quest = 1882, title = "The Balnir Farmstead", npc = "Anastasia Hartwell", map = 1458, x = 85.14, y = 10.03, era = true, note = "Anastasia Hartwell: Arcane Orb or Arcane Staff" },
@@ -2960,14 +2960,14 @@ Waypost.RegisterSteps("class/mage/nether-lace-garment", function() return {
 	} },
 	{ title = "The Xavian Waterfall", note = "Fly to Splintertree Post and swim north up the river past the big lake to its far northern end, where the zone text reads Xavian; satyrs hold the ruins around it and a few river beasts are in the way. Swim right in under the highest waterfall until you touch the rock wall, then use the flask (you can stay in the water). The waterfalls on the western Falfarren fork do not work.", goals = {
 		{ t = "use", quest = 1944, title = "Waters of Xavian", map = 1440, x = 76.29, y = 41.49, era = true, item = 7269, itemName = "Deino's Flask", oi = 1, note = "Deino's Flask, under the falls" },
-		{ t = "collect", quest = 1944, title = "Waters of Xavian", map = 1440, x = 76.29, y = 41.49, era = true, count = 1, item = 7268, itemName = "Xavian Water Sample", oi = 1 },
+		{ t = "collect", quest = 1944, title = "Waters of Xavian", map = 1440, x = 76.29, y = 41.49, era = true, count = 1, item = 7268, itemName = "Xavian Water Sample", oi = 1, src = "Xavian Waterfall", srcKind = "object" },
 	} },
 	{ title = "Back to Deino", goals = {
 		{ t = "turnin", quest = 1944, title = "Waters of Xavian", npc = "Deino", map = 1454, x = 38.45, y = 86.13, era = true },
 		{ t = "accept", quest = 1945, title = "Laughing Sisters", npc = "Deino", map = 1454, x = 38.45, y = 86.13, era = true, qlvl = 26 },
 	} },
 	{ title = "The Laughing Sisters", note = "The Laughing Sisters, dryads of level 24-25, roam around the Raynewood Retreat in central Ashenvale; every one drops a hair and they come back after 5 minutes. They often resist fire (and some frost and shadow): arcane spells land best. Each runs for help at low health. Keep clear of the guards by the white tower of the retreat, who hit hard.", goals = {
-		{ t = "collect", quest = 1945, title = "Laughing Sisters", map = 1440, x = 59.87, y = 54.38, era = true, count = 12, item = 7270, itemName = "Laughing Sister's Hair", oi = 1, mobLevel = 25, spots = "59.4,55.4;60.3,53.2;60.3,55.8;58.6,54.7;61.2,51.6" },
+		{ t = "collect", quest = 1945, title = "Laughing Sisters", map = 1440, x = 59.87, y = 54.38, era = true, count = 12, item = 7270, itemName = "Laughing Sister's Hair", oi = 1, mobLevel = 25, src = "Laughing Sister", srcKind = "npc", spots = "59.4,55.4;60.3,53.2;60.3,55.8;58.6,54.7;61.2,51.6" },
 	} },
 	{ title = "Kil'hala", note = "Kil'hala, a troll tailor, works at the Crossroads. The robe gives intellect, stamina and spirit; the tunic more intellect and stamina but no spirit.", goals = {
 		{ t = "turnin", quest = 1945, title = "Laughing Sisters", npc = "Kil'hala", map = 1413, x = 52.2, y = 31.7, era = true },
@@ -2988,8 +2988,8 @@ Waypost.RegisterSteps("class/mage/spellfire-robes", function() return {
 	{ title = "Anastasia Hartwell", note = "Anastasia Hartwell stands in the Magic Quarter. The Chest of Containment Coffers and the Cantation of Manifestation lie on the ledge behind her (both come back 5 minutes after someone takes them). You hand both in at the end, so keep them.", goals = {
 		{ t = "turnin", quest = 1959, title = "Report to Anastasia", npc = "Anastasia Hartwell", map = 1458, x = 85.14, y = 10.03, era = true },
 		{ t = "accept", quest = 1960, title = "Investigate the Alchemist Shop", npc = "Anastasia Hartwell", map = 1458, x = 85.14, y = 10.03, era = true, qlvl = 16 },
-		{ t = "collect", quest = 1960, title = "Investigate the Alchemist Shop", map = 1458, x = 85.48, y = 9.9, era = true, count = 1, item = 7247, itemName = "Chest of Containment Coffers", oi = 2 },
-		{ t = "collect", quest = 1960, title = "Investigate the Alchemist Shop", map = 1458, x = 85.65, y = 10.18, era = true, count = 1, item = 7308, itemName = "Cantation of Manifestation", oi = 3 },
+		{ t = "collect", quest = 1960, title = "Investigate the Alchemist Shop", map = 1458, x = 85.48, y = 9.9, era = true, count = 1, item = 7247, itemName = "Chest of Containment Coffers", oi = 2, src = "Chest of Containment Coffers", srcKind = "object" },
+		{ t = "collect", quest = 1960, title = "Investigate the Alchemist Shop", map = 1458, x = 85.65, y = 10.18, era = true, count = 1, item = 7308, itemName = "Cantation of Manifestation", oi = 3, src = "Cantation of Manifestation", srcKind = "object" },
 	} },
 	{ title = "The alchemist shop", note = "Algernon's alchemist shop is in the Apothecarium. Stand on the steps or the bridge outside the shop and read the Cantation of Manifestation: up to four invisible Rift Spawns (level 16-17) appear and attack at once, and the city guards do not help. Hit one with a single-target spell and back off over the bridge: the others give up and fade, the one you hit follows. Beat it down on the shop's half of the bridge (past halfway the coffer will not work on it) until it stops fighting and sits stunned under a spiral, use the Chest of Containment Coffers on it, then click the Filled Containment Coffer once it appears on the floor (clicking too early wastes a charge). Three are needed.", goals = {
 		{ t = "use", map = 1458, x = 53.2, y = 74.5, era = true, item = 7308, itemName = "Cantation of Manifestation", optional = true },
@@ -3002,8 +3002,8 @@ Waypost.RegisterSteps("class/mage/spellfire-robes", function() return {
 		{ t = "accept", quest = 1961, title = "Gathering Materials", npc = "Anastasia Hartwell", map = 1458, x = 85.14, y = 10.03, era = true, qlvl = 15 },
 	} },
 	{ title = "Ambermill", note = "Leave the Undercity and follow the road south through Silverpine Forest. Every Dalaran human drops a Dalaran Mana Gem four times in five, and Linen Cloth too: the easiest are the Dalaran Apprentices (level 13-14, Frostbolt) on the hills south-east of the Sepulcher, either side of the road south; deeper in, the walled town of Ambermill in south-east Silverpine has Watchers (18-19, Fire Shield and Flamestrike) and Wizards (19-20, Frost Nova) that come back every 4 1/2 minutes and run for help at low health, so pull at the edge. Ten Linen Cloth also come from any humanoid or the Undercity Auction House.", goals = {
-		{ t = "collect", quest = 1961, title = "Gathering Materials", map = 1421, x = 52.25, y = 64.46, era = true, count = 6, item = 7293, itemName = "Dalaran Mana Gem", oi = 2, mobLevel = 20, spots = "52,63.6;52.2,57.3;55.7,55;57.6,63.6;62.8,62.8" },
-		{ t = "collect", quest = 1961, title = "Gathering Materials", map = 1421, x = 51.58, y = 64.26, era = true, count = 10, item = 2589, itemName = "Linen Cloth", oi = 1, spots = "52,63.6;52.2,57.3;55.7,55;59.7,62.3;62.2,71.8" },
+		{ t = "collect", quest = 1961, title = "Gathering Materials", map = 1421, x = 52.25, y = 64.46, era = true, count = 6, item = 7293, itemName = "Dalaran Mana Gem", oi = 2, mobLevel = 20, src = "Dalaran Apprentice, Dalaran Watcher, Dalaran Wizard and others", srcKind = "npc", spots = "52,63.6;52.2,57.3;55.7,55;57.6,63.6;62.8,62.8" },
+		{ t = "collect", quest = 1961, title = "Gathering Materials", map = 1421, x = 51.58, y = 64.26, era = true, count = 10, item = 2589, itemName = "Linen Cloth", oi = 1, src = "Dalaran Apprentice, Dalaran Miner, Dalaran Brewmaster and others", srcKind = "npc", spots = "52,63.6;52.2,57.3;55.7,55;59.7,62.3;62.2,71.8" },
 	} },
 	{ title = "Josef Gregorian", note = "Back to the Undercity. Josef Gregorian, Victor Ward and Rhiannon Davis keep the tailor's shop in the Magic Quarter. Hand the gems and cloth to Josef and let the three of them talk for a moment; then Josef offers Spellfire Robes: take it and hand it straight back to him for the robe.", goals = {
 		{ t = "turnin", quest = 1961, title = "Gathering Materials", npc = "Josef Gregorian", map = 1458, x = 70.76, y = 30.69, era = true },
@@ -3060,7 +3060,7 @@ Waypost.RegisterSteps("class/paladin/lumina-windsinger", function() return {
 	{ title = "Fenris Keep", note = "Lumina Windsinger is caged in the basement of Fenris Keep, at the north end of the isle. The Rot Hide gnolls (level 18-19) fill the keep: they pull in big groups across floors and players report very fast respawns, so clear a path and keep moving. Any of them can carry the Fenris Isle Key (often the first kill); the rare Rot Hide Bruiser (22) and Snarlmane (23) can too. If her cage is empty, another player is escorting her: wait for her to come back.", goals = {
 		{ t = "turnin", quest = 91861, title = "Into Fenris Keep", npc = "Lumina Windsinger", map = 1421, x = 65.55, y = 23.27, era = true },
 		{ t = "accept", quest = 91862, title = "Lumina Windsinger", npc = "Lumina Windsinger", map = 1421, x = 65.55, y = 23.27, era = true, qlvl = 22 },
-		{ t = "collect", quest = 91862, title = "Lumina Windsinger", map = 1421, x = 65.57, y = 23.32, era = true, count = 1, item = 267412, itemName = "Fenris Isle Key", oi = 1, mobLevel = 23, note = "Fenris Isle Key, from the Rot Hide gnolls" },
+		{ t = "collect", quest = 91862, title = "Lumina Windsinger", map = 1421, x = 65.57, y = 23.32, era = true, count = 1, item = 267412, itemName = "Fenris Isle Key", oi = 1, mobLevel = 23, note = "Fenris Isle Key, from the Rot Hide gnolls", src = "Rot Hide Savage, Raging Rot Hide, Rot Hide Bruiser and others", srcKind = "npc" },
 	} },
 	{ title = "Free Lumina", note = "Hand in the key first: starting the escort before that gives the key quest no credit. Then open the cage: Lumina walks out through the keep and its courtyard while the gnolls attack, then runs for the dock and makes her own way back to the Sepulcher. Stay close and keep her alive; if she dies, take the quest again when she is back in her cage.", goals = {
 		{ t = "turnin", quest = 91862, title = "Lumina Windsinger", npc = "Lumina Windsinger", map = 1421, x = 65.55, y = 23.27, era = true },
@@ -3089,7 +3089,7 @@ Waypost.RegisterSteps("class/paladin/lumina-windsinger", function() return {
 		{ t = "accept", quest = 95042, title = "Seeking the Kor Gem", npc = "Ulric Frostveil", map = 1440, x = 11.87, y = 34.41, era = true, qlvl = 25, note = "Ulric Frostveil, Zoram'gar Outpost" },
 	} },
 	{ title = "The Corrupted Kor Gem", note = "The naga stand in the flooded ruins and passages around the Blackfathom Deeps entrance, just north of Zoram'gar: you do not need to enter the instance (its first naga drop the gem too). Tide Priestesses (level 20-21), Oracles (21-22) and Sea Witches (23-24) drop the Corrupted Kor Gem, one in two. All are elite: grouping up is encouraged. Players solo them one at a time, with difficulty; a group of three makes it easy. They heal themselves, run for help at low health, and the Sea Witches cast Frost Nova up close. Some players report no drop while in a raid group.", goals = {
-		{ t = "collect", quest = 95042, title = "Seeking the Kor Gem", map = 1440, x = 13.55, y = 12.06, era = true, count = 1, item = 6995, itemName = "Corrupted Kor Gem", oi = 1, mobLevel = 22, group = true, spots = "13.8,9.3;16.2,11.3;13.6,12.1;17.7,11.1" },
+		{ t = "collect", quest = 95042, title = "Seeking the Kor Gem", map = 1440, x = 13.55, y = 12.06, era = true, count = 1, item = 6995, itemName = "Corrupted Kor Gem", oi = 1, mobLevel = 22, group = true, src = "Blackfathom Tide Priestess, Blackfathom Oracle", srcKind = "npc", spots = "13.8,9.3;16.2,11.3;13.6,12.1;17.7,11.1" },
 	} },
 	{ title = "The Purified Kor Gem", note = "Back to Ulric at Zoram'gar: he cleanses the gem. Keep the Purified Kor Gem for Trevan.", goals = {
 		{ t = "turnin", quest = 95042, title = "Seeking the Kor Gem", npc = "Ulric Frostveil", map = 1440, x = 11.87, y = 34.41, era = true, note = "Ulric Frostveil: Purified Kor Gem" },
@@ -3172,16 +3172,16 @@ Waypost.RegisterSteps("class/paladin/tyrs-watch", function() return {
 	{ title = "Shadowvale", note = "The Tarnished (level 8-9) hold the ruined village of Shadowvale in the Whispering Forest, south-west of the keep. Commander Rudolph Gelhardt (level 10) stands on the upper floor of a house, with Drudges below him: clear the ground floor first.", goals = {
 		{ t = "kill", quest = 91317, title = "The Tarnished", map = 1420, x = 20.24, y = 61.51, era = true, count = 8, target = "Tarnished Drudge", oi = 2, mobLevel = 11, note = "Tarnished Drudges x8", spots = "16.5,62.3;15.6,65.3;14.7,63.1;13.1,60.8;13.7,66.1" },
 		{ t = "kill", quest = 91317, title = "The Tarnished", map = 1420, x = 16.28, y = 62.57, era = true, count = 6, target = "Tarnished Zealot", oi = 3, mobLevel = 11, note = "Tarnished Zealots x6", spots = "16.2,63.3;14.9,64.4;13.7,62.1;14,67.1;12.3,64.4" },
-		{ t = "collect", quest = 91317, title = "The Tarnished", map = 1420, x = 11.51, y = 64.18, era = true, count = 1, item = 270435, itemName = "Rudolph Gelhardt's Head", oi = 1 },
+		{ t = "collect", quest = 91317, title = "The Tarnished", map = 1420, x = 11.51, y = 64.18, era = true, count = 1, item = 270435, itemName = "Rudolph Gelhardt's Head", oi = 1, src = "Rudolph Gelhardt", srcKind = "npc" },
 	} },
 	{ title = "The crypt under Shadowvale", note = "The cellar is under the village, not on the surface: the way down is inside a burned-out house, where the arrow points. Twelve Lumber Piles (stacked beams) lie in the cellar, each good for one Sturdy Lumber. Whispering Horror, an elite (level 11-13), sits at the far end: leave it alone.", goals = {
-		{ t = "collect", quest = 91316, title = "Making Repairs", map = 1420, x = 12.9, y = 65.7, era = true, count = 12, item = 246213, itemName = "Sturdy Lumber", oi = 1, note = "Lumber Piles, in the cellar: the way down is here", spots = "12.9,65.7;11.8,66;9.9,64.5;9.5,67.1" },
+		{ t = "collect", quest = 91316, title = "Making Repairs", map = 1420, x = 12.9, y = 65.7, era = true, count = 12, item = 246213, itemName = "Sturdy Lumber", oi = 1, note = "Lumber Piles, in the cellar: the way down is here", src = "Lumber Pile", srcKind = "object", spots = "12.9,65.7;11.8,66;9.9,64.5;9.5,67.1" },
 	} },
 	{ title = "Hilda's bones", note = "The Shadowvale Lurchers and Mystics (level 8-10) in the crypt drop the Faintly Glowing Bones: about one in two from Lurchers, more from one kind of Mystic, less from the other.", when = {{ k = "onquest", q = {99152} }}, goals = {
-		{ t = "collect", quest = 99152, title = "As Above, So Below", map = 1420, x = 9.89, y = 66.36, era = true, count = 6, item = 286259, itemName = "Faintly Glowing Bone", oi = 1, mobLevel = 12, note = "Faintly Glowing Bones x6", spots = "9.89,66.36;11.8,65.6;13.3,65.7;9.2,60.4" },
+		{ t = "collect", quest = 99152, title = "As Above, So Below", map = 1420, x = 9.89, y = 66.36, era = true, count = 6, item = 286259, itemName = "Faintly Glowing Bone", oi = 1, mobLevel = 12, note = "Faintly Glowing Bones x6", src = "Shadowvale Lurcher, Shadowvale Mystic", srcKind = "npc", spots = "9.89,66.36;11.8,65.6;13.3,65.7;9.2,60.4" },
 	} },
 	{ title = "Ephram's crystal", note = "The Glowing Crystal Fragment, a green crystal, lies on the floor in the left-hand part of the crypt.", when = {{ k = "onquest", q = {99153} }}, goals = {
-		{ t = "collect", quest = 99153, title = "The One That Got Away", map = 1420, x = 9.8, y = 69.3, era = true, count = 1, item = 286269, itemName = "Glowing Crystal Fragment", oi = 1 },
+		{ t = "collect", quest = 99153, title = "The One That Got Away", map = 1420, x = 9.8, y = 69.3, era = true, count = 1, item = 286269, itemName = "Glowing Crystal Fragment", oi = 1, src = "Glowing Crystal Fragment", srcKind = "object" },
 	} },
 	{ title = "Back to the keep", note = "Danitha hands you Rudolph Gelhardt's head for Sylvanas: keep it in your bags, it is what you hand in.", goals = {
 		{ t = "turnin", quest = 91316, title = "Making Repairs", npc = "Jorin Croge", map = 1420, x = 22.69, y = 44.7, era = true, note = "Jorin Croge: Salvaged Wooden Tower Shield" },
@@ -3204,7 +3204,7 @@ Waypost.RegisterSteps("class/paladin/tyrs-watch", function() return {
 		{ t = "accept", quest = 94434, title = "A Lesson in Divinity", npc = "Tanis Alderwood", map = 1458, x = 65.48, y = 37.49, era = true, qlvl = 12 },
 	} },
 	{ title = "Linen Cloth", note = "Tanis needs 10 Linen Cloth. Humanoids drop it: the Scarlet Zealots and Friars of the glades about three kills in ten. The Undercity Auction House sells it too.", goals = {
-		{ t = "collect", quest = 94434, title = "A Lesson in Divinity", map = 1420, x = 59.78, y = 67.41, era = true, count = 10, item = 2589, itemName = "Linen Cloth", oi = 1, mobLevel = 7, note = "Linen Cloth x10", spots = "59.8,67.4;54.3,59.8;52.8,47.1;60.8,33.1;67.9,42.2" },
+		{ t = "collect", quest = 94434, title = "A Lesson in Divinity", map = 1420, x = 59.78, y = 67.41, era = true, count = 10, item = 2589, itemName = "Linen Cloth", oi = 1, mobLevel = 7, note = "Linen Cloth x10", src = "Lordaeron Citizen, Fellicent's Shade, Scarlet Bodyguard and others", srcKind = "npc", spots = "59.8,67.4;54.3,59.8;52.8,47.1;60.8,33.1;67.9,42.2" },
 	} },
 	{ title = "Tanis Alderwood", goals = {
 		{ t = "turnin", quest = 94434, title = "A Lesson in Divinity", npc = "Tanis Alderwood", map = 1458, x = 65.48, y = 37.49, era = true },
@@ -3221,7 +3221,7 @@ Waypost.RegisterSteps("class/paladin/tyrs-watch", function() return {
 		{ t = "accept", quest = 94440, title = "A Lesson in Divinity", npc = "Deathguard Falgan", map = 1420, x = 86.73, y = 47.72, era = true, qlvl = 12 },
 	} },
 	{ title = "The Scarlet attack plans", note = "The Scarlet Zealots (level 8-9), Friars (9-10) and Tarnished around Venomweb Vale carry the attack plans. They run for help at low health and respawn in five minutes.", goals = {
-		{ t = "collect", quest = 94440, title = "A Lesson in Divinity", map = 1420, x = 86.58, y = 44.92, era = true, count = 1, item = 264693, itemName = "Scarlet Crusade Attack Plans", oi = 1, mobLevel = 10, spots = "86.8,44.8;81.6,53.1;79.1,55.9;76.8,55.7;78.9,36.1" },
+		{ t = "collect", quest = 94440, title = "A Lesson in Divinity", map = 1420, x = 86.58, y = 44.92, era = true, count = 1, item = 264693, itemName = "Scarlet Crusade Attack Plans", oi = 1, mobLevel = 10, src = "Scarlet Friar, Scarlet Zealot", srcKind = "npc", spots = "86.8,44.8;81.6,53.1;79.1,55.9;76.8,55.7;78.9,36.1" },
 	} },
 	{ title = "Redemption", note = "Back to Bandarion Keep, across the whole glades: Billmuth downstairs takes the plans, then Danitha, back upstairs in the keep, teaches you Redemption.", goals = {
 		{ t = "turnin", quest = 94440, title = "A Lesson in Divinity", npc = "Deathguard Billmuth", map = 1420, x = 21.92, y = 44.5, era = true, note = "Deathguard Billmuth, downstairs" },
@@ -3384,14 +3384,14 @@ Waypost.RegisterSteps("class/rogue/blade-of-cunning-horde", function() return {
 		{ t = "accept", quest = 1963, title = "The Shattered Hand", npc = "Therzok", map = 1454, x = 42.73, y = 53.55, era = true, qlvl = 13 },
 	} },
 	{ title = "Tazan", note = "Tazan (level 13, not elite) is a troll pirate on the Merchant Coast south of Ratchet: he walks the fenced hill path between the lower pirate camp by the beached ship and the upper camp by a big tree. Fight him at the foot of the hill, away from the camps. He always drops his satchel and is back 4 1/2 minutes after a death; one satchel per kill, so two rogues need two kills. Hand the satchel in unopened: picking its lock now destroys it and you must kill him again.", only = { races = {"Orc", "Troll"} }, goals = {
-		{ t = "collect", quest = 1963, title = "The Shattered Hand", map = 1413, x = 63.11, y = 44.29, era = true, count = 1, item = 7209, itemName = "Tazan's Satchel", oi = 1, note = "Tazan's Satchel: Tazan" },
+		{ t = "collect", quest = 1963, title = "The Shattered Hand", map = 1413, x = 63.11, y = 44.29, era = true, count = 1, item = 7209, itemName = "Tazan's Satchel", oi = 1, note = "Tazan's Satchel: Tazan", src = "Tazan", srcKind = "npc" },
 	} },
 	{ title = "Back to Therzok", only = { races = {"Orc", "Troll"} }, goals = {
 		{ t = "turnin", quest = 1963, title = "The Shattered Hand", npc = "Therzok", map = 1454, x = 42.73, y = 53.55, era = true, note = "Therzok, Cleft of Shadow" },
 		{ t = "accept", quest = 1858, title = "The Shattered Hand", npc = "Therzok", map = 1454, x = 42.73, y = 53.55, era = true, qlvl = 13 },
 	} },
 	{ title = "Tazan's Key", note = "Therzok hands the satchel back: now open it. Gamon (level 12) kneels by the innkeeper in the inn in the Valley of Strength; stealth up and pick his pocket for Tazan's Key (do not kill him: the key almost never drops). Players often kill him, so you may wait up to 5 minutes for him. Then use the key on Tazan's Satchel in your bags. If you have trained Pick Lock, you can pick the satchel's lock instead.", only = { races = {"Orc", "Troll"} }, goals = {
-		{ t = "collect", map = 1454, x = 54, y = 68.03, era = true, count = 1, item = 7208, itemName = "Tazan's Key", text = "Pick Pocket Gamon for Tazan's Key" },
+		{ t = "collect", map = 1454, x = 54, y = 68.03, era = true, count = 1, item = 7208, itemName = "Tazan's Key", text = "Pick Pocket Gamon for Tazan's Key", src = "Gamon", srcKind = "npc" },
 		{ t = "use", quest = 1858, title = "The Shattered Hand", map = 1454, x = 54, y = 68, era = true, item = 7209, itemName = "Tazan's Satchel", oi = 1, note = "Tazan's Satchel, once you have the key" },
 		{ t = "collect", quest = 1858, title = "The Shattered Hand", map = 1454, x = 54, y = 68, era = true, count = 1, item = 7295, itemName = "Tazan's Logbook", oi = 1, note = "Tazan's Logbook, from the satchel" },
 	} },
@@ -3407,7 +3407,7 @@ Waypost.RegisterSteps("class/rogue/blade-of-cunning-horde", function() return {
 		{ t = "accept", quest = 1886, title = "The Deathstalkers", npc = "Mennet Carkad", map = 1458, x = 83.51, y = 69.11, era = true, qlvl = 13 },
 	} },
 	{ title = "Astor Hadren", note = "Astor Hadren (level 13) walks the road between the Sepulcher and the Undercity, north of the Sepulcher. He looks like a friendly traveller with no quest mark. Talk to him and pick both of his answers: he turns hostile. Kill him for the letter (it always drops). Fight him away from guards, who can take the kill and leave no loot; only one rogue per kill gets the letter. He is back 5 minutes after a death.", only = { races = {"Scourge"} }, goals = {
-		{ t = "collect", quest = 1886, title = "The Deathstalkers", map = 1421, x = 49.71, y = 32.22, era = true, count = 1, item = 7231, itemName = "Astor's Letter of Introduction", oi = 1, note = "Astor's Letter of Introduction: Astor Hadren" },
+		{ t = "collect", quest = 1886, title = "The Deathstalkers", map = 1421, x = 49.71, y = 32.22, era = true, count = 1, item = 7231, itemName = "Astor's Letter of Introduction", oi = 1, note = "Astor's Letter of Introduction: Astor Hadren", src = "Astor Hadren", srcKind = "npc" },
 	} },
 	{ title = "Back to Mennet Carkad", only = { races = {"Scourge"} }, goals = {
 		{ t = "turnin", quest = 1886, title = "The Deathstalkers", npc = "Mennet Carkad", map = 1458, x = 83.51, y = 69.11, era = true, note = "Mennet Carkad, Rogues' Quarter" },
@@ -3416,7 +3416,7 @@ Waypost.RegisterSteps("class/rogue/blade-of-cunning-horde", function() return {
 	{ title = "Andron Gant", note = "Andron Gant is in the Apothecarium, in its biggest room, where two huge guards watch a small bridge. His ledger is on the bookshelf in the back room behind him, not the shelf on the wall next to him.", only = { races = {"Scourge"} }, goals = {
 		{ t = "turnin", quest = 1898, title = "The Deathstalkers", npc = "Andron Gant", map = 1458, x = 54.81, y = 76.33, era = true },
 		{ t = "accept", quest = 1899, title = "The Deathstalkers", npc = "Andron Gant", map = 1458, x = 54.81, y = 76.33, era = true, qlvl = 13 },
-		{ t = "collect", quest = 1899, title = "The Deathstalkers", map = 1458, x = 55.4, y = 76.96, era = true, count = 1, item = 7294, itemName = "Andron's Ledger", oi = 1, note = "Andron's Ledger: Andron's Bookshelf" },
+		{ t = "collect", quest = 1899, title = "The Deathstalkers", map = 1458, x = 55.4, y = 76.96, era = true, count = 1, item = 7294, itemName = "Andron's Ledger", oi = 1, note = "Andron's Ledger: Andron's Bookshelf", src = "Andron's Bookshelf", srcKind = "object" },
 	} },
 	{ title = "Mennet and Varimathras", note = "Mennet sends the ledger on to Varimathras, the big demon in the middle of the Hall of the Dark Lady in the Royal Quarter, past its elite guards; the way in is the passage off the Apothecarium. If you lose the ledger, take another from Andron's bookshelf.", only = { races = {"Scourge"} }, goals = {
 		{ t = "turnin", quest = 1899, title = "The Deathstalkers", npc = "Mennet Carkad", map = 1458, x = 83.51, y = 69.11, era = true, note = "Mennet Carkad, Rogues' Quarter" },
@@ -3450,20 +3450,20 @@ Waypost.RegisterSteps("class/rogue/plundering-the-plunderers", function() return
 		{ t = "buy", npc = "Wrenix's Gizmotronic Apparatus", map = 1413, x = 63.12, y = 36.32, era = true, count = 1, item = 5060, itemName = "Thieves' Tools" },
 	} },
 	{ title = "Southsea Treasure", note = "Follow the coast south from Ratchet to the first beached pirate ship, the Tide Razor, and climb aboard up its bow. On the middle deck the Buccaneer's Strongboxes come back fast: pick them until your Lockpicking is about 30 (a few are trapped with a frost nova or turn you into a rat; picking still works as a rat). Keep picking while they still give skill: the poisons job at 20 ends at a lockbox that needs about 75, and these boxes are the closest practice. Then go down to the bottom hold and pick the lock of The Jewel of the Southsea: it is empty, but opening it calls a giant level 50 Polly into the next room. Stay stealthed, put the E.C.A.C. on your action bar, target Polly and use it: the parrot shrinks to level 18. Kill it for the Southsea Treasure.", goals = {
-		{ t = "collect", quest = 2381, title = "Plundering the Plunderers", map = 1413, x = 64.78, y = 45.5, era = true, count = 1, item = 7968, itemName = "Southsea Treasure", oi = 1, note = "Southsea Treasure: Polly, after the E.C.A.C." },
+		{ t = "collect", quest = 2381, title = "Plundering the Plunderers", map = 1413, x = 64.78, y = 45.5, era = true, count = 1, item = 7968, itemName = "Southsea Treasure", oi = 1, note = "Southsea Treasure: Polly, after the E.C.A.C.", src = "Polly", srcKind = "npc" },
 	} },
 	{ title = "Back to Wrenix", goals = {
 		{ t = "turnin", quest = 2381, title = "Plundering the Plunderers", npc = "Wrenix the Wretched", map = 1413, x = 63.07, y = 36.32, era = true, note = "Wrenix the Wretched: ten Thistle Tea" },
 	} },
 	{ title = "Fenwick Thatros", note = "Take the zeppelin from Orgrimmar to the Undercity and head south into Silverpine. Fenwick Thatros (level 16) stands alone on the old ferry dock on Lordamere Lake, north-east of the Sepulcher. His Uppercut knocks you back, so do not fight him at the dock's edge. He always drops his head and is back 4 1/2 minutes after a death.", only = { races = {"Scourge"} }, goals = {
-		{ t = "collect", quest = 1998, title = "Fenwick Thatros", map = 1421, x = 59.58, y = 33.94, era = true, count = 1, item = 7306, itemName = "Fenwick's Head", oi = 1, note = "Fenwick's Head: Fenwick Thatros" },
+		{ t = "collect", quest = 1998, title = "Fenwick Thatros", map = 1421, x = 59.58, y = 33.94, era = true, count = 1, item = 7306, itemName = "Fenwick's Head", oi = 1, note = "Fenwick's Head: Fenwick Thatros", src = "Fenwick Thatros", srcKind = "npc" },
 	} },
 	{ title = "Mennet Carkad", note = "If you have no Thieves' Tools left, ask Estelle Gendry, the outfitter in the Rogues' Quarter.", only = { races = {"Scourge"} }, goals = {
 		{ t = "turnin", quest = 1998, title = "Fenwick Thatros", npc = "Mennet Carkad", map = 1458, x = 83.51, y = 69.11, era = true, note = "Mennet Carkad, Rogues' Quarter" },
 		{ t = "accept", quest = 1999, title = "Tools of the Trade", npc = "Mennet Carkad", map = 1458, x = 83.51, y = 69.11, era = true, qlvl = 20 },
 	} },
 	{ title = "Ambermill", note = "The Kirin Tor keep their reports in walled Ambermill, in south-east Silverpine. Facing the town hall, take the building on the right: the Ambermill Strongbox is in a corner room upstairs (any Lockpicking opens it; the Thieves' Tools must be in your bags). Three casters of level 19-20 guard that floor and see through stealth, one walking in and out of the strongbox room: time it or fight them one at a time.", only = { races = {"Scourge"} }, goals = {
-		{ t = "collect", quest = 1999, title = "Tools of the Trade", map = 1421, x = 63.71, y = 65.24, era = true, count = 1, item = 7309, itemName = "Dalaran Status Report", oi = 1, note = "Dalaran Status Report: Ambermill Strongbox" },
+		{ t = "collect", quest = 1999, title = "Tools of the Trade", map = 1421, x = 63.71, y = 65.24, era = true, count = 1, item = 7309, itemName = "Dalaran Status Report", oi = 1, note = "Dalaran Status Report: Ambermill Strongbox", src = "Ambermill Strongbox", srcKind = "object" },
 	} },
 	{ title = "Back to Mennet", only = { races = {"Scourge"} }, goals = {
 		{ t = "turnin", quest = 1999, title = "Tools of the Trade", npc = "Mennet Carkad", map = 1458, x = 83.51, y = 69.11, era = true, note = "Mennet Carkad, Rogues' Quarter" },
@@ -3488,14 +3488,14 @@ Waypost.RegisterSteps("class/rogue/poisons-horde", function() return {
 		{ t = "accept", quest = 2478, title = "Mission: Possible But Not Probable", npc = "Taskmaster Fizzule", map = 1413, x = 55.44, y = 5.56, era = true, qlvl = 24 },
 	} },
 	{ title = "Silixiz's Tower Key", note = "Keep Fizzule's Whistle in your bags and use it on him every time you come near, or he turns hostile. Foreman Silixiz (level 22) walks by the tower: hug the wall, stealth up behind him and Pick Pocket the key. Killing him does not give it; if his pockets are empty, kill him and wait 4 1/2 minutes for him to come back.", goals = {
-		{ t = "collect", quest = 2478, title = "Mission: Possible But Not Probable", map = 1413, x = 54.8, y = 5.97, era = true, count = 1, item = 8072, itemName = "Silixiz's Tower Key", oi = 5, text = "Pick Pocket Foreman Silixiz for Silixiz's Tower Key" },
+		{ t = "collect", quest = 2478, title = "Mission: Possible But Not Probable", map = 1413, x = 54.8, y = 5.97, era = true, count = 1, item = 8072, itemName = "Silixiz's Tower Key", oi = 5, text = "Pick Pocket Foreman Silixiz for Silixiz's Tower Key", src = "Foreman Silixiz", srcKind = "npc" },
 	} },
 	{ title = "The Venture Co. tower", note = "Inside, floor by floor (everything comes back after 4 1/2 minutes): the Mutated Venture Co. Drones (level 25) on the ground floor die to one Ambush with a dagger; the Patrollers on the second floor take half their health from a one-point Rupture; the Lookouts on the open third floor from a one-point Eviscerate. Grand Foreman Puzik Gallywix waits on the top floor: a level 23 elite, back 10 minutes after a kill. Open with Ambush (about half his health), then Gouge, Evasion, a healing potion and Thistle Tea; a friend makes it easy. One head per kill. Then pick Gallywix's Lockbox beside him for the cache: it poisons you with the Touch of Zanzil, which weakens your stealth and agility until Serge Hinott cures it.", goals = {
 		{ t = "kill", quest = 2478, title = "Mission: Possible But Not Probable", map = 1413, x = 54.7, y = 5.7, era = true, count = 2, target = "Mutated Venture Co. Drone", oi = 1 },
 		{ t = "kill", quest = 2478, title = "Mission: Possible But Not Probable", map = 1413, x = 54.66, y = 5.68, era = true, count = 2, target = "Venture Co. Patroller", oi = 3 },
 		{ t = "kill", quest = 2478, title = "Mission: Possible But Not Probable", map = 1413, x = 54.64, y = 5.77, era = true, count = 2, target = "Venture Co. Lookout", oi = 2 },
-		{ t = "collect", quest = 2478, title = "Mission: Possible But Not Probable", map = 1413, x = 54.75, y = 5.59, era = true, count = 1, item = 8074, itemName = "Gallywix's Head", oi = 4, group = true, note = "Gallywix's Head: Grand Foreman Puzik Gallywix (elite)" },
-		{ t = "collect", quest = 2478, title = "Mission: Possible But Not Probable", map = 1413, x = 54.76, y = 5.56, era = true, count = 1, item = 8073, itemName = "Cache of Zanzil's Altered Mixture", oi = 6, note = "Cache of Zanzil's Altered Mixture: Gallywix's Lockbox" },
+		{ t = "collect", quest = 2478, title = "Mission: Possible But Not Probable", map = 1413, x = 54.75, y = 5.59, era = true, count = 1, item = 8074, itemName = "Gallywix's Head", oi = 4, group = true, note = "Gallywix's Head: Grand Foreman Puzik Gallywix (elite)", src = "Grand Foreman Puzik Gallywix", srcKind = "npc" },
+		{ t = "collect", quest = 2478, title = "Mission: Possible But Not Probable", map = 1413, x = 54.76, y = 5.56, era = true, count = 1, item = 8073, itemName = "Cache of Zanzil's Altered Mixture", oi = 6, note = "Cache of Zanzil's Altered Mixture: Gallywix's Lockbox", src = "Gallywix's Lockbox", srcKind = "object" },
 	} },
 	{ title = "Back to Shenthul", note = "Fly back to Orgrimmar (Ratchet or the Crossroads; dying at the tower and taking the spirit healer's way back to the Crossroads is quicker). Keep Silixiz's Tower Key afterwards. Before you leave the Cleft, buy Dust of Decay and Empty Vials from Rekkul: once Hinott teaches Poisons, each batch of Instant Poison takes one of each.", goals = {
 		{ t = "turnin", quest = 2478, title = "Mission: Possible But Not Probable", npc = "Shenthul", map = 1454, x = 43.05, y = 53.74, era = true, note = "Shenthul: Recipe: Thistle Tea" },
@@ -3552,19 +3552,19 @@ Waypost.RegisterSteps("class/shaman/call-of-air-horde", function() return {
 	} },
 	{ title = "Twisted Air Totems", note = "Five Twisted Air Totems. The Maraudine centaurs (level 36-40) north and north-east of Shadowprey Village in western Desolace carry them; the Scouts drop one nearly every other kill. Wranglers Net and Disarm, Windchasers heal, Stormers throw Jumping Lightning: pull one at a time. Respawn about five minutes.", goals = {
 		{ t = "level", level = 36 },
-		{ t = "collect", quest = 79361, title = "Storm, Earth, and Fire", map = 1443, x = 32.59, y = 59.75, era = true, count = 5, item = 274047, itemName = "Twisted Air Totem", oi = 4, mobLevel = 38, spots = "34.9,57.6;31,54.6;30.7,66.2;30.7,61.1;35.8,61.3" },
+		{ t = "collect", quest = 79361, title = "Storm, Earth, and Fire", map = 1443, x = 32.59, y = 59.75, era = true, count = 5, item = 274047, itemName = "Twisted Air Totem", oi = 4, mobLevel = 38, src = "Maraudine Scout", srcKind = "npc", spots = "34.9,57.6;31,54.6;30.7,66.2;30.7,61.1;35.8,61.3" },
 	} },
 	{ title = "Twisted Water Totems", note = "Five Twisted Water Totems. The Mirefin murlocs (level 35-38) north-east of Brackenwall Village in northern Dustwallow Marsh carry them.", goals = {
 		{ t = "level", level = 34 },
-		{ t = "collect", quest = 79361, title = "Storm, Earth, and Fire", map = 1445, x = 57.15, y = 21.37, era = true, count = 5, item = 274046, itemName = "Twisted Water Totem", oi = 1, mobLevel = 38, spots = "56.9,22;57.7,20.1;58.6,15.8;57.6,10.9;59.4,10.2" },
+		{ t = "collect", quest = 79361, title = "Storm, Earth, and Fire", map = 1445, x = 57.15, y = 21.37, era = true, count = 5, item = 274046, itemName = "Twisted Water Totem", oi = 1, mobLevel = 38, src = "Mirefin Puddlejumper, Mirefin Murloc, Mirefin Warrior and others", srcKind = "npc", spots = "56.9,22;57.7,20.1;58.6,15.8;57.6,10.9;59.4,10.2" },
 	} },
 	{ title = "Twisted Fire Totems", note = "Five Twisted Fire Totems. The Stonevault troggs (Skullthumpers, Bonesnappers and Shamans, level 37-41) south of Angor Fortress in the Badlands carry them; the Shamans drop Fire Nova Totems and a Healing Ward, the Bonesnappers run for help when hurt. Respawn about five minutes.", goals = {
 		{ t = "level", level = 36 },
-		{ t = "collect", quest = 79361, title = "Storm, Earth, and Fire", map = 1418, x = 50.46, y = 68.43, era = true, count = 5, item = 274044, itemName = "Twisted Fire Totem", oi = 3, mobLevel = 41, spots = "49.8,69.6;51,66.1" },
+		{ t = "collect", quest = 79361, title = "Storm, Earth, and Fire", map = 1418, x = 50.46, y = 68.43, era = true, count = 5, item = 274044, itemName = "Twisted Fire Totem", oi = 3, mobLevel = 41, src = "Stonevault Bonesnapper, Stonevault Shaman", srcKind = "npc", spots = "49.8,69.6;51,66.1" },
 	} },
 	{ title = "Twisted Earth Totems", note = "Five Twisted Earth Totems. The Lost Ones (murlocs, level 34-39) north and north-east of Stonard in the Swamp of Sorrows carry them; most run for help when hurt.", goals = {
 		{ t = "level", level = 33 },
-		{ t = "collect", quest = 79361, title = "Storm, Earth, and Fire", map = 1435, x = 48.46, y = 31.13, era = true, count = 5, item = 274045, itemName = "Twisted Earth Totem", oi = 2, mobLevel = 36, spots = "50.2,31.2;45.3,30;43.4,36.5;55.7,31.2;57.7,25.8" },
+		{ t = "collect", quest = 79361, title = "Storm, Earth, and Fire", map = 1435, x = 48.46, y = 31.13, era = true, count = 5, item = 274045, itemName = "Twisted Earth Totem", oi = 2, mobLevel = 36, src = "Lost One Mudlurker, Lost One Fisherman, Lost One Hunter and others", srcKind = "npc", spots = "50.2,31.2;45.3,30;43.4,36.5;55.7,31.2;57.7,25.8" },
 	} },
 	{ title = "Prate Cloudseer", goals = {
 		{ t = "turnin", quest = 79361, title = "Storm, Earth, and Fire", npc = "Prate Cloudseer", map = 1441, x = 53.54, y = 42.65, era = true },
@@ -3572,7 +3572,7 @@ Waypost.RegisterSteps("class/shaman/call-of-air-horde", function() return {
 	} },
 	{ title = "The steam pools", note = "Prate hands you the Corrupted Totems. Place the Corrupted Totems at the steam pools north-west of Freewind Post to call the corrupted elementals and then the Ravaging Tempest; Razormane quilboar join the fight while the ritual runs. A group quest: bring at least one or two friends. The Eye of the Tempest drops about every other kill, and every group member can loot it.", goals = {
 		{ t = "level", level = 38 },
-		{ t = "collect", map = 1441, x = 37.22, y = 41.58, era = true, count = 1, item = 212792, itemName = "Eye of the Tempest", mobLevel = 40, group = true, note = "Eye of the Tempest, from the Ravaging Tempest", spots = "37,40.7;36.5,37.8" },
+		{ t = "collect", map = 1441, x = 37.22, y = 41.58, era = true, count = 1, item = 212792, itemName = "Eye of the Tempest", mobLevel = 40, group = true, note = "Eye of the Tempest, from the Ravaging Tempest", src = "Ravaging Tempest", srcKind = "npc", spots = "37,40.7;36.5,37.8" },
 	} },
 	{ title = "Rau Cliffrunner", goals = {
 		{ t = "turnin", quest = 79366, title = "Heed My Call", npc = "Rau Cliffrunner", map = 1441, x = 46.14, y = 51.71, era = true },
@@ -3589,7 +3589,7 @@ Waypost.RegisterSteps("class/shaman/call-of-earth-horde", function() return {
 		{ t = "accept", quest = 1516, title = "Call of Earth", npc = "Canaga Earthcaller", map = 1411, x = 42.4, y = 69.17, era = true, qlvl = 4 },
 	} },
 	{ title = "Felstalker Hooves", note = "Felstalkers (level 3-4) prowl the slope below the Burning Blade Coven, the cave in the north of the valley, and just inside its mouth among the Vile Familiars. Nearly every Felstalker drops a hoof (four kills in five); they respawn in a little over three minutes.", only = { races = {"Orc", "Troll"} }, goals = {
-		{ t = "collect", quest = 1516, title = "Call of Earth", map = 1411, x = 43.01, y = 55.34, era = true, count = 2, item = 6640, itemName = "Felstalker Hoof", oi = 1, mobLevel = 4, spots = "44.1,54.8;42.9,53.2;44.6,52.8;45.4,55.5" },
+		{ t = "collect", quest = 1516, title = "Call of Earth", map = 1411, x = 43.01, y = 55.34, era = true, count = 2, item = 6640, itemName = "Felstalker Hoof", oi = 1, mobLevel = 4, src = "Felstalker", srcKind = "npc", spots = "44.1,54.8;42.9,53.2;44.6,52.8;45.4,55.5" },
 	} },
 	{ title = "Canaga Earthcaller", note = "Back to Canaga outside the Den. She hands you the Earth Sapta: do not drink it yet.", only = { races = {"Orc", "Troll"} }, goals = {
 		{ t = "turnin", quest = 1516, title = "Call of Earth", npc = "Canaga Earthcaller", map = 1411, x = 42.4, y = 69.17, era = true },
@@ -3612,7 +3612,7 @@ Waypost.RegisterSteps("class/shaman/call-of-earth-horde", function() return {
 		{ t = "accept", quest = 1519, title = "Call of Earth", npc = "Seer Ravenfeather", map = 1412, x = 44.35, y = 76.77, qlvl = 4 },
 	} },
 	{ title = "Ritual Salve", note = "The Bristleback Shamans (level 3-4) stand among the quilboar huts of Brambleblade Ravine, east of the camp, and throw the odd Lightning Bolt. Four kills in five drop a salve; they respawn in about four minutes.", only = { races = {"Tauren"} }, goals = {
-		{ t = "collect", quest = 1519, title = "Call of Earth", map = 1412, x = 56.61, y = 78.3, count = 2, item = 6634, itemName = "Ritual Salve", oi = 1, mobLevel = 4, spots = "57,76.3;60.1,81.6;61.3,77.9;56.6,78.3;58.4,76.7" },
+		{ t = "collect", quest = 1519, title = "Call of Earth", map = 1412, x = 56.61, y = 78.3, count = 2, item = 6634, itemName = "Ritual Salve", oi = 1, mobLevel = 4, src = "Bristleback Shaman", srcKind = "npc", spots = "57,76.3;60.1,81.6;61.3,77.9;56.6,78.3;58.4,76.7" },
 	} },
 	{ title = "Seer Ravenfeather", note = "Back to the Seer in Camp Narache. She hands you the Earth Sapta: do not drink it yet.", only = { races = {"Tauren"} }, goals = {
 		{ t = "turnin", quest = 1519, title = "Call of Earth", npc = "Seer Ravenfeather", map = 1412, x = 44.35, y = 76.77 },
@@ -3635,7 +3635,7 @@ Waypost.RegisterSteps("class/shaman/call-of-earth-horde", function() return {
 		{ t = "accept", quest = 92466, title = "Call of Earth", npc = "Windshaper Boro", map = 2521, x = 42.79, y = 23.58, qlvl = 4 },
 	} },
 	{ title = "Signet of Akir", note = "Any Al'Aketh cultist can carry the Signet of Akir: the Converts (level 2-3) around the standing stones just east of the village, or the Brutes and Neophytes (level 4) in the camp beyond Hanaa Nightwind, south-west of the village. Keep killing until one drops it.", only = { races = {"Skyborne"} }, goals = {
-		{ t = "collect", quest = 92466, title = "Call of Earth", map = 2521, x = 45.41, y = 19.38, count = 1, item = 251924, itemName = "Signet of Akir", oi = 1, spots = "46.5,19;48.1,19.6;47.9,20.9;37.6,31.6;38.4,33.4" },
+		{ t = "collect", quest = 92466, title = "Call of Earth", map = 2521, x = 45.41, y = 19.38, count = 1, item = 251924, itemName = "Signet of Akir", oi = 1, src = "Al'Aketh Convert, Al'Aketh Brute, Al'Aketh Neophyte and others", srcKind = "npc", spots = "46.5,19;48.1,19.6;47.9,20.9;37.6,31.6;38.4,33.4" },
 	} },
 	{ title = "Windshaper Boro", note = "Back to Boro in Thendal Village. He hands you the Earth Sapta: do not drink it yet.", only = { races = {"Skyborne"} }, goals = {
 		{ t = "turnin", quest = 92466, title = "Call of Earth", npc = "Windshaper Boro", map = 2521, x = 42.79, y = 23.58 },
@@ -3684,10 +3684,10 @@ Waypost.RegisterSteps("class/shaman/call-of-fire-horde", function() return {
 		{ t = "accept", quest = 1525, title = "Call of Fire", npc = "Telf Joolam", map = 1411, x = 38.55, y = 58.96, era = true, qlvl = 12 },
 	} },
 	{ title = "Fire Tar", note = "The Razormane casters north-east of the Crossroads drop the Fire Tar three times in four: Water Seekers and Thornweavers (level 10-11), Geomancers (level 12-13, they throw Fireballs and run for help when hurt) and Mystics (level 13-14, they heal themselves at low health). Pull them one at a time.", only = { races = {"Orc", "Troll", "Tauren"} }, goals = {
-		{ t = "collect", quest = 1525, title = "Call of Fire", map = 1413, x = 54.59, y = 25.93, era = true, count = 1, item = 5026, itemName = "Fire Tar", oi = 1, mobLevel = 11, spots = "54.4,25.3;53.9,25.7;53.4,24.8;55.3,25.5;55.4,26.8" },
+		{ t = "collect", quest = 1525, title = "Call of Fire", map = 1413, x = 54.59, y = 25.93, era = true, count = 1, item = 5026, itemName = "Fire Tar", oi = 1, mobLevel = 11, src = "Razormane Water Seeker, Razormane Thornweaver, Razormane Geomancer and others", srcKind = "npc", spots = "54.4,25.3;53.9,25.7;53.4,24.8;55.3,25.5;55.4,26.8" },
 	} },
 	{ title = "Reagent Pouch", note = "The Burning Blade Cultists (level 10-11, they call imps and cast Immolate) live deep in Dustwind Cave north of Razor Hill: climb the ramp just north-east of town and stay on the high ground above the ravines. The orcs at the cave mouth are not cultists; the cultists are further in, off to the left. Three kills in four drop a pouch. Skull Rock by Orgrimmar is the wrong cave.", only = { races = {"Orc", "Troll", "Tauren"} }, goals = {
-		{ t = "collect", quest = 1525, title = "Call of Fire", map = 1411, x = 52.37, y = 25.53, era = true, count = 1, item = 6652, itemName = "Reagent Pouch", oi = 2, mobLevel = 11 },
+		{ t = "collect", quest = 1525, title = "Call of Fire", map = 1411, x = 52.37, y = 25.53, era = true, count = 1, item = 6652, itemName = "Reagent Pouch", oi = 2, mobLevel = 11, src = "Burning Blade Cultist", srcKind = "npc" },
 	} },
 	{ title = "Telf Joolam", note = "Back up the trail to Telf. He makes the Fire Sapta from the tar and the pouch and hands it to you with the torch: keep both.", only = { races = {"Orc", "Troll", "Tauren"} }, goals = {
 		{ t = "turnin", quest = 1525, title = "Call of Fire", npc = "Telf Joolam", map = 1411, x = 38.55, y = 58.96, era = true },
@@ -3698,7 +3698,7 @@ Waypost.RegisterSteps("class/shaman/call-of-fire-horde", function() return {
 	} },
 	{ title = "The Minor Manifestation of Fire", note = "Drink the Fire Sapta beside the Shaman Shrine, the big grey stone just below the summit, then climb to the plateau. Of the fire elementals there only the one in the middle can be attacked: it is level 12, immune to fire and grows stronger the longer the fight lasts, so open at once with Rockbiter Weapon and Earth Shock and leave the others alone. Its Glowing Ember drops every time.", only = { races = {"Orc", "Troll", "Tauren"} }, goals = {
 		{ t = "use", quest = 1526, title = "Call of Fire", map = 1411, x = 38.1, y = 58.5, era = true, item = 6636, itemName = "Fire Sapta", oi = 1, note = "Fire Sapta, beside the Shaman Shrine" },
-		{ t = "collect", quest = 1526, title = "Call of Fire", map = 1411, x = 38.72, y = 58.29, era = true, count = 1, item = 6655, itemName = "Glowing Ember", oi = 1, note = "Glowing Ember: Minor Manifestation of Fire" },
+		{ t = "collect", quest = 1526, title = "Call of Fire", map = 1411, x = 38.72, y = 58.29, era = true, count = 1, item = 6655, itemName = "Glowing Ember", oi = 1, note = "Glowing Ember: Minor Manifestation of Fire", src = "Minor Manifestation of Fire", srcKind = "npc" },
 	} },
 	{ title = "The Brazier of the Dormant Flame", note = "Click the Brazier of the Dormant Flame on the plateau with the torch in your bags to place the ember, then click it a second time: the next quest does not open by itself. It gives you the lit Torch of Eternal Flame.", only = { races = {"Orc", "Troll", "Tauren"} }, goals = {
 		{ t = "turnin", quest = 1526, title = "Call of Fire", npc = "Brazier of the Dormant Flame", map = 1411, x = 38.96, y = 58.22, era = true },
@@ -3717,7 +3717,7 @@ Waypost.RegisterSteps("class/shaman/call-of-fire-horde", function() return {
 		{ t = "accept", quest = 97244, title = "Call of Fire", npc = "Olariaan Swiftburn", map = 2521, x = 51.24, y = 86.19, qlvl = 10 },
 	} },
 	{ title = "Skypriest Faladiel", note = "Skypriest Faladiel (level 10, a turncoat Windshaper with a single spawn) holds the farm north-east past Valanaar, just south of the Shrine of Akir, on the hill west of the falls north of the East Pylon Watchtower. Kill him and take his heart.", only = { races = {"Skyborne"} }, goals = {
-		{ t = "collect", quest = 97244, title = "Call of Fire", map = 2521, x = 64.43, y = 63.71, count = 1, item = 277267, itemName = "Faladiel's Heart", oi = 1 },
+		{ t = "collect", quest = 97244, title = "Call of Fire", map = 2521, x = 64.43, y = 63.71, count = 1, item = 277267, itemName = "Faladiel's Heart", oi = 1, src = "Skypriest Faladiel", srcKind = "npc" },
 	} },
 	{ title = "Olariaan Swiftburn", note = "Back to Olariaan at the Shrine of Flames.", only = { races = {"Skyborne"} }, goals = {
 		{ t = "turnin", quest = 97244, title = "Call of Fire", npc = "Olariaan Swiftburn", map = 2521, x = 51.24, y = 86.19 },
@@ -3725,7 +3725,7 @@ Waypost.RegisterSteps("class/shaman/call-of-fire-horde", function() return {
 	} },
 	{ title = "Kuramaa", note = "Kuramaa's Stump is the twisted stump on the hilltop by the Shen'dar Highlands Anchor Pylon, west of Valanaar, in the hills south of the Windsong Crawlers' lakes. Knock on it to call Kuramaa (level 10). The spirit shrugs off most magic: only fire hurts it, so keep Flame Shock on it. Take its wooden mask.", only = { races = {"Skyborne"} }, goals = {
 		{ t = "interact", npc = "Kuramaa's Stump", map = 2521, x = 42.35, y = 68.82, note = "Kuramaa's Stump: knock on the bark" },
-		{ t = "collect", quest = 97245, title = "Call of Fire", map = 2521, x = 42.44, y = 68.75, count = 1, item = 277269, itemName = "Kuramaa's Mask", oi = 1 },
+		{ t = "collect", quest = 97245, title = "Call of Fire", map = 2521, x = 42.44, y = 68.75, count = 1, item = 277269, itemName = "Kuramaa's Mask", oi = 1, src = "Kuramaa", srcKind = "npc" },
 	} },
 	{ title = "The Eternal Flame", note = "Back to Olariaan. Accept the last quest, then wait by the Brazier of Offering while he performs the ritual; when the fire spirits light the Eternal Flame, hold the torch to it. From then you have six minutes: carry the flame straight to the Brazier of Eternal Flame beside Sessaria in Valanaar, with no detours or fights. Timer out? Abandon the quest and take it again from Olariaan.", only = { races = {"Skyborne"} }, goals = {
 		{ t = "turnin", quest = 97245, title = "Call of Fire", npc = "Olariaan Swiftburn", map = 2521, x = 51.24, y = 86.19 },
@@ -3771,7 +3771,7 @@ Waypost.RegisterSteps("class/shaman/call-of-water-horde", function() return {
 	} },
 	{ title = "The Quilboar Watering Hole", note = "The muddy pond below Brine's hut. Step right into the puddle before you use the Empty Brown Waterskin (too far away and it refuses). Filling it calls a hostile Razormane Pathfinder (level 20): kill it, and watch for the quilboar hunter by the pond, who may start shooting afterwards.", goals = {
 		{ t = "use", quest = 1535, title = "Call of Water", map = 1413, x = 44.3, y = 76.8, era = true, item = 7766, itemName = "Empty Brown Waterskin", oi = 1, note = "Empty Brown Waterskin, standing in the puddle" },
-		{ t = "collect", quest = 1535, title = "Call of Water", map = 1413, x = 44.28, y = 76.75, era = true, count = 1, item = 7769, itemName = "Filled Brown Waterskin", oi = 1 },
+		{ t = "collect", quest = 1535, title = "Call of Water", map = 1413, x = 44.28, y = 76.75, era = true, count = 1, item = 7769, itemName = "Filled Brown Waterskin", oi = 1, src = "Quilboar Watering Hole", srcKind = "object" },
 	} },
 	{ title = "Brine", goals = {
 		{ t = "turnin", quest = 1535, title = "Call of Water", npc = "Brine", map = 1413, x = 43.42, y = 77.41, era = true },
@@ -3779,7 +3779,7 @@ Waypost.RegisterSteps("class/shaman/call-of-water-horde", function() return {
 	} },
 	{ title = "The Spring Well", note = "The Spring Well stands in the middle of Tarren Mill, just outside the church. From the Barrens: the zeppelin from Orgrimmar to Tirisfal Glades, then south past the Undercity and through Silverpine Forest (or fly once you have the Tarren Mill flight path). Hillsbrad is contested: Alliance players may attack. Stand beside the well and use the Empty Red Waterskin.", goals = {
 		{ t = "use", quest = 1536, title = "Call of Water", map = 1424, x = 62.2, y = 20.8, era = true, item = 7768, itemName = "Empty Red Waterskin", oi = 1, note = "Empty Red Waterskin, beside the well" },
-		{ t = "collect", quest = 1536, title = "Call of Water", map = 1424, x = 62.18, y = 20.79, era = true, count = 1, item = 7771, itemName = "Filled Red Waterskin", oi = 1 },
+		{ t = "collect", quest = 1536, title = "Call of Water", map = 1424, x = 62.18, y = 20.79, era = true, count = 1, item = 7771, itemName = "Filled Red Waterskin", oi = 1, src = "Spring Well", srcKind = "object" },
 	} },
 	{ title = "Brine", goals = {
 		{ t = "turnin", quest = 1536, title = "Call of Water", npc = "Brine", map = 1413, x = 43.42, y = 77.41, era = true },
@@ -3787,7 +3787,7 @@ Waypost.RegisterSteps("class/shaman/call-of-water-horde", function() return {
 	} },
 	{ title = "The Ruins of Stardust", note = "The right fountain stands in a ring of standing stones on the island of the small green lake south of Astranaar, west of Lake Mystral (not the island in Lake Mystral itself). From the Barrens take the road north through the Mor'shan Rampart and on west. Water elementals and walking treants guard the lake and root you in place; an elite Wandering Protector roams Ashenvale and can pass close by. Use the Empty Blue Waterskin beside the fountain.", goals = {
 		{ t = "use", quest = 1534, title = "Call of Water", map = 1440, x = 33.6, y = 67.5, era = true, item = 7767, itemName = "Empty Blue Waterskin", oi = 1, note = "Empty Blue Waterskin, beside the fountain" },
-		{ t = "collect", quest = 1534, title = "Call of Water", map = 1440, x = 33.55, y = 67.47, era = true, count = 1, item = 7770, itemName = "Filled Blue Waterskin", oi = 1 },
+		{ t = "collect", quest = 1534, title = "Call of Water", map = 1440, x = 33.55, y = 67.47, era = true, count = 1, item = 7770, itemName = "Filled Blue Waterskin", oi = 1, src = "Ruins of Stardust Fountain", srcKind = "object" },
 	} },
 	{ title = "Brine", note = "Back to Brine. She gives you the Vial of Purest Water for Islen.", goals = {
 		{ t = "turnin", quest = 1534, title = "Call of Water", npc = "Brine", map = 1413, x = 43.42, y = 77.41, era = true },
@@ -3802,7 +3802,7 @@ Waypost.RegisterSteps("class/shaman/call-of-water-horde", function() return {
 	} },
 	{ title = "The Brazier of Everfount", note = "Fly to the Sepulcher. The shrine lies in a hollow just south-west of it: go round the back of the crypt to the thick tree between the two hills, hop past it onto the rocks and drop west down the slope to the pool (each drop costs a little health). Drink the Water Sapta beside the tall standing stone by the pool: several water elementals appear, and only the corrupt one near the middle can be attacked (Tab picks it). The Corrupt Minor Manifestation of Water is level 22 and casts Frost Shock and Frost Nova; if someone just killed it, it is back in about three minutes. Its bracers always drop.", goals = {
 		{ t = "use", quest = 63, title = "Call of Water", map = 1421, x = 38.3, y = 44.6, era = true, item = 6637, itemName = "Water Sapta", oi = 1, note = "Water Sapta, beside the standing stone" },
-		{ t = "collect", quest = 63, title = "Call of Water", map = 1421, x = 38.78, y = 44.26, era = true, count = 1, item = 7812, itemName = "Corrupt Manifestation's Bracers", oi = 1 },
+		{ t = "collect", quest = 63, title = "Call of Water", map = 1421, x = 38.78, y = 44.26, era = true, count = 1, item = 7812, itemName = "Corrupt Manifestation's Bracers", oi = 1, src = "Corrupt Minor Manifestation of Water", srcKind = "npc" },
 	} },
 	{ title = "The Minor Manifestation of Water", note = "Click the Brazier of Everfount to place the bracers and the drops. A few seconds later the pure Minor Manifestation of Water rises on the stone in the middle of the pool: speak to it while the Sapta Sight lasts (drink again by the stone if it has worn off). It gives you the Shard of Water for Islen. Gone before you could speak to it? Back at Islen ask for Call of Water (a fresh Water Sapta for Tiev Mordune, who stands just west of the shrine): hand it to Tiev, stay close while he calls the spirit back, then speak to it.", goals = {
 		{ t = "turnin", quest = 63, title = "Call of Water", npc = "Brazier of Everfount", map = 1421, x = 38.26, y = 44.56, era = true },
@@ -3821,7 +3821,7 @@ Waypost.RegisterSteps("class/shaman/darkreaver", function() return {
 	} },
 	{ title = "Two diamonds", note = "Both diamonds are rare: the auction house is the quick way. Miners find the Azerothian Diamond in about one Thorium vein in a hundred (the Small Thorium Veins north of Morgan's Vigil in the Burning Steppes respawn every five minutes). The Pristine Black Diamond drops from high-level elites at about one in a hundred, best from the rare elite Revanchion (about one in nine).", goals = {
 		{ t = "collect", quest = 7667, title = "Material Assistance", map = 1422, x = 54.18, y = 41.35, era = true, count = 1, item = 12800, itemName = "Azerothian Diamond", oi = 1, spots = "55.8,44.6;63.4,36.1;52.1,21.8;46,11;41.5,17.4" },
-		{ t = "collect", quest = 7667, title = "Material Assistance", map = 1422, x = 51.93, y = 23.82, era = true, count = 1, item = 18335, itemName = "Pristine Black Diamond", oi = 2, mobLevel = 58, spots = "51.9,23.8;41.9,14.9" },
+		{ t = "collect", quest = 7667, title = "Material Assistance", map = 1422, x = 51.93, y = 23.82, era = true, count = 1, item = 18335, itemName = "Pristine Black Diamond", oi = 2, mobLevel = 58, src = "Crimson Elite, Scarlet Cavalier", srcKind = "npc", spots = "51.9,23.8;41.9,14.9" },
 	} },
 	{ title = "Sagorne Creststrider", note = "The Darkreaver Menace needs level 60.", goals = {
 		{ t = "turnin", quest = 7667, title = "Material Assistance", npc = "Sagorne Creststrider", map = 1454, x = 38.66, y = 35.92, era = true },
@@ -3846,18 +3846,18 @@ Waypost.RegisterSteps("class/shaman/spirit-totem", function() return {
 		{ t = "accept", quest = 8410, title = "Elemental Mastery", npc = "Beram Skychaser", map = 1456, x = 21.99, y = 18.8, era = true, qlvl = 52 },
 	} },
 	{ title = "The four elements", note = "One each of Elemental Air, Fire, Earth and Water; all four trade, so the auction house is quickest. To farm them, Arathi Highlands has the exiles near Refuge Pointe (level 38-39, about one kill in eight to ten, respawn under seven minutes): Thundering Exiles south-east of it (air), Rumbling Exiles south-west (earth), Burning Exiles far to the north-west (fire), and the Summoned Guardian far to the south-west (water, about one in seven). Water comes easier from the Patches of Elemental Water in Azshara (two in five) or Seeker Aqualon by Lakeshire in Redridge.", goals = {
-		{ t = "collect", quest = 8410, title = "Elemental Mastery", map = 1417, x = 51.89, y = 50.62, era = true, count = 1, item = 7069, itemName = "Elemental Air", oi = 1, mobLevel = 39, note = "Elemental Air: Thundering Exiles", spots = "51.5,51.3;52.7,49.3" },
-		{ t = "collect", quest = 8410, title = "Elemental Mastery", map = 1417, x = 27.43, y = 31.39, era = true, count = 1, item = 7068, itemName = "Elemental Fire", oi = 2, mobLevel = 39, note = "Elemental Fire: Burning Exiles", spots = "26.8,31.7;25.3,30.1" },
-		{ t = "collect", quest = 8410, title = "Elemental Mastery", map = 1417, x = 34.91, y = 55.92, era = true, count = 1, item = 7067, itemName = "Elemental Earth", oi = 3, mobLevel = 39, note = "Elemental Earth: Rumbling Exiles", spots = "35.5,56.5;35.5,60;37.2,58.4" },
-		{ t = "collect", quest = 8410, title = "Elemental Mastery", map = 1417, x = 18.62, y = 67.99, era = true, count = 1, item = 7070, itemName = "Elemental Water", oi = 4, note = "Elemental Water: the Summoned Guardian, or Azshara's water patches" },
+		{ t = "collect", quest = 8410, title = "Elemental Mastery", map = 1417, x = 51.89, y = 50.62, era = true, count = 1, item = 7069, itemName = "Elemental Air", oi = 1, mobLevel = 39, note = "Elemental Air: Thundering Exiles", src = "Thundering Exile", srcKind = "npc", spots = "51.5,51.3;52.7,49.3" },
+		{ t = "collect", quest = 8410, title = "Elemental Mastery", map = 1417, x = 27.43, y = 31.39, era = true, count = 1, item = 7068, itemName = "Elemental Fire", oi = 2, mobLevel = 39, note = "Elemental Fire: Burning Exiles", src = "Burning Exile", srcKind = "npc", spots = "26.8,31.7;25.3,30.1" },
+		{ t = "collect", quest = 8410, title = "Elemental Mastery", map = 1417, x = 34.91, y = 55.92, era = true, count = 1, item = 7067, itemName = "Elemental Earth", oi = 3, mobLevel = 39, note = "Elemental Earth: Rumbling Exiles", src = "Rumbling Exile", srcKind = "npc", spots = "35.5,56.5;35.5,60;37.2,58.4" },
+		{ t = "collect", quest = 8410, title = "Elemental Mastery", map = 1417, x = 18.62, y = 67.99, era = true, count = 1, item = 7070, itemName = "Elemental Water", oi = 4, note = "Elemental Water: the Summoned Guardian, or Azshara's water patches", src = "Summoned Guardian", srcKind = "npc" },
 	} },
 	{ title = "Bath'rah the Windwatcher", note = "Bath'rah camps in the ruins of the east of Alterac Mountains: from Tarren Mill follow the river east of town north into the hills.", goals = {
 		{ t = "turnin", quest = 8410, title = "Elemental Mastery", npc = "Bath'rah the Windwatcher", map = 1416, x = 80.5, y = 66.92, era = true },
 		{ t = "accept", quest = 8412, title = "Spirit Totem", npc = "Bath'rah the Windwatcher", map = 1416, x = 80.5, y = 66.92, era = true, qlvl = 52 },
 	} },
 	{ title = "Spider eye and bear claw", note = "Eight of each. Fly or ride to the Bulwark and on to the west edge of the Western Plaguelands, north-west of Chillwind Camp: the Venom Mist Lurkers (level 50-51, they poison) give the Bloodshot Spider Eye and the Diseased Black Bears (level 51-52, Infected Wound) the Thick Black Claw, one kill in five each; the two Carrion Vultures there drop either. The bigger Diseased Grizzlies and Plague Lurkers further east almost never drop them. A few bears and lurkers also roam south-east of Brill in Tirisfal.", goals = {
-		{ t = "collect", quest = 8412, title = "Spirit Totem", map = 1422, x = 31.08, y = 58.54, era = true, count = 8, item = 20610, itemName = "Bloodshot Spider Eye", oi = 1, mobLevel = 51, spots = "29.4,56.7;32,62.5;33.9,58.3;33.6,54.7;35.4,64.9" },
-		{ t = "collect", quest = 8412, title = "Spirit Totem", map = 1422, x = 31.28, y = 60.13, era = true, count = 8, item = 20611, itemName = "Thick Black Claw", oi = 2, mobLevel = 52, spots = "31.8,61.4;29,60.3;32.6,56.4;34,63.7;30.7,54.6" },
+		{ t = "collect", quest = 8412, title = "Spirit Totem", map = 1422, x = 31.08, y = 58.54, era = true, count = 8, item = 20610, itemName = "Bloodshot Spider Eye", oi = 1, mobLevel = 51, src = "Carrion Vulture, Venom Mist Lurker", srcKind = "npc", spots = "29.4,56.7;32,62.5;33.9,58.3;33.6,54.7;35.4,64.9" },
+		{ t = "collect", quest = 8412, title = "Spirit Totem", map = 1422, x = 31.28, y = 60.13, era = true, count = 8, item = 20611, itemName = "Thick Black Claw", oi = 2, mobLevel = 52, src = "Diseased Black Bear, Carrion Vulture", srcKind = "npc", spots = "31.8,61.4;29,60.3;32.6,56.4;34,63.7;30.7,54.6" },
 	} },
 	{ title = "Bath'rah the Windwatcher", goals = {
 		{ t = "turnin", quest = 8412, title = "Spirit Totem", npc = "Bath'rah the Windwatcher", map = 1416, x = 80.5, y = 66.92, era = true },
@@ -3892,17 +3892,17 @@ Waypost.RegisterSteps("class/warlock/felhunter-horde", function() return {
 		{ t = "accept", quest = 1803, title = "Tome of the Cabal", npc = "Jorah Annison", map = 1458, x = 75.92, y = 37.89, era = true, qlvl = 30 },
 	} },
 	{ title = "Moldy Tome", note = "The tome is a small grey-blue book lying in the sand of a murloc camp on the shore south-west of Southshore, near the water's edge. Six or seven murlocs guard it and more lurk underwater: they come in groups, so Fear one and keep your voidwalker on the rest. Walk down to the water to click it; from the hillside the crates block the cursor.", goals = {
-		{ t = "collect", quest = 1803, title = "Tome of the Cabal", map = 1424, x = 27.78, y = 72.79, era = true, count = 1, item = 6931, itemName = "Moldy Tome", oi = 1, note = "Moldy Tome, from the Tome of the Cabal on the sand" },
+		{ t = "collect", quest = 1803, title = "Tome of the Cabal", map = 1424, x = 27.78, y = 72.79, era = true, count = 1, item = 6931, itemName = "Moldy Tome", oi = 1, note = "Moldy Tome, from the Tome of the Cabal on the sand", src = "Tome of the Cabal", srcKind = "object" },
 	} },
 	{ title = "Tattered Manuscript", note = "The centaur cave opens in the cliffs north of Freewind Post. Inside, keep right at each fork, cross the pool by the small waterfall, and open the small dark box against the wall beside a larger chest: the larger one is the wrong one. You can open it only while on the quest. The centaurs respawn behind you on the way out.", goals = {
-		{ t = "collect", quest = 1803, title = "Tome of the Cabal", map = 1441, x = 43.44, y = 32.69, era = true, count = 1, item = 6997, itemName = "Tattered Manuscript", oi = 2, note = "Tattered Manuscript, in the Damaged Chest" },
+		{ t = "collect", quest = 1803, title = "Tome of the Cabal", map = 1441, x = 43.44, y = 32.69, era = true, count = 1, item = 6997, itemName = "Tattered Manuscript", oi = 2, note = "Tattered Manuscript, in the Damaged Chest", src = "Damaged Chest", srcKind = "object" },
 	} },
 	{ title = "Back to Jorah", note = "Jorah pieces the tome together and gives you the Reconstructed Tome: keep it, Strahad takes it with the rods.", goals = {
 		{ t = "turnin", quest = 1803, title = "Tome of the Cabal", npc = "Jorah Annison", map = 1458, x = 75.92, y = 37.89, era = true },
 		{ t = "accept", quest = 1805, title = "Tome of the Cabal", npc = "Jorah Annison", map = 1458, x = 75.92, y = 37.89, era = true, qlvl = 30 },
 	} },
 	{ title = "Rods of Channeling", note = "The Dragonmaw hold Angerfang Encampment in the hills east of the road through the Wetlands, south of the Thandol Span you cross from Arathi Highlands. Only the casters drop the rods, four kills in five: the Bonewarders (level 27, with skeleton pets) and Shadowwarders (28). A steep path north of the central spirit healer leads up into the camp past most of the warriors.", goals = {
-		{ t = "collect", quest = 1805, title = "Tome of the Cabal", map = 1437, x = 52.38, y = 52.64, era = true, count = 3, item = 6930, itemName = "Rod of Channeling", oi = 1, mobLevel = 27, note = "Rods of Channeling, from the Dragonmaw casters", spots = "53.1,54.2;50.6,50.9;51.7,49;49,46.7;46.1,46.4" },
+		{ t = "collect", quest = 1805, title = "Tome of the Cabal", map = 1437, x = 52.38, y = 52.64, era = true, count = 3, item = 6930, itemName = "Rod of Channeling", oi = 1, mobLevel = 27, note = "Rods of Channeling, from the Dragonmaw casters", src = "Dragonmaw Shadowwarder, Dragonmaw Bonewarder", srcKind = "npc", spots = "53.1,54.2;50.6,50.9;51.7,49;49,46.7;46.1,46.4" },
 	} },
 	{ title = "The Binding", note = "Back to Strahad in Ratchet. When you accept, he draws the summoning circle and his acolytes channel a greater circle over it: wait inside the tower until both are done. Then use the Tome of the Cabal on the circle. The felhunter (level 30, not elite) silences and eats mana, and it vanishes after two minutes: have your voidwalker out, open with your damage over time at once and let the voidwalker tank. If you die or it wins, abandon The Binding and take it again from Strahad. Keep the tome: Strahad takes it back.", goals = {
 		{ t = "turnin", quest = 1805, title = "Tome of the Cabal", npc = "Strahad Farsan", map = 1413, x = 62.63, y = 35.5, era = true },
@@ -3918,7 +3918,7 @@ Waypost.RegisterSteps("class/warlock/imp-horde", function() return {
 		{ t = "accept", quest = 1485, title = "Vile Familiars", npc = "Ruzan", map = 1411, x = 42.59, y = 69, era = true, qlvl = 4 },
 	} },
 	{ title = "Vile Familiars", note = "The Vile Familiars (level 3-4) swarm the Burning Blade Coven, the cave north of the Den, inside and around its mouth. Almost every kill drops a head (80%), so about eight kills does it; they throw small fireballs, so pull them one at a time. They respawn in just over three minutes. Other classes hunt the same imps for their own Vile Familiars quest.", only = { races = {"Orc", "Troll"} }, goals = {
-		{ t = "collect", quest = 1485, title = "Vile Familiars", map = 1411, x = 43.82, y = 58.29, era = true, count = 6, item = 6487, itemName = "Vile Familiar Head", oi = 1, mobLevel = 4, note = "Vile Familiar Heads", spots = "44.2,58.4;44.7,57.1;45.5,55.8;46.1,57.3;43.7,54.1" },
+		{ t = "collect", quest = 1485, title = "Vile Familiars", map = 1411, x = 43.82, y = 58.29, era = true, count = 6, item = 6487, itemName = "Vile Familiar Head", oi = 1, mobLevel = 4, note = "Vile Familiar Heads", src = "Vile Familiar", srcKind = "npc", spots = "44.2,58.4;44.7,57.1;45.5,55.8;46.1,57.3;43.7,54.1" },
 	} },
 	{ title = "Summon Imp", note = "Ruzan teaches you Summon Imp when you hand in the heads: summon it right away, it costs nothing and fights beside you. Then speak with Zureetha Fargaze a few steps away for a starter weapon.", only = { races = {"Orc", "Troll"} }, goals = {
 		{ t = "turnin", quest = 1485, title = "Vile Familiars", npc = "Ruzan", map = 1411, x = 42.59, y = 69, era = true, note = "Ruzan: Summon Imp" },
@@ -3929,7 +3929,7 @@ Waypost.RegisterSteps("class/warlock/imp-horde", function() return {
 		{ t = "accept", quest = 1470, title = "Piercing the Veil", npc = "Venya Marthand", map = 1420, x = 30.98, y = 66.41, era = true, qlvl = 3 },
 	} },
 	{ title = "Rattlecage Skulls", note = "The Rattlecage Skeletons (level 2-3) stand around the old smithy buildings just north of Deathknell, often right against the walls. Four kills in five drop a skull, so plan on about five; twenty of them spawn there and each comes back after five minutes.", only = { races = {"Scourge"} }, goals = {
-		{ t = "collect", quest = 1470, title = "Piercing the Veil", map = 1420, x = 32.98, y = 63, era = true, count = 3, item = 6281, itemName = "Rattlecage Skull", oi = 1, mobLevel = 3, note = "Rattlecage Skulls", spots = "33.5,62;34.4,64.7;32.2,60.4" },
+		{ t = "collect", quest = 1470, title = "Piercing the Veil", map = 1420, x = 32.98, y = 63, era = true, count = 3, item = 6281, itemName = "Rattlecage Skull", oi = 1, mobLevel = 3, note = "Rattlecage Skulls", src = "Rattlecage Skeleton", srcKind = "npc", spots = "33.5,62;34.4,64.7;32.2,60.4" },
 	} },
 	{ title = "Summon Imp", note = "Venya teaches you Summon Imp when you hand in the skulls: summon it right away, it costs nothing and fights beside you.", only = { races = {"Scourge"} }, goals = {
 		{ t = "turnin", quest = 1470, title = "Piercing the Veil", npc = "Venya Marthand", map = 1420, x = 30.98, y = 66.41, era = true, note = "Venya Marthand: Summon Imp" },
@@ -3975,7 +3975,7 @@ Waypost.RegisterSteps("class/warlock/incubus-horde", function() return {
 	} },
 	{ title = "Fallen Sky Lake", note = "Fallen Sky Lake lies in southern Ashenvale, south-west of Splintertree Post. The Shadethicket Stone Movers and Bark Rippers (level 25-27) around the lake drop the Withered Scarf about one time in twenty, and the lone Shadethicket Oracle (30) can drop it too: plan on a good number of kills, so the guide waits for level 24 first (Forever made this quest level 27); with the succubus already bound you can leave it for your 20s leveling in Ashenvale. They respawn in five minutes.", when = {{ k = "onquest", q = {65610} }}, goals = {
 		{ t = "level", level = 24 },
-		{ t = "collect", quest = 65610, title = "Wish You Were Here", map = 1440, x = 72.4, y = 68.06, era = true, count = 1, item = 190232, itemName = "Withered Scarf", oi = 1, mobLevel = 27, spots = "68.6,62.9;65,66.5;63,71.6;59.5,78.9;66.8,84" },
+		{ t = "collect", quest = 65610, title = "Wish You Were Here", map = 1440, x = 72.4, y = 68.06, era = true, count = 1, item = 190232, itemName = "Withered Scarf", oi = 1, mobLevel = 27, src = "Shadethicket Stone Mover, Shadethicket Bark Ripper", srcKind = "npc", spots = "68.6,62.9;65,66.5;63,71.6;59.5,78.9;66.8,84" },
 	} },
 	{ title = "The Binding: incubus (Orgrimmar)", note = "Back to Gan'rul with the scarf, then use the Withered Scarf on the same circle in Neeru's tent and defeat the incubus it calls (level 20, not elite) with your voidwalker tanking. Keep the scarf: Gan'rul takes it back.", goals = {
 		{ t = "turnin", quest = 65610, title = "Wish You Were Here", npc = "Gan'rul Bloodeye", map = 1454, x = 48.25, y = 45.28, era = true },
@@ -3991,11 +3991,11 @@ Waypost.RegisterSteps("class/warlock/incubus-horde", function() return {
 		{ t = "accept", quest = 65593, title = "Hearts of the Lovers", npc = "Godrick Farsan", map = 1458, x = 84.81, y = 14.83, era = true, qlvl = 20, note = "the incubus" },
 	} },
 	{ title = "Silverpine hearts", note = "Avelina Lilly (level 22) works as a tailor for the Dalaran wizards at Ambermill, in eastern Silverpine: the wizards around her are hostile. Dalin Forgewright (level 20, not elite) patrols near the Greymane Wall in the far south. Both are Alliance-friendly humans: attacking them can flag you for PvP. Each drops her or his heart.", goals = {
-		{ t = "collect", quest = 65593, title = "Hearts of the Lovers", map = 1421, x = 63.12, y = 65.27, era = true, count = 1, item = 190179, itemName = "Avelina's Heart", oi = 1 },
-		{ t = "collect", quest = 1476, title = "Hearts of the Pure", map = 1421, x = 47.6, y = 85.65, era = true, count = 1, item = 6312, itemName = "Dalin's Heart", oi = 1 },
+		{ t = "collect", quest = 65593, title = "Hearts of the Lovers", map = 1421, x = 63.12, y = 65.27, era = true, count = 1, item = 190179, itemName = "Avelina's Heart", oi = 1, src = "Avelina Lilly", srcKind = "npc" },
+		{ t = "collect", quest = 1476, title = "Hearts of the Pure", map = 1421, x = 47.6, y = 85.65, era = true, count = 1, item = 6312, itemName = "Dalin's Heart", oi = 1, src = "Dalin Forgewright", srcKind = "npc" },
 	} },
 	{ title = "Corma Villard", note = "Corma Villard (level 22, not elite; Comar in older records) wanders the north of the Wetlands just past the Thandol Span, to the right as you come off the bridge. From the Undercity head through Hillsbrad and Arathi Highlands, where the mobs are 30 and up. Attacking her flags you for PvP.", goals = {
-		{ t = "collect", quest = 1476, title = "Hearts of the Pure", map = 1437, x = 49.93, y = 12.55, era = true, count = 1, item = 6313, itemName = "Corma's Heart", oi = 2 },
+		{ t = "collect", quest = 1476, title = "Hearts of the Pure", map = 1437, x = 49.93, y = 12.55, era = true, count = 1, item = 6313, itemName = "Corma's Heart", oi = 2, src = "Corma Villard", srcKind = "npc" },
 	} },
 	{ title = "The Binding: succubus (Undercity)", note = "Back to Carendin with Dalin's and Corma's hearts. He hands you the Pure Hearts: go down to the summoning circle below him, stand on it and use them. Summon your voidwalker first and keep the fight on the circle, or the guards may kill her and the kill does not count. If she wins, use the hearts again; keep them, Carendin takes them back.", goals = {
 		{ t = "turnin", quest = 1476, title = "Hearts of the Pure", npc = "Carendin Halgar", map = 1458, x = 85.06, y = 25.99, era = true },
@@ -4005,7 +4005,7 @@ Waypost.RegisterSteps("class/warlock/incubus-horde", function() return {
 		{ t = "turnin", quest = 1474, title = "The Binding", npc = "Carendin Halgar", map = 1458, x = 85.06, y = 25.99, era = true, note = "Carendin Halgar: Summon Succubus" },
 	} },
 	{ title = "Isaac Pearson", note = "Isaac Pearson (level 22) works in Ratchet, on the Barrens coast, at one of two spots in town: take the zeppelin to Durotar and head south, or fly from Orgrimmar. He is an Alliance-friendly human: attacking him can flag you for PvP.", goals = {
-		{ t = "collect", quest = 65593, title = "Hearts of the Lovers", map = 1413, x = 62.13, y = 38.35, era = true, count = 1, item = 190180, itemName = "Isaac's Heart", oi = 2, mobLevel = 22 },
+		{ t = "collect", quest = 65593, title = "Hearts of the Lovers", map = 1413, x = 62.13, y = 38.35, era = true, count = 1, item = 190180, itemName = "Isaac's Heart", oi = 2, mobLevel = 22, src = "Isaac Pearson", srcKind = "npc" },
 	} },
 	{ title = "The Binding: incubus (Undercity)", note = "Back to Carendin with the lovers' hearts, then place the Lovers' Hearts on the same circle and defeat the incubus they call (level 20, not elite; it can charm you). Keep the hearts: Carendin takes them back.", goals = {
 		{ t = "turnin", quest = 65593, title = "Hearts of the Lovers", npc = "Carendin Halgar", map = 1458, x = 85.06, y = 25.99, era = true },
@@ -4023,7 +4023,7 @@ Waypost.RegisterSteps("class/warlock/voidwalker-horde", function() return {
 		{ t = "accept", quest = 1501, title = "Creature of the Void", npc = "Gan'rul Bloodeye", map = 1454, x = 48.25, y = 45.28, era = true, qlvl = 11 },
 	} },
 	{ title = "Skull Rock", note = "Skull Rock is the cave in the cliffs just east of Orgrimmar's gate. Inside, take the right-hand ramp up and follow it to the top: the Burning Blade Stash sits on that upper ledge, which cannot be reached from the lower floor. The cave is packed with Burning Blade Apprentices and Fanatics (level 9-11, many with voidwalkers) that respawn quickly, and Gazz'uz, a level 14 Burning Blade warlock, stands near the stash. Old notes call him elite; Forever's data lists him as normal. At 10 it is hard alone: pull one pack at a time and Fear the extra, wait for 11, or go with a friend. The stash always holds the tablet.", only = { races = {"Orc", "Troll"} }, goals = {
-		{ t = "collect", quest = 1501, title = "Creature of the Void", map = 1411, x = 51.62, y = 9.76, era = true, count = 1, item = 6535, itemName = "Tablet of Verga", oi = 1, note = "Tablet of Verga, in the Burning Blade Stash" },
+		{ t = "collect", quest = 1501, title = "Creature of the Void", map = 1411, x = 51.62, y = 9.76, era = true, count = 1, item = 6535, itemName = "Tablet of Verga", oi = 1, note = "Tablet of Verga, in the Burning Blade Stash", src = "Burning Blade Stash", srcKind = "object" },
 	} },
 	{ title = "The Binding (Orgrimmar)", note = "Back to Gan'rul. He hands you the Glyphs of Summoning: take them across the Cleft of Shadow to Neeru Fireblade's tent, stand on the purple circle on its floor and use them. The voidwalker (level 10, not elite) hits hard at 30% health and leaves after three minutes, so start at once: Curse of Agony, Corruption and Immolate, send your imp in, and Fear it when you need a breather. If it beats you or leaves, the glyphs are not used up: use them again on the circle. Keep the glyphs: Gan'rul takes them back.", only = { races = {"Orc", "Troll"} }, goals = {
 		{ t = "turnin", quest = 1501, title = "Creature of the Void", npc = "Gan'rul Bloodeye", map = 1454, x = 48.25, y = 45.28, era = true },
@@ -4039,7 +4039,7 @@ Waypost.RegisterSteps("class/warlock/voidwalker-horde", function() return {
 		{ t = "accept", quest = 1473, title = "Creature of the Void", npc = "Carendin Halgar", map = 1458, x = 85.06, y = 25.99, era = true, qlvl = 10 },
 	} },
 	{ title = "Perrine's Chest", note = "The Scarlet tower stands in the fields west of the Undercity's ruins (not the tower near Deathknell). The grimoire is in the small chest on the ground floor, under the stairs; ignore the chest upstairs. Captain Perrine (level 9) and a Scarlet Zealot guard it: kill them, or Fear the zealot while you deal with Perrine. Scarlet Missionaries and Zealots (level 7-9) walk the fields around the tower. The chest is back three seconds after anyone opens it.", only = { races = {"Orc", "Troll", "Scourge"} }, goals = {
-		{ t = "collect", quest = 1473, title = "Creature of the Void", map = 1420, x = 51.06, y = 67.57, era = true, count = 1, item = 6285, itemName = "Egalin's Grimoire", oi = 1, note = "Egalin's Grimoire, in Perrine's Chest" },
+		{ t = "collect", quest = 1473, title = "Creature of the Void", map = 1420, x = 51.06, y = 67.57, era = true, count = 1, item = 6285, itemName = "Egalin's Grimoire", oi = 1, note = "Egalin's Grimoire, in Perrine's Chest", src = "Perrine's Chest", srcKind = "object" },
 	} },
 	{ title = "The Binding (Undercity)", note = "Back to Carendin. He hands you the Runes of Summoning: go down the stairs from him to the summoning circle and use them while standing on it. Fight the voidwalker (level 10, not elite) on the circle: if it wanders off, the city guards may kill it and the kill does not count. Curse of Agony, Corruption and Immolate with your imp tanking bring it down; it hits harder below 30%. If you lose, use the runes again. Keep the runes: Carendin takes them back.", only = { races = {"Orc", "Troll", "Scourge"} }, goals = {
 		{ t = "turnin", quest = 1473, title = "Creature of the Void", npc = "Carendin Halgar", map = 1458, x = 85.06, y = 25.99, era = true },
@@ -4068,7 +4068,7 @@ Waypost.RegisterSteps("class/warrior/brutal-armor", function() return {
 		{ t = "accept", quest = 1824, title = "Trial at the Field of Giants", npc = "Ruga Ragetotem", map = 1413, x = 44.67, y = 59.42, era = true, qlvl = 20 },
 	} },
 	{ title = "Trial at the Field of Giants", note = "You have 30 minutes, and each Twitching Antenna rots 15 minutes after you loot it, so take the quest only when ready (logging out does not stop the clock). The Silithid Mounds dot the Field of Giants south of Camp Taurajo; every silithid drops an antenna. Creepers (level 20-21) and Grubs are the easiest: Swarmers (21-22) call small swarms and Creepers lay eggs that hatch adds. The eastern part of the field has plenty of Creepers. Ruga's Bulwark, a shield, is the reward.", goals = {
-		{ t = "collect", quest = 1824, title = "Trial at the Field of Giants", map = 1413, x = 45.11, y = 68.95, era = true, count = 5, item = 7119, itemName = "Twitching Antenna", oi = 1, mobLevel = 22, note = "Twitching Antenna, from the silithid", spots = "45.1,69.5;43.7,69.7;42.5,69.6;42.8,71.1;42.6,72.1" },
+		{ t = "collect", quest = 1824, title = "Trial at the Field of Giants", map = 1413, x = 45.11, y = 68.95, era = true, count = 5, item = 7119, itemName = "Twitching Antenna", oi = 1, mobLevel = 22, note = "Twitching Antenna, from the silithid", src = "Silithid Swarmer, Silithid Creeper, Silithid Grub and others", srcKind = "npc", spots = "45.1,69.5;43.7,69.7;42.5,69.6;42.8,71.1;42.6,72.1" },
 		{ t = "turnin", quest = 1824, title = "Trial at the Field of Giants", npc = "Ruga Ragetotem", map = 1413, x = 44.67, y = 59.42, era = true, note = "Ruga Ragetotem: Ruga's Bulwark" },
 		{ t = "accept", quest = 1825, title = "Speak with Thun'grim", npc = "Ruga Ragetotem", map = 1413, x = 44.67, y = 59.42, era = true, qlvl = 20 },
 	} },
@@ -4077,11 +4077,11 @@ Waypost.RegisterSteps("class/warrior/brutal-armor", function() return {
 		{ t = "accept", quest = 1838, title = "Brutal Armor", npc = "Thun'grim Firegaze", map = 1413, x = 57.23, y = 30.34, era = true, qlvl = 30 },
 	} },
 	{ title = "Windshear Mine", note = "You need 15 Smoky Iron Ingots. The Windshear Mine lies at the east end of Windshear Crag, east of Sun Rock Retreat; every Windshear kobold (level 19-23) drops an ingot four kills in five. Stonecutters, Geomancers and Overlords run for help when low; Geomancers cast Frostbolt.", goals = {
-		{ t = "collect", quest = 1838, title = "Brutal Armor", map = 1442, x = 71.76, y = 60.29, era = true, count = 15, item = 7126, itemName = "Smoky Iron Ingot", oi = 1, mobLevel = 22, note = "Smoky Iron Ingot, from the Windshear kobolds", spots = "72.4,61.3;73.7,59.6;75,58.9" },
+		{ t = "collect", quest = 1838, title = "Brutal Armor", map = 1442, x = 71.76, y = 60.29, era = true, count = 15, item = 7126, itemName = "Smoky Iron Ingot", oi = 1, mobLevel = 22, note = "Smoky Iron Ingot, from the Windshear kobolds", src = "Windshear Vermin, Windshear Digger, Windshear Tunnel Rat and others", srcKind = "npc", spots = "72.4,61.3;73.7,59.6;75,58.9" },
 	} },
 	{ title = "Hillsbrad Miners", note = "You need 10 Powdered Azurite. The guide waits for level 25 first. The Hillsbrad Miners (level 26-27) work the mine in the hills west of Southshore and drop the azurite four kills in five; they fight in Defensive Stance, sunder your armor and run for help at 30% health. Fly to Tarren Mill and head south-west.", goals = {
 		{ t = "level", level = 25 },
-		{ t = "collect", quest = 1838, title = "Brutal Armor", map = 1424, x = 30, y = 54.97, era = true, count = 10, item = 7127, itemName = "Powdered Azurite", oi = 2, mobLevel = 27, note = "Powdered Azurite, from the Hillsbrad Miners", spots = "29.7,53.7;31.9,54.7;28.2,56.5;30.9,58.3;31.8,52.5" },
+		{ t = "collect", quest = 1838, title = "Brutal Armor", map = 1424, x = 30, y = 54.97, era = true, count = 10, item = 7127, itemName = "Powdered Azurite", oi = 2, mobLevel = 27, note = "Powdered Azurite, from the Hillsbrad Miners", src = "Hillsbrad Miner", srcKind = "npc", spots = "29.7,53.7;31.9,54.7;28.2,56.5;30.9,58.3;31.8,52.5" },
 	} },
 	{ title = "Roogug in Razorfen Kraul", note = "Roogug is an elite quilboar (level 28) inside Razorfen Kraul, the dungeon at the south end of the Barrens; a five-player dungeon: needs a group of five, his guards come with him. The guide waits for level 26 first. Inside take the left path at the first fork, cross the vine bridge over the pig pens, go past the room with the big cauldron: he waits in the room on the right. He casts Lightning Bolt and calls Earth Rumblers. The vial always drops.", goals = {
 		{ t = "level", level = 26 },
@@ -4103,7 +4103,7 @@ Waypost.RegisterSteps("class/warrior/brutal-armor", function() return {
 		{ t = "accept", quest = 1842, title = "Satyr Hooves", npc = "Ula'elek", map = 1411, x = 56.31, y = 74.33, era = true, qlvl = 30 },
 	} },
 	{ title = "Satyr Hooves", note = "The satyrs of Satyrnaar, north-east of Splintertree Post (Xavian, level 28-30), and the Felmusk satyrs north-west of the post (25-27) drop a hoof four kills in five. A Xavian satyr at 15% health may cast Gift of the Xavian and heal to full: finish it fast or stun it. Hellcallers throw Fireballs from 40 yards; Felmusk satyrs reek in melee and run for help at 15%.", goals = {
-		{ t = "collect", quest = 1842, title = "Satyr Hooves", map = 1440, x = 78.29, y = 45.29, era = true, count = 7, item = 7128, itemName = "Uncloven Satyr Hoof", oi = 1, mobLevel = 27, spots = "78.2,45.5;79,47.1;80.5,49.8;81.5,49;82.7,49.9" },
+		{ t = "collect", quest = 1842, title = "Satyr Hooves", map = 1440, x = 78.29, y = 45.29, era = true, count = 7, item = 7128, itemName = "Uncloven Satyr Hoof", oi = 1, mobLevel = 27, src = "Xavian Rogue, Xavian Betrayer, Xavian Felsworn and others", srcKind = "npc", spots = "78.2,45.5;79,47.1;80.5,49.8;81.5,49;82.7,49.9" },
 	} },
 	{ title = "Brutal Gauntlets", goals = {
 		{ t = "turnin", quest = 1842, title = "Satyr Hooves", npc = "Ula'elek", map = 1411, x = 56.31, y = 74.33, era = true, note = "Ula'elek, Sen'jin Village" },
@@ -4115,7 +4115,7 @@ Waypost.RegisterSteps("class/warrior/brutal-armor", function() return {
 		{ t = "accept", quest = 1844, title = "Chimaeric Horn", npc = "Orm Stonehoof", map = 1456, x = 38.99, y = 55.98, era = true, qlvl = 30 },
 	} },
 	{ title = "Chimaeric Horn", note = "The Chimaera Matriarch (level 28, not elite, larger than the young ones around her) roams the south edge of the Charred Vale in south-west Stonetalon, near the road to Desolace. She is the only one: she returns 5 minutes after dying and drops the Galvanized Horn four kills in five. She spits Corrosive Poison from 30 yards.", goals = {
-		{ t = "collect", quest = 1844, title = "Chimaeric Horn", map = 1442, x = 33.64, y = 74.66, era = true, count = 1, item = 6840, itemName = "Galvanized Horn", oi = 1, note = "Galvanized Horn, from the Chimaera Matriarch" },
+		{ t = "collect", quest = 1844, title = "Chimaeric Horn", map = 1442, x = 33.64, y = 74.66, era = true, count = 1, item = 6840, itemName = "Galvanized Horn", oi = 1, note = "Galvanized Horn, from the Chimaera Matriarch", src = "Chimaera Matriarch", srcKind = "npc" },
 	} },
 	{ title = "Brutal Helm", goals = {
 		{ t = "turnin", quest = 1844, title = "Chimaeric Horn", npc = "Orm Stonehoof", map = 1456, x = 38.99, y = 55.98, era = true },
@@ -4127,8 +4127,8 @@ Waypost.RegisterSteps("class/warrior/brutal-armor", function() return {
 		{ t = "accept", quest = 1846, title = "Dragonmaw Shinbones", npc = "Velora Nitely", map = 1458, x = 62.14, y = 39.14, era = true, qlvl = 30 },
 	} },
 	{ title = "Dragonmaw Shinbones", note = "The Dragonmaw orcs (level 26-30) camp in the middle of the Wetlands; from Hammerfall in Arathi head south over the Thandol Span (Menethil Harbor is Alliance). With Dragonmaw Shinbones from Velora in your log, every Raider, Swamprunner, Centurion, Shadowwarder and Bonewarder drops a Dragonmaw Shinbone (without the quest they drop none): right-click it to test it, and about one in four comes out sturdy, the rest break, so expect 30 or more kills for 8. You can test while moving or fighting. The orcs run for help at 15%; Raiders net you, Centurions shield-bash, Shadowwarders cast Shadow Bolt, Bonewarders raise skeletons.", when = {{ k = "onquest", q = {1846} }}, goals = {
-		{ t = "collect", map = 1437, x = 45.72, y = 44.78, era = true, item = 7131, itemName = "Dragonmaw Shinbone", mobLevel = 29, optional = true, note = "from the Dragonmaw orcs: right-click to test it", spots = "45,43.4;46.4,46.3;48.9,47.5;49.7,45.3;50.9,47.4" },
-		{ t = "collect", quest = 1846, title = "Dragonmaw Shinbones", map = 1437, x = 45.77, y = 45.14, era = true, count = 8, item = 7134, itemName = "Sturdy Dragonmaw Shinbone", oi = 1, mobLevel = 28, spots = "46.4,46.3;45,43.4;42.2,40.8;41.6,45.1;39.1,46.5" },
+		{ t = "collect", map = 1437, x = 45.72, y = 44.78, era = true, item = 7131, itemName = "Dragonmaw Shinbone", mobLevel = 29, optional = true, note = "from the Dragonmaw orcs: right-click to test it", src = "Dragonmaw Raider, Dragonmaw Swamprunner, Dragonmaw Centurion and others", srcKind = "npc", spots = "45,43.4;46.4,46.3;48.9,47.5;49.7,45.3;50.9,47.4" },
+		{ t = "collect", quest = 1846, title = "Dragonmaw Shinbones", map = 1437, x = 45.77, y = 45.14, era = true, count = 8, item = 7134, itemName = "Sturdy Dragonmaw Shinbone", oi = 1, mobLevel = 28, src = "Dragonmaw Raider, Dragonmaw Swamprunner, Dragonmaw Centurion and others", srcKind = "npc", spots = "46.4,46.3;45,43.4;42.2,40.8;41.6,45.1;39.1,46.5" },
 	} },
 	{ title = "Brutal Legguards", goals = {
 		{ t = "turnin", quest = 1846, title = "Dragonmaw Shinbones", npc = "Velora Nitely", map = 1458, x = 62.14, y = 39.14, era = true },
@@ -4144,7 +4144,7 @@ Waypost.RegisterSteps("class/warrior/heirloom-weapon", function() return {
 	} },
 	{ title = "Zaal Stormshield", note = "Head north-west from Valanaar to the Shrine of Akir. Zaal Stormshield stands west of the shrine's approach, among the cult's Guardians, Spiritcallers and Blademasters: pull them one at a time before you take him. He drops the Skybreaker Bulwark.", only = { races = {"Skyborne"} }, goals = {
 		{ t = "kill", map = 2521, x = 56.66, y = 50.4, target = "Zaal Stormshield" },
-		{ t = "collect", quest = 94003, title = "The Skybreaker Bulwark", map = 2521, x = 56.66, y = 50.4, count = 1, item = 263993, itemName = "Skybreaker Bulwark", oi = 1, note = "Skybreaker Bulwark, from Zaal Stormshield" },
+		{ t = "collect", quest = 94003, title = "The Skybreaker Bulwark", map = 2521, x = 56.66, y = 50.4, count = 1, item = 263993, itemName = "Skybreaker Bulwark", oi = 1, note = "Skybreaker Bulwark, from Zaal Stormshield", src = "Zaal Stormshield", srcKind = "npc" },
 	} },
 	{ title = "The Skybreaker Bulwark", note = "Back to Seena in Valanaar. She teaches Defensive Stance and gives you the Stormforged Protector, a shield to use it with. Uzzek's road below still gives a weapon later, once you reach Kalimdor.", only = { races = {"Skyborne"} }, goals = {
 		{ t = "turnin", quest = 94003, title = "The Skybreaker Bulwark", npc = "Seena Skybreaker", map = 2521, x = 59.89, y = 72.87, note = "Seena Skybreaker: Defensive Stance" },
@@ -4162,7 +4162,7 @@ Waypost.RegisterSteps("class/warrior/heirloom-weapon", function() return {
 		{ t = "accept", quest = 1498, title = "Path of Defense", npc = "Uzzek", map = 1413, x = 61.38, y = 21.12, era = true, qlvl = 10 },
 	} },
 	{ title = "Singed Scales in Thunder Ridge", note = "You need five Singed Scales. Thunder Lizards (level 9-10) and Lightning Hides (10-11) live down in the Thunder Ridge crevasse in north-west Durotar, south of Orgrimmar: from the Barrens bridge turn left and follow the river north into it. Both drop a scale about four kills in five; both cast Lizard Bolt.", only = { races = {"Orc", "Troll", "Tauren", "Skyborne"} }, goals = {
-		{ t = "collect", quest = 1498, title = "Path of Defense", map = 1411, x = 39.67, y = 29.24, era = true, count = 5, item = 6486, itemName = "Singed Scale", oi = 1, mobLevel = 11, note = "Singed Scale, from the lizards", spots = "40.3,29;39.1,30;39.2,25.6;40.4,24.1;42.8,24.2" },
+		{ t = "collect", quest = 1498, title = "Path of Defense", map = 1411, x = 39.67, y = 29.24, era = true, count = 5, item = 6486, itemName = "Singed Scale", oi = 1, mobLevel = 11, note = "Singed Scale, from the lizards", src = "Thunder Lizard, Lightning Hide", srcKind = "npc", spots = "40.3,29;39.1,30;39.2,25.6;40.4,24.1;42.8,24.2" },
 	} },
 	{ title = "Path of Defense", note = "Back to Uzzek under his tree west of Far Watch Post.", only = { races = {"Orc", "Troll", "Tauren", "Skyborne"} }, goals = {
 		{ t = "turnin", quest = 1498, title = "Path of Defense", npc = "Uzzek", map = 1413, x = 61.38, y = 21.12, era = true, note = "Uzzek: Defensive Stance" },
@@ -4173,7 +4173,7 @@ Waypost.RegisterSteps("class/warrior/heirloom-weapon", function() return {
 		{ t = "accept", quest = 1503, title = "Forged Steel", npc = "Thun'grim Firegaze", map = 1413, x = 57.23, y = 30.34, era = true, qlvl = 10 },
 	} },
 	{ title = "Forged Steel", note = "The Stolen Iron Chest stands by a broken wagon in the Razormane camp north-west of Thun'grim, north-east of the Crossroads. Two Razormanes guard it and their hunters pull more quilboar: clear them one at a time, then open the chest (it refills within seconds, so a friend can loot it too).", only = { races = {"Orc", "Troll", "Tauren", "Skyborne"} }, goals = {
-		{ t = "collect", quest = 1503, title = "Forged Steel", map = 1413, x = 55.05, y = 26.65, era = true, count = 1, item = 6534, itemName = "Forged Steel Bars", oi = 1, note = "Forged Steel Bars, from the Stolen Iron Chest" },
+		{ t = "collect", quest = 1503, title = "Forged Steel", map = 1413, x = 55.05, y = 26.65, era = true, count = 1, item = 6534, itemName = "Forged Steel Bars", oi = 1, note = "Forged Steel Bars, from the Stolen Iron Chest", src = "Stolen Iron Chest", srcKind = "object" },
 		{ t = "turnin", quest = 1503, title = "Forged Steel", npc = "Thun'grim Firegaze", map = 1413, x = 57.23, y = 30.34, era = true },
 	} },
 	{ title = "Speak with Dillinger", note = "At 10, Austil de Mon, the warrior trainer inside the inn of Brill, sends you to Deathguard Dillinger by the graveyard on Brill's west edge. This road and Uzzek's exclude each other: drop Veteran Uzzek or Path of Defense from your log if you hold one.", only = { races = {"Scourge"} }, goals = {
@@ -4194,10 +4194,10 @@ Waypost.RegisterSteps("class/warrior/heirloom-weapon", function() return {
 		{ t = "accept", quest = 1821, title = "Agamand Heirlooms", npc = "Coleman Farthing", map = 1420, x = 61.72, y = 52.29, era = true, qlvl = 11 },
 	} },
 	{ title = "The Agamand Family Crypt", note = "The four Agamand Weapon Racks are inside the Agamand Family Crypt at the north end of Agamand Mills, north of Brill, one rack per room: one in the lowest room, two in the pair of rooms up the stairs, one in the room above those. The axe rack stands in a dark corner. The crypt's undead come in packs of three or more and return quickly; the ones in the top room are not linked. The axe, dagger and mace racks take 15 minutes to refill after someone loots them.", when = {{ k = "turnedin", neg = true, q = 1505 }}, goals = {
-		{ t = "collect", quest = 1821, title = "Agamand Heirlooms", map = 1420, x = 51.68, y = 25.69, era = true, count = 1, item = 7567, itemName = "Agamand Family Axe", oi = 1 },
-		{ t = "collect", quest = 1821, title = "Agamand Heirlooms", map = 1420, x = 51.88, y = 27.14, era = true, count = 1, item = 7568, itemName = "Agamand Family Dagger", oi = 2 },
-		{ t = "collect", quest = 1821, title = "Agamand Heirlooms", map = 1420, x = 51.88, y = 27.14, era = true, count = 1, item = 7569, itemName = "Agamand Family Mace", oi = 3 },
-		{ t = "collect", quest = 1821, title = "Agamand Heirlooms", map = 1420, x = 52.66, y = 25.85, era = true, count = 1, item = 7566, itemName = "Agamand Family Sword", oi = 4 },
+		{ t = "collect", quest = 1821, title = "Agamand Heirlooms", map = 1420, x = 51.68, y = 25.69, era = true, count = 1, item = 7567, itemName = "Agamand Family Axe", oi = 1, src = "Agamand Weapon Rack", srcKind = "object" },
+		{ t = "collect", quest = 1821, title = "Agamand Heirlooms", map = 1420, x = 51.88, y = 27.14, era = true, count = 1, item = 7568, itemName = "Agamand Family Dagger", oi = 2, src = "Agamand Weapon Rack", srcKind = "object" },
+		{ t = "collect", quest = 1821, title = "Agamand Heirlooms", map = 1420, x = 51.88, y = 27.14, era = true, count = 1, item = 7569, itemName = "Agamand Family Mace", oi = 3, src = "Agamand Weapon Rack", srcKind = "object" },
+		{ t = "collect", quest = 1821, title = "Agamand Heirlooms", map = 1420, x = 52.66, y = 25.85, era = true, count = 1, item = 7566, itemName = "Agamand Family Sword", oi = 4, src = "Agamand Weapon Rack", srcKind = "object" },
 	} },
 	{ title = "Back to Coleman Farthing", when = {{ k = "turnedin", neg = true, q = 1505 }}, goals = {
 		{ t = "turnin", quest = 1821, title = "Agamand Heirlooms", npc = "Coleman Farthing", map = 1420, x = 61.72, y = 52.29, era = true },
@@ -4392,7 +4392,7 @@ Waypost.RegisterSteps("collectibles/mounts/horde/wolf", function() return {
 
 Waypost.RegisterSteps("collectibles/pets/black-tabby", function() return {
 	{ title = "Dalaran mages", note = "The Dalaran Spellscribe, a rare level 21 mage at Ambermill in southern Silverpine Forest, drops the Black Tabby about once in 6 kills. It has a single spot and can take hours to come back, so check it whenever you pass. While it is down, the Dalaran Shield Guards, Theurgists and Summoners (level 31-35) at the Dalaran crater, where Alterac Mountains meet Hillsbrad Foothills, drop it too, but only about once in 500 kills. The cat can be traded: look at the Auction House as well.", goals = {
-		{ t = "collect", map = 1421, x = 63.5, y = 63.3, era = true, item = 8491, itemName = "Cat Carrier (Black Tabby)", note = "Dalaran Spellscribe, Ambermill" },
+		{ t = "collect", map = 1421, x = 63.5, y = 63.3, era = true, item = 8491, itemName = "Cat Carrier (Black Tabby)", note = "Dalaran Spellscribe, Ambermill", src = "Dalaran Spellscribe", srcKind = "npc" },
 	} },
 } end)
 
@@ -4447,14 +4447,14 @@ Waypost.RegisterSteps("miscellaneous/stalk-with-the-earthmother", function() ret
 		{ t = "accept", quest = 76156, title = "Stalk With The Earthmother", npc = "Boarton Shadetotem", map = 1456, x = 39.44, y = 65.82, era = true, qlvl = 10 },
 	} },
 	{ title = "The Venture Co. Mine", note = "Ride down the lift and south-east across Mulgore to the Venture Co. Mine. Put on the disguise, then open the carts of Blasting Supplies inside the mine and on the slope outside it; stay on the upper levels where you can, the lower tunnels are packed. Five charges.", goals = {
-		{ t = "collect", quest = 76156, title = "Stalk With The Earthmother", map = 1412, x = 58.77, y = 47.41, count = 5, item = 206157, itemName = "Seaforium Mining Charge", oi = 1, note = "Seaforium Mining Charge, from the Blasting Supplies", spots = "58.7,47.4;59.9,49.5;56.8,43.3" },
+		{ t = "collect", quest = 76156, title = "Stalk With The Earthmother", map = 1412, x = 58.77, y = 47.41, count = 5, item = 206157, itemName = "Seaforium Mining Charge", oi = 1, note = "Seaforium Mining Charge, from the Blasting Supplies", src = "Blasting Supplies", srcKind = "object", spots = "58.7,47.4;59.9,49.5;56.8,43.3" },
 	} },
 	{ title = "Boarton Shadetotem", note = "Back to Boarton in Thunder Bluff. He gives you the Mortar and Pestle for his next test.", goals = {
 		{ t = "turnin", quest = 76156, title = "Stalk With The Earthmother", npc = "Boarton Shadetotem", map = 1456, x = 39.44, y = 65.82, era = true },
 		{ t = "accept", quest = 76160, title = "Stalk With The Earthmother", npc = "Boarton Shadetotem", map = 1456, x = 39.44, y = 65.82, era = true, qlvl = 11 },
 	} },
 	{ title = "Windfury Cones", note = "Windfury Cones lie on the ground under the harpies' nest trees on Windfury Ridge, north-west of Thunder Bluff; the harpies do not drop them. The Windfury Sorceresses (level 9-10) and Matriarchs (10-11) there stand close together: pick the cones from the edges. Once you have eight, use the Mortar and Pestle to grind them.", goals = {
-		{ t = "collect", map = 1412, x = 31.9, y = 32, count = 8, item = 206170, itemName = "Windfury Cone", optional = true, note = "the mortar takes all eight", spots = "31.9,32;31.8,35.2;38,22.4;39.1,19.8;51.6,21.1" },
+		{ t = "collect", map = 1412, x = 31.9, y = 32, count = 8, item = 206170, itemName = "Windfury Cone", optional = true, note = "the mortar takes all eight", src = "Windfury Cone", srcKind = "object", spots = "31.9,32;31.8,35.2;38,22.4;39.1,19.8;51.6,21.1" },
 		{ t = "use", quest = 76160, title = "Stalk With The Earthmother", map = 1412, x = 31.9, y = 32, item = 206176, itemName = "Mortar and Pestle", oi = 1, note = "grind the eight cones into the Pine Salve" },
 	} },
 	{ title = "Boarton Shadetotem", note = "Back to Boarton. He hands you the Knife Set for the last test.", goals = {
@@ -4487,7 +4487,7 @@ Waypost.RegisterSteps("reputation/darkspear-trolls", function() return {
 	} },
 	{ title = "Boars, weapons and peons", note = "The training weapons lie on the ground in the Den and among the boars to the north. For the peons: target a sleeping Lazy Peon and use the Foreman's Blackjack on it.", when = {{ k = "done", label = "valley" }}, goals = {
 		{ t = "kill", quest = 788, title = "Cutting Teeth", map = 1411, x = 42.72, y = 71.58, era = true, count = 10, target = "Mottled Boar", oi = 1, mobLevel = 2, spots = "42.4,72.1;44.3,71.2;46.1,69;45,65.7;46.2,66.6" },
-		{ t = "collect", quest = 97279, title = "Wayward Weapons", map = 1411, x = 43.2, y = 71.7, era = true, count = 6, item = 277653, itemName = "Abandoned Training Weapon", oi = 1, spots = "43.6,72.4;44.6,70.9;41.4,71.6;44.4,66.6;45,64.6" },
+		{ t = "collect", quest = 97279, title = "Wayward Weapons", map = 1411, x = 43.2, y = 71.7, era = true, count = 6, item = 277653, itemName = "Abandoned Training Weapon", oi = 1, src = "Abandoned Training Weapon", srcKind = "object", spots = "43.6,72.4;44.6,70.9;41.4,71.6;44.4,66.6;45,64.6" },
 		{ t = "kill", quest = 5441, title = "Lazy Peons", map = 1411, x = 42.34, y = 73.25, era = true, count = 5, target = "Lazy Peon", oi = 1, mobLevel = 4, note = "Lazy Peon: hit it with the Foreman's Blackjack", text = "Wake Lazy Peon", spots = "42.8,72.9;46.3,67.4;46.9,59.3;43.4,57.5;40.3,60.4" },
 	} },
 	{ title = "The Den: hand in", when = {{ k = "done", label = "valley" }}, goals = {
@@ -4499,15 +4499,15 @@ Waypost.RegisterSteps("reputation/darkspear-trolls", function() return {
 		{ t = "accept", quest = 4402, title = "Galgar's Cactus Apple Surprise", npc = "Galgar", map = 1411, x = 42.73, y = 67.23, era = true, qlvl = 3, note = "Galgar: Galgar's Cactus Apple Surprise, +200" },
 	} },
 	{ title = "North of the Den", note = "The cactus apples grow beside the cacti north of the Den. Hana'zua lies wounded by the rocks to the north; Sarkoth, his big scorpid, roams close by. Vile Familiars swarm at the mouth of the Burning Blade Coven; Thazz'ril's Pick lies inside: take the middle tunnel where it splits three ways.", when = {{ k = "done", label = "valley" }}, goals = {
-		{ t = "collect", quest = 789, title = "Sting of the Scorpid", map = 1411, x = 41.83, y = 65.81, era = true, count = 10, item = 4862, itemName = "Scorpid Worker Tail", oi = 1, mobLevel = 3, spots = "41.4,66.1;40.9,63.7;39.8,62.2;41.2,61.4;42.8,58.7" },
-		{ t = "collect", quest = 4402, title = "Galgar's Cactus Apple Surprise", map = 1411, x = 41.98, y = 66.14, era = true, count = 10, item = 11583, itemName = "Cactus Apple", oi = 1, spots = "40.9,64.3;39.9,68.1;44,65.8;45.1,63.3;47.3,64" },
+		{ t = "collect", quest = 789, title = "Sting of the Scorpid", map = 1411, x = 41.83, y = 65.81, era = true, count = 10, item = 4862, itemName = "Scorpid Worker Tail", oi = 1, mobLevel = 3, src = "Scorpid Worker, Sarkoth", srcKind = "npc", spots = "41.4,66.1;40.9,63.7;39.8,62.2;41.2,61.4;42.8,58.7" },
+		{ t = "collect", quest = 4402, title = "Galgar's Cactus Apple Surprise", map = 1411, x = 41.98, y = 66.14, era = true, count = 10, item = 11583, itemName = "Cactus Apple", oi = 1, src = "Cactus Apple", srcKind = "object", spots = "40.9,64.3;39.9,68.1;44,65.8;45.1,63.3;47.3,64" },
 		{ t = "accept", quest = 790, title = "Sarkoth", npc = "Hana'zua", map = 1411, x = 40.6, y = 62.58, era = true, qlvl = 5, note = "Hana'zua: Sarkoth, +100" },
-		{ t = "collect", quest = 790, title = "Sarkoth", map = 1411, x = 40.5, y = 66.83, era = true, count = 1, item = 4905, itemName = "Sarkoth's Mangled Claw", oi = 1 },
+		{ t = "collect", quest = 790, title = "Sarkoth", map = 1411, x = 40.5, y = 66.83, era = true, count = 1, item = 4905, itemName = "Sarkoth's Mangled Claw", oi = 1, src = "Sarkoth", srcKind = "npc" },
 		{ t = "turnin", quest = 790, title = "Sarkoth", npc = "Hana'zua", map = 1411, x = 40.6, y = 62.58, era = true },
 		{ t = "accept", quest = 804, title = "Sarkoth", npc = "Hana'zua", map = 1411, x = 40.6, y = 62.58, era = true, qlvl = 5, note = "Sarkoth, +25" },
 		{ t = "kill", quest = 792, title = "Vile Familiars", map = 1411, x = 43.82, y = 58.29, era = true, count = 12, target = "Vile Familiar", oi = 1, mobLevel = 4, only = { classes = {"WARRIOR", "PALADIN", "HUNTER", "ROGUE", "PRIEST", "SHAMAN", "MAGE", "DRUID"} }, spots = "44.2,58.4;44.7,57.1;45.5,55.8;46.1,57.3;43.7,54.1" },
-		{ t = "collect", quest = 1485, title = "Vile Familiars", map = 1411, x = 43.82, y = 58.29, era = true, count = 6, item = 6487, itemName = "Vile Familiar Head", oi = 1, mobLevel = 4, only = { classes = {"WARLOCK"} }, spots = "44.2,58.4;44.7,57.1;45.5,55.8;46.1,57.3;43.7,54.1" },
-		{ t = "collect", quest = 6394, title = "Thazz'ril's Pick", map = 1411, x = 43.73, y = 53.79, era = true, count = 1, item = 16332, itemName = "Thazz'ril's Pick", oi = 1, note = "Thazz'ril's Pick, in the cave" },
+		{ t = "collect", quest = 1485, title = "Vile Familiars", map = 1411, x = 43.82, y = 58.29, era = true, count = 6, item = 6487, itemName = "Vile Familiar Head", oi = 1, mobLevel = 4, only = { classes = {"WARLOCK"} }, src = "Vile Familiar", srcKind = "npc", spots = "44.2,58.4;44.7,57.1;45.5,55.8;46.1,57.3;43.7,54.1" },
+		{ t = "collect", quest = 6394, title = "Thazz'ril's Pick", map = 1411, x = 43.73, y = 53.79, era = true, count = 1, item = 16332, itemName = "Thazz'ril's Pick", oi = 1, note = "Thazz'ril's Pick, in the cave", src = "Thazz'ril's Pick", srcKind = "object" },
 	} },
 	{ title = "The Den: hand in again", when = {{ k = "done", label = "valley" }}, goals = {
 		{ t = "turnin", quest = 789, title = "Sting of the Scorpid", npc = "Gornek", map = 1411, x = 42.06, y = 68.33, era = true },
@@ -4521,7 +4521,7 @@ Waypost.RegisterSteps("reputation/darkspear-trolls", function() return {
 		{ t = "accept", quest = 794, title = "Burning Blade Medallion", npc = "Zureetha Fargaze", map = 1411, x = 42.85, y = 69.15, era = true, qlvl = 5, note = "Burning Blade Medallion, +200" },
 	} },
 	{ title = "Burning Blade Coven", note = "Go back into the cave and keep to the right-hand wall all the way, over a small stream, to Yarrog Baneshadow on a ledge above a pool.", when = {{ k = "done", label = "valley" }}, goals = {
-		{ t = "collect", quest = 794, title = "Burning Blade Medallion", map = 1411, x = 42.71, y = 52.95, era = true, count = 1, item = 4859, itemName = "Burning Blade Medallion", oi = 1, note = "Burning Blade Medallion, from Yarrog Baneshadow" },
+		{ t = "collect", quest = 794, title = "Burning Blade Medallion", map = 1411, x = 42.71, y = 52.95, era = true, count = 1, item = 4859, itemName = "Burning Blade Medallion", oi = 1, note = "Burning Blade Medallion, from Yarrog Baneshadow", src = "Yarrog Baneshadow", srcKind = "npc" },
 		{ t = "turnin", quest = 794, title = "Burning Blade Medallion", npc = "Zureetha Fargaze", map = 1411, x = 42.85, y = 69.15, era = true, note = "Zureetha Fargaze, in the Den" },
 		{ t = "accept", quest = 805, title = "Report to Sen'jin Village", npc = "Zureetha Fargaze", map = 1411, x = 42.85, y = 69.15, era = true, qlvl = 5, note = "Report to Sen'jin Village, +50: Forgotten Loa Idols waits on it" },
 	} },
@@ -4539,15 +4539,15 @@ Waypost.RegisterSteps("reputation/darkspear-trolls", function() return {
 	{ title = "The Echo Isles", note = "Swim to the largest of the Echo Isles, south-east of the village. Zalazane, the idols and the skulls at the circle of power are all there; the Durotar Tigers prowl the smaller islands.", when = {{ k = "done", label = "senjin" }}, goals = {
 		{ t = "kill", quest = 826, title = "Zalazane", map = 1411, x = 65.89, y = 84.01, era = true, count = 8, target = "Hexed Troll", oi = 1, mobLevel = 9, spots = "66.6,84;68.2,83.5;67.3,87" },
 		{ t = "kill", quest = 826, title = "Zalazane", map = 1411, x = 65.92, y = 82.8, era = true, count = 8, target = "Voodoo Troll", oi = 2, mobLevel = 9, spots = "68.1,83;67,87.1;65.9,82.8" },
-		{ t = "collect", quest = 826, title = "Zalazane", map = 1411, x = 67.55, y = 87.81, era = true, count = 1, item = 4866, itemName = "Zalazane's Head", oi = 3 },
-		{ t = "collect", quest = 808, title = "Minshina's Skull", map = 1411, x = 67.43, y = 87.83, era = true, count = 1, item = 4864, itemName = "Minshina's Skull", oi = 1, note = "Minshina's Skull: click an Imprisoned Darkspear skull" },
-		{ t = "collect", quest = 97225, title = "Forgotten Loa Idols", map = 1411, x = 67, y = 87.8, era = true, count = 8, item = 277135, itemName = "Forgotten Loa Idol", oi = 1, spots = "66,87.8;67.8,86.1;65.1,85.1;68.7,84;67.5,82.4" },
-		{ t = "collect", quest = 817, title = "Practical Prey", map = 1411, x = 64.63, y = 88.53, era = true, count = 4, item = 4892, itemName = "Durotar Tiger Fur", oi = 1, mobLevel = 8, spots = "65,88.2;64.6,85;65.3,80.8;69.1,80.3;69.1,84.8" },
+		{ t = "collect", quest = 826, title = "Zalazane", map = 1411, x = 67.55, y = 87.81, era = true, count = 1, item = 4866, itemName = "Zalazane's Head", oi = 3, src = "Zalazane", srcKind = "npc" },
+		{ t = "collect", quest = 808, title = "Minshina's Skull", map = 1411, x = 67.43, y = 87.83, era = true, count = 1, item = 4864, itemName = "Minshina's Skull", oi = 1, note = "Minshina's Skull: click an Imprisoned Darkspear skull", src = "Imprisoned Darkspear", srcKind = "object" },
+		{ t = "collect", quest = 97225, title = "Forgotten Loa Idols", map = 1411, x = 67, y = 87.8, era = true, count = 8, item = 277135, itemName = "Forgotten Loa Idol", oi = 1, src = "Forgotten Loa Idol", srcKind = "object", spots = "66,87.8;67.8,86.1;65.1,85.1;68.7,84;67.5,82.4" },
+		{ t = "collect", quest = 817, title = "Practical Prey", map = 1411, x = 64.63, y = 88.53, era = true, count = 4, item = 4892, itemName = "Durotar Tiger Fur", oi = 1, mobLevel = 8, src = "Durotar Tiger", srcKind = "npc", spots = "65,88.2;64.6,85;65.3,80.8;69.1,80.3;69.1,84.8" },
 	} },
 	{ title = "The coast and the road", note = "Makrura and surf crawlers walk the beaches east and south of Sen'jin. The Bloodtalon Matriarch is east of the village.", when = {{ k = "done", label = "senjin" }}, goals = {
-		{ t = "collect", quest = 818, title = "A Solvent Spirit", map = 1411, x = 62.2, y = 92.51, era = true, count = 4, item = 4887, itemName = "Intact Makrura Eye", oi = 1, mobLevel = 7, spots = "62.2,92.5;70.1,87.3;66.2,77.5;71.7,72.6;60.3,73.1" },
-		{ t = "collect", quest = 818, title = "A Solvent Spirit", map = 1411, x = 61.89, y = 94.94, era = true, count = 8, item = 4888, itemName = "Crawler Mucus", oi = 2, mobLevel = 8, spots = "61.9,94.9;69.6,87.5;62.1,80.9;61,69.9;62.5,61.8" },
-		{ t = "collect", quest = 97223, title = "Bloodtalon Matriarch", map = 1411, x = 68.81, y = 71.78, era = true, count = 1, item = 277128, itemName = "Bloodtalon Matriarch Eggs", oi = 1 },
+		{ t = "collect", quest = 818, title = "A Solvent Spirit", map = 1411, x = 62.2, y = 92.51, era = true, count = 4, item = 4887, itemName = "Intact Makrura Eye", oi = 1, mobLevel = 7, src = "Makrura Clacker, Makrura Shellhide, Makrura Snapclaw and others", srcKind = "npc", spots = "62.2,92.5;70.1,87.3;66.2,77.5;71.7,72.6;60.3,73.1" },
+		{ t = "collect", quest = 818, title = "A Solvent Spirit", map = 1411, x = 61.89, y = 94.94, era = true, count = 8, item = 4888, itemName = "Crawler Mucus", oi = 2, mobLevel = 8, src = "Surf Crawler, Pygmy Surf Crawler, Encrusted Surf Crawler and others", srcKind = "npc", spots = "61.9,94.9;69.6,87.5;62.1,80.9;61,69.9;62.5,61.8" },
+		{ t = "collect", quest = 97223, title = "Bloodtalon Matriarch", map = 1411, x = 68.81, y = 71.78, era = true, count = 1, item = 277128, itemName = "Bloodtalon Matriarch Eggs", oi = 1, src = "Bloodtalon Matriarch", srcKind = "npc" },
 	} },
 	{ title = "Sen'jin Village: hand in", when = {{ k = "done", label = "senjin" }}, goals = {
 		{ t = "turnin", quest = 808, title = "Minshina's Skull", npc = "Master Gadrin", map = 1411, x = 55.95, y = 74.72, era = true },
@@ -4574,14 +4574,14 @@ Waypost.RegisterSteps("reputation/darkspear-trolls", function() return {
 		{ t = "kill", quest = 784, title = "Vanquish the Betrayers", map = 1411, x = 56.53, y = 50.8, era = true, count = 8, target = "Kul Tiras Marine", oi = 2, mobLevel = 7, spots = "57.8,54.9;59.5,55.5;59.3,57.8;60.5,59.8;56.5,50.8" },
 		{ t = "kill", quest = 784, title = "Vanquish the Betrayers", map = 1411, x = 59.72, y = 58.27, era = true, count = 1, target = "Lieutenant Benedict", oi = 3 },
 		{ t = "accept", quest = 830, title = "The Admiral's Orders", item = 4881, itemName = "Aged Envelope", qlvl = 7, note = "Aged Envelope: The Admiral's Orders, +100" },
-		{ t = "collect", quest = 791, title = "Carry Your Weight", map = 1411, x = 59.72, y = 58.27, era = true, count = 8, item = 4870, itemName = "Canvas Scraps", oi = 1, mobLevel = 7, spots = "59.3,58.3;58.8,60.2;56.8,57.8;57.5,55.7;58.5,53.3" },
+		{ t = "collect", quest = 791, title = "Carry Your Weight", map = 1411, x = 59.72, y = 58.27, era = true, count = 8, item = 4870, itemName = "Canvas Scraps", oi = 1, mobLevel = 7, src = "Lieutenant Benedict, Kolkar Drudge, Kolkar Outrunner and others", srcKind = "npc", spots = "59.3,58.3;58.8,60.2;56.8,57.8;57.5,55.7;58.5,53.3" },
 	} },
 	{ title = "Razormane Grounds and the Echo Isles", note = "The Razormane camps are south-west and west of Razor Hill. Then head to the Echo Isles for the Taillasher Eggs: each nest gives an egg every time.", when = {{ k = "done", label = "razorhill" }}, goals = {
 		{ t = "kill", quest = 837, title = "Encroachment", map = 1411, x = 50.2, y = 50.6, era = true, count = 4, target = "Razormane Quilboar", oi = 1, mobLevel = 7, spots = "50,48.7;47.3,48.3;44.1,49.8;50.2,50.6" },
 		{ t = "kill", quest = 837, title = "Encroachment", map = 1411, x = 50.2, y = 50.6, era = true, count = 4, target = "Razormane Scout", oi = 2, mobLevel = 8, spots = "50.4,49.7;49.4,48.1;47.2,48.6;43.8,50.1;44.4,48.8" },
 		{ t = "kill", quest = 837, title = "Encroachment", map = 1411, x = 44.6, y = 40.6, era = true, count = 4, target = "Razormane Dustrunner", oi = 3, mobLevel = 9, spots = "44.2,39.7;44,41.4;42.7,41.2;41.5,38.3;42.6,37.2" },
 		{ t = "kill", quest = 837, title = "Encroachment", map = 1411, x = 44.6, y = 40.6, era = true, count = 4, target = "Razormane Battleguard", oi = 4, mobLevel = 10, spots = "44.2,41.2;42.7,40.5;42.1,37.7;44.5,38.4;41,51.6" },
-		{ t = "collect", quest = 815, title = "Break a Few Eggs", map = 1411, x = 63.4, y = 74.36, era = true, count = 3, item = 4890, itemName = "Taillasher Egg", oi = 1, spots = "64,73.8;61.1,78.6;59.9,83.3;59.8,89.7;62.1,96.2" },
+		{ t = "collect", quest = 815, title = "Break a Few Eggs", map = 1411, x = 63.4, y = 74.36, era = true, count = 3, item = 4890, itemName = "Taillasher Egg", oi = 1, src = "Taillasher Eggs", srcKind = "object", spots = "64,73.8;61.1,78.6;59.9,83.3;59.8,89.7;62.1,96.2" },
 	} },
 	{ title = "Razor Hill: hand in", when = {{ k = "done", label = "razorhill" }}, goals = {
 		{ t = "turnin", quest = 784, title = "Vanquish the Betrayers", npc = "Gar'Thok", map = 1411, x = 51.95, y = 43.5, era = true },
@@ -4593,7 +4593,7 @@ Waypost.RegisterSteps("reputation/darkspear-trolls", function() return {
 		{ t = "turnin", quest = 791, title = "Carry Your Weight", npc = "Furl Scornbrow", map = 1411, x = 49.88, y = 40.39, era = true },
 	} },
 	{ title = "The wreck", note = "The wrecked ship lies in the shallows east of Tiragarde Keep. Open the Gnomish Toolboxes.", when = {{ k = "done", label = "razorhill" }}, goals = {
-		{ t = "collect", quest = 825, title = "From The Wreckage....", map = 1411, x = 61.94, y = 42.35, era = true, count = 3, item = 4863, itemName = "Gnomish Tools", oi = 1, spots = "62,42;62.1,46;64.3,50.2;64.3,53.4;63.4,57.2" },
+		{ t = "collect", quest = 825, title = "From The Wreckage....", map = 1411, x = 61.94, y = 42.35, era = true, count = 3, item = 4863, itemName = "Gnomish Tools", oi = 1, src = "Gnomish Toolbox", srcKind = "object", spots = "62,42;62.1,46;64.3,50.2;64.3,53.4;63.4,57.2" },
 		{ t = "turnin", quest = 825, title = "From The Wreckage....", npc = "Gar'Thok", map = 1411, x = 51.95, y = 43.5, era = true, note = "back at Gar'Thok in Razor Hill" },
 	} },
 	{ title = "North Durotar", note = "Rezlak stands on the road north of Razor Hill, Misha Tor'kren at her farm west of it.", when = {{ k = "done", label = "razorhill" }}, goals = {
@@ -4601,9 +4601,9 @@ Waypost.RegisterSteps("reputation/darkspear-trolls", function() return {
 		{ t = "accept", quest = 816, title = "Lost But Not Forgotten", npc = "Misha Tor'kren", map = 1411, x = 43.1, y = 30.24, era = true, qlvl = 11, note = "Misha Tor'kren: Lost But Not Forgotten, +100" },
 	} },
 	{ title = "Thunder Ridge and Razorwind Canyon", note = "Fizzle Darkstorm keeps a Burning Blade camp in Thunder Ridge, south of Orgrimmar, among the thunder lizards. The supply sacks lie in Razorwind Canyon, north of Razor Hill. Kron's Amulet drops from the crocolisks along the river to the west, about one in ten.", when = {{ k = "done", label = "razorhill" }}, goals = {
-		{ t = "collect", quest = 806, title = "Dark Storms", map = 1411, x = 42.12, y = 26.66, era = true, count = 1, item = 4869, itemName = "Fizzle's Claw", oi = 1 },
-		{ t = "collect", quest = 834, title = "Winds in the Desert", map = 1411, x = 47.17, y = 29.67, era = true, count = 5, item = 4918, itemName = "Sack of Supplies", oi = 1, spots = "47.5,30.9;48.4,33.5;50.3,26.5;49.7,23.3;49.6,32.1" },
-		{ t = "collect", quest = 816, title = "Lost But Not Forgotten", map = 1411, x = 36.82, y = 22.1, era = true, count = 1, item = 4891, itemName = "Kron's Amulet", oi = 1, mobLevel = 11, spots = "36.7,22.2;35.3,25.4;35.3,29.2;35.1,39.2;34.4,44.2" },
+		{ t = "collect", quest = 806, title = "Dark Storms", map = 1411, x = 42.12, y = 26.66, era = true, count = 1, item = 4869, itemName = "Fizzle's Claw", oi = 1, src = "Fizzle Darkstorm", srcKind = "npc" },
+		{ t = "collect", quest = 834, title = "Winds in the Desert", map = 1411, x = 47.17, y = 29.67, era = true, count = 5, item = 4918, itemName = "Sack of Supplies", oi = 1, src = "Stolen Supply Sack", srcKind = "object", spots = "47.5,30.9;48.4,33.5;50.3,26.5;49.7,23.3;49.6,32.1" },
+		{ t = "collect", quest = 816, title = "Lost But Not Forgotten", map = 1411, x = 36.82, y = 22.1, era = true, count = 1, item = 4891, itemName = "Kron's Amulet", oi = 1, mobLevel = 11, src = "Dreadmaw Crocolisk, Corrupted Dreadmaw Crocolisk", srcKind = "npc", spots = "36.7,22.2;35.3,25.4;35.3,29.2;35.1,39.2;34.4,44.2" },
 	} },
 	{ title = "Rezlak and Misha", note = "A Dustwind Storm Witch may drop a Dull Storm Orb: use it to start A Simmering Storm. Once you hand that in, Rezlak offers Stormy Potential.", when = {{ k = "done", label = "razorhill" }}, goals = {
 		{ t = "turnin", quest = 834, title = "Winds in the Desert", npc = "Rezlak", map = 1411, x = 46.37, y = 22.94, era = true },
@@ -4617,7 +4617,7 @@ Waypost.RegisterSteps("reputation/darkspear-trolls", function() return {
 		{ t = "turnin", quest = 816, title = "Lost But Not Forgotten", npc = "Misha Tor'kren", map = 1411, x = 43.1, y = 30.24, era = true },
 	} },
 	{ title = "Stormy Potential", note = "The Charged Thunder Lizard Organs come from the thunder lizards on Thunder Ridge, just west of Rezlak.", when = {{ k = "done", label = "razorhill" }}, goals = {
-		{ t = "collect", quest = 97282, title = "Stormy Potential", map = 1411, x = 40.65, y = 30.11, era = true, count = 5, item = 277665, itemName = "Charged Thunder Lizard Organ", oi = 1, mobLevel = 11, spots = "40.3,29;39.1,30;39.2,25.6;40.4,24.1;42.8,24.2" },
+		{ t = "collect", quest = 97282, title = "Stormy Potential", map = 1411, x = 40.65, y = 30.11, era = true, count = 5, item = 277665, itemName = "Charged Thunder Lizard Organ", oi = 1, mobLevel = 11, src = "Thunder Lizard, Lightning Hide", srcKind = "npc", spots = "40.3,29;39.1,30;39.2,25.6;40.4,24.1;42.8,24.2" },
 		{ t = "turnin", quest = 97282, title = "Stormy Potential", npc = "Rezlak", map = 1411, x = 46.37, y = 22.94, era = true },
 	} },
 	{ title = "Razor Hill: Orgnil", when = {{ k = "done", label = "razorhill" }}, goals = {
@@ -4627,7 +4627,7 @@ Waypost.RegisterSteps("reputation/darkspear-trolls", function() return {
 	{ title = "Skull Rock", note = "Margoz camps outside Skull Rock, the cave just east of Orgrimmar.", when = {{ k = "done", label = "razorhill" }}, goals = {
 		{ t = "turnin", quest = 828, title = "Margoz", npc = "Margoz", map = 1411, x = 56.41, y = 20.04, era = true },
 		{ t = "accept", quest = 827, title = "Skull Rock", npc = "Margoz", map = 1411, x = 56.41, y = 20.04, era = true, qlvl = 12, note = "Skull Rock, +100" },
-		{ t = "collect", quest = 827, title = "Skull Rock", map = 1411, x = 52.63, y = 24.98, era = true, count = 6, item = 4871, itemName = "Searing Collar", oi = 1, mobLevel = 11, spots = "52.3,25.8;52.9,28.3;42.3,26.7;52,9.3;53.3,8.6" },
+		{ t = "collect", quest = 827, title = "Skull Rock", map = 1411, x = 52.63, y = 24.98, era = true, count = 6, item = 4871, itemName = "Searing Collar", oi = 1, mobLevel = 11, src = "Burning Blade Cultist, Burning Blade Thug, Burning Blade Neophyte and others", srcKind = "npc", spots = "52.3,25.8;52.9,28.3;42.3,26.7;52,9.3;53.3,8.6" },
 		{ t = "turnin", quest = 827, title = "Skull Rock", npc = "Margoz", map = 1411, x = 56.41, y = 20.04, era = true },
 		{ t = "accept", quest = 829, title = "Neeru Fireblade", npc = "Margoz", map = 1411, x = 56.41, y = 20.04, era = true, qlvl = 12, note = "Neeru Fireblade, +50" },
 	} },
@@ -4645,12 +4645,12 @@ Waypost.RegisterSteps("reputation/darkspear-trolls", function() return {
 		{ t = "turnin", quest = 842, title = "Crossroads Conscription", npc = "Sergra Darkthorn", map = 1413, x = 52.23, y = 31.01, era = true },
 	} },
 	{ title = "Vehena: A Donation of Wool", note = "From here it is cloth. Wool, Silk and Mageweave must all be handed in before Vehena offers the Runecloth donation, and Additional Runecloth needs the Runecloth donation. Buy cloth at the Auction House, or farm it: humanoids drop it, Wool from level 15 to 25, Silk 25 to 40, Mageweave 40 to 50, Runecloth 50 and up. At 60 farm mobs of level 52 or more: lower ones are grey.", goals = {
-		{ t = "collect", map = 1440, x = 36, y = 37, era = true, count = 60, item = 2592, itemName = "Wool Cloth", mobLevel = 24, note = "Wool Cloth: the Thistlefur furbolgs drop it about one kill in four", spots = "36,37;33.8,38.2;37.9,34.7;33.8,39.7;38.7,39.2" },
+		{ t = "collect", map = 1440, x = 36, y = 37, era = true, count = 60, item = 2592, itemName = "Wool Cloth", mobLevel = 24, note = "Wool Cloth: the Thistlefur furbolgs drop it about one kill in four", src = "Thistlefur Shaman, Rorgish Jowl, Thistlefur Avenger and others", srcKind = "npc", spots = "36,37;33.8,38.2;37.9,34.7;33.8,39.7;38.7,39.2" },
 		{ t = "turnin", quest = 7833, title = "A Donation of Wool", npc = "Vehena", map = 1454, x = 37.7, y = 87.9, era = true, qlvl = 60, note = "Vehena: A Donation of Wool, +150" },
 	} },
 	{ title = "A Donation of Silk", note = "Silk: the Syndicate in Hillsbrad and Alterac drop it about one kill in three, or buy it.", goals = {
 		{ t = "level", level = 26 },
-		{ t = "collect", map = 1416, x = 57.7, y = 67.6, era = true, count = 60, item = 4306, itemName = "Silk Cloth", mobLevel = 34, note = "Silk Cloth: the Syndicate", spots = "57.7,67.6;47.8,81.7;61.6,44.2;61.9,40.8" },
+		{ t = "collect", map = 1416, x = 57.7, y = 67.6, era = true, count = 60, item = 4306, itemName = "Silk Cloth", mobLevel = 34, note = "Silk Cloth: the Syndicate", src = "Syndicate Footpad, Syndicate Wizard, Syndicate Thief and others", srcKind = "npc", spots = "57.7,67.6;47.8,81.7;61.6,44.2;61.9,40.8" },
 		{ t = "turnin", quest = 7834, title = "A Donation of Silk", npc = "Vehena", map = 1454, x = 37.7, y = 87.9, era = true, qlvl = 60, note = "+150" },
 	} },
 	{ title = "A Donation of Mageweave", note = "Mageweave: the Jadefire satyrs in southern Felwood and the Dunemaul ogres in Tanaris drop it about one kill in three, or buy it.", goals = {
@@ -4668,7 +4668,7 @@ Waypost.RegisterSteps("reputation/darkspear-trolls", function() return {
 		{ t = "accept", quest = 6606, title = "A Little Luck", npc = "Harlo Wigglesworth", map = 1452, x = 61.12, y = 38.43, era = true, qlvl = 60, note = "Harlo Wigglesworth: A Little Luck" },
 		{ t = "turnin", quest = 6606, title = "A Little Luck", npc = "Witch Doctor Mau'ari", map = 1452, x = 61.92, y = 38.3, era = true },
 		{ t = "accept", quest = 969, title = "Luck Be With You", npc = "Witch Doctor Mau'ari", map = 1452, x = 61.92, y = 38.3, era = true, qlvl = 60, note = "Luck Be With You, +100" },
-		{ t = "collect", quest = 969, title = "Luck Be With You", map = 1452, x = 58.66, y = 63.58, era = true, count = 4, item = 12334, itemName = "Frostmaul Shards", oi = 1, spots = "58.9,64;59.2,66.8;60.8,65.8;61.7,68.5;64,69.5" },
+		{ t = "collect", quest = 969, title = "Luck Be With You", map = 1452, x = 58.66, y = 63.58, era = true, count = 4, item = 12334, itemName = "Frostmaul Shards", oi = 1, src = "Frostmaul Shards", srcKind = "object", spots = "58.9,64;59.2,66.8;60.8,65.8;61.7,68.5;64,69.5" },
 		{ t = "turnin", quest = 969, title = "Luck Be With You", npc = "Witch Doctor Mau'ari", map = 1452, x = 61.92, y = 38.3, era = true },
 	} },
 	{ title = "Blackrock Mountain, with a group", note = "For The Horde! (Rend's head, Blackrock Spire) and The Lord of Blackrock (Nefarian's head) pay 200 to every Horde city, the Darkspear Trolls included. Kargath in the Badlands starts the Rend chain: Warlord's Command, Eitrigg's Wisdom, then For The Horde!. Take them when your group goes. The Spider God chain of the Undercity guide (Zul'Farrak and the Hinterlands) pays 225 Darkspear on the way.", goals = {
@@ -4709,7 +4709,7 @@ Waypost.RegisterSteps("reputation/orgrimmar", function() return {
 	} },
 	{ title = "Boars, weapons and peons", note = "The training weapons lie on the ground in the Den and among the boars to the north. For the peons: target a sleeping Lazy Peon and use the Foreman's Blackjack on it.", when = {{ k = "done", label = "valley" }}, goals = {
 		{ t = "kill", quest = 788, title = "Cutting Teeth", map = 1411, x = 42.72, y = 71.58, era = true, count = 10, target = "Mottled Boar", oi = 1, mobLevel = 2, spots = "42.4,72.1;44.3,71.2;46.1,69;45,65.7;46.2,66.6" },
-		{ t = "collect", quest = 97279, title = "Wayward Weapons", map = 1411, x = 43.2, y = 71.7, era = true, count = 6, item = 277653, itemName = "Abandoned Training Weapon", oi = 1, spots = "43.6,72.4;44.6,70.9;41.4,71.6;44.4,66.6;45,64.6" },
+		{ t = "collect", quest = 97279, title = "Wayward Weapons", map = 1411, x = 43.2, y = 71.7, era = true, count = 6, item = 277653, itemName = "Abandoned Training Weapon", oi = 1, src = "Abandoned Training Weapon", srcKind = "object", spots = "43.6,72.4;44.6,70.9;41.4,71.6;44.4,66.6;45,64.6" },
 		{ t = "kill", quest = 5441, title = "Lazy Peons", map = 1411, x = 42.34, y = 73.25, era = true, count = 5, target = "Lazy Peon", oi = 1, mobLevel = 4, note = "Lazy Peon: hit it with the Foreman's Blackjack", text = "Wake Lazy Peon", spots = "42.8,72.9;46.3,67.4;46.9,59.3;43.4,57.5;40.3,60.4" },
 	} },
 	{ title = "The Den: hand in", when = {{ k = "done", label = "valley" }}, goals = {
@@ -4721,15 +4721,15 @@ Waypost.RegisterSteps("reputation/orgrimmar", function() return {
 		{ t = "accept", quest = 4402, title = "Galgar's Cactus Apple Surprise", npc = "Galgar", map = 1411, x = 42.73, y = 67.23, era = true, qlvl = 3, note = "Galgar: Galgar's Cactus Apple Surprise, +200" },
 	} },
 	{ title = "North of the Den", note = "The cactus apples grow beside the cacti north of the Den. Hana'zua lies wounded by the rocks to the north; Sarkoth, his big scorpid, roams close by. Vile Familiars swarm at the mouth of the Burning Blade Coven; Thazz'ril's Pick lies inside: take the middle tunnel where it splits three ways.", when = {{ k = "done", label = "valley" }}, goals = {
-		{ t = "collect", quest = 789, title = "Sting of the Scorpid", map = 1411, x = 41.83, y = 65.81, era = true, count = 10, item = 4862, itemName = "Scorpid Worker Tail", oi = 1, mobLevel = 3, spots = "41.4,66.1;40.9,63.7;39.8,62.2;41.2,61.4;42.8,58.7" },
-		{ t = "collect", quest = 4402, title = "Galgar's Cactus Apple Surprise", map = 1411, x = 41.98, y = 66.14, era = true, count = 10, item = 11583, itemName = "Cactus Apple", oi = 1, spots = "40.9,64.3;39.9,68.1;44,65.8;45.1,63.3;47.3,64" },
+		{ t = "collect", quest = 789, title = "Sting of the Scorpid", map = 1411, x = 41.83, y = 65.81, era = true, count = 10, item = 4862, itemName = "Scorpid Worker Tail", oi = 1, mobLevel = 3, src = "Scorpid Worker, Sarkoth", srcKind = "npc", spots = "41.4,66.1;40.9,63.7;39.8,62.2;41.2,61.4;42.8,58.7" },
+		{ t = "collect", quest = 4402, title = "Galgar's Cactus Apple Surprise", map = 1411, x = 41.98, y = 66.14, era = true, count = 10, item = 11583, itemName = "Cactus Apple", oi = 1, src = "Cactus Apple", srcKind = "object", spots = "40.9,64.3;39.9,68.1;44,65.8;45.1,63.3;47.3,64" },
 		{ t = "accept", quest = 790, title = "Sarkoth", npc = "Hana'zua", map = 1411, x = 40.6, y = 62.58, era = true, qlvl = 5, note = "Hana'zua: Sarkoth, +100" },
-		{ t = "collect", quest = 790, title = "Sarkoth", map = 1411, x = 40.5, y = 66.83, era = true, count = 1, item = 4905, itemName = "Sarkoth's Mangled Claw", oi = 1 },
+		{ t = "collect", quest = 790, title = "Sarkoth", map = 1411, x = 40.5, y = 66.83, era = true, count = 1, item = 4905, itemName = "Sarkoth's Mangled Claw", oi = 1, src = "Sarkoth", srcKind = "npc" },
 		{ t = "turnin", quest = 790, title = "Sarkoth", npc = "Hana'zua", map = 1411, x = 40.6, y = 62.58, era = true },
 		{ t = "accept", quest = 804, title = "Sarkoth", npc = "Hana'zua", map = 1411, x = 40.6, y = 62.58, era = true, qlvl = 5, note = "Sarkoth, +25" },
 		{ t = "kill", quest = 792, title = "Vile Familiars", map = 1411, x = 43.82, y = 58.29, era = true, count = 12, target = "Vile Familiar", oi = 1, mobLevel = 4, only = { classes = {"WARRIOR", "PALADIN", "HUNTER", "ROGUE", "PRIEST", "SHAMAN", "MAGE", "DRUID"} }, spots = "44.2,58.4;44.7,57.1;45.5,55.8;46.1,57.3;43.7,54.1" },
-		{ t = "collect", quest = 1485, title = "Vile Familiars", map = 1411, x = 43.82, y = 58.29, era = true, count = 6, item = 6487, itemName = "Vile Familiar Head", oi = 1, mobLevel = 4, only = { classes = {"WARLOCK"} }, spots = "44.2,58.4;44.7,57.1;45.5,55.8;46.1,57.3;43.7,54.1" },
-		{ t = "collect", quest = 6394, title = "Thazz'ril's Pick", map = 1411, x = 43.73, y = 53.79, era = true, count = 1, item = 16332, itemName = "Thazz'ril's Pick", oi = 1, note = "Thazz'ril's Pick, in the cave" },
+		{ t = "collect", quest = 1485, title = "Vile Familiars", map = 1411, x = 43.82, y = 58.29, era = true, count = 6, item = 6487, itemName = "Vile Familiar Head", oi = 1, mobLevel = 4, only = { classes = {"WARLOCK"} }, src = "Vile Familiar", srcKind = "npc", spots = "44.2,58.4;44.7,57.1;45.5,55.8;46.1,57.3;43.7,54.1" },
+		{ t = "collect", quest = 6394, title = "Thazz'ril's Pick", map = 1411, x = 43.73, y = 53.79, era = true, count = 1, item = 16332, itemName = "Thazz'ril's Pick", oi = 1, note = "Thazz'ril's Pick, in the cave", src = "Thazz'ril's Pick", srcKind = "object" },
 	} },
 	{ title = "The Den: hand in again", when = {{ k = "done", label = "valley" }}, goals = {
 		{ t = "turnin", quest = 789, title = "Sting of the Scorpid", npc = "Gornek", map = 1411, x = 42.06, y = 68.33, era = true },
@@ -4743,7 +4743,7 @@ Waypost.RegisterSteps("reputation/orgrimmar", function() return {
 		{ t = "accept", quest = 794, title = "Burning Blade Medallion", npc = "Zureetha Fargaze", map = 1411, x = 42.85, y = 69.15, era = true, qlvl = 5, note = "Burning Blade Medallion, +200" },
 	} },
 	{ title = "Burning Blade Coven", note = "Go back into the cave and keep to the right-hand wall all the way, over a small stream, to Yarrog Baneshadow on a ledge above a pool.", when = {{ k = "done", label = "valley" }}, goals = {
-		{ t = "collect", quest = 794, title = "Burning Blade Medallion", map = 1411, x = 42.71, y = 52.95, era = true, count = 1, item = 4859, itemName = "Burning Blade Medallion", oi = 1, note = "Burning Blade Medallion, from Yarrog Baneshadow" },
+		{ t = "collect", quest = 794, title = "Burning Blade Medallion", map = 1411, x = 42.71, y = 52.95, era = true, count = 1, item = 4859, itemName = "Burning Blade Medallion", oi = 1, note = "Burning Blade Medallion, from Yarrog Baneshadow", src = "Yarrog Baneshadow", srcKind = "npc" },
 		{ t = "turnin", quest = 794, title = "Burning Blade Medallion", npc = "Zureetha Fargaze", map = 1411, x = 42.85, y = 69.15, era = true, note = "Zureetha Fargaze, in the Den" },
 		{ t = "accept", quest = 805, title = "Report to Sen'jin Village", npc = "Zureetha Fargaze", map = 1411, x = 42.85, y = 69.15, era = true, qlvl = 5, note = "Report to Sen'jin Village, +50: Forgotten Loa Idols waits on it" },
 	} },
@@ -4762,15 +4762,15 @@ Waypost.RegisterSteps("reputation/orgrimmar", function() return {
 	{ title = "The Echo Isles", note = "Swim to the largest of the Echo Isles, south-east of the village. Zalazane, the idols and the skulls at the circle of power are all there; the Durotar Tigers prowl the smaller islands.", when = {{ k = "done", label = "senjin" }}, goals = {
 		{ t = "kill", quest = 826, title = "Zalazane", map = 1411, x = 65.89, y = 84.01, era = true, count = 8, target = "Hexed Troll", oi = 1, mobLevel = 9, spots = "66.6,84;68.2,83.5;67.3,87" },
 		{ t = "kill", quest = 826, title = "Zalazane", map = 1411, x = 65.92, y = 82.8, era = true, count = 8, target = "Voodoo Troll", oi = 2, mobLevel = 9, spots = "68.1,83;67,87.1;65.9,82.8" },
-		{ t = "collect", quest = 826, title = "Zalazane", map = 1411, x = 67.55, y = 87.81, era = true, count = 1, item = 4866, itemName = "Zalazane's Head", oi = 3 },
-		{ t = "collect", quest = 808, title = "Minshina's Skull", map = 1411, x = 67.43, y = 87.83, era = true, count = 1, item = 4864, itemName = "Minshina's Skull", oi = 1, note = "Minshina's Skull: click an Imprisoned Darkspear skull" },
-		{ t = "collect", quest = 97225, title = "Forgotten Loa Idols", map = 1411, x = 67, y = 87.8, era = true, count = 8, item = 277135, itemName = "Forgotten Loa Idol", oi = 1, spots = "66,87.8;67.8,86.1;65.1,85.1;68.7,84;67.5,82.4" },
-		{ t = "collect", quest = 817, title = "Practical Prey", map = 1411, x = 64.63, y = 88.53, era = true, count = 4, item = 4892, itemName = "Durotar Tiger Fur", oi = 1, mobLevel = 8, spots = "65,88.2;64.6,85;65.3,80.8;69.1,80.3;69.1,84.8" },
+		{ t = "collect", quest = 826, title = "Zalazane", map = 1411, x = 67.55, y = 87.81, era = true, count = 1, item = 4866, itemName = "Zalazane's Head", oi = 3, src = "Zalazane", srcKind = "npc" },
+		{ t = "collect", quest = 808, title = "Minshina's Skull", map = 1411, x = 67.43, y = 87.83, era = true, count = 1, item = 4864, itemName = "Minshina's Skull", oi = 1, note = "Minshina's Skull: click an Imprisoned Darkspear skull", src = "Imprisoned Darkspear", srcKind = "object" },
+		{ t = "collect", quest = 97225, title = "Forgotten Loa Idols", map = 1411, x = 67, y = 87.8, era = true, count = 8, item = 277135, itemName = "Forgotten Loa Idol", oi = 1, src = "Forgotten Loa Idol", srcKind = "object", spots = "66,87.8;67.8,86.1;65.1,85.1;68.7,84;67.5,82.4" },
+		{ t = "collect", quest = 817, title = "Practical Prey", map = 1411, x = 64.63, y = 88.53, era = true, count = 4, item = 4892, itemName = "Durotar Tiger Fur", oi = 1, mobLevel = 8, src = "Durotar Tiger", srcKind = "npc", spots = "65,88.2;64.6,85;65.3,80.8;69.1,80.3;69.1,84.8" },
 	} },
 	{ title = "The coast and the road", note = "Makrura and surf crawlers walk the beaches east and south of Sen'jin. The Bloodtalon Matriarch is east of the village. The Ridgeshade spiders are along the road south of Razor Hill and north-east of the Den.", when = {{ k = "done", label = "senjin" }}, goals = {
-		{ t = "collect", quest = 818, title = "A Solvent Spirit", map = 1411, x = 62.2, y = 92.51, era = true, count = 4, item = 4887, itemName = "Intact Makrura Eye", oi = 1, mobLevel = 7, spots = "62.2,92.5;70.1,87.3;66.2,77.5;71.7,72.6;60.3,73.1" },
-		{ t = "collect", quest = 818, title = "A Solvent Spirit", map = 1411, x = 61.89, y = 94.94, era = true, count = 8, item = 4888, itemName = "Crawler Mucus", oi = 2, mobLevel = 8, spots = "61.9,94.9;69.6,87.5;62.1,80.9;61,69.9;62.5,61.8" },
-		{ t = "collect", quest = 97223, title = "Bloodtalon Matriarch", map = 1411, x = 68.81, y = 71.78, era = true, count = 1, item = 277128, itemName = "Bloodtalon Matriarch Eggs", oi = 1 },
+		{ t = "collect", quest = 818, title = "A Solvent Spirit", map = 1411, x = 62.2, y = 92.51, era = true, count = 4, item = 4887, itemName = "Intact Makrura Eye", oi = 1, mobLevel = 7, src = "Makrura Clacker, Makrura Shellhide, Makrura Snapclaw and others", srcKind = "npc", spots = "62.2,92.5;70.1,87.3;66.2,77.5;71.7,72.6;60.3,73.1" },
+		{ t = "collect", quest = 818, title = "A Solvent Spirit", map = 1411, x = 61.89, y = 94.94, era = true, count = 8, item = 4888, itemName = "Crawler Mucus", oi = 2, mobLevel = 8, src = "Surf Crawler, Pygmy Surf Crawler, Encrusted Surf Crawler and others", srcKind = "npc", spots = "61.9,94.9;69.6,87.5;62.1,80.9;61,69.9;62.5,61.8" },
+		{ t = "collect", quest = 97223, title = "Bloodtalon Matriarch", map = 1411, x = 68.81, y = 71.78, era = true, count = 1, item = 277128, itemName = "Bloodtalon Matriarch Eggs", oi = 1, src = "Bloodtalon Matriarch", srcKind = "npc" },
 		{ t = "kill", quest = 96821, title = "Legging It", map = 1411, x = 54.5, y = 63.79, era = true, count = 6, target = "Ridgeshade Creeper", oi = 1, mobLevel = 6, spots = "54.5,63.8;53.1,61.3;52.5,58.9;51.3,55.9;51.3,53" },
 		{ t = "kill", quest = 96821, title = "Legging It", map = 1411, x = 53.29, y = 64.96, era = true, count = 6, target = "Ridgeshade Lurker", oi = 2, mobLevel = 6, spots = "52.6,65.2;51.7,63.6;52.9,62.8;52.3,60.9;52.1,58.3" },
 	} },
@@ -4787,7 +4787,7 @@ Waypost.RegisterSteps("reputation/orgrimmar", function() return {
 		{ t = "accept", quest = 5726, title = "Hidden Enemies", npc = "Thrall", map = 1454, x = 31.73, y = 37.82, era = true, qlvl = 12, note = "Thrall: Hidden Enemies, +100" },
 	} },
 	{ title = "Skull Rock: the Lieutenant's Insignia", note = "Skull Rock is the cave just east of Orgrimmar. Burning Blade Fanatics and Apprentices inside drop the insignia about one kill in five.", when = {{ k = "done", label = "hidden" }}, goals = {
-		{ t = "collect", quest = 5726, title = "Hidden Enemies", map = 1411, x = 51.07, y = 12.38, era = true, count = 1, item = 14544, itemName = "Lieutenant's Insignia", oi = 1, mobLevel = 11, spots = "52,9.3;53.3,8.6;53.1,10.6;54.7,9.2;42.3,26.7" },
+		{ t = "collect", quest = 5726, title = "Hidden Enemies", map = 1411, x = 51.07, y = 12.38, era = true, count = 1, item = 14544, itemName = "Lieutenant's Insignia", oi = 1, mobLevel = 11, src = "Burning Blade Fanatic, Burning Blade Apprentice", srcKind = "npc", spots = "52,9.3;53.3,8.6;53.1,10.6;54.7,9.2;42.3,26.7" },
 	} },
 	{ title = "Orgrimmar: Thrall and Neeru", note = "Neeru Fireblade is in the Cleft of Shadow. Tell him he may speak openly and click through his story.", when = {{ k = "done", label = "hidden" }}, goals = {
 		{ t = "turnin", quest = 5726, title = "Hidden Enemies", npc = "Thrall", map = 1454, x = 31.73, y = 37.82, era = true },
@@ -4826,18 +4826,18 @@ Waypost.RegisterSteps("reputation/orgrimmar", function() return {
 		{ t = "kill", quest = 784, title = "Vanquish the Betrayers", map = 1411, x = 56.53, y = 50.8, era = true, count = 8, target = "Kul Tiras Marine", oi = 2, mobLevel = 7, spots = "57.8,54.9;59.5,55.5;59.3,57.8;60.5,59.8;56.5,50.8" },
 		{ t = "kill", quest = 784, title = "Vanquish the Betrayers", map = 1411, x = 59.72, y = 58.27, era = true, count = 1, target = "Lieutenant Benedict", oi = 3 },
 		{ t = "accept", quest = 830, title = "The Admiral's Orders", item = 4881, itemName = "Aged Envelope", qlvl = 7, note = "Aged Envelope: The Admiral's Orders, +100" },
-		{ t = "collect", quest = 791, title = "Carry Your Weight", map = 1411, x = 59.72, y = 58.27, era = true, count = 8, item = 4870, itemName = "Canvas Scraps", oi = 1, mobLevel = 7, spots = "59.3,58.3;58.8,60.2;56.8,57.8;57.5,55.7;58.5,53.3" },
-		{ t = "collect", quest = 96822, title = "For Honor", map = 1411, x = 59.39, y = 56.41, era = true, count = 1, item = 275713, itemName = "Raider's Bow", oi = 1 },
-		{ t = "collect", quest = 96822, title = "For Honor", map = 1411, x = 57.37, y = 56.43, era = true, count = 1, item = 275716, itemName = "Raider's Battleaxe", oi = 2 },
-		{ t = "collect", quest = 96822, title = "For Honor", map = 1411, x = 56.54, y = 53, era = true, count = 1, item = 275717, itemName = "Raider's Shield", oi = 3 },
+		{ t = "collect", quest = 791, title = "Carry Your Weight", map = 1411, x = 59.72, y = 58.27, era = true, count = 8, item = 4870, itemName = "Canvas Scraps", oi = 1, mobLevel = 7, src = "Lieutenant Benedict, Kolkar Drudge, Kolkar Outrunner and others", srcKind = "npc", spots = "59.3,58.3;58.8,60.2;56.8,57.8;57.5,55.7;58.5,53.3" },
+		{ t = "collect", quest = 96822, title = "For Honor", map = 1411, x = 59.39, y = 56.41, era = true, count = 1, item = 275713, itemName = "Raider's Bow", oi = 1, src = "Raider's Bow", srcKind = "object" },
+		{ t = "collect", quest = 96822, title = "For Honor", map = 1411, x = 57.37, y = 56.43, era = true, count = 1, item = 275716, itemName = "Raider's Battleaxe", oi = 2, src = "Raider's Battleaxe", srcKind = "object" },
+		{ t = "collect", quest = 96822, title = "For Honor", map = 1411, x = 56.54, y = 53, era = true, count = 1, item = 275717, itemName = "Raider's Shield", oi = 3, src = "Raider's Shield", srcKind = "object" },
 	} },
 	{ title = "Razormane Grounds and the Echo Isles", note = "The Razormane camps are south-west and west of Razor Hill; the Prickly Pear cacti grow among them. Then head to the Echo Isles for the Taillasher Eggs: each nest gives an egg every time.", when = {{ k = "done", label = "razorhill" }}, goals = {
 		{ t = "kill", quest = 837, title = "Encroachment", map = 1411, x = 50.8, y = 48.8, era = true, count = 4, target = "Razormane Quilboar", oi = 1, mobLevel = 7, spots = "50,48.7;47.3,48.3;44.1,49.8;50.2,50.6" },
 		{ t = "kill", quest = 837, title = "Encroachment", map = 1411, x = 50.8, y = 48.8, era = true, count = 4, target = "Razormane Scout", oi = 2, mobLevel = 8, spots = "50.4,49.7;49.4,48.1;47.2,48.6;43.8,50.1;44.4,48.8" },
 		{ t = "kill", quest = 837, title = "Encroachment", map = 1411, x = 44.6, y = 40.6, era = true, count = 4, target = "Razormane Dustrunner", oi = 3, mobLevel = 9, spots = "44.2,39.7;44,41.4;42.7,41.2;41.5,38.3;42.6,37.2" },
 		{ t = "kill", quest = 837, title = "Encroachment", map = 1411, x = 44.6, y = 40.6, era = true, count = 4, target = "Razormane Battleguard", oi = 4, mobLevel = 10, spots = "44.2,41.2;42.7,40.5;42.1,37.7;44.5,38.4;41,51.6" },
-		{ t = "collect", quest = 96825, title = "This Fruit Could Bite Back", map = 1411, x = 47.7, y = 48.2, era = true, count = 8, item = 275718, itemName = "Prickly Pear Fruit", oi = 1, spots = "47.4,49.1;49.3,48.3;44.4,50.2" },
-		{ t = "collect", quest = 815, title = "Break a Few Eggs", map = 1411, x = 63.4, y = 74.36, era = true, count = 3, item = 4890, itemName = "Taillasher Egg", oi = 1, spots = "64,73.8;61.1,78.6;59.9,83.3;59.8,89.7;62.1,96.2" },
+		{ t = "collect", quest = 96825, title = "This Fruit Could Bite Back", map = 1411, x = 47.7, y = 48.2, era = true, count = 8, item = 275718, itemName = "Prickly Pear Fruit", oi = 1, src = "Prickly Pear Fruit", srcKind = "object", spots = "47.4,49.1;49.3,48.3;44.4,50.2" },
+		{ t = "collect", quest = 815, title = "Break a Few Eggs", map = 1411, x = 63.4, y = 74.36, era = true, count = 3, item = 4890, itemName = "Taillasher Egg", oi = 1, src = "Taillasher Eggs", srcKind = "object", spots = "64,73.8;61.1,78.6;59.9,83.3;59.8,89.7;62.1,96.2" },
 	} },
 	{ title = "Razor Hill: hand in", when = {{ k = "done", label = "razorhill" }}, goals = {
 		{ t = "turnin", quest = 784, title = "Vanquish the Betrayers", npc = "Gar'Thok", map = 1411, x = 51.95, y = 43.5, era = true },
@@ -4851,7 +4851,7 @@ Waypost.RegisterSteps("reputation/orgrimmar", function() return {
 		{ t = "turnin", quest = 96822, title = "For Honor", npc = "Turroc", map = 1411, x = 53.95, y = 42.59, era = true },
 	} },
 	{ title = "The wreck", note = "The wrecked ship lies in the shallows east of Tiragarde Keep. Open the Gnomish Toolboxes.", when = {{ k = "done", label = "razorhill" }}, goals = {
-		{ t = "collect", quest = 825, title = "From The Wreckage....", map = 1411, x = 61.94, y = 42.35, era = true, count = 3, item = 4863, itemName = "Gnomish Tools", oi = 1, spots = "62,42;62.1,46;64.3,50.2;64.3,53.4;63.4,57.2" },
+		{ t = "collect", quest = 825, title = "From The Wreckage....", map = 1411, x = 61.94, y = 42.35, era = true, count = 3, item = 4863, itemName = "Gnomish Tools", oi = 1, src = "Gnomish Toolbox", srcKind = "object", spots = "62,42;62.1,46;64.3,50.2;64.3,53.4;63.4,57.2" },
 		{ t = "turnin", quest = 825, title = "From The Wreckage....", npc = "Gar'Thok", map = 1411, x = 51.95, y = 43.5, era = true, note = "back at Gar'Thok in Razor Hill" },
 	} },
 	{ title = "North Durotar", note = "Rezlak stands on the road north of Razor Hill, Misha Tor'kren at her farm west of it.", when = {{ k = "done", label = "razorhill" }}, goals = {
@@ -4859,9 +4859,9 @@ Waypost.RegisterSteps("reputation/orgrimmar", function() return {
 		{ t = "accept", quest = 816, title = "Lost But Not Forgotten", npc = "Misha Tor'kren", map = 1411, x = 43.1, y = 30.24, era = true, qlvl = 11, note = "Misha Tor'kren: Lost But Not Forgotten, +100" },
 	} },
 	{ title = "Thunder Ridge and Razorwind Canyon", note = "Fizzle Darkstorm keeps a Burning Blade camp in Thunder Ridge, south of Orgrimmar, among the thunder lizards. The supply sacks lie in Razorwind Canyon, north of Razor Hill. Kron's Amulet drops from the crocolisks along the river to the west, about one in ten.", when = {{ k = "done", label = "razorhill" }}, goals = {
-		{ t = "collect", quest = 806, title = "Dark Storms", map = 1411, x = 42.12, y = 26.66, era = true, count = 1, item = 4869, itemName = "Fizzle's Claw", oi = 1 },
-		{ t = "collect", quest = 834, title = "Winds in the Desert", map = 1411, x = 47.17, y = 29.67, era = true, count = 5, item = 4918, itemName = "Sack of Supplies", oi = 1, spots = "47.5,30.9;48.4,33.5;50.3,26.5;49.7,23.3;49.6,32.1" },
-		{ t = "collect", quest = 816, title = "Lost But Not Forgotten", map = 1411, x = 36.82, y = 22.1, era = true, count = 1, item = 4891, itemName = "Kron's Amulet", oi = 1, mobLevel = 11, spots = "36.7,22.2;35.3,25.4;35.3,29.2;35.1,39.2;34.4,44.2" },
+		{ t = "collect", quest = 806, title = "Dark Storms", map = 1411, x = 42.12, y = 26.66, era = true, count = 1, item = 4869, itemName = "Fizzle's Claw", oi = 1, src = "Fizzle Darkstorm", srcKind = "npc" },
+		{ t = "collect", quest = 834, title = "Winds in the Desert", map = 1411, x = 47.17, y = 29.67, era = true, count = 5, item = 4918, itemName = "Sack of Supplies", oi = 1, src = "Stolen Supply Sack", srcKind = "object", spots = "47.5,30.9;48.4,33.5;50.3,26.5;49.7,23.3;49.6,32.1" },
+		{ t = "collect", quest = 816, title = "Lost But Not Forgotten", map = 1411, x = 36.82, y = 22.1, era = true, count = 1, item = 4891, itemName = "Kron's Amulet", oi = 1, mobLevel = 11, src = "Dreadmaw Crocolisk, Corrupted Dreadmaw Crocolisk", srcKind = "npc", spots = "36.7,22.2;35.3,25.4;35.3,29.2;35.1,39.2;34.4,44.2" },
 	} },
 	{ title = "Rezlak and Misha", note = "A Dustwind Storm Witch may drop a Dull Storm Orb: use it to start A Simmering Storm. Once you hand that in, Rezlak offers Stormy Potential.", when = {{ k = "done", label = "razorhill" }}, goals = {
 		{ t = "turnin", quest = 834, title = "Winds in the Desert", npc = "Rezlak", map = 1411, x = 46.37, y = 22.94, era = true },
@@ -4875,7 +4875,7 @@ Waypost.RegisterSteps("reputation/orgrimmar", function() return {
 		{ t = "turnin", quest = 816, title = "Lost But Not Forgotten", npc = "Misha Tor'kren", map = 1411, x = 43.1, y = 30.24, era = true },
 	} },
 	{ title = "Stormy Potential", note = "The Charged Thunder Lizard Organs come from the thunder lizards on Thunder Ridge, just west of Rezlak.", when = {{ k = "done", label = "razorhill" }}, goals = {
-		{ t = "collect", quest = 97282, title = "Stormy Potential", map = 1411, x = 40.65, y = 30.11, era = true, count = 5, item = 277665, itemName = "Charged Thunder Lizard Organ", oi = 1, mobLevel = 11, spots = "40.3,29;39.1,30;39.2,25.6;40.4,24.1;42.8,24.2" },
+		{ t = "collect", quest = 97282, title = "Stormy Potential", map = 1411, x = 40.65, y = 30.11, era = true, count = 5, item = 277665, itemName = "Charged Thunder Lizard Organ", oi = 1, mobLevel = 11, src = "Thunder Lizard, Lightning Hide", srcKind = "npc", spots = "40.3,29;39.1,30;39.2,25.6;40.4,24.1;42.8,24.2" },
 		{ t = "turnin", quest = 97282, title = "Stormy Potential", npc = "Rezlak", map = 1411, x = 46.37, y = 22.94, era = true },
 	} },
 	{ title = "Razor Hill: Orgnil", when = {{ k = "done", label = "razorhill" }}, goals = {
@@ -4885,7 +4885,7 @@ Waypost.RegisterSteps("reputation/orgrimmar", function() return {
 	{ title = "Skull Rock", note = "Margoz camps outside Skull Rock, the cave just east of Orgrimmar.", when = {{ k = "done", label = "razorhill" }}, goals = {
 		{ t = "turnin", quest = 828, title = "Margoz", npc = "Margoz", map = 1411, x = 56.41, y = 20.04, era = true },
 		{ t = "accept", quest = 827, title = "Skull Rock", npc = "Margoz", map = 1411, x = 56.41, y = 20.04, era = true, qlvl = 12, note = "Skull Rock, +100" },
-		{ t = "collect", quest = 827, title = "Skull Rock", map = 1411, x = 52.63, y = 24.98, era = true, count = 6, item = 4871, itemName = "Searing Collar", oi = 1, mobLevel = 11, spots = "52.3,25.8;52.9,28.3;42.3,26.7;52,9.3;53.3,8.6" },
+		{ t = "collect", quest = 827, title = "Skull Rock", map = 1411, x = 52.63, y = 24.98, era = true, count = 6, item = 4871, itemName = "Searing Collar", oi = 1, mobLevel = 11, src = "Burning Blade Cultist, Burning Blade Thug, Burning Blade Neophyte and others", srcKind = "npc", spots = "52.3,25.8;52.9,28.3;42.3,26.7;52,9.3;53.3,8.6" },
 		{ t = "turnin", quest = 827, title = "Skull Rock", npc = "Margoz", map = 1411, x = 56.41, y = 20.04, era = true },
 		{ t = "accept", quest = 829, title = "Neeru Fireblade", npc = "Margoz", map = 1411, x = 56.41, y = 20.04, era = true, qlvl = 12, note = "Neeru Fireblade, +50" },
 	} },
@@ -4912,14 +4912,14 @@ Waypost.RegisterSteps("reputation/orgrimmar", function() return {
 		{ t = "accept", quest = 97003, title = "Chol'aruk the Ravener", npc = "Gur'ak", map = 1413, x = 52.65, y = 29.06, era = true, qlvl = 21, note = "Gur'ak: Chol'aruk the Ravener, +150" },
 	} },
 	{ title = "Around the Crossroads", note = "The Razormane camps and the supply crates are north-east of the town; Chol'aruk, an elite boar, sits deep in the Thorn Hill cave there. The Witchwing harpies nest far to the north-west. The Beaten Corpse lies north-east of Camp Taurajo, in the south: right-click it. Raptors and plainstriders are everywhere.", when = {{ k = "done", label = "crossroads" }}, goals = {
-		{ t = "collect", quest = 844, title = "Plainstrider Menace", map = 1413, x = 53.12, y = 30.42, era = true, count = 7, item = 5087, itemName = "Plainstrider Beak", oi = 1, mobLevel = 13, spots = "53.3,30.8;53,18.9;60.9,22.6;61.4,13.2;56,5.8" },
-		{ t = "collect", quest = 869, title = "Raptor Thieves", map = 1413, x = 52.93, y = 33.04, era = true, count = 12, item = 5062, itemName = "Raptor Head", oi = 1, mobLevel = 15, spots = "53.1,33.7;60,35.6;62.3,25.9;59.8,14.4;53.4,14.7" },
+		{ t = "collect", quest = 844, title = "Plainstrider Menace", map = 1413, x = 53.12, y = 30.42, era = true, count = 7, item = 5087, itemName = "Plainstrider Beak", oi = 1, mobLevel = 13, src = "Greater Plainstrider, Ornery Plainstrider, Fleeting Plainstrider", srcKind = "npc", spots = "53.3,30.8;53,18.9;60.9,22.6;61.4,13.2;56,5.8" },
+		{ t = "collect", quest = 869, title = "Raptor Thieves", map = 1413, x = 52.93, y = 33.04, era = true, count = 12, item = 5062, itemName = "Raptor Head", oi = 1, mobLevel = 15, src = "Sunscale Lashtail, Sunscale Screecher", srcKind = "npc", spots = "53.1,33.7;60,35.6;62.3,25.9;59.8,14.4;53.4,14.7" },
 		{ t = "kill", quest = 871, title = "Disrupt the Attacks", map = 1413, x = 54.94, y = 26.74, era = true, count = 8, target = "Razormane Water Seeker", oi = 1, mobLevel = 11, spots = "55.4,26.9;54.2,25.5;53.5,25.1;55.5,25.8" },
 		{ t = "kill", quest = 871, title = "Disrupt the Attacks", map = 1413, x = 55.11, y = 26.59, era = true, count = 8, target = "Razormane Thornweaver", oi = 2, mobLevel = 11, spots = "55.1,26.9;55.7,26.6;54.5,25.2" },
 		{ t = "kill", quest = 871, title = "Disrupt the Attacks", map = 1413, x = 55.57, y = 26.46, era = true, count = 3, target = "Razormane Hunter", oi = 3, mobLevel = 12, spots = "55.2,25.8;53.8,25.3;57.9,24.1;59.4,23.9;59.2,26.5" },
-		{ t = "collect", quest = 5041, title = "Supplies for the Crossroads", map = 1413, x = 58.37, y = 27.01, era = true, count = 1, item = 12708, itemName = "Crossroads' Supply Crates", oi = 1, spots = "58.6,27.2;59.3,24.6;58.6,25.9" },
-		{ t = "collect", quest = 97003, title = "Chol'aruk the Ravener", map = 1413, x = 58.06, y = 26.72, era = true, count = 1, item = 276070, itemName = "Chol'aruk's Head", oi = 1, mobLevel = 20, group = true, spots = "57.9,27;57.9,25.8" },
-		{ t = "collect", quest = 867, title = "Harpy Raiders", map = 1413, x = 41.85, y = 19.32, era = true, count = 8, item = 5064, itemName = "Witchwing Talon", oi = 1, mobLevel = 18, spots = "41.6,18.9;40.8,17.2;39.5,16.8;38.6,17.4;37.6,16" },
+		{ t = "collect", quest = 5041, title = "Supplies for the Crossroads", map = 1413, x = 58.37, y = 27.01, era = true, count = 1, item = 12708, itemName = "Crossroads' Supply Crates", oi = 1, src = "Crossroads' Supply Crates", srcKind = "object", spots = "58.6,27.2;59.3,24.6;58.6,25.9" },
+		{ t = "collect", quest = 97003, title = "Chol'aruk the Ravener", map = 1413, x = 58.06, y = 26.72, era = true, count = 1, item = 276070, itemName = "Chol'aruk's Head", oi = 1, mobLevel = 20, group = true, src = "Chol'aruk", srcKind = "npc", spots = "57.9,27;57.9,25.8" },
+		{ t = "collect", quest = 867, title = "Harpy Raiders", map = 1413, x = 41.85, y = 19.32, era = true, count = 8, item = 5064, itemName = "Witchwing Talon", oi = 1, mobLevel = 18, src = "Witchwing Harpy, Witchwing Roguefeather, Witchwing Slayer and others", srcKind = "npc", spots = "41.6,18.9;40.8,17.2;39.5,16.8;38.6,17.4;37.6,16" },
 		{ t = "talk", quest = 4921, title = "Lost in Battle", npc = "Beaten Corpse", map = 1413, x = 49.33, y = 50.32, era = true, oi = 1, note = "Beaten Corpse: right-click it" },
 	} },
 	{ title = "The Crossroads: hand in", when = {{ k = "done", label = "crossroads" }}, goals = {
@@ -4936,12 +4936,12 @@ Waypost.RegisterSteps("reputation/orgrimmar", function() return {
 		{ t = "turnin", quest = 97003, title = "Chol'aruk the Ravener", npc = "Gur'ak", map = 1413, x = 52.65, y = 29.06, era = true },
 	} },
 	{ title = "Zhevras, quilboars, harpies and the Raptor Grounds", note = "Zhevra Runners graze south and west of the town. Kreenig Snarlsnout leads the Razormane camps north-east. The Witchwing Slayers carry the rings. The Stolen Silver is in the Raptor Grounds east of Camp Taurajo: follow the nest-lined path on its left side to the last nest.", when = {{ k = "done", label = "crossroads" }}, goals = {
-		{ t = "collect", quest = 845, title = "The Zhevra", map = 1413, x = 50.79, y = 34.14, era = true, count = 4, item = 5086, itemName = "Zhevra Hooves", oi = 1, mobLevel = 14, spots = "50.8,34.1;47.8,37.4;44.3,33.2;46.9,25.6;42.5,23.8" },
+		{ t = "collect", quest = 845, title = "The Zhevra", map = 1413, x = 50.79, y = 34.14, era = true, count = 4, item = 5086, itemName = "Zhevra Hooves", oi = 1, mobLevel = 14, src = "Zhevra Runner", srcKind = "npc", spots = "50.8,34.1;47.8,37.4;44.3,33.2;46.9,25.6;42.5,23.8" },
 		{ t = "kill", quest = 872, title = "The Disruption Ends", map = 1413, x = 56.78, y = 25.39, era = true, count = 8, target = "Razormane Geomancer", oi = 1, mobLevel = 13, spots = "57,25.3;57.1,24.4;59.1,24.4" },
 		{ t = "kill", quest = 872, title = "The Disruption Ends", map = 1413, x = 57.07, y = 25.21, era = true, count = 8, target = "Razormane Defender", oi = 2, mobLevel = 13, spots = "57.1,25.1;58.7,26.6;59.2,24.4;59.2,27.3;58,24.7" },
-		{ t = "collect", quest = 872, title = "The Disruption Ends", map = 1413, x = 58.52, y = 27.04, era = true, count = 1, item = 5063, itemName = "Kreenig Snarlsnout's Tusk", oi = 3 },
-		{ t = "collect", quest = 875, title = "Harpy Lieutenants", map = 1413, x = 40.17, y = 15.97, era = true, count = 6, item = 5065, itemName = "Harpy Lieutenant Ring", oi = 1, mobLevel = 17, spots = "39.9,15.8;39.5,16.9;39.1,15;38.4,16.1;38.6,17.4" },
-		{ t = "collect", quest = 3281, title = "Stolen Silver", map = 1413, x = 58.04, y = 53.87, era = true, count = 1, item = 5061, itemName = "Stolen Silver", oi = 1 },
+		{ t = "collect", quest = 872, title = "The Disruption Ends", map = 1413, x = 58.52, y = 27.04, era = true, count = 1, item = 5063, itemName = "Kreenig Snarlsnout's Tusk", oi = 3, src = "Kreenig Snarlsnout", srcKind = "npc" },
+		{ t = "collect", quest = 875, title = "Harpy Lieutenants", map = 1413, x = 40.17, y = 15.97, era = true, count = 6, item = 5065, itemName = "Harpy Lieutenant Ring", oi = 1, mobLevel = 17, src = "Witchwing Slayer", srcKind = "npc", spots = "39.9,15.8;39.5,16.9;39.1,15;38.4,16.1;38.6,17.4" },
+		{ t = "collect", quest = 3281, title = "Stolen Silver", map = 1413, x = 58.04, y = 53.87, era = true, count = 1, item = 5061, itemName = "Stolen Silver", oi = 1, src = "Stolen Silver", srcKind = "object" },
 	} },
 	{ title = "The Crossroads: hand in again", when = {{ k = "done", label = "crossroads" }}, goals = {
 		{ t = "turnin", quest = 845, title = "The Zhevra", npc = "Sergra Darkthorn", map = 1413, x = 52.23, y = 31.01, era = true },
@@ -4952,16 +4952,16 @@ Waypost.RegisterSteps("reputation/orgrimmar", function() return {
 		{ t = "turnin", quest = 3281, title = "Stolen Silver", npc = "Gazrog", map = 1413, x = 51.93, y = 30.32, era = true },
 	} },
 	{ title = "Prowlers, Serena and Echeyakee", note = "Savannah Prowlers lie west and north of the Crossroads. Serena Bloodfeather leads the Witchwing harpies in the far north-west. Then Sergra gives you the Horn of Echeyakee: blow it beside the kodo bones at Echeyakee's Lair, north of the town, and kill the white lion.", when = {{ k = "done", label = "crossroads" }}, goals = {
-		{ t = "collect", quest = 903, title = "Prowlers of the Barrens", map = 1413, x = 44.23, y = 31.21, era = true, count = 7, item = 5096, itemName = "Prowler Claws", oi = 1, mobLevel = 15, spots = "44.3,31.6;42.6,28.9;40.9,26.7;40.6,20.7;42.5,34.9" },
-		{ t = "collect", quest = 876, title = "Serena Bloodfeather", map = 1413, x = 39.16, y = 12.17, era = true, count = 1, item = 5067, itemName = "Serena's Head", oi = 1 },
+		{ t = "collect", quest = 903, title = "Prowlers of the Barrens", map = 1413, x = 44.23, y = 31.21, era = true, count = 7, item = 5096, itemName = "Prowler Claws", oi = 1, mobLevel = 15, src = "Savannah Prowler", srcKind = "npc", spots = "44.3,31.6;42.6,28.9;40.9,26.7;40.6,20.7;42.5,34.9" },
+		{ t = "collect", quest = 876, title = "Serena Bloodfeather", map = 1413, x = 39.16, y = 12.17, era = true, count = 1, item = 5067, itemName = "Serena's Head", oi = 1, src = "Serena Bloodfeather", srcKind = "npc" },
 		{ t = "turnin", quest = 903, title = "Prowlers of the Barrens", npc = "Sergra Darkthorn", map = 1413, x = 52.23, y = 31.01, era = true },
 		{ t = "accept", quest = 881, title = "Echeyakee", npc = "Sergra Darkthorn", map = 1413, x = 52.23, y = 31.01, era = true, qlvl = 16, note = "Echeyakee, +150" },
 		{ t = "turnin", quest = 876, title = "Serena Bloodfeather", npc = "Darsok Swiftdagger", map = 1413, x = 51.62, y = 30.9, era = true },
-		{ t = "collect", quest = 881, title = "Echeyakee", map = 1413, x = 55.86, y = 17.19, era = true, count = 1, item = 5100, itemName = "Echeyakee's Hide", oi = 1 },
+		{ t = "collect", quest = 881, title = "Echeyakee", map = 1413, x = 55.86, y = 17.19, era = true, count = 1, item = 5100, itemName = "Echeyakee's Hide", oi = 1, src = "Echeyakee", srcKind = "npc" },
 		{ t = "turnin", quest = 881, title = "Echeyakee", npc = "Sergra Darkthorn", map = 1413, x = 52.23, y = 31.01, era = true },
 	} },
 	{ title = "Chen's Empty Keg (optional hub)", note = "Forever pays it in full at any level. Chen's Empty Keg lies on the ground at one of several spots in the central and northern Barrens, most of them by the roads around the Crossroads; once someone takes it, it turns up at another. Brewmaster Drohn in Ratchet pays 250 Orgrimmar reputation for the keg and its first filling, then 50 for every filling after, as often as you like.", label = "keg", goals = {
-		{ t = "collect", map = 1413, x = 55.7, y = 27.3, era = true, item = 4926, itemName = "Chen's Empty Keg", note = "Chen's Empty Keg: look for it by the roads", spots = "55.7,27.3;55.8,20;54.7,37.2;56.6,43.7;57.2,9" },
+		{ t = "collect", map = 1413, x = 55.7, y = 27.3, era = true, item = 4926, itemName = "Chen's Empty Keg", note = "Chen's Empty Keg: look for it by the roads", src = "Chen's Empty Keg", srcKind = "object", spots = "55.7,27.3;55.8,20;54.7,37.2;56.6,43.7;57.2,9" },
 		{ t = "accept", quest = 819, title = "Chen's Empty Keg", item = 4926, itemName = "Chen's Empty Keg", qlvl = 15, note = "Chen's Empty Keg, +100" },
 	} },
 	{ title = "Ratchet: Brewmaster Drohn", when = {{ k = "done", label = "keg" }}, goals = {
@@ -4969,24 +4969,24 @@ Waypost.RegisterSteps("reputation/orgrimmar", function() return {
 		{ t = "accept", quest = 821, title = "Chen's Empty Keg", npc = "Brewmaster Drohn", map = 1413, x = 62.26, y = 38.39, era = true, qlvl = 15, note = "Chen's Empty Keg, +150" },
 	} },
 	{ title = "Lions, plainstriders and a thunder lizard", note = "Savannah lions, plainstriders and thunder lizards roam the whole northern Barrens. The lions drop a tusk about every other kill, the plainstriders a kidney about two kills in five; any thunder lizard may drop the horn, about one in five.", when = {{ k = "done", label = "keg" }}, goals = {
-		{ t = "collect", quest = 821, title = "Chen's Empty Keg", map = 1413, x = 61.37, y = 34.59, era = true, count = 5, item = 4893, itemName = "Savannah Lion Tusk", oi = 1, mobLevel = 15, spots = "61.4,34.6;57.7,39.3;55.3,30.5;49.3,27.4;51.2,20.7" },
-		{ t = "collect", quest = 821, title = "Chen's Empty Keg", map = 1413, x = 59.46, y = 33.54, era = true, count = 5, item = 4894, itemName = "Plainstrider Kidney", oi = 2, mobLevel = 13, spots = "59.6,32.7;54.7,38.5;48.9,32.2;44.2,25.1;37.6,28.1" },
-		{ t = "collect", quest = 821, title = "Chen's Empty Keg", map = 1413, x = 48.09, y = 79.83, era = true, count = 1, item = 4895, itemName = "Thunder Lizard Horn", oi = 3 },
+		{ t = "collect", quest = 821, title = "Chen's Empty Keg", map = 1413, x = 61.37, y = 34.59, era = true, count = 5, item = 4893, itemName = "Savannah Lion Tusk", oi = 1, mobLevel = 15, src = "Savannah Matriarch, Savannah Patriarch, Savannah Highmane and others", srcKind = "npc", spots = "61.4,34.6;57.7,39.3;55.3,30.5;49.3,27.4;51.2,20.7" },
+		{ t = "collect", quest = 821, title = "Chen's Empty Keg", map = 1413, x = 59.46, y = 33.54, era = true, count = 5, item = 4894, itemName = "Plainstrider Kidney", oi = 2, mobLevel = 13, src = "Ornery Plainstrider, Greater Plainstrider, Fleeting Plainstrider", srcKind = "npc", spots = "59.6,32.7;54.7,38.5;48.9,32.2;44.2,25.1;37.6,28.1" },
+		{ t = "collect", quest = 821, title = "Chen's Empty Keg", map = 1413, x = 48.09, y = 79.83, era = true, count = 1, item = 4895, itemName = "Thunder Lizard Horn", oi = 3, src = "Thunderstomp", srcKind = "npc" },
 	} },
 	{ title = "Ratchet: the repeatable keg", note = "From now on Drohn takes 5 Lightning Glands, a Thunderhawk Saliva Gland and a Kodo Liver for 50, as often as you like. The Stormhide thunder lizards (a gland about every other kill), the Greater Thunderhawks and the kodos south of Camp Taurajo drop them. Gather several sets before you head back to Ratchet.", when = {{ k = "done", label = "keg" }}, goals = {
 		{ t = "turnin", quest = 821, title = "Chen's Empty Keg", npc = "Brewmaster Drohn", map = 1413, x = 62.26, y = 38.39, era = true },
-		{ t = "collect", map = 1413, x = 48.55, y = 73.71, era = true, count = 5, item = 4898, itemName = "Lightning Gland", mobLevel = 23, optional = true, note = "Lightning Gland, from Stormhides", spots = "48.5,74.5;48.7,76.4;50.4,76.5;50.1,80.4;47.1,82.3" },
-		{ t = "collect", map = 1413, x = 47.5, y = 75.24, era = true, item = 4897, itemName = "Thunderhawk Saliva Gland", mobLevel = 24, optional = true, note = "Thunderhawk Saliva Gland, from Greater Thunderhawks", spots = "47.1,74.9;48.8,76.3;46.7,79.2;45.5,81.2;44.1,77.9" },
-		{ t = "collect", map = 1413, x = 45.72, y = 68.05, era = true, item = 4896, itemName = "Kodo Liver", mobLevel = 15, optional = true, note = "Kodo Liver, from the kodos", spots = "46.8,67;45.1,52.7;50.1,53.2;54.4,45.5;60.9,41.5" },
+		{ t = "collect", map = 1413, x = 48.55, y = 73.71, era = true, count = 5, item = 4898, itemName = "Lightning Gland", mobLevel = 23, optional = true, note = "Lightning Gland, from Stormhides", src = "Stormhide", srcKind = "npc", spots = "48.5,74.5;48.7,76.4;50.4,76.5;50.1,80.4;47.1,82.3" },
+		{ t = "collect", map = 1413, x = 47.5, y = 75.24, era = true, item = 4897, itemName = "Thunderhawk Saliva Gland", mobLevel = 24, optional = true, note = "Thunderhawk Saliva Gland, from Greater Thunderhawks", src = "Greater Thunderhawk", srcKind = "npc", spots = "47.1,74.9;48.8,76.3;46.7,79.2;45.5,81.2;44.1,77.9" },
+		{ t = "collect", map = 1413, x = 45.72, y = 68.05, era = true, item = 4896, itemName = "Kodo Liver", mobLevel = 15, optional = true, note = "Kodo Liver, from the kodos", src = "Barrens Kodo, Lost Barrens Kodo, Greater Barrens Kodo and others", srcKind = "npc", spots = "46.8,67;45.1,52.7;50.1,53.2;54.4,45.5;60.9,41.5" },
 		{ t = "turnin", quest = 822, title = "Chen's Empty Keg", npc = "Brewmaster Drohn", map = 1413, x = 62.26, y = 38.39, era = true, qlvl = 24, optional = true, note = "Brewmaster Drohn: Chen's Empty Keg, +50" },
 	} },
 	{ title = "Rashona Straglash: A Donation of Wool", note = "From here it is cloth. Wool, Silk and Mageweave must all be handed in before Rashona offers the Runecloth donation, and Additional Runecloth needs the Runecloth donation. Buy cloth at the Auction House, or farm it: humanoids drop it, Wool from level 15 to 25, Silk 25 to 40, Mageweave 40 to 50, Runecloth 50 and up. At 60 farm mobs of level 52 or more: lower ones are grey.", goals = {
-		{ t = "collect", map = 1440, x = 36, y = 37, era = true, count = 60, item = 2592, itemName = "Wool Cloth", mobLevel = 24, note = "Wool Cloth: the Thistlefur furbolgs drop it about one kill in four", spots = "36,37;33.8,38.2;37.9,34.7;33.8,39.7;38.7,39.2" },
+		{ t = "collect", map = 1440, x = 36, y = 37, era = true, count = 60, item = 2592, itemName = "Wool Cloth", mobLevel = 24, note = "Wool Cloth: the Thistlefur furbolgs drop it about one kill in four", src = "Thistlefur Shaman, Rorgish Jowl, Thistlefur Avenger and others", srcKind = "npc", spots = "36,37;33.8,38.2;37.9,34.7;33.8,39.7;38.7,39.2" },
 		{ t = "turnin", quest = 7826, title = "A Donation of Wool", npc = "Rashona Straglash", map = 1454, x = 63.6, y = 51.23, era = true, qlvl = 60, note = "Rashona Straglash: A Donation of Wool, +150" },
 	} },
 	{ title = "A Donation of Silk", note = "Silk: the Syndicate in Hillsbrad and Alterac drop it about one kill in three, or buy it.", goals = {
 		{ t = "level", level = 26 },
-		{ t = "collect", map = 1416, x = 57.7, y = 67.6, era = true, count = 60, item = 4306, itemName = "Silk Cloth", mobLevel = 34, note = "Silk Cloth: the Syndicate", spots = "57.7,67.6;47.8,81.7;61.6,44.2;61.9,40.8" },
+		{ t = "collect", map = 1416, x = 57.7, y = 67.6, era = true, count = 60, item = 4306, itemName = "Silk Cloth", mobLevel = 34, note = "Silk Cloth: the Syndicate", src = "Syndicate Footpad, Syndicate Wizard, Syndicate Thief and others", srcKind = "npc", spots = "57.7,67.6;47.8,81.7;61.6,44.2;61.9,40.8" },
 		{ t = "turnin", quest = 7827, title = "A Donation of Silk", npc = "Rashona Straglash", map = 1454, x = 63.6, y = 51.23, era = true, qlvl = 60, note = "+150" },
 	} },
 	{ title = "A Donation of Mageweave", note = "Mageweave: the Jadefire satyrs in southern Felwood and the Dunemaul ogres in Tanaris drop it about one kill in three, or buy it.", goals = {
@@ -5041,7 +5041,7 @@ Waypost.RegisterSteps("reputation/orgrimmar", function() return {
 		{ t = "complete", quest = 3505, title = "Betrayed", map = 1447, x = 59.5, y = 31.5, era = true, note = "Find Magus Rimtori's camp", objs = {"Blood Elf Reclaimer", "Blood Elf Surveyor", "Find Magus Rimtori's camp"} },
 		{ t = "turnin", quest = 3505, title = "Betrayed", npc = "Kaldorei Tome of Summoning", map = 1447, x = 59.51, y = 31.3, era = true, note = "the Kaldorei Tome of Summoning" },
 		{ t = "accept", quest = 3506, title = "Betrayed", npc = "Kaldorei Tome of Summoning", map = 1447, x = 59.51, y = 31.3, era = true, qlvl = 56, note = "Betrayed, +75" },
-		{ t = "collect", quest = 3506, title = "Betrayed", map = 1447, x = 59.51, y = 31.37, era = true, count = 1, item = 10597, itemName = "Head of Magus Rimtori", oi = 1 },
+		{ t = "collect", quest = 3506, title = "Betrayed", map = 1447, x = 59.51, y = 31.37, era = true, count = 1, item = 10597, itemName = "Head of Magus Rimtori", oi = 1, src = "Magus Rimtori", srcKind = "npc" },
 	} },
 	{ title = "Valormok and Orgrimmar", goals = {
 		{ t = "turnin", quest = 3506, title = "Betrayed", npc = "Ag'tor Bloodfist", map = 1447, x = 22.26, y = 51.48, era = true },
@@ -5083,9 +5083,9 @@ Waypost.RegisterSteps("reputation/thunder-bluff", function() return {
 	{ title = "Greatmother Hawkwind and the plains", note = "Greatmother Hawkwind's tent is south-east of the camp; the water pitcher stands at the well beside it. Plainstriders graze all around.", when = {{ k = "done", label = "narache" }}, goals = {
 		{ t = "turnin", quest = 752, title = "A Humble Task", npc = "Greatmother Hawkwind", map = 1412, x = 48.77, y = 80.92 },
 		{ t = "accept", quest = 753, title = "A Humble Task", npc = "Greatmother Hawkwind", map = 1412, x = 48.77, y = 80.92, qlvl = 3, note = "A Humble Task, +100" },
-		{ t = "collect", quest = 753, title = "A Humble Task", map = 1412, x = 48.91, y = 81.17, count = 1, item = 4755, itemName = "Water Pitcher", oi = 1 },
-		{ t = "collect", quest = 747, title = "The Hunt Begins", map = 1412, x = 49.73, y = 82.55, count = 7, item = 4739, itemName = "Plainstrider Meat", oi = 1, mobLevel = 2, spots = "49.3,82.8;47.7,80.9;45.7,82;44.6,79.8;42.6,81.5" },
-		{ t = "collect", quest = 747, title = "The Hunt Begins", map = 1412, x = 49.73, y = 82.55, count = 7, item = 4740, itemName = "Plainstrider Feather", oi = 2, mobLevel = 2, spots = "49.3,82.8;47.7,80.9;45.7,82;44.6,79.8;42.6,81.5" },
+		{ t = "collect", quest = 753, title = "A Humble Task", map = 1412, x = 48.91, y = 81.17, count = 1, item = 4755, itemName = "Water Pitcher", oi = 1, src = "Water Pitcher", srcKind = "object" },
+		{ t = "collect", quest = 747, title = "The Hunt Begins", map = 1412, x = 49.73, y = 82.55, count = 7, item = 4739, itemName = "Plainstrider Meat", oi = 1, mobLevel = 2, src = "Plainstrider", srcKind = "npc", spots = "49.3,82.8;47.7,80.9;45.7,82;44.6,79.8;42.6,81.5" },
+		{ t = "collect", quest = 747, title = "The Hunt Begins", map = 1412, x = 49.73, y = 82.55, count = 7, item = 4740, itemName = "Plainstrider Feather", oi = 2, mobLevel = 2, src = "Plainstrider", srcKind = "npc", spots = "49.3,82.8;47.7,80.9;45.7,82;44.6,79.8;42.6,81.5" },
 	} },
 	{ title = "Camp Narache: hand in", when = {{ k = "done", label = "narache" }}, goals = {
 		{ t = "turnin", quest = 753, title = "A Humble Task", npc = "Chief Hawkwind", map = 1412, x = 43.89, y = 76.66 },
@@ -5096,17 +5096,17 @@ Waypost.RegisterSteps("reputation/thunder-bluff", function() return {
 	{ title = "Seer Graytongue and the cougars", note = "Seer Graytongue sits on the hill south of the camp; the Mountain Cougars live in those hills.", when = {{ k = "done", label = "narache" }}, goals = {
 		{ t = "turnin", quest = 755, title = "Rites of the Earthmother", npc = "Seer Graytongue", map = 1412, x = 42.54, y = 90.13 },
 		{ t = "accept", quest = 757, title = "Rite of Strength", npc = "Seer Graytongue", map = 1412, x = 42.54, y = 90.13, qlvl = 4, note = "Rite of Strength, +150" },
-		{ t = "collect", quest = 750, title = "The Hunt Continues", map = 1412, x = 43.1, y = 89.35, count = 10, item = 4742, itemName = "Mountain Cougar Pelt", oi = 1, mobLevel = 3, spots = "43.7,89.3;44.3,91.5;45,87.7;47.2,89.4;48.6,87.7" },
+		{ t = "collect", quest = 750, title = "The Hunt Continues", map = 1412, x = 43.1, y = 89.35, count = 10, item = 4742, itemName = "Mountain Cougar Pelt", oi = 1, mobLevel = 3, src = "Mountain Cougar", srcKind = "npc", spots = "43.7,89.3;44.3,91.5;45,87.7;47.2,89.4;48.6,87.7" },
 	} },
 	{ title = "Camp Narache: the Battleboars", when = {{ k = "done", label = "narache" }}, goals = {
 		{ t = "turnin", quest = 750, title = "The Hunt Continues", npc = "Grull Hawkwind", map = 1412, x = 44.47, y = 77.5 },
 		{ t = "accept", quest = 780, title = "The Battleboars", npc = "Grull Hawkwind", map = 1412, x = 44.47, y = 77.5, qlvl = 4, note = "The Battleboars, +150" },
 	} },
 	{ title = "Brambleblade Ravine", note = "The Battleboars graze east of the camp; the Bristleback quilboar and Chief Sharptusk Thornmantle hold Brambleblade Ravine beyond them. A Dirt-stained Map lies in the ravine: reading it starts Attack on Camp Narache.", when = {{ k = "done", label = "narache" }}, goals = {
-		{ t = "collect", quest = 780, title = "The Battleboars", map = 1412, x = 50.3, y = 77.59, count = 8, item = 4848, itemName = "Battleboar Snout", oi = 1, mobLevel = 4, spots = "51.2,77.1;51.1,79.6;53,77.1;53.8,81.6;53.6,84.4" },
-		{ t = "collect", quest = 780, title = "The Battleboars", map = 1412, x = 50.3, y = 77.59, count = 8, item = 4849, itemName = "Battleboar Flank", oi = 2, mobLevel = 4, spots = "51.2,77.1;51.1,79.6;53,77.1;53.8,81.6;53.6,84.4" },
-		{ t = "collect", quest = 757, title = "Rite of Strength", map = 1412, x = 55.76, y = 78.56, count = 12, item = 4770, itemName = "Bristleback Belt", oi = 1, mobLevel = 4, spots = "56.5,78.7;56.6,81.2;57.7,76.7;58.7,81.3;57.1,83.4" },
-		{ t = "collect", quest = 3376, title = "Break Sharptusk!", map = 1412, x = 61.02, y = 78, count = 1, item = 10459, itemName = "Chief Sharptusk Thornmantle's Head", oi = 1 },
+		{ t = "collect", quest = 780, title = "The Battleboars", map = 1412, x = 50.3, y = 77.59, count = 8, item = 4848, itemName = "Battleboar Snout", oi = 1, mobLevel = 4, src = "Battleboar, Bristleback Battleboar", srcKind = "npc", spots = "51.2,77.1;51.1,79.6;53,77.1;53.8,81.6;53.6,84.4" },
+		{ t = "collect", quest = 780, title = "The Battleboars", map = 1412, x = 50.3, y = 77.59, count = 8, item = 4849, itemName = "Battleboar Flank", oi = 2, mobLevel = 4, src = "Battleboar, Bristleback Battleboar", srcKind = "npc", spots = "51.2,77.1;51.1,79.6;53,77.1;53.8,81.6;53.6,84.4" },
+		{ t = "collect", quest = 757, title = "Rite of Strength", map = 1412, x = 55.76, y = 78.56, count = 12, item = 4770, itemName = "Bristleback Belt", oi = 1, mobLevel = 4, src = "Bristleback Quilboar, Bristleback Shaman", srcKind = "npc", spots = "56.5,78.7;56.6,81.2;57.7,76.7;58.7,81.3;57.1,83.4" },
+		{ t = "collect", quest = 3376, title = "Break Sharptusk!", map = 1412, x = 61.02, y = 78, count = 1, item = 10459, itemName = "Chief Sharptusk Thornmantle's Head", oi = 1, src = "Chief Sharptusk Thornmantle", srcKind = "npc" },
 		{ t = "accept", quest = 781, title = "Attack on Camp Narache", item = 4851, itemName = "Dirt-stained Map", qlvl = 4, optional = true, note = "Dirt-stained Map: Attack on Camp Narache, +100" },
 	} },
 	{ title = "Camp Narache: last hand-in", when = {{ k = "done", label = "narache" }}, goals = {
@@ -5144,17 +5144,17 @@ Waypost.RegisterSteps("reputation/thunder-bluff", function() return {
 	{ title = "The mine, the centaurs and the plains", note = "Back to the mine for the workers, supervisors and Supervisor Fizsprocket in the back: his Mulgore Expansion Plans start Fizsprocket's Notes, and its other pages lie inside the mine. The Galak centaurs and Herak camp east of the village. Swoops fly all over Mulgore; the Windfury harpies roost south-east of the village; the Palemane gnolls camp west of it.", when = {{ k = "done", label = "bloodhoof" }}, goals = {
 		{ t = "kill", quest = 764, title = "The Venture Co.", map = 1412, x = 56.73, y = 53.17, count = 14, target = "Venture Co. Worker", oi = 1, mobLevel = 9, spots = "57.7,53.5;59.3,50.7;58.5,48.2;59.7,46.4;61.8,45.9" },
 		{ t = "kill", quest = 764, title = "The Venture Co.", map = 1412, x = 57.28, y = 53.47, count = 6, target = "Venture Co. Supervisor", oi = 2, mobLevel = 10, spots = "58.3,52.3;60.3,50.5;61,49.6;61,46.3;58.7,45.4" },
-		{ t = "collect", quest = 765, title = "Supervisor Fizsprocket", map = 1412, x = 61.19, y = 49.32, count = 1, item = 4819, itemName = "Fizsprocket's Clipboard", oi = 1 },
-		{ t = "collect", map = 1412, x = 61.19, y = 49.32, item = 281031, itemName = "Mulgore Expansion Plans", optional = true, note = "Mulgore Expansion Plans, from Supervisor Fizsprocket" },
+		{ t = "collect", quest = 765, title = "Supervisor Fizsprocket", map = 1412, x = 61.19, y = 49.32, count = 1, item = 4819, itemName = "Fizsprocket's Clipboard", oi = 1, src = "Supervisor Fizsprocket", srcKind = "npc" },
+		{ t = "collect", map = 1412, x = 61.19, y = 49.32, item = 281031, itemName = "Mulgore Expansion Plans", optional = true, note = "Mulgore Expansion Plans, from Supervisor Fizsprocket", src = "Supervisor Fizsprocket", srcKind = "npc" },
 		{ t = "accept", quest = 98424, title = "Fizsprocket's Notes", item = 281031, itemName = "Mulgore Expansion Plans", qlvl = 10, optional = true, note = "Fizsprocket's Notes, +100" },
-		{ t = "collect", quest = 98424, title = "Fizsprocket's Notes", map = 1412, x = 58.6, y = 47.5, count = 1, item = 281035, itemName = "Shredder Operation Instructions", oi = 1, note = "Shredder Operation Instructions, inside the mine" },
-		{ t = "collect", quest = 98424, title = "Fizsprocket's Notes", map = 1412, x = 61.7, y = 47.3, count = 1, item = 281036, itemName = "Barrens Operations Best Practices", oi = 2 },
-		{ t = "collect", quest = 98424, title = "Fizsprocket's Notes", map = 1412, x = 59, y = 46.5, count = 1, item = 281037, itemName = "One \"Gerenzo\", of Stonetalon", oi = 3 },
+		{ t = "collect", quest = 98424, title = "Fizsprocket's Notes", map = 1412, x = 58.6, y = 47.5, count = 1, item = 281035, itemName = "Shredder Operation Instructions", oi = 1, note = "Shredder Operation Instructions, inside the mine", src = "Shredder Operation Instructions", srcKind = "object" },
+		{ t = "collect", quest = 98424, title = "Fizsprocket's Notes", map = 1412, x = 61.7, y = 47.3, count = 1, item = 281036, itemName = "Barrens Operations Best Practices", oi = 2, src = "Barrens Operations Best Practices", srcKind = "object" },
+		{ t = "collect", quest = 98424, title = "Fizsprocket's Notes", map = 1412, x = 59, y = 46.5, count = 1, item = 281037, itemName = "One \"Gerenzo\", of Stonetalon", oi = 3, src = "One \"Gerenzo\", of Stonetalon", srcKind = "object" },
 		{ t = "kill", quest = 99080, title = "Drive Them Out", map = 1412, x = 62.81, y = 60.75, count = 6, target = "Galak Centaur", oi = 1, mobLevel = 9, spots = "63.4,61.2;64.3,65.4" },
 		{ t = "kill", quest = 99080, title = "Drive Them Out", map = 1412, x = 62.81, y = 60.75, count = 4, target = "Galak Outrunner", oi = 2, mobLevel = 10, spots = "63.4,61.2;64.3,65.4" },
-		{ t = "collect", quest = 99080, title = "Drive Them Out", map = 1412, x = 60.52, y = 59.76, count = 1, item = 286075, itemName = "Herak's Head", oi = 3, mobLevel = 11 },
-		{ t = "collect", quest = 761, title = "Swoop Hunting", map = 1412, x = 61.19, y = 62.89, count = 8, item = 4769, itemName = "Trophy Swoop Quill", oi = 1, mobLevel = 9, spots = "62,62.1;55,54;52,62.1;48.7,70.4;39.6,63.5" },
-		{ t = "collect", quest = 743, title = "Dangers of the Windfury", map = 1412, x = 61.75, y = 70.3, count = 8, item = 4751, itemName = "Windfury Talon", oi = 1, mobLevel = 9, spots = "62,71.1;63.3,72.2;59.6,72.7;35.2,48.4;33.6,48.1" },
+		{ t = "collect", quest = 99080, title = "Drive Them Out", map = 1412, x = 60.52, y = 59.76, count = 1, item = 286075, itemName = "Herak's Head", oi = 3, mobLevel = 11, src = "Herak the Pillager", srcKind = "npc" },
+		{ t = "collect", quest = 761, title = "Swoop Hunting", map = 1412, x = 61.19, y = 62.89, count = 8, item = 4769, itemName = "Trophy Swoop Quill", oi = 1, mobLevel = 9, src = "Taloned Swoop, Wiry Swoop, Swoop", srcKind = "npc", spots = "62,62.1;55,54;52,62.1;48.7,70.4;39.6,63.5" },
+		{ t = "collect", quest = 743, title = "Dangers of the Windfury", map = 1412, x = 61.75, y = 70.3, count = 8, item = 4751, itemName = "Windfury Talon", oi = 1, mobLevel = 9, src = "Windfury Harpy, Windfury Wind Witch", srcKind = "npc", spots = "62,71.1;63.3,72.2;59.6,72.7;35.2,48.4;33.6,48.1" },
 		{ t = "kill", quest = 745, title = "Sharing the Land", map = 1412, x = 52.94, y = 73.32, count = 10, target = "Palemane Tanner", oi = 1, mobLevel = 6, spots = "52,74.1;47.5,73;36.6,65.3;34.3,64.1" },
 		{ t = "kill", quest = 745, title = "Sharing the Land", map = 1412, x = 52.46, y = 72.97, count = 8, target = "Palemane Skinner", oi = 2, mobLevel = 7, spots = "53,73;51.3,74.5;47.2,73.6;36.3,65.4;34,64.1" },
 		{ t = "kill", quest = 745, title = "Sharing the Land", map = 1412, x = 52.12, y = 73.08, count = 5, target = "Palemane Poacher", oi = 3, mobLevel = 8, spots = "51.9,73.8;32.7,64.4" },
@@ -5166,7 +5166,7 @@ Waypost.RegisterSteps("reputation/thunder-bluff", function() return {
 		{ t = "accept", quest = 98427, title = "Ceasing Operations", npc = "Morin Cloudstalker", map = 1412, x = 54.76, y = 64.27, qlvl = 12, optional = true, note = "Ceasing Operations, +150: needs Fizsprocket's Notes" },
 	} },
 	{ title = "The Venture Co. Mine: the Clearcutter", note = "The elite shredder Venture Co. Clearcutter works deep inside the mine, beyond where Fizsprocket stood: its key is for Ceasing Operations.", when = {{ k = "done", label = "bloodhoof" }}, goals = {
-		{ t = "collect", quest = 98427, title = "Ceasing Operations", map = 1412, x = 56.76, y = 42.75, count = 1, item = 281048, itemName = "Clearcutter Key", oi = 1, group = true },
+		{ t = "collect", quest = 98427, title = "Ceasing Operations", map = 1412, x = 56.76, y = 42.75, count = 1, item = 281048, itemName = "Clearcutter Key", oi = 1, group = true, src = "Venture Co. Clearclutter", srcKind = "npc" },
 		{ t = "turnin", quest = 98427, title = "Ceasing Operations", npc = "Morin Cloudstalker", map = 1412, x = 54.76, y = 64.27 },
 	} },
 	{ title = "Bloodhoof Village: last hand-in", when = {{ k = "done", label = "bloodhoof" }}, goals = {
@@ -5188,8 +5188,8 @@ Waypost.RegisterSteps("reputation/thunder-bluff", function() return {
 	{ title = "Gloomrise", note = "Gloomrise is the tauren burial ground north of Thunder Bluff. Use the Toxin Extractor on the Gnawed Corpses. Broodmother Valraxx waits at the heart of it; her body carries a Bloody Parchment: read it to start A Darker Truth.", when = {{ k = "done", label = "gloomrise" }}, goals = {
 		{ t = "kill", quest = 96259, title = "Defending the Dead", map = 1412, x = 33.33, y = 15.39, count = 10, target = "Gloomrise Hatchling", oi = 1, mobLevel = 28, spots = "33.1,14.7;33.3,12.2;35.1,12;33.4,9.6;33.3,7.9" },
 		{ t = "kill", quest = 96259, title = "Defending the Dead", map = 1412, x = 33.03, y = 14.21, count = 5, target = "Gloomrise Soldier", oi = 2, mobLevel = 29, spots = "33,13.3;32.5,11.2;35,12.3;34.2,10.5;33.5,8.4" },
-		{ t = "collect", quest = 96260, title = "Stronger than Steel", map = 1412, x = 33.28, y = 14.6, count = 3, item = 273181, itemName = "Crystalline Silk", oi = 1, mobLevel = 28, note = "Crystalline Silk, from Gloomrise Spinners", spots = "33.2,13.6;32.5,11.1;35.7,11.8;34.5,10.3;33.2,8.1" },
-		{ t = "collect", quest = 96241, title = "Talkin' bout Toxins, Mon", map = 1412, x = 33.62, y = 12.77, count = 5, item = 273001, itemName = "Gloomrise Toxin Sample", oi = 1, mobLevel = 29, spots = "33.6,11.6;34.4,10.4;35.5,12.3;33,9.2;33.5,7.6" },
+		{ t = "collect", quest = 96260, title = "Stronger than Steel", map = 1412, x = 33.28, y = 14.6, count = 3, item = 273181, itemName = "Crystalline Silk", oi = 1, mobLevel = 28, note = "Crystalline Silk, from Gloomrise Spinners", src = "Gloomrise Spinner", srcKind = "npc", spots = "33.2,13.6;32.5,11.1;35.7,11.8;34.5,10.3;33.2,8.1" },
+		{ t = "collect", quest = 96241, title = "Talkin' bout Toxins, Mon", map = 1412, x = 33.62, y = 12.77, count = 5, item = 273001, itemName = "Gloomrise Toxin Sample", oi = 1, mobLevel = 29, src = "Gnawed Corpse", srcKind = "npc", spots = "33.6,11.6;34.4,10.4;35.5,12.3;33,9.2;33.5,7.6" },
 	} },
 	{ title = "The Skywatcher camp: hand in", note = "Muln Earthfury offers The Broodmother only once Defending the Dead is handed in.", when = {{ k = "done", label = "gloomrise" }}, goals = {
 		{ t = "turnin", quest = 96259, title = "Defending the Dead", npc = "Muln Earthfury", map = 1412, x = 33.41, y = 22.58 },
@@ -5206,12 +5206,12 @@ Waypost.RegisterSteps("reputation/thunder-bluff", function() return {
 		{ t = "turnin", quest = 96294, title = "A Darker Truth", npc = "Muln Earthfury", map = 1412, x = 33.41, y = 22.58 },
 	} },
 	{ title = "Rumstag Proudstrider: A Donation of Wool", note = "From here it is cloth. Wool, Silk and Mageweave must all be handed in before Rumstag offers the Runecloth donation, and Additional Runecloth needs the Runecloth donation. Buy cloth at the Auction House, or farm it: humanoids drop it, Wool from level 15 to 25, Silk 25 to 40, Mageweave 40 to 50, Runecloth 50 and up. At 60 farm mobs of level 52 or more: lower ones are grey.", goals = {
-		{ t = "collect", map = 1440, x = 36, y = 37, era = true, count = 60, item = 2592, itemName = "Wool Cloth", mobLevel = 24, note = "Wool Cloth: the Thistlefur furbolgs drop it about one kill in four", spots = "36,37;33.8,38.2;37.9,34.7;33.8,39.7;38.7,39.2" },
+		{ t = "collect", map = 1440, x = 36, y = 37, era = true, count = 60, item = 2592, itemName = "Wool Cloth", mobLevel = 24, note = "Wool Cloth: the Thistlefur furbolgs drop it about one kill in four", src = "Thistlefur Shaman, Rorgish Jowl, Thistlefur Avenger and others", srcKind = "npc", spots = "36,37;33.8,38.2;37.9,34.7;33.8,39.7;38.7,39.2" },
 		{ t = "turnin", quest = 7820, title = "A Donation of Wool", npc = "Rumstag Proudstrider", map = 1456, x = 43.05, y = 42.72, era = true, qlvl = 60, note = "Rumstag Proudstrider: A Donation of Wool, +150" },
 	} },
 	{ title = "A Donation of Silk", note = "Silk: the Syndicate in Hillsbrad and Alterac drop it about one kill in three, or buy it.", goals = {
 		{ t = "level", level = 26 },
-		{ t = "collect", map = 1416, x = 57.7, y = 67.6, era = true, count = 60, item = 4306, itemName = "Silk Cloth", mobLevel = 34, note = "Silk Cloth: the Syndicate", spots = "57.7,67.6;47.8,81.7;61.6,44.2;61.9,40.8" },
+		{ t = "collect", map = 1416, x = 57.7, y = 67.6, era = true, count = 60, item = 4306, itemName = "Silk Cloth", mobLevel = 34, note = "Silk Cloth: the Syndicate", src = "Syndicate Footpad, Syndicate Wizard, Syndicate Thief and others", srcKind = "npc", spots = "57.7,67.6;47.8,81.7;61.6,44.2;61.9,40.8" },
 		{ t = "turnin", quest = 7821, title = "A Donation of Silk", npc = "Rumstag Proudstrider", map = 1456, x = 43.05, y = 42.72, era = true, qlvl = 60, note = "+150" },
 	} },
 	{ title = "A Donation of Mageweave", note = "Mageweave: the Jadefire satyrs in southern Felwood and the Dunemaul ogres in Tanaris drop it about one kill in three, or buy it.", goals = {
@@ -5235,7 +5235,7 @@ Waypost.RegisterSteps("reputation/thunder-bluff", function() return {
 		{ t = "kill", quest = 5055, title = "Brumeran of the Chillwind", map = 1452, x = 62.54, y = 57.9, era = true, count = 1, target = "Brumeran", oi = 1, group = true, note = "Brumeran, elite" },
 		{ t = "turnin", quest = 5055, title = "Brumeran of the Chillwind", npc = "Storm Shadowhoof", map = 1452, x = 61.93, y = 38.38, era = true },
 		{ t = "accept", quest = 5056, title = "Shy-Rotam", npc = "Storm Shadowhoof", map = 1452, x = 61.93, y = 38.38, era = true, qlvl = 60, note = "Shy-Rotam, +150" },
-		{ t = "collect", map = 1452, x = 56.62, y = 17.19, era = true, item = 12733, itemName = "Sacred Frostsaber Meat", mobLevel = 60, optional = true, note = "Sacred Frostsaber Meat, from the frostsabers", spots = "56.2,16.7;56.3,12.5;54.5,10.9;52.4,11.5;51,14.1" },
+		{ t = "collect", map = 1452, x = 56.62, y = 17.19, era = true, item = 12733, itemName = "Sacred Frostsaber Meat", mobLevel = 60, optional = true, note = "Sacred Frostsaber Meat, from the frostsabers", src = "Frostsaber Stalker, Frostsaber Cub, Frostsaber and others", srcKind = "npc", spots = "56.2,16.7;56.3,12.5;54.5,10.9;52.4,11.5;51,14.1" },
 		{ t = "kill", quest = 5056, title = "Shy-Rotam", map = 1452, x = 49.81, y = 9.8, era = true, count = 1, target = "Shy-Rotam", oi = 1, group = true },
 		{ t = "turnin", quest = 5056, title = "Shy-Rotam", npc = "Storm Shadowhoof", map = 1452, x = 61.93, y = 38.38, era = true },
 		{ t = "accept", quest = 5057, title = "Past Endeavors", npc = "Storm Shadowhoof", map = 1452, x = 61.93, y = 38.38, era = true, qlvl = 60, note = "Past Endeavors, +50" },
@@ -5254,7 +5254,7 @@ Waypost.RegisterSteps("reputation/thunder-bluff", function() return {
 		{ t = "accept", quest = 3761, title = "Un'Goro Soil", npc = "Arch Druid Hamuul Runetotem", map = 1456, x = 78.62, y = 28.56, era = true, qlvl = 50, note = "Un'Goro Soil, +100" },
 	} },
 	{ title = "Un'Goro Crater: Un'Goro Soil", note = "Nearly every beast, plant and silithid in the crater drops Un'Goro Soil, about one kill in three (the Bloodpetals and the Gorishi wasps about one in two), and the dirt mounds give it too. Take far more than 20: every casing uses 2, about 18 for each Morrowgrain hand-in.", when = {{ k = "done", label = "morrowgrain" }}, goals = {
-		{ t = "collect", quest = 3761, title = "Un'Goro Soil", map = 1449, x = 46.7, y = 52.71, era = true, count = 20, item = 11018, itemName = "Un'Goro Soil", oi = 1, spots = "45.9,53.7;35.2,40.8;30,56.8;31.7,77.5;50.5,90.1" },
+		{ t = "collect", quest = 3761, title = "Un'Goro Soil", map = 1449, x = 46.7, y = 52.71, era = true, count = 20, item = 11018, itemName = "Un'Goro Soil", oi = 1, src = "Gorishi Hive Guard, Gorishi Worker, Gorishi Stinger and others", srcKind = "npc", spots = "45.9,53.7;35.2,40.8;30,56.8;31.7,77.5;50.5,90.1" },
 	} },
 	{ title = "Thunder Bluff: Morrowgrain Research", note = "Ghede takes the soil. Bashana Runetotem sells the Evergreen Pouch (1 gold) and Packets of Tharlendris Seeds (10 silver each). With a seed packet and 2 Un'Goro Soil in your bags, use the pouch: it grows an Evergreen Herb Casing, once every 10 minutes. Open each casing: about one in three holds 1 to 5 Morrowgrain, the rest common herbs. Use the pouch whenever it is ready while you follow the rest of this guide.", when = {{ k = "done", label = "morrowgrain" }}, goals = {
 		{ t = "turnin", quest = 3761, title = "Un'Goro Soil", npc = "Ghede", map = 1456, x = 77.46, y = 21.97, era = true },
@@ -5302,8 +5302,8 @@ Waypost.RegisterSteps("reputation/undercity", function() return {
 	} },
 	{ title = "Deathknell (optional hub)", note = "Forever pays these old quests in full at any level. Deathknell, the Forsaken start at the west end of Tirisfal: about 900 Undercity reputation in 25 minutes. Starting-zone quests give the other cities no share. Novice Elreth, Executor Arren and Deathguard Saltain stand in the village.", label = "deathknell", goals = {
 		{ t = "accept", quest = 376, title = "The Damned", npc = "Novice Elreth", map = 1420, x = 30.86, y = 66.05, era = true, qlvl = 2, note = "Novice Elreth: The Damned, +100" },
-		{ t = "collect", quest = 376, title = "The Damned", map = 1420, x = 29.4, y = 65.67, era = true, count = 6, item = 3265, itemName = "Scavenger Paw", oi = 1, mobLevel = 1, spots = "29.5,64.8;29.2,67.7;30.3,61.9;33.6,67.7;31.7,59" },
-		{ t = "collect", quest = 376, title = "The Damned", map = 1420, x = 29.14, y = 66.71, era = true, count = 6, item = 3264, itemName = "Duskbat Wing", oi = 2, mobLevel = 2, spots = "28.8,68;29.9,65.3;28.1,63.6;31,58.8;34.6,57.8" },
+		{ t = "collect", quest = 376, title = "The Damned", map = 1420, x = 29.4, y = 65.67, era = true, count = 6, item = 3265, itemName = "Scavenger Paw", oi = 1, mobLevel = 1, src = "Young Scavenger, Ragged Scavenger", srcKind = "npc", spots = "29.5,64.8;29.2,67.7;30.3,61.9;33.6,67.7;31.7,59" },
+		{ t = "collect", quest = 376, title = "The Damned", map = 1420, x = 29.14, y = 66.71, era = true, count = 6, item = 3264, itemName = "Duskbat Wing", oi = 2, mobLevel = 2, src = "Duskbat, Mangy Duskbat, Belfry Bat", srcKind = "npc", spots = "28.8,68;29.9,65.3;28.1,63.6;31,58.8;34.6,57.8" },
 		{ t = "turnin", quest = 376, title = "The Damned", npc = "Novice Elreth", map = 1420, x = 30.86, y = 66.05, era = true },
 	} },
 	{ title = "Deathknell: the next quests", when = {{ k = "done", label = "deathknell" }}, goals = {
@@ -5313,7 +5313,7 @@ Waypost.RegisterSteps("reputation/undercity", function() return {
 		{ t = "accept", quest = 98389, title = "A Light in the Darkness", npc = "Aramis Hammerhand", map = 1420, x = 31.1, y = 66.41, era = true, qlvl = 4, note = "A Light in the Darkness, +100" },
 	} },
 	{ title = "Around Deathknell", note = "The Equipment Boxes are all around the village. Night Web's Hollow is the mine north-west; the Webbed Forsaken hang inside. Samuel Fipps waits at the ruined camp by the road north-east: bury his remains at Marla's Grave, in the front row of the village graveyard.", when = {{ k = "done", label = "deathknell" }}, goals = {
-		{ t = "collect", quest = 3902, title = "Scavenging Deathknell", map = 1420, x = 32.38, y = 64.35, era = true, count = 6, item = 11127, itemName = "Scavenged Goods", oi = 1, spots = "33.4,64.7;31.9,61.8" },
+		{ t = "collect", quest = 3902, title = "Scavenging Deathknell", map = 1420, x = 32.38, y = 64.35, era = true, count = 6, item = 11127, itemName = "Scavenged Goods", oi = 1, src = "Equipment Boxes", srcKind = "object", spots = "33.4,64.7;31.9,61.8" },
 		{ t = "kill", quest = 380, title = "Night Web's Hollow", map = 1420, x = 29.4, y = 59.42, era = true, count = 10, target = "Young Night Web Spider", oi = 1, mobLevel = 3, spots = "28.2,59.3;29.6,57.5;29.4,55.9;27.8,56.5" },
 		{ t = "kill", quest = 380, title = "Night Web's Hollow", map = 1420, x = 26.6, y = 59.5, era = true, count = 8, target = "Night Web Spider", oi = 2, mobLevel = 4, spots = "25.8,59.8;24,59.7" },
 		{ t = "kill", quest = 98389, title = "A Light in the Darkness", map = 1420, x = 26.28, y = 59.58, era = true, count = 6, target = "Webbed Forsaken", oi = 1, mobLevel = 3, note = "Webbed Forsaken freed", spots = "26.8,59.6;24.2,59.5" },
@@ -5327,10 +5327,10 @@ Waypost.RegisterSteps("reputation/undercity", function() return {
 		{ t = "turnin", quest = 98389, title = "A Light in the Darkness", npc = "Aramis Hammerhand", map = 1420, x = 31.1, y = 66.41, era = true },
 	} },
 	{ title = "The Scarlet camp", note = "The Scarlet camp is south-east of Deathknell. Meven Korgal leads it.", when = {{ k = "done", label = "deathknell" }}, goals = {
-		{ t = "collect", quest = 381, title = "The Scarlet Crusade", map = 1420, x = 35.94, y = 68.59, era = true, count = 12, item = 3266, itemName = "Scarlet Armband", oi = 1, mobLevel = 4, spots = "37.2,68.4;37.8,70.3;37.8,65.9;36.9,63" },
+		{ t = "collect", quest = 381, title = "The Scarlet Crusade", map = 1420, x = 35.94, y = 68.59, era = true, count = 12, item = 3266, itemName = "Scarlet Armband", oi = 1, mobLevel = 4, src = "Scarlet Convert, Scarlet Initiate, Meven Korgal", srcKind = "npc", spots = "37.2,68.4;37.8,70.3;37.8,65.9;36.9,63" },
 		{ t = "turnin", quest = 381, title = "The Scarlet Crusade", npc = "Executor Arren", map = 1420, x = 32.15, y = 66.01, era = true },
 		{ t = "accept", quest = 382, title = "The Red Messenger", npc = "Executor Arren", map = 1420, x = 32.15, y = 66.01, era = true, qlvl = 5, note = "The Red Messenger, +200" },
-		{ t = "collect", quest = 382, title = "The Red Messenger", map = 1420, x = 36.57, y = 68.54, era = true, count = 1, item = 2885, itemName = "Scarlet Crusade Documents", oi = 1, note = "Scarlet Crusade Documents, from Meven Korgal" },
+		{ t = "collect", quest = 382, title = "The Red Messenger", map = 1420, x = 36.57, y = 68.54, era = true, count = 1, item = 2885, itemName = "Scarlet Crusade Documents", oi = 1, note = "Scarlet Crusade Documents, from Meven Korgal", src = "Meven Korgal", srcKind = "npc" },
 		{ t = "turnin", quest = 382, title = "The Red Messenger", npc = "Executor Arren", map = 1420, x = 32.15, y = 66.01, era = true },
 		{ t = "accept", quest = 383, title = "Vital Intelligence", npc = "Executor Arren", map = 1420, x = 32.15, y = 66.01, era = true, qlvl = 5, note = "Vital Intelligence, +75: to Executor Zygand in Brill" },
 	} },
@@ -5354,16 +5354,16 @@ Waypost.RegisterSteps("reputation/undercity", function() return {
 		{ t = "collect", quest = 99141, title = "Patience", npc = "Gordo", map = 1420, x = 43.06, y = 54.69, era = true, count = 1, item = 286202, itemName = "Gordo's Report", oi = 3 },
 		{ t = "kill", quest = 358, title = "Graverobbers", map = 1420, x = 53.8, y = 43.93, era = true, count = 8, target = "Rot Hide Graverobber", oi = 1, mobLevel = 7, spots = "53.8,42.7;55.3,42.3;56.6,44.7;56.3,40.2;58,42.4" },
 		{ t = "kill", quest = 358, title = "Graverobbers", map = 1420, x = 58.59, y = 37.5, era = true, count = 5, target = "Rot Hide Mongrel", oi = 2, mobLevel = 8, spots = "59.1,36.7;60.5,38.2;57.3,34.7;60,32.9;58.3,31.5" },
-		{ t = "collect", quest = 358, title = "Graverobbers", map = 1420, x = 58.59, y = 37.5, era = true, count = 8, item = 2834, itemName = "Embalming Ichor", oi = 3, mobLevel = 7, spots = "58.7,37.6;60.5,38.2;59.5,34.5;57.2,34.9;56.6,39.8" },
-		{ t = "collect", quest = 367, title = "A New Plague", map = 1420, x = 60.52, y = 40.44, era = true, count = 5, item = 2858, itemName = "Darkhound Blood", oi = 1, mobLevel = 8, spots = "62.1,39.8;73.4,28.6;86.2,38.8;75.5,53.7;67.2,63.5" },
-		{ t = "collect", quest = 404, title = "A Putrid Task", map = 1420, x = 56.35, y = 46.37, era = true, count = 7, item = 2855, itemName = "Putrid Claw", oi = 1, mobLevel = 7, spots = "56.2,47;55,48.5;53.7,45.7;54.8,50.6;52.7,47.1" },
-		{ t = "collect", quest = 86784, title = "Sticks and Bones", map = 1420, x = 56.2, y = 50.4, era = true, count = 6, item = 279991, itemName = "Dry Branch", oi = 1, spots = "57,51.4;55,52.3;59.4,52;55.1,55.6;57.4,58.4" },
+		{ t = "collect", quest = 358, title = "Graverobbers", map = 1420, x = 58.59, y = 37.5, era = true, count = 8, item = 2834, itemName = "Embalming Ichor", oi = 3, mobLevel = 7, src = "Rot Hide Mongrel, Rot Hide Gnoll, Rot Hide Graverobber", srcKind = "npc", spots = "58.7,37.6;60.5,38.2;59.5,34.5;57.2,34.9;56.6,39.8" },
+		{ t = "collect", quest = 367, title = "A New Plague", map = 1420, x = 60.52, y = 40.44, era = true, count = 5, item = 2858, itemName = "Darkhound Blood", oi = 1, mobLevel = 8, src = "Decrepit Darkhound, Cursed Darkhound, Ravenous Darkhound", srcKind = "npc", spots = "62.1,39.8;73.4,28.6;86.2,38.8;75.5,53.7;67.2,63.5" },
+		{ t = "collect", quest = 404, title = "A Putrid Task", map = 1420, x = 56.35, y = 46.37, era = true, count = 7, item = 2855, itemName = "Putrid Claw", oi = 1, mobLevel = 7, src = "Rotting Dead, Ravaged Corpse", srcKind = "npc", spots = "56.2,47;55,48.5;53.7,45.7;54.8,50.6;52.7,47.1" },
+		{ t = "collect", quest = 86784, title = "Sticks and Bones", map = 1420, x = 56.2, y = 50.4, era = true, count = 6, item = 279991, itemName = "Dry Branch", oi = 1, src = "Dry Branch", srcKind = "object", spots = "57,51.4;55,52.3;59.4,52;55.1,55.6;57.4,58.4" },
 	} },
 	{ title = "Agamand Mills", note = "Devlin Agamand walks the road to Agamand Mills; Nissa waits upstairs in the first house, Gregor and Thurman further on in the mills.", when = {{ k = "done", label = "brill" }}, goals = {
-		{ t = "collect", quest = 362, title = "The Haunted Mills", map = 1420, x = 47.23, y = 40.02, era = true, count = 1, item = 2831, itemName = "Devlin's Remains", oi = 1 },
-		{ t = "collect", quest = 354, title = "Deaths in the Family", map = 1420, x = 45.79, y = 29.39, era = true, count = 1, item = 2829, itemName = "Gregor's Remains", oi = 1 },
-		{ t = "collect", quest = 354, title = "Deaths in the Family", map = 1420, x = 49.74, y = 36.34, era = true, count = 1, item = 2828, itemName = "Nissa's Remains", oi = 2 },
-		{ t = "collect", quest = 354, title = "Deaths in the Family", map = 1420, x = 42.84, y = 32.54, era = true, count = 1, item = 2830, itemName = "Thurman's Remains", oi = 3 },
+		{ t = "collect", quest = 362, title = "The Haunted Mills", map = 1420, x = 47.23, y = 40.02, era = true, count = 1, item = 2831, itemName = "Devlin's Remains", oi = 1, src = "Devlin Agamand", srcKind = "npc" },
+		{ t = "collect", quest = 354, title = "Deaths in the Family", map = 1420, x = 45.79, y = 29.39, era = true, count = 1, item = 2829, itemName = "Gregor's Remains", oi = 1, src = "Gregor Agamand", srcKind = "npc" },
+		{ t = "collect", quest = 354, title = "Deaths in the Family", map = 1420, x = 49.74, y = 36.34, era = true, count = 1, item = 2828, itemName = "Nissa's Remains", oi = 2, src = "Nissa Agamand", srcKind = "npc" },
+		{ t = "collect", quest = 354, title = "Deaths in the Family", map = 1420, x = 42.84, y = 32.54, era = true, count = 1, item = 2830, itemName = "Thurman's Remains", oi = 3, src = "Thurman Agamand", srcKind = "npc" },
 	} },
 	{ title = "Brill: hand in", when = {{ k = "done", label = "brill" }}, goals = {
 		{ t = "turnin", quest = 99134, title = "Discipline", npc = "Executor Zygand", map = 1420, x = 60.59, y = 51.76, era = true },
@@ -5377,17 +5377,17 @@ Waypost.RegisterSteps("reputation/undercity", function() return {
 		{ t = "turnin", quest = 86784, title = "Sticks and Bones", npc = "Eleanor Shackleton", map = 1420, x = 57.28, y = 55.49, era = true },
 	} },
 	{ title = "Agamand Mills again", note = "The skeletons of Agamand Mills drop the ribs; the Darkeye Bonecasters the skulls.", when = {{ k = "done", label = "brill" }}, goals = {
-		{ t = "collect", quest = 426, title = "The Mills Overrun", map = 1420, x = 50.72, y = 43.96, era = true, count = 5, item = 3162, itemName = "Notched Rib", oi = 1, mobLevel = 9, spots = "49.6,43.3;46.4,43.6;48.9,37;45.7,38.6;44.8,40.5" },
-		{ t = "collect", quest = 426, title = "The Mills Overrun", map = 1420, x = 50.22, y = 42.99, era = true, count = 3, item = 3163, itemName = "Blackened Skull", oi = 2, mobLevel = 8, spots = "50.2,43;47.8,42;47.6,38.4;47.3,34.6;47.7,30.4" },
+		{ t = "collect", quest = 426, title = "The Mills Overrun", map = 1420, x = 50.72, y = 43.96, era = true, count = 5, item = 3162, itemName = "Notched Rib", oi = 1, mobLevel = 9, src = "Rattlecage Soldier, Cracked Skull Soldier", srcKind = "npc", spots = "49.6,43.3;46.4,43.6;48.9,37;45.7,38.6;44.8,40.5" },
+		{ t = "collect", quest = 426, title = "The Mills Overrun", map = 1420, x = 50.22, y = 42.99, era = true, count = 3, item = 3163, itemName = "Blackened Skull", oi = 2, mobLevel = 8, src = "Darkeye Bonecaster, Shadowvale Mystic", srcKind = "npc", spots = "50.2,43;47.8,42;47.6,38.4;47.3,34.6;47.7,30.4" },
 		{ t = "turnin", quest = 426, title = "The Mills Overrun", npc = "Deathguard Dillinger", map = 1420, x = 58.2, y = 51.45, era = true },
 	} },
 	{ title = "Ralston Farnsley: A Donation of Wool", note = "From here it is cloth. Wool, Silk and Mageweave must all be handed in before Ralston offers the Runecloth donation, and Additional Runecloth needs the Runecloth donation. Buy cloth at the Auction House, or farm it: humanoids drop it, Wool from level 15 to 25, Silk 25 to 40, Mageweave 40 to 50, Runecloth 50 and up. At 60 farm mobs of level 52 or more: lower ones are grey.", goals = {
-		{ t = "collect", map = 1440, x = 36, y = 37, era = true, count = 60, item = 2592, itemName = "Wool Cloth", mobLevel = 24, note = "Wool Cloth: the Thistlefur furbolgs drop it about one kill in four", spots = "36,37;33.8,38.2;37.9,34.7;33.8,39.7;38.7,39.2" },
+		{ t = "collect", map = 1440, x = 36, y = 37, era = true, count = 60, item = 2592, itemName = "Wool Cloth", mobLevel = 24, note = "Wool Cloth: the Thistlefur furbolgs drop it about one kill in four", src = "Thistlefur Shaman, Rorgish Jowl, Thistlefur Avenger and others", srcKind = "npc", spots = "36,37;33.8,38.2;37.9,34.7;33.8,39.7;38.7,39.2" },
 		{ t = "turnin", quest = 7813, title = "A Donation of Wool", npc = "Ralston Farnsley", map = 1458, x = 71.66, y = 29.23, era = true, qlvl = 60, note = "Ralston Farnsley: A Donation of Wool, +150" },
 	} },
 	{ title = "A Donation of Silk", note = "Silk: the Syndicate in Hillsbrad and Alterac drop it about one kill in three, or buy it.", goals = {
 		{ t = "level", level = 26 },
-		{ t = "collect", map = 1416, x = 57.7, y = 67.6, era = true, count = 60, item = 4306, itemName = "Silk Cloth", mobLevel = 34, note = "Silk Cloth: the Syndicate", spots = "57.7,67.6;47.8,81.7;61.6,44.2;61.9,40.8" },
+		{ t = "collect", map = 1416, x = 57.7, y = 67.6, era = true, count = 60, item = 4306, itemName = "Silk Cloth", mobLevel = 34, note = "Silk Cloth: the Syndicate", src = "Syndicate Footpad, Syndicate Wizard, Syndicate Thief and others", srcKind = "npc", spots = "57.7,67.6;47.8,81.7;61.6,44.2;61.9,40.8" },
 		{ t = "turnin", quest = 7814, title = "A Donation of Silk", npc = "Ralston Farnsley", map = 1458, x = 71.66, y = 29.23, era = true, qlvl = 60, note = "+150" },
 	} },
 	{ title = "A Donation of Mageweave", note = "Mageweave: the Jadefire satyrs in southern Felwood and the Dunemaul ogres in Tanaris drop it about one kill in three, or buy it.", goals = {
@@ -5417,7 +5417,7 @@ Waypost.RegisterSteps("reputation/undercity", function() return {
 		{ t = "accept", quest = 5229, title = "Target: Felstone Field", npc = "Shadow Priestess Vandis", map = 1420, x = 83.04, y = 71.91, era = true, qlvl = 53, note = "Target: Felstone Field, +100 (level 53)" },
 	} },
 	{ title = "Felstone Field and the Andorhal towers", note = "Cauldron Lord Bilemaw guards the cauldron at Felstone Field. Click the cauldron after the kill to start Return to the Bulwark. Mark the four towers of Andorhal with the Beacon Torch at their doors.", goals = {
-		{ t = "collect", quest = 5229, title = "Target: Felstone Field", map = 1422, x = 36.93, y = 57.41, era = true, count = 1, item = 13194, itemName = "Felstone Field Cauldron Key", oi = 1 },
+		{ t = "collect", quest = 5229, title = "Target: Felstone Field", map = 1422, x = 36.93, y = 57.41, era = true, count = 1, item = 13194, itemName = "Felstone Field Cauldron Key", oi = 1, src = "Cauldron Lord Bilemaw", srcKind = "npc" },
 		{ t = "turnin", quest = 5229, title = "Target: Felstone Field", npc = "Scourge Cauldron", map = 1422, x = 37.25, y = 56.78, era = true, note = "the Scourge Cauldron" },
 		{ t = "accept", quest = 5230, title = "Return to the Bulwark", npc = "Scourge Cauldron", map = 1422, x = 37.25, y = 56.78, era = true, qlvl = 53, note = "Return to the Bulwark, +50" },
 		{ t = "kill", quest = 5098, title = "All Along the Watchtowers", map = 1422, x = 40.05, y = 71.6, era = true, count = 1, target = "Andorhal Tower One", oi = 1, note = "Andorhal Tower One: use the Beacon Torch at the door", text = "Mark Andorhal Tower One with the Beacon Torch" },
@@ -5431,7 +5431,7 @@ Waypost.RegisterSteps("reputation/undercity", function() return {
 		{ t = "turnin", quest = 5098, title = "All Along the Watchtowers", npc = "High Executor Derrington", map = 1420, x = 83.13, y = 68.94, era = true },
 	} },
 	{ title = "Dalson's Tears", note = "Cauldron Lord Malvinious guards the cauldron at Dalson's Tears.", goals = {
-		{ t = "collect", quest = 5231, title = "Target: Dalson's Tears", map = 1422, x = 46.11, y = 52.61, era = true, count = 1, item = 13195, itemName = "Dalson's Tears Cauldron Key", oi = 1 },
+		{ t = "collect", quest = 5231, title = "Target: Dalson's Tears", map = 1422, x = 46.11, y = 52.61, era = true, count = 1, item = 13195, itemName = "Dalson's Tears Cauldron Key", oi = 1, src = "Cauldron Lord Malvinious", srcKind = "npc" },
 		{ t = "turnin", quest = 5231, title = "Target: Dalson's Tears", npc = "Scourge Cauldron", map = 1422, x = 46.18, y = 51.9, era = true, note = "the Scourge Cauldron" },
 		{ t = "accept", quest = 5232, title = "Return to the Bulwark", npc = "Scourge Cauldron", map = 1422, x = 46.18, y = 51.9, era = true, qlvl = 55, note = "Return to the Bulwark, +50" },
 	} },
@@ -5440,7 +5440,7 @@ Waypost.RegisterSteps("reputation/undercity", function() return {
 		{ t = "accept", quest = 5233, title = "Target: Writhing Haunt", npc = "Shadow Priestess Vandis", map = 1420, x = 83.04, y = 71.91, era = true, qlvl = 55, note = "Target: Writhing Haunt, +100" },
 	} },
 	{ title = "The Writhing Haunt", note = "Cauldron Lord Razarch guards the cauldron at the Writhing Haunt.", goals = {
-		{ t = "collect", quest = 5233, title = "Target: Writhing Haunt", map = 1422, x = 52.88, y = 66.08, era = true, count = 1, item = 13197, itemName = "Writhing Haunt Cauldron Key", oi = 1 },
+		{ t = "collect", quest = 5233, title = "Target: Writhing Haunt", map = 1422, x = 52.88, y = 66.08, era = true, count = 1, item = 13197, itemName = "Writhing Haunt Cauldron Key", oi = 1, src = "Cauldron Lord Razarch", srcKind = "npc" },
 		{ t = "turnin", quest = 5233, title = "Target: Writhing Haunt", npc = "Scourge Cauldron", map = 1422, x = 53.02, y = 65.61, era = true, note = "the Scourge Cauldron" },
 		{ t = "accept", quest = 5234, title = "Return to the Bulwark", npc = "Scourge Cauldron", map = 1422, x = 53.02, y = 65.61, era = true, qlvl = 55, note = "Return to the Bulwark, +50" },
 	} },
@@ -5449,7 +5449,7 @@ Waypost.RegisterSteps("reputation/undercity", function() return {
 		{ t = "accept", quest = 5235, title = "Target: Gahrron's Withering", npc = "Shadow Priestess Vandis", map = 1420, x = 83.04, y = 71.91, era = true, qlvl = 58, note = "Target: Gahrron's Withering, +100" },
 	} },
 	{ title = "Gahrron's Withering", note = "Cauldron Lord Soulwrath guards the cauldron at Gahrron's Withering.", goals = {
-		{ t = "collect", quest = 5235, title = "Target: Gahrron's Withering", map = 1422, x = 62.18, y = 59.06, era = true, count = 1, item = 13196, itemName = "Gahrron's Withering Cauldron Key", oi = 1 },
+		{ t = "collect", quest = 5235, title = "Target: Gahrron's Withering", map = 1422, x = 62.18, y = 59.06, era = true, count = 1, item = 13196, itemName = "Gahrron's Withering Cauldron Key", oi = 1, src = "Cauldron Lord Soulwrath", srcKind = "npc" },
 		{ t = "turnin", quest = 5235, title = "Target: Gahrron's Withering", npc = "Scourge Cauldron", map = 1422, x = 62.54, y = 58.47, era = true, note = "the Scourge Cauldron" },
 		{ t = "accept", quest = 5236, title = "Return to the Bulwark", npc = "Scourge Cauldron", map = 1422, x = 62.54, y = 58.47, era = true, qlvl = 58, note = "Return to the Bulwark, +50" },
 	} },
@@ -5468,7 +5468,7 @@ Waypost.RegisterSteps("reputation/undercity", function() return {
 		{ t = "kill", quest = 6133, title = "The Ranger Lord's Behest", map = 1423, x = 44.57, y = 15.75, count = 8, target = "Ranger", oi = 2, mobLevel = 60, spots = "44.5,14.8;45.6,12.4" },
 		{ t = "kill", quest = 6133, title = "The Ranger Lord's Behest", map = 1423, x = 44.69, y = 15.29, count = 8, target = "Pathstrider", oi = 1, mobLevel = 58, spots = "44.7,15.3;46.7,11.4" },
 		{ t = "kill", quest = 6133, title = "The Ranger Lord's Behest", map = 1423, x = 44.93, y = 15.74, count = 8, target = "Woodsman", oi = 3, mobLevel = 59, spots = "46,14.1;43.9,12.1;46.8,10.8" },
-		{ t = "collect", quest = 6133, title = "The Ranger Lord's Behest", map = 1423, x = 45.27, y = 12.7, count = 1, item = 15847, itemName = "Quel'Thalas Registry", oi = 4 },
+		{ t = "collect", quest = 6133, title = "The Ranger Lord's Behest", map = 1423, x = 45.27, y = 12.7, count = 1, item = 15847, itemName = "Quel'Thalas Registry", oi = 4, src = "Quel'Thalas Registry", srcKind = "object" },
 		{ t = "collect", quest = 6022, title = "To Kill With Purpose", map = 1423, x = 52.6, y = 58.6, era = true, count = 1, item = 15448, itemName = "Coagulated Rot", oi = 1, note = "Coagulated Rot: 7 Living Rot and the Mortar and Pestle" },
 	} },
 	{ title = "Nathanos: hand in", goals = {
@@ -5479,7 +5479,7 @@ Waypost.RegisterSteps("reputation/undercity", function() return {
 		{ t = "accept", quest = 6136, title = "The Corpulent One", npc = "Nathanos Blightcaller", map = 1423, x = 22.23, y = 63.51, qlvl = 60, note = "The Corpulent One, +100" },
 	} },
 	{ title = "Duskwing and Borelgore", note = "Duskwing, an elite bat, roams the fields north of Marris Stead. Borelgore paces a long valley west of Northdale.", goals = {
-		{ t = "collect", quest = 6135, title = "Duskwing, Oh How I Hate Thee...", map = 1423, x = 26.08, y = 59.03, count = 1, item = 15850, itemName = "Patch of Duskwing's Fur", oi = 1, group = true },
+		{ t = "collect", quest = 6135, title = "Duskwing, Oh How I Hate Thee...", map = 1423, x = 26.08, y = 59.03, count = 1, item = 15850, itemName = "Patch of Duskwing's Fur", oi = 1, group = true, src = "Duskwing", srcKind = "npc" },
 		{ t = "kill", quest = 6136, title = "The Corpulent One", map = 1423, x = 47.69, y = 24.87, count = 1, target = "Borelgore", oi = 1, group = true },
 		{ t = "turnin", quest = 6135, title = "Duskwing, Oh How I Hate Thee...", npc = "Nathanos Blightcaller", map = 1423, x = 22.23, y = 63.51 },
 		{ t = "turnin", quest = 6136, title = "The Corpulent One", npc = "Nathanos Blightcaller", map = 1423, x = 22.23, y = 63.51 },
@@ -5493,7 +5493,7 @@ Waypost.RegisterSteps("reputation/undercity", function() return {
 		{ t = "accept", quest = 2934, title = "Undamaged Venom Sac", npc = "Apothecary Lydon", map = 1424, x = 61.44, y = 19.06, era = true, qlvl = 45, note = "Undamaged Venom Sac, +100" },
 	} },
 	{ title = "Shadra'Alor: an Undamaged Venom Sac", note = "The Witherbark Broodguards crawl around Shadra'Alor in the south-west of the Hinterlands; about one in ten carries an undamaged sac.", when = {{ k = "done", label = "shadra" }}, goals = {
-		{ t = "collect", quest = 2934, title = "Undamaged Venom Sac", map = 1425, x = 33.58, y = 70.06, era = true, count = 1, item = 9322, itemName = "Undamaged Venom Sac", oi = 1, mobLevel = 45, note = "Undamaged Venom Sac, from Witherbark Broodguards", spots = "34.1,68.1;34.8,73.3;31,72;37.1,68;35.9,63.9" },
+		{ t = "collect", quest = 2934, title = "Undamaged Venom Sac", map = 1425, x = 33.58, y = 70.06, era = true, count = 1, item = 9322, itemName = "Undamaged Venom Sac", oi = 1, mobLevel = 45, note = "Undamaged Venom Sac, from Witherbark Broodguards", src = "Witherbark Broodguard", srcKind = "npc", spots = "34.1,68.1;34.8,73.3;31,72;37.1,68;35.9,63.9" },
 	} },
 	{ title = "Tarren Mill, then Sen'jin Village", when = {{ k = "done", label = "shadra" }}, goals = {
 		{ t = "turnin", quest = 2934, title = "Undamaged Venom Sac", npc = "Apothecary Lydon", map = 1424, x = 61.44, y = 19.06, era = true },
@@ -5510,7 +5510,7 @@ Waypost.RegisterSteps("reputation/undercity", function() return {
 		{ t = "accept", quest = 2937, title = "Summoning Shadra", npc = "Master Gadrin", map = 1411, x = 55.95, y = 74.72, era = true, qlvl = 55, note = "Summoning Shadra, +200" },
 	} },
 	{ title = "Shadra'Alor: Shadra", note = "Read Gadrin's Parchment at the altar of Shadra'Alor to call Shadra, an elite level 55 spider: she drops her venom every time.", when = {{ k = "done", label = "shadra" }}, goals = {
-		{ t = "collect", quest = 2937, title = "Summoning Shadra", map = 1425, x = 33.8, y = 73, era = true, count = 1, item = 9324, itemName = "Shadra's Venom", oi = 1, group = true, note = "Shadra's Venom, from Shadra" },
+		{ t = "collect", quest = 2937, title = "Summoning Shadra", map = 1425, x = 33.8, y = 73, era = true, count = 1, item = 9324, itemName = "Shadra's Venom", oi = 1, group = true, note = "Shadra's Venom, from Shadra", src = "Shadra", srcKind = "npc" },
 	} },
 	{ title = "Tarren Mill and the Undercity", when = {{ k = "done", label = "shadra" }}, goals = {
 		{ t = "turnin", quest = 2937, title = "Summoning Shadra", npc = "Apothecary Lydon", map = 1424, x = 61.44, y = 19.06, era = true },
@@ -5547,7 +5547,7 @@ Waypost.RegisterSteps("class/druid/aquatic-form", function() return {
 	{ title = "Trial of the Lake", note = "Cast Teleport: Moonglade to get here: Dendrite Starblaze stands upstairs in the building beside where you land. Trial of the Lake runs on a 30-minute timer: once you accept it, no teleport or Hearthstone until Tajarri has it. Six Bauble Containers (vases) lie in narrow hollows deep on the floor of Lake Elune'ara below Nighthaven, often near the bubbling fissures (the Bubbly Fissure in the middle of the lake refills your breath); each comes back three minutes after it is opened, and other druids take them too. Check the Shrine Bauble is in your bags before you surface: it fades five minutes after you loot it. Swim it straight to the Shrine of Remulos on the north-west shore, use it inside the shrine grounds and speak to Tajarri by the tree.", only = { races = {"NightElf", "Skyborne"}, factions = {"Alliance"} }, goals = {
 		{ t = "turnin", quest = 26, title = "A Lesson to Learn", npc = "Dendrite Starblaze", map = 1450, x = 56.21, y = 30.64, era = true },
 		{ t = "accept", quest = 29, title = "Trial of the Lake", npc = "Dendrite Starblaze", map = 1450, x = 56.21, y = 30.64, era = true, qlvl = 16 },
-		{ t = "collect", map = 1450, x = 54.7, y = 46.4, era = true, count = 1, item = 15877, itemName = "Shrine Bauble", note = "Shrine Bauble, from a Bauble Container in the lake", spots = "52,49.3;56.4,53.4;60.5,58.3" },
+		{ t = "collect", map = 1450, x = 54.7, y = 46.4, era = true, count = 1, item = 15877, itemName = "Shrine Bauble", note = "Shrine Bauble, from a Bauble Container in the lake", src = "Bauble Container", srcKind = "object", spots = "52,49.3;56.4,53.4;60.5,58.3" },
 		{ t = "use", map = 1450, x = 36, y = 41.4, era = true, item = 15877, itemName = "Shrine Bauble", note = "At the Shrine of Remulos" },
 		{ t = "complete", quest = 29, title = "Trial of the Lake", map = 1450, x = 36, y = 41.4, era = true, objs = {"Shrine Of Remulos"} },
 		{ t = "turnin", quest = 29, title = "Trial of the Lake", npc = "Tajarri", map = 1450, x = 36.52, y = 40.1, era = true },
@@ -5555,14 +5555,14 @@ Waypost.RegisterSteps("class/druid/aquatic-form", function() return {
 	} },
 	{ title = "Half Pendant of Aquatic Agility", note = "Fly from Nighthaven to Auberdine. The Strange Lockbox lies far out on the sea floor off the north coast, between tall rocks west of where the Cliffspring River reaches the sea: it cannot be seen from the east side of the rocks. Watch your breath and the Darkshore Threshers; fight above water.", only = { races = {"NightElf", "Skyborne"}, factions = {"Alliance"} }, goals = {
 		{ t = "fly", location = "Auberdine" },
-		{ t = "collect", map = 1439, x = 48.87, y = 11.32, era = true, count = 1, item = 15883, itemName = "Half Pendant of Aquatic Agility", note = "Half Pendant of Aquatic Agility, from the Strange Lockbox" },
+		{ t = "collect", map = 1439, x = 48.87, y = 11.32, era = true, count = 1, item = 15883, itemName = "Half Pendant of Aquatic Agility", note = "Half Pendant of Aquatic Agility, from the Strange Lockbox", src = "Strange Lockbox", srcKind = "object" },
 	} },
 	{ title = "Half Pendant of Aquatic Endurance", note = "Take the boat from Auberdine to Stormwind and fly to Sentinel Hill. Head west to the coast: the Strange Lockbox lies far out on the sea floor beside a bubbling fissure (air), west of a sunken anchor. Sharks roam here; do not swim on past the wreck beyond it, the deep water brings fatigue.", only = { races = {"NightElf", "Skyborne"}, factions = {"Alliance"} }, goals = {
 		{ t = "fly", location = "Sentinel Hill" },
-		{ t = "collect", map = 1436, x = 17.94, y = 33.18, era = true, count = 1, item = 15882, itemName = "Half Pendant of Aquatic Endurance", note = "Half Pendant of Aquatic Endurance, from the Strange Lockbox" },
+		{ t = "collect", map = 1436, x = 17.94, y = 33.18, era = true, count = 1, item = 15882, itemName = "Half Pendant of Aquatic Endurance", note = "Half Pendant of Aquatic Endurance, from the Strange Lockbox", src = "Strange Lockbox", srcKind = "object" },
 	} },
 	{ title = "Pendant of the Sea Lion", note = "Cast Teleport: Moonglade. With both halves in your bags, stand by the Shrine of Remulos on the north-west shore and use the Half Pendant of Aquatic Agility to join them, then cast Teleport: Moonglade again (it works inside Moonglade) to land by Dendrite Starblaze. He stands upstairs in his building: go up inside, the arrow cannot tell the floors apart. Afterwards Silva Fil'naveth, in the middle of Nighthaven, flies druids straight to Rut'theran Village.", only = { races = {"NightElf", "Skyborne"}, factions = {"Alliance"} }, goals = {
-		{ t = "collect", quest = 272, title = "Trial of the Sea Lion", map = 1450, x = 36, y = 41.42, era = true, count = 1, item = 15885, itemName = "Pendant of the Sea Lion", oi = 1, note = "Pendant of the Sea Lion: join the halves at the shrine" },
+		{ t = "collect", quest = 272, title = "Trial of the Sea Lion", map = 1450, x = 36, y = 41.42, era = true, count = 1, item = 15885, itemName = "Pendant of the Sea Lion", oi = 1, note = "Pendant of the Sea Lion: join the halves at the shrine", src = "Shrine Of Remulos", srcKind = "object" },
 		{ t = "turnin", quest = 272, title = "Trial of the Sea Lion", npc = "Dendrite Starblaze", map = 1450, x = 56.21, y = 30.64, era = true },
 		{ t = "accept", quest = 5061, title = "Aquatic Form", npc = "Dendrite Starblaze", map = 1450, x = 56.21, y = 30.64, era = true, qlvl = 16 },
 		{ t = "fly", location = "Rut'theran Village" },
@@ -5580,7 +5580,7 @@ Waypost.RegisterSteps("class/druid/aquatic-form", function() return {
 	{ title = "Trial of the Lake", note = "Cast Teleport: Moonglade to get here: Dendrite Starblaze stands upstairs in the building beside where you land. Trial of the Lake runs on a 30-minute timer: once you accept it, no teleport or Hearthstone until Tajarri has it. Six Bauble Containers (vases) lie in narrow hollows deep on the floor of Lake Elune'ara below Nighthaven, often near the bubbling fissures (the Bubbly Fissure in the middle of the lake refills your breath); each comes back three minutes after it is opened, and other druids take them too. Check the Shrine Bauble is in your bags before you surface: it fades five minutes after you loot it. Swim it straight to the Shrine of Remulos on the north-west shore, use it inside the shrine grounds and speak to Tajarri by the tree.", only = { races = {"Tauren", "Skyborne"}, factions = {"Horde"} }, goals = {
 		{ t = "turnin", quest = 27, title = "A Lesson to Learn", npc = "Dendrite Starblaze", map = 1450, x = 56.21, y = 30.64, era = true },
 		{ t = "accept", quest = 28, title = "Trial of the Lake", npc = "Dendrite Starblaze", map = 1450, x = 56.21, y = 30.64, era = true, qlvl = 16 },
-		{ t = "collect", map = 1450, x = 54.7, y = 46.4, era = true, count = 1, item = 15877, itemName = "Shrine Bauble", note = "Shrine Bauble, from a Bauble Container in the lake", spots = "52,49.3;56.4,53.4;60.5,58.3" },
+		{ t = "collect", map = 1450, x = 54.7, y = 46.4, era = true, count = 1, item = 15877, itemName = "Shrine Bauble", note = "Shrine Bauble, from a Bauble Container in the lake", src = "Bauble Container", srcKind = "object", spots = "52,49.3;56.4,53.4;60.5,58.3" },
 		{ t = "use", map = 1450, x = 36, y = 41.4, era = true, item = 15877, itemName = "Shrine Bauble", note = "At the Shrine of Remulos" },
 		{ t = "complete", quest = 28, title = "Trial of the Lake", map = 1450, x = 36, y = 41.4, era = true, objs = {"Shrine Of Remulos"} },
 		{ t = "turnin", quest = 28, title = "Trial of the Lake", npc = "Tajarri", map = 1450, x = 36.52, y = 40.1, era = true },
@@ -5589,16 +5589,16 @@ Waypost.RegisterSteps("class/druid/aquatic-form", function() return {
 	{ title = "Half Pendant of Aquatic Agility", note = "Take Bunthen Plainswind's flight to Thunder Bluff and fly on to Orgrimmar. The Strange Lockbox lies underwater in the Sludge Fen pond, a short walk out of Orgrimmar's west gate, in front of a wooden wall. The Venture Co. there are quick to join a fight: come in from the west to avoid most of them.", only = { races = {"Tauren", "Skyborne"}, factions = {"Horde"} }, goals = {
 		{ t = "fly", location = "Thunder Bluff" },
 		{ t = "fly", location = "Orgrimmar" },
-		{ t = "collect", map = 1413, x = 56.67, y = 8.32, era = true, count = 1, item = 15883, itemName = "Half Pendant of Aquatic Agility", note = "Half Pendant of Aquatic Agility, from the Strange Lockbox" },
+		{ t = "collect", map = 1413, x = 56.67, y = 8.32, era = true, count = 1, item = 15883, itemName = "Half Pendant of Aquatic Agility", note = "Half Pendant of Aquatic Agility, from the Strange Lockbox", src = "Strange Lockbox", srcKind = "object" },
 	} },
 	{ title = "Zeppelin to Undercity", note = "Back through Orgrimmar to the zeppelin towers outside its main gate: the zeppelin to the Undercity lands in Tirisfal Glades, and Silverpine Forest is south of the Undercity.", only = { races = {"Tauren", "Skyborne"}, factions = {"Horde"} }, goals = {
 		{ t = "goto", map = 1411, x = 50.8, y = 13.5, era = true, text = "Zeppelin to Undercity" },
 	} },
 	{ title = "Half Pendant of Aquatic Endurance", note = "The Strange Lockbox lies at the bottom of very deep water off the coast north-west of the Sepulcher, beside an air fissure where you can breathe: watch your breath on the way down. Then Teleport: Moonglade takes you straight back.", only = { races = {"Tauren", "Skyborne"}, factions = {"Horde"} }, goals = {
-		{ t = "collect", map = 1421, x = 29.56, y = 29.2, era = true, count = 1, item = 15882, itemName = "Half Pendant of Aquatic Endurance", note = "Half Pendant of Aquatic Endurance, from the Strange Lockbox" },
+		{ t = "collect", map = 1421, x = 29.56, y = 29.2, era = true, count = 1, item = 15882, itemName = "Half Pendant of Aquatic Endurance", note = "Half Pendant of Aquatic Endurance, from the Strange Lockbox", src = "Strange Lockbox", srcKind = "object" },
 	} },
 	{ title = "Pendant of the Sea Lion", note = "Cast Teleport: Moonglade. With both halves in your bags, stand by the Shrine of Remulos on the north-west shore and use the Half Pendant of Aquatic Agility to join them, then cast Teleport: Moonglade again (it works inside Moonglade) to land by Dendrite Starblaze. He stands upstairs in his building: go up inside, the arrow cannot tell the floors apart. Bunthen Plainswind flies druids to Thunder Bluff.", only = { races = {"Tauren", "Skyborne"}, factions = {"Horde"} }, goals = {
-		{ t = "collect", quest = 30, title = "Trial of the Sea Lion", map = 1450, x = 36, y = 41.42, era = true, count = 1, item = 15885, itemName = "Pendant of the Sea Lion", oi = 1, note = "Pendant of the Sea Lion: join the halves at the shrine" },
+		{ t = "collect", quest = 30, title = "Trial of the Sea Lion", map = 1450, x = 36, y = 41.42, era = true, count = 1, item = 15885, itemName = "Pendant of the Sea Lion", oi = 1, note = "Pendant of the Sea Lion: join the halves at the shrine", src = "Shrine Of Remulos", srcKind = "object" },
 		{ t = "turnin", quest = 30, title = "Trial of the Sea Lion", npc = "Dendrite Starblaze", map = 1450, x = 56.21, y = 30.64, era = true },
 		{ t = "accept", quest = 31, title = "Aquatic Form", npc = "Dendrite Starblaze", map = 1450, x = 56.21, y = 30.64, era = true, qlvl = 16 },
 		{ t = "fly", location = "Thunder Bluff" },
@@ -5724,8 +5724,8 @@ Waypost.RegisterSteps("class/druid/bloodpetal-poison", function() return {
 		{ t = "accept", quest = 9052, title = "Bloodpetal Poison", npc = "Torwa Pathfinder", map = 1449, x = 71.64, y = 75.96, era = true, qlvl = 52 },
 	} },
 	{ title = "Gorishi Stings and Bloodcap", note = "Eight of each. The Gorishi Wasps and Stingers (level 51-52) in and around the Slithering Scar, the hive in the south-west of the crater, drop a sting about one kill in seven; the wasps share spawn points with the other bugs, so kill whatever stands near you to make room for more wasps (respawn five minutes). The bugs' Silithid Pox makes you take more physical damage for 30 minutes; Workers call for help when hurt. The Bloodpetal Sprouts grow all over the crater (around Marshal's Refuge and the western half): open them, about every other one gives a Bloodcap, back in three to five minutes.", goals = {
-		{ t = "collect", quest = 9052, title = "Bloodpetal Poison", map = 1449, x = 56.37, y = 84.9, era = true, count = 8, item = 22435, itemName = "Gorishi Sting", oi = 1, mobLevel = 53, spots = "55.2,84.4;52.4,84.5;51.5,80.4;53.8,75.7;49,84.4" },
-		{ t = "collect", quest = 9052, title = "Bloodpetal Poison", map = 1449, x = 53.34, y = 70.37, era = true, count = 8, item = 22434, itemName = "Bloodcap", oi = 2, spots = "50.3,69.9;41.2,63.2;31.3,67;27.1,52.8;28.6,37.1" },
+		{ t = "collect", quest = 9052, title = "Bloodpetal Poison", map = 1449, x = 56.37, y = 84.9, era = true, count = 8, item = 22435, itemName = "Gorishi Sting", oi = 1, mobLevel = 53, src = "Gorishi Reaver, Gorishi Hive Guard, Gorishi Wasp and others", srcKind = "npc", spots = "55.2,84.4;52.4,84.5;51.5,80.4;53.8,75.7;49,84.4" },
+		{ t = "collect", quest = 9052, title = "Bloodpetal Poison", map = 1449, x = 53.34, y = 70.37, era = true, count = 8, item = 22434, itemName = "Bloodcap", oi = 2, src = "Bloodpetal Sprout", srcKind = "object", spots = "50.3,69.9;41.2,63.2;31.3,67;27.1,52.8;28.6,37.1" },
 	} },
 	{ title = "Torwa Pathfinder", goals = {
 		{ t = "turnin", quest = 9052, title = "Bloodpetal Poison", npc = "Torwa Pathfinder", map = 1449, x = 71.64, y = 75.96, era = true },
@@ -5767,12 +5767,12 @@ Waypost.RegisterSteps("class/druid/cat-form", function() return {
 		{ t = "accept", quest = 98396, title = "The Great Cat Spirit", npc = "Great Cat Spirit", map = 1450, x = 54.5, y = 75, era = true, qlvl = 20, only = { races = {"NightElf"} } },
 		{ t = "turnin", quest = 98341, title = "The Great Windborne Cat Spirit", npc = "Avatar of Saeyleenan", map = 1450, x = 43.92, y = 73.44, era = true, only = { races = {"Skyborne"} } },
 		{ t = "accept", quest = 98404, title = "The Great Windborne Cat Spirit", npc = "Avatar of Saeyleenan", map = 1450, x = 43.92, y = 73.44, era = true, qlvl = 20, only = { races = {"Skyborne"} } },
-		{ t = "collect", quest = 98396, title = "The Great Cat Spirit", map = 1450, x = 72.4, y = 66, era = true, count = 1, item = 280502, itemName = "Relic of the Fang", oi = 1, only = { races = {"NightElf"} } },
-		{ t = "collect", quest = 98396, title = "The Great Cat Spirit", map = 1450, x = 75.2, y = 67.2, era = true, count = 1, item = 280679, itemName = "Relic of the Claw", oi = 2, only = { races = {"NightElf"} } },
-		{ t = "collect", quest = 98396, title = "The Great Cat Spirit", map = 1450, x = 74.4, y = 65.4, era = true, count = 1, item = 280680, itemName = "Relic of the Silent Shadow", oi = 3, only = { races = {"NightElf"} } },
-		{ t = "collect", quest = 98404, title = "The Great Windborne Cat Spirit", map = 1450, x = 72.4, y = 66, era = true, count = 1, item = 280502, itemName = "Relic of the Fang", oi = 1, only = { races = {"Skyborne"} } },
-		{ t = "collect", quest = 98404, title = "The Great Windborne Cat Spirit", map = 1450, x = 75.2, y = 67.2, era = true, count = 1, item = 280679, itemName = "Relic of the Claw", oi = 2, only = { races = {"Skyborne"} } },
-		{ t = "collect", quest = 98404, title = "The Great Windborne Cat Spirit", map = 1450, x = 74.4, y = 65.4, era = true, count = 1, item = 280680, itemName = "Relic of the Silent Shadow", oi = 3, only = { races = {"Skyborne"} } },
+		{ t = "collect", quest = 98396, title = "The Great Cat Spirit", map = 1450, x = 72.4, y = 66, era = true, count = 1, item = 280502, itemName = "Relic of the Fang", oi = 1, only = { races = {"NightElf"} }, src = "Relic of the Fang", srcKind = "object" },
+		{ t = "collect", quest = 98396, title = "The Great Cat Spirit", map = 1450, x = 75.2, y = 67.2, era = true, count = 1, item = 280679, itemName = "Relic of the Claw", oi = 2, only = { races = {"NightElf"} }, src = "Relic of the Claw", srcKind = "object" },
+		{ t = "collect", quest = 98396, title = "The Great Cat Spirit", map = 1450, x = 74.4, y = 65.4, era = true, count = 1, item = 280680, itemName = "Relic of the Silent Shadow", oi = 3, only = { races = {"NightElf"} }, src = "Relic of the Silent Shadow", srcKind = "object" },
+		{ t = "collect", quest = 98404, title = "The Great Windborne Cat Spirit", map = 1450, x = 72.4, y = 66, era = true, count = 1, item = 280502, itemName = "Relic of the Fang", oi = 1, only = { races = {"Skyborne"} }, src = "Relic of the Fang", srcKind = "object" },
+		{ t = "collect", quest = 98404, title = "The Great Windborne Cat Spirit", map = 1450, x = 75.2, y = 67.2, era = true, count = 1, item = 280679, itemName = "Relic of the Claw", oi = 2, only = { races = {"Skyborne"} }, src = "Relic of the Claw", srcKind = "object" },
+		{ t = "collect", quest = 98404, title = "The Great Windborne Cat Spirit", map = 1450, x = 74.4, y = 65.4, era = true, count = 1, item = 280680, itemName = "Relic of the Silent Shadow", oi = 3, only = { races = {"Skyborne"} }, src = "Relic of the Silent Shadow", srcKind = "object" },
 		{ t = "turnin", quest = 98396, title = "The Great Cat Spirit", npc = "Great Cat Spirit", map = 1450, x = 54.5, y = 75, era = true, only = { races = {"NightElf"} } },
 		{ t = "accept", quest = 98731, title = "Blessings of the Great Cat Spirit", npc = "Great Cat Spirit", map = 1450, x = 54.5, y = 75, era = true, qlvl = 20, only = { races = {"NightElf"} } },
 		{ t = "turnin", quest = 98404, title = "The Great Windborne Cat Spirit", npc = "Avatar of Saeyleenan", map = 1450, x = 43.92, y = 73.44, era = true, only = { races = {"Skyborne"} } },
@@ -5804,12 +5804,12 @@ Waypost.RegisterSteps("class/druid/cat-form", function() return {
 		{ t = "accept", quest = 98342, title = "The Great Cat Spirit", npc = "Great Cat Spirit", map = 1450, x = 54.5, y = 75, era = true, qlvl = 20, only = { races = {"Tauren"} } },
 		{ t = "turnin", quest = 98341, title = "The Great Windborne Cat Spirit", npc = "Avatar of Saeyleenan", map = 1450, x = 43.92, y = 73.44, era = true, only = { races = {"Skyborne"} } },
 		{ t = "accept", quest = 98404, title = "The Great Windborne Cat Spirit", npc = "Avatar of Saeyleenan", map = 1450, x = 43.92, y = 73.44, era = true, qlvl = 20, only = { races = {"Skyborne"} } },
-		{ t = "collect", quest = 98342, title = "The Great Cat Spirit", map = 1450, x = 72.4, y = 66, era = true, count = 1, item = 280502, itemName = "Relic of the Fang", oi = 1, only = { races = {"Tauren"} } },
-		{ t = "collect", quest = 98342, title = "The Great Cat Spirit", map = 1450, x = 75.2, y = 67.2, era = true, count = 1, item = 280679, itemName = "Relic of the Claw", oi = 2, only = { races = {"Tauren"} } },
-		{ t = "collect", quest = 98342, title = "The Great Cat Spirit", map = 1450, x = 74.4, y = 65.4, era = true, count = 1, item = 280680, itemName = "Relic of the Silent Shadow", oi = 3, only = { races = {"Tauren"} } },
-		{ t = "collect", quest = 98404, title = "The Great Windborne Cat Spirit", map = 1450, x = 72.4, y = 66, era = true, count = 1, item = 280502, itemName = "Relic of the Fang", oi = 1, only = { races = {"Skyborne"} } },
-		{ t = "collect", quest = 98404, title = "The Great Windborne Cat Spirit", map = 1450, x = 75.2, y = 67.2, era = true, count = 1, item = 280679, itemName = "Relic of the Claw", oi = 2, only = { races = {"Skyborne"} } },
-		{ t = "collect", quest = 98404, title = "The Great Windborne Cat Spirit", map = 1450, x = 74.4, y = 65.4, era = true, count = 1, item = 280680, itemName = "Relic of the Silent Shadow", oi = 3, only = { races = {"Skyborne"} } },
+		{ t = "collect", quest = 98342, title = "The Great Cat Spirit", map = 1450, x = 72.4, y = 66, era = true, count = 1, item = 280502, itemName = "Relic of the Fang", oi = 1, only = { races = {"Tauren"} }, src = "Relic of the Fang", srcKind = "object" },
+		{ t = "collect", quest = 98342, title = "The Great Cat Spirit", map = 1450, x = 75.2, y = 67.2, era = true, count = 1, item = 280679, itemName = "Relic of the Claw", oi = 2, only = { races = {"Tauren"} }, src = "Relic of the Claw", srcKind = "object" },
+		{ t = "collect", quest = 98342, title = "The Great Cat Spirit", map = 1450, x = 74.4, y = 65.4, era = true, count = 1, item = 280680, itemName = "Relic of the Silent Shadow", oi = 3, only = { races = {"Tauren"} }, src = "Relic of the Silent Shadow", srcKind = "object" },
+		{ t = "collect", quest = 98404, title = "The Great Windborne Cat Spirit", map = 1450, x = 72.4, y = 66, era = true, count = 1, item = 280502, itemName = "Relic of the Fang", oi = 1, only = { races = {"Skyborne"} }, src = "Relic of the Fang", srcKind = "object" },
+		{ t = "collect", quest = 98404, title = "The Great Windborne Cat Spirit", map = 1450, x = 75.2, y = 67.2, era = true, count = 1, item = 280679, itemName = "Relic of the Claw", oi = 2, only = { races = {"Skyborne"} }, src = "Relic of the Claw", srcKind = "object" },
+		{ t = "collect", quest = 98404, title = "The Great Windborne Cat Spirit", map = 1450, x = 74.4, y = 65.4, era = true, count = 1, item = 280680, itemName = "Relic of the Silent Shadow", oi = 3, only = { races = {"Skyborne"} }, src = "Relic of the Silent Shadow", srcKind = "object" },
 		{ t = "turnin", quest = 98342, title = "The Great Cat Spirit", npc = "Great Cat Spirit", map = 1450, x = 54.5, y = 75, era = true, only = { races = {"Tauren"} } },
 		{ t = "accept", quest = 98739, title = "Blessings of the Great Cat Spirit", npc = "Great Cat Spirit", map = 1450, x = 54.5, y = 75, era = true, qlvl = 20, only = { races = {"Tauren"} } },
 		{ t = "turnin", quest = 98404, title = "The Great Windborne Cat Spirit", npc = "Avatar of Saeyleenan", map = 1450, x = 43.92, y = 73.44, era = true, only = { races = {"Skyborne"} } },
@@ -5850,14 +5850,14 @@ Waypost.RegisterSteps("class/druid/cure-poison", function() return {
 	} },
 	{ title = "Cliffspring Falls", note = "Head north-east from Auberdine to Cliffspring Falls. Stand at the cave mouth at the top of the waterfall, not in the river below, and use the Empty Cliffspring Falls Sampler (not the Empty Sampling Tube of another quest). Naga line the climb, a caster waits on the far bank, and filling the sampler calls two more (a Wave Rider and a Toxicologist, level 15): clear the way first and be ready to fight.", only = { races = {"NightElf", "Skyborne"}, factions = {"Alliance"} }, goals = {
 		{ t = "use", quest = 6122, title = "The Principal Source", map = 1439, x = 54.9, y = 33.3, era = true, item = 15844, itemName = "Empty Cliffspring Falls Sampler", oi = 1, note = "Empty Cliffspring Falls Sampler, at the cave mouth" },
-		{ t = "collect", quest = 6122, title = "The Principal Source", map = 1439, x = 54.92, y = 33.31, era = true, count = 1, item = 15845, itemName = "Filled Cliffspring Falls Sampler", oi = 1 },
+		{ t = "collect", quest = 6122, title = "The Principal Source", map = 1439, x = 54.92, y = 33.31, era = true, count = 1, item = 15845, itemName = "Filled Cliffspring Falls Sampler", oi = 1, src = "Cliffspring Falls Cave Mouth", srcKind = "object" },
 	} },
 	{ title = "Alanndarian Nightsong", note = "Back in Auberdine, at the north end of the village.", only = { races = {"NightElf", "Skyborne"}, factions = {"Alliance"} }, goals = {
 		{ t = "turnin", quest = 6122, title = "The Principal Source", npc = "Alanndarian Nightsong", map = 1439, x = 37.69, y = 40.66, era = true },
 		{ t = "accept", quest = 6123, title = "Gathering the Cure", npc = "Alanndarian Nightsong", map = 1439, x = 37.69, y = 40.66, era = true, qlvl = 14 },
 	} },
 	{ title = "Lunar Fungus and Earthroot", note = "The Lunar Fungal Blooms are tiny white-spotted mushrooms on the floors and walls of the small moonkin caves in the hills just east and south-east of Auberdine; each gives one or two fungus, and each cave holds only a few, so go from cave to cave (they regrow in three minutes). The moonkin there are irritable. No Herbalism needed for the blooms. Earthroot needs Herbalism: herbalists pick it all over Darkshore, anyone else buys it (Maria Lumere or Bernard Gump in Stormwind, or the Auction House).", only = { races = {"NightElf", "Skyborne"}, factions = {"Alliance"} }, goals = {
-		{ t = "collect", quest = 6123, title = "Gathering the Cure", map = 1439, x = 43.21, y = 45.77, era = true, count = 12, item = 15851, itemName = "Lunar Fungus", oi = 2, spots = "43.5,49.7;46.5,45.8;43.2,45.8;45.7,50.3;42.4,52.5" },
+		{ t = "collect", quest = 6123, title = "Gathering the Cure", map = 1439, x = 43.21, y = 45.77, era = true, count = 12, item = 15851, itemName = "Lunar Fungus", oi = 2, src = "Lunar Fungal Bloom", srcKind = "object", spots = "43.5,49.7;46.5,45.8;43.2,45.8;45.7,50.3;42.4,52.5" },
 		{ t = "collect", quest = 6123, title = "Gathering the Cure", map = 1439, x = 42.7, y = 46.43, era = true, count = 5, item = 2449, itemName = "Earthroot", oi = 1, spots = "42.7,46.4;47.1,50.7;44.4,62.9;41.4,70.2;39.2,80.9" },
 	} },
 	{ title = "Alanndarian Nightsong", note = "She hands you the Curative Animal Salve: ten doses, one per deer. Destroy any leftover Lunar Fungus.", only = { races = {"NightElf", "Skyborne"}, factions = {"Alliance"} }, goals = {
@@ -5890,7 +5890,7 @@ Waypost.RegisterSteps("class/druid/cure-poison", function() return {
 	{ title = "Dreadmist Peak", note = "From the Crossroads head north to Dreadmist Peak and climb to the bubbling Dreadmist Peak Pool on its summit. Burning Blade cultists camp around it: pull them one or two at a time. Stand in the water and use the Empty Dreadmist Peak Sampler: three Burning Blade Toxicologists (level 13-14, curses and warlock spells) appear and attack. You need not kill them: once the sampler is full, run.", only = { races = {"Tauren", "Skyborne"}, factions = {"Horde"} }, goals = {
 		{ t = "fly", location = "Crossroads" },
 		{ t = "use", quest = 6127, title = "The Principal Source", map = 1413, x = 48.4, y = 18.9, era = true, item = 15842, itemName = "Empty Dreadmist Peak Sampler", oi = 1, note = "Empty Dreadmist Peak Sampler, standing in the pool" },
-		{ t = "collect", quest = 6127, title = "The Principal Source", map = 1413, x = 48.4, y = 18.89, era = true, count = 1, item = 15843, itemName = "Filled Dreadmist Peak Sampler", oi = 1 },
+		{ t = "collect", quest = 6127, title = "The Principal Source", map = 1413, x = 48.4, y = 18.89, era = true, count = 1, item = 15843, itemName = "Filled Dreadmist Peak Sampler", oi = 1, src = "Dreadmist Peak Pool", srcKind = "object" },
 	} },
 	{ title = "Tonga Runetotem", note = "Tonga Runetotem stands in the Crossroads. No Herbalism? Hula'mahi, a few steps away by the wind rider master, sells Earthroot for 80 copper each, three at a time until he restocks.", only = { races = {"Tauren", "Skyborne"}, factions = {"Horde"} }, goals = {
 		{ t = "turnin", quest = 6127, title = "The Principal Source", npc = "Tonga Runetotem", map = 1413, x = 52.26, y = 31.93, era = true },
@@ -5898,7 +5898,7 @@ Waypost.RegisterSteps("class/druid/cure-poison", function() return {
 		{ t = "buy", npc = "Hula'mahi", map = 1413, x = 51.39, y = 30.2, era = true, count = 5, item = 2449, itemName = "Earthroot", optional = true, note = "Earthroot; herbalists pick it on the plains" },
 	} },
 	{ title = "Earthroot and Kodo Horns", note = "Every Lost Barrens Kodo (level 14-15) drops a horn, but they are few and wander: search the far north near the Sludge Fen and the oases, above all the Stagnant Oasis south-east of the Crossroads. They charge from range and stomp. Herbalists find Earthroot all over the northern Barrens.", only = { races = {"Tauren", "Skyborne"}, factions = {"Horde"} }, goals = {
-		{ t = "collect", quest = 6128, title = "Gathering the Cure", map = 1413, x = 54.82, y = 40.13, era = true, count = 5, item = 15852, itemName = "Kodo Horn", oi = 2, mobLevel = 15, spots = "55,40.6;54.4,45.5;52,43.7;44.8,42;42.4,37.7" },
+		{ t = "collect", quest = 6128, title = "Gathering the Cure", map = 1413, x = 54.82, y = 40.13, era = true, count = 5, item = 15852, itemName = "Kodo Horn", oi = 2, mobLevel = 15, src = "Lost Barrens Kodo, Barrens Kodo", srcKind = "npc", spots = "55,40.6;54.4,45.5;52,43.7;44.8,42;42.4,37.7" },
 		{ t = "collect", quest = 6128, title = "Gathering the Cure", map = 1413, x = 60.86, y = 41.26, era = true, count = 5, item = 2449, itemName = "Earthroot", oi = 1, spots = "61.5,42;61.2,26.6;61.1,17.9;62.7,9.1;50.3,21.8" },
 	} },
 	{ title = "Tonga Runetotem", note = "He hands you the Curative Animal Salve: ten doses, one per gazelle.", only = { races = {"Tauren", "Skyborne"}, factions = {"Horde"} }, goals = {
@@ -5935,19 +5935,19 @@ Waypost.RegisterSteps("class/hunter/rhokdelar", function() return {
 	} },
 	{ title = "Simone the Inconspicuous", note = "Simone the Inconspicuous, a troll with a wolf, walks a long path that starts at the lake in western Un'Goro and can reach the south of the crater; use Track Demons. Talk to her and she becomes Simone the Seductress, and her wolf Precious a Felstalker. The hardest of the four: Freezing Trap Precious and pull Simone well away from it, or kite Precious away and kill it first, let Simone reset and come back for her alone. Her Chain Lightning hits hard, so drain her mana with Viper Sting (a 15-second cooldown on Forever) and keep her busy; her Temptress' Kiss cuts your ranged attack power, so finish her in melee. Loot her head before Precious breaks free.", goals = {
 		{ t = "talk", npc = "Simone the Inconspicuous", map = 1449, x = 34.32, y = 40.79, era = true },
-		{ t = "collect", quest = 7636, title = "Stave of the Ancients", map = 1449, x = 34.32, y = 40.79, era = true, count = 1, item = 18952, itemName = "Simone's Head", oi = 1, group = true },
+		{ t = "collect", quest = 7636, title = "Stave of the Ancients", map = 1449, x = 34.32, y = 40.79, era = true, count = 1, item = 18952, itemName = "Simone's Head", oi = 1, group = true, src = "Simone the Inconspicuous", srcKind = "npc" },
 	} },
 	{ title = "Franklin the Friendly", note = "Franklin the Friendly, a human, wanders the western Burning Steppes south of Blackrock Mountain. Talk to him and he becomes Klinfran the Crazed, the easiest of the four. Keep Scorpid Sting on him the whole fight: while it lasts he barely hurts you. When he goes into Demonic Frenzy, remove it with Tranquilizing Shot and never stand in melee while it is up; between frenzies you can fight him in melee with Wing Clip and Raptor Strike. He cannot leave the Burning Steppes, so kite him around the trees if needed.", goals = {
 		{ t = "talk", npc = "Franklin the Friendly", map = 1428, x = 24.82, y = 65.93, era = true },
-		{ t = "collect", quest = 7636, title = "Stave of the Ancients", map = 1428, x = 24.82, y = 65.93, era = true, count = 1, item = 18953, itemName = "Klinfran's Head", oi = 2, group = true },
+		{ t = "collect", quest = 7636, title = "Stave of the Ancients", map = 1428, x = 24.82, y = 65.93, era = true, count = 1, item = 18953, itemName = "Klinfran's Head", oi = 2, group = true, src = "Franklin the Friendly", srcKind = "npc" },
 	} },
 	{ title = "Nelson the Nice", note = "Nelson the Nice, a gnome, walks around the gates of Ahn'Qiraj in the far south-west of Silithus. Talk to him and he becomes Solenor the Slayer. He enrages with Soul Flame as he turns: drop a Frost Trap, Feign Death, and he resets without the enrage. Wing Clip roots him for a long time; while rooted he fears you and sends beetles (Creeping Doom): kill them fast with traps and Multi-Shot before they wear you down.", goals = {
 		{ t = "talk", npc = "Nelson the Nice", map = 1451, x = 24.72, y = 76.02, era = true },
-		{ t = "collect", quest = 7636, title = "Stave of the Ancients", map = 1451, x = 24.72, y = 76.02, era = true, count = 1, item = 18954, itemName = "Solenor's Head", oi = 3, group = true },
+		{ t = "collect", quest = 7636, title = "Stave of the Ancients", map = 1451, x = 24.72, y = 76.02, era = true, count = 1, item = 18954, itemName = "Solenor's Head", oi = 3, group = true, src = "Nelson the Nice", srcKind = "npc" },
 	} },
 	{ title = "Artorius the Amiable", note = "Artorius the Amiable, a tauren, walks a loop in the rocks of northern Winterspring, north of Everlook. Talk to him and he becomes Artorius the Doombringer. Within 30 yards of him Demonic Doom hits hard: keep your distance and kite him the whole fight, Aspect of the Cheetah on, south down the road. Serpent Sting on him adds Stinging Trauma, extra Nature damage, so keep it ticking while you run; his Demonic Frenzy can be removed with Tranquilizing Shot, but distance matters more. It is a long fight: bring mana potions and plan your kiting path.", goals = {
 		{ t = "talk", npc = "Artorius the Amiable", map = 1452, x = 60.31, y = 13.18, era = true },
-		{ t = "collect", quest = 7636, title = "Stave of the Ancients", map = 1452, x = 60.31, y = 13.18, era = true, count = 1, item = 18955, itemName = "Artorius's Head", oi = 4, group = true },
+		{ t = "collect", quest = 7636, title = "Stave of the Ancients", map = 1452, x = 60.31, y = 13.18, era = true, count = 1, item = 18955, itemName = "Artorius's Head", oi = 4, group = true, src = "Artorius the Amiable", srcKind = "npc" },
 	} },
 	{ title = "Onyxia", note = "Onyxia is the 40-player raid boss of Onyxia's Lair, a cave in the Wyrmbog of southern Dustwallow Marsh; she returns once a week. She drops one Mature Black Dragon Sinew in about two kills of five, lootable without the quest, so only one hunter per kill gets it: settle who first.", goals = {
 		{ t = "collect", quest = 7635, title = "A Proper String", map = 1445, x = 52.1, y = 75.8, era = true, count = 1, item = 18705, itemName = "Mature Black Dragon Sinew", oi = 1, group = true, note = "Mature Black Dragon Sinew, from Onyxia" },
@@ -5961,7 +5961,7 @@ Waypost.RegisterSteps("class/hunter/rhokdelar", function() return {
 		{ t = "talk", npc = "Vartrus the Ancient", map = 1448, x = 47.78, y = 24.08, era = true, optional = true, note = "Vartrus the Ancient: Lok'delar in Classic" },
 	} },
 	{ title = "Azuregos", note = "Hastat's quiver needs the Mature Blue Dragon Sinew. Azuregos, a world boss for a raid, stands in southern Azshara, returns only every two to four days and drops it nearly every kill. The elite Cobalt dragonkin in and around Mazthoril, the cave south of Everlook in Winterspring, drop it about once in 200 kills; Manaclaw there a little more often. Skip the rest of this guide if you do not want the quiver.", goals = {
-		{ t = "collect", quest = 7634, title = "Ancient Sinew Wrapped Lamina", map = 1447, x = 53.3, y = 80.4, era = true, count = 1, item = 18704, itemName = "Mature Blue Dragon Sinew", oi = 1, group = true, note = "Mature Blue Dragon Sinew, from Azuregos" },
+		{ t = "collect", quest = 7634, title = "Ancient Sinew Wrapped Lamina", map = 1447, x = 53.3, y = 80.4, era = true, count = 1, item = 18704, itemName = "Mature Blue Dragon Sinew", oi = 1, group = true, note = "Mature Blue Dragon Sinew, from Azuregos", src = "Azuregos", srcKind = "npc" },
 	} },
 	{ title = "Hastat the Ancient", goals = {
 		{ t = "turnin", quest = 7634, title = "Ancient Sinew Wrapped Lamina", npc = "Hastat the Ancient", map = 1448, x = 46.7, y = 24.06, era = true },
@@ -5984,14 +5984,14 @@ Waypost.RegisterSteps("class/hunter/the-hunters-charm", function() return {
 		{ t = "accept", quest = 8153, title = "Courser Antlers", npc = "Ogtinc", map = 1447, x = 42.4, y = 42.62, era = true, qlvl = 52 },
 	} },
 	{ title = "Courser Antlers", note = "You need two Perfect Courser Antlers. Mosshoof Coursers (level 52-53, deer) graze all over Azshara and drop one about one kill in twelve, so expect two dozen kills. Good herds: north of the Thalassian Base Camp in the north, and the hills north-east and south-east of Valormok; the Lake Mennar area also has elite giants and dragonkin. They Enrage at 30% health. Coursers share spawn points with the Thunderhead hippogryphs: if none are around, kill the hippogryphs and coursers may spawn instead. Respawn is about five and a half minutes.", goals = {
-		{ t = "collect", quest = 8153, title = "Courser Antlers", map = 1447, x = 52.1, y = 35.39, era = true, count = 2, item = 20017, itemName = "Perfect Courser Antler", oi = 1, mobLevel = 53, note = "Perfect Courser Antler, from Mosshoof Coursers", spots = "52.1,35.4;52.4,25.2;53,14.7;46.2,18.6;62.5,16.1" },
+		{ t = "collect", quest = 8153, title = "Courser Antlers", map = 1447, x = 52.1, y = 35.39, era = true, count = 2, item = 20017, itemName = "Perfect Courser Antler", oi = 1, mobLevel = 53, note = "Perfect Courser Antler, from Mosshoof Coursers", src = "Mosshoof Courser", srcKind = "npc", spots = "52.1,35.4;52.4,25.2;53,14.7;46.2,18.6;62.5,16.1" },
 	} },
 	{ title = "Ogtinc", goals = {
 		{ t = "turnin", quest = 8153, title = "Courser Antlers", npc = "Ogtinc", map = 1447, x = 42.4, y = 42.62, era = true },
 		{ t = "accept", quest = 8231, title = "Wavethrashing", npc = "Ogtinc", map = 1447, x = 42.4, y = 42.62, era = true, qlvl = 52 },
 	} },
 	{ title = "Wavethrashing", note = "You need six Wavethrasher Scales. Wavethrashers (three-headed sea beasts) live along Azshara's coasts, mostly underwater: the Young Wavethrashers (level 51-52) of the north-east shore drop a scale about one kill in three, the Wavethrashers (52-53) of the east coast by the Tower of Eldara about as often (a few walk the beach there), the Great Wavethrashers (53-54) of the south-east shore about one in seven. Track Beasts does not show them; fight them where you can breathe, and bring water breathing if you can. Elite sharks swim the deeper water.", goals = {
-		{ t = "collect", quest = 8231, title = "Wavethrashing", map = 1447, x = 84.6, y = 30.9, era = true, count = 6, item = 20087, itemName = "Wavethrasher Scales", oi = 1, mobLevel = 53, spots = "84.6,30.9;87.6,27.4;89.8,31.9;90.9,37.3;89.6,22.4" },
+		{ t = "collect", quest = 8231, title = "Wavethrashing", map = 1447, x = 84.6, y = 30.9, era = true, count = 6, item = 20087, itemName = "Wavethrasher Scales", oi = 1, mobLevel = 53, src = "Wavethrasher, Young Wavethrasher", srcKind = "npc", spots = "84.6,30.9;87.6,27.4;89.8,31.9;90.9,37.3;89.6,22.4" },
 	} },
 	{ title = "Ogtinc", goals = {
 		{ t = "turnin", quest = 8231, title = "Wavethrashing", npc = "Ogtinc", map = 1447, x = 42.4, y = 42.62, era = true },
@@ -6069,7 +6069,7 @@ Waypost.RegisterSteps("class/mage/celestial-orb", function() return {
 		{ t = "accept", quest = 1954, title = "The Infernal Orb", npc = "Tabetha", map = 1445, x = 46.06, y = 57.09, era = true, qlvl = 40 },
 	} },
 	{ title = "The Infernal Orb", note = "The Burning Blade Summoners (level 38-39, not elite) work the Mannoroc Coven in southern Desolace, east of Shadowprey Village, and every one carries an Infernal Orb. They cast Shadow Bolt from 40 yards, keep an imp at their side and run for help at low health; Nether Maidens patrol the pillared ruin beside them, so pull with care. Horde mages: one more summoner stands alone in western Mulgore, south-west of Thunder Bluff.", goals = {
-		{ t = "collect", quest = 1954, title = "The Infernal Orb", map = 1443, x = 66.49, y = 77.94, era = true, count = 1, item = 7291, itemName = "Infernal Orb", oi = 1, mobLevel = 39, note = "Infernal Orb: Burning Blade Summoner", spots = "54.9,71.7;50.3,72.3;49.6,77.2;52.7,80.2;80.5,77.1" },
+		{ t = "collect", quest = 1954, title = "The Infernal Orb", map = 1443, x = 66.49, y = 77.94, era = true, count = 1, item = 7291, itemName = "Infernal Orb", oi = 1, mobLevel = 39, note = "Infernal Orb: Burning Blade Summoner", src = "Burning Blade Summoner", srcKind = "npc", spots = "54.9,71.7;50.3,72.3;49.6,77.2;52.7,80.2;80.5,77.1" },
 	} },
 	{ title = "The Exorcism", note = "Back at Tabetha's. Hand in the orb now; The Exorcism waits for level 38. Kill the critters around the cottage first: they join the fight. Accepting The Exorcism starts a 3 minute timer, and Tabetha calls the Demon of the Orb out in her garden: a level 40 elite that resists many spells, roots and slows. Grouping up is encouraged: a mage of 40 may need help or potions, at about 45 it is soloable. You can pull it from range from the dock. The timer keeps running after it dies, so hand the quest in straight away. If time runs out, abandon the quest and take it again; she calls the demon again.", goals = {
 		{ t = "turnin", quest = 1954, title = "The Infernal Orb", npc = "Tabetha", map = 1445, x = 46.06, y = 57.09, era = true },
@@ -6118,14 +6118,14 @@ Waypost.RegisterSteps("class/mage/destroy-morphaz", function() return {
 		{ t = "accept", quest = 8251, title = "Magic Dust", npc = "Archmage Xylem", map = 1447, x = 29.25, y = 40.21, era = true, qlvl = 52, note = "Archmage Xylem, in the tower" },
 	} },
 	{ title = "Glittering Dust", note = "The blood elves hold the Thalassian Base Camp on the hills of north-eastern Azshara. Blood Elf Surveyors (51-52, Fire Nova up close) and Reclaimers (52-53, Fireball, and they heal and Renew each other) each drop the dust about one time in four; they spot you from far off, so pull at the edges. They come back after 5 1/2 minutes.", goals = {
-		{ t = "collect", quest = 8251, title = "Magic Dust", map = 1447, x = 55.46, y = 29.5, era = true, count = 10, item = 20028, itemName = "Glittering Dust", oi = 1, mobLevel = 53, spots = "56.1,29.9;55.9,27.3;57.3,26.1;58.5,30;58.6,28.1" },
+		{ t = "collect", quest = 8251, title = "Magic Dust", map = 1447, x = 55.46, y = 29.5, era = true, count = 10, item = 20028, itemName = "Glittering Dust", oi = 1, mobLevel = 53, src = "Blood Elf Surveyor, Blood Elf Reclaimer", srcKind = "npc", spots = "56.1,29.9;55.9,27.3;57.3,26.1;58.5,30;58.6,28.1" },
 	} },
 	{ title = "Archmage Xylem", note = "Back to Sanath Lim-yo, who teleports you up to the tower.", goals = {
 		{ t = "turnin", quest = 8251, title = "Magic Dust", npc = "Archmage Xylem", map = 1447, x = 29.25, y = 40.21, era = true },
 		{ t = "accept", quest = 8252, title = "The Siren's Coral", npc = "Archmage Xylem", map = 1447, x = 29.25, y = 40.21, era = true, qlvl = 52 },
 	} },
 	{ title = "Enchanted Coral", note = "The Spitelash Sirens (level 50-52) walk the ruins and beaches around the Ruins of Eldarath and the bay east of Valormok, often three together, and a few stand inside the Temple of Zin-Malor; each drops a coral about one time in four. The Spitelash Screamers look almost the same but never drop it. Killing the other naga there makes more Sirens appear in their spots. Lingering Highborne ghosts wander the ruins: watch your back.", goals = {
-		{ t = "collect", quest = 8252, title = "The Siren's Coral", map = 1447, x = 36.33, y = 48.02, era = true, count = 6, item = 20029, itemName = "Enchanted Coral", oi = 1, mobLevel = 52, note = "Enchanted Coral: Spitelash Siren", spots = "36.9,49;41,53.1;44.8,50.9;47.7,47.2;50.2,43.1" },
+		{ t = "collect", quest = 8252, title = "The Siren's Coral", map = 1447, x = 36.33, y = 48.02, era = true, count = 6, item = 20029, itemName = "Enchanted Coral", oi = 1, mobLevel = 52, note = "Enchanted Coral: Spitelash Siren", src = "Spitelash Siren", srcKind = "npc", spots = "36.9,49;41,53.1;44.8,50.9;47.7,47.2;50.2,43.1" },
 	} },
 	{ title = "Archmage Xylem again", note = "Back to Sanath Lim-yo and up to the tower.", goals = {
 		{ t = "turnin", quest = 8252, title = "The Siren's Coral", npc = "Archmage Xylem", map = 1447, x = 29.25, y = 40.21, era = true },
@@ -6163,9 +6163,9 @@ Waypost.RegisterSteps("class/mage/mages-wand", function() return {
 		{ t = "accept", quest = 1951, title = "Rituals of Power", npc = "Magus Tirth", map = 1441, x = 78.29, y = 75.7, era = true, qlvl = 40 },
 	} },
 	{ title = "Witherbark trolls and the Bolt Charged Bramble", note = "The Witherbark trolls (level 30-36) hold the villages in south-eastern Arathi and south of Hammerfall; every kind of them drops a Witherbark Totem Stick about two times in five: you need ten. Then go to the Circle of Outer Binding (the outer one, not the Inner circle). Three elementals (level 33-39) stand around its middle stone: pull them one at a time and clear them first. Stand at the middle stone and use a totem stick; about ten seconds later the Bolt Charged Bramble forms on the stone: click it. If you die before you pick it up, the bramble and the sticks are lost and you need ten more.", goals = {
-		{ t = "collect", map = 1417, x = 42.87, y = 45.71, era = true, count = 10, item = 7273, itemName = "Witherbark Totem Stick", mobLevel = 35, spots = "37.5,41;35.6,49.4;30.8,43;61.1,72.4;64.4,72.8" },
+		{ t = "collect", map = 1417, x = 42.87, y = 45.71, era = true, count = 10, item = 7273, itemName = "Witherbark Totem Stick", mobLevel = 35, src = "Witherbark Troll, Witherbark Shadowcaster, Witherbark Axe Thrower and others", srcKind = "npc", spots = "37.5,41;35.6,49.4;30.8,43;61.1,72.4;64.4,72.8" },
 		{ t = "use", quest = 1948, title = "Items of Power", map = 1417, x = 52.04, y = 50.74, era = true, item = 7273, itemName = "Witherbark Totem Stick", oi = 2, note = "at the middle stone of the Circle of Outer Binding" },
-		{ t = "collect", quest = 1948, title = "Items of Power", map = 1417, x = 52.04, y = 50.74, era = true, count = 1, item = 7272, itemName = "Bolt Charged Bramble", oi = 2 },
+		{ t = "collect", quest = 1948, title = "Items of Power", map = 1417, x = 52.04, y = 50.74, era = true, count = 1, item = 7272, itemName = "Bolt Charged Bramble", oi = 2, src = "Bolt Charged Bramble", srcKind = "object" },
 	} },
 	{ title = "Jade", note = "Tabetha also wants one Jade, a green gem. Miners sometimes find one in ore veins; the Auction House sells it; the Torn Fin Coastrunners on the coast south-west of Southshore drop one about every fifth kill. Do not sell it to a vendor by mistake.", goals = {
 		{ t = "collect", quest = 1948, title = "Items of Power", map = 1417, x = 54.29, y = 50.44, era = true, count = 1, item = 1529, itemName = "Jade", oi = 1, spots = "54.9,49.6;72,52.5;66,26.9;86.2,32.1;69,81.8" },
@@ -6187,7 +6187,7 @@ Waypost.RegisterSteps("class/mage/polymorph-pig", function() return {
 		{ t = "accept", quest = 9362, title = "Warlord Krellian", npc = "Archmage Xylem", map = 1447, x = 29.25, y = 40.21, era = true, qlvl = 60 },
 	} },
 	{ title = "Warlord Krellian", note = "Warlord Krellian (level 55, not elite, Strike and Demoralizing Roar) hides behind his Spitelash guards in the Temple of Zin-Malor, the biggest building in the middle of the Ruins of Eldarath. He always drops the Prismatic Shell and is back 5 1/2 minutes after a kill. Leave any raid group first: a raid gets no credit, a party is fine.", goals = {
-		{ t = "collect", quest = 9362, title = "Warlord Krellian", map = 1447, x = 41.02, y = 53.05, era = true, count = 1, item = 23250, itemName = "Prismatic Shell", oi = 1, note = "Prismatic Shell: Warlord Krellian" },
+		{ t = "collect", quest = 9362, title = "Warlord Krellian", map = 1447, x = 41.02, y = 53.05, era = true, count = 1, item = 23250, itemName = "Prismatic Shell", oi = 1, note = "Prismatic Shell: Warlord Krellian", src = "Warlord Krellian", srcKind = "npc" },
 	} },
 	{ title = "Archmage Xylem", note = "Back to Sanath Lim-yo and up to the tower. Xylem hands the shell back with the next quest: keep it in your bags.", goals = {
 		{ t = "turnin", quest = 9362, title = "Warlord Krellian", npc = "Archmage Xylem", map = 1447, x = 29.25, y = 40.21, era = true },
@@ -6219,7 +6219,7 @@ Waypost.RegisterSteps("class/priest/benediction", function() return {
 		{ t = "turnin", quest = 7622, title = "The Balance of Light and Shadow", npc = "Eris Havenfire", map = 1423, x = 17.21, y = 12.79, note = "Eris Havenfire: Splinter of Nordrassil" },
 	} },
 	{ title = "The Eye of Shadow", note = "The splinter needs The Eye of Shadow as well. Lord Kazzak, a world boss in the Blasted Lands (a raid), always drops it; Manahounds and Doomguard Commanders there drop it rarely (about 3% and 2%), the Hederine of Winterspring hardly ever. It can be traded: check the Auction House first.", goals = {
-		{ t = "collect", map = 1419, x = 35.54, y = 74.98, era = true, count = 1, item = 18665, itemName = "The Eye of Shadow", group = true },
+		{ t = "collect", map = 1419, x = 35.54, y = 74.98, era = true, count = 1, item = 18665, itemName = "The Eye of Shadow", group = true, src = "Lord Kazzak", srcKind = "npc" },
 	} },
 	{ title = "Benediction", note = "With the Splinter of Nordrassil, The Eye of Divinity and The Eye of Shadow in your bags, use the splinter wherever you are: it becomes Benediction. Use Benediction to turn it into Anathema, the shadow staff, and back (a 30-minute cooldown).", goals = {
 		{ t = "task", text = "Use the Splinter of Nordrassil with both Eyes in your bags: Benediction" },
@@ -6246,14 +6246,14 @@ Waypost.RegisterSteps("class/priest/blood-of-morphaz", function() return {
 		{ t = "accept", quest = 8255, title = "Of Coursers We Know", npc = "Ogtinc", map = 1447, x = 42.4, y = 42.62, era = true, qlvl = 52 },
 	} },
 	{ title = "Of Coursers We Know", note = "Mosshoof Coursers (level 52-53, not elite) graze all over Azshara, thickest north-east of Ogtinc and south of the mountains; about one in three drops a Healthy Courser Gland, so plan on a dozen kills for four. They enrage at 30% health: finish them fast. Killing them costs no Cenarion Circle reputation. Keep any Ichor of Undeath you loot.", goals = {
-		{ t = "collect", quest = 8255, title = "Of Coursers We Know", map = 1447, x = 52.1, y = 35.39, era = true, count = 4, item = 20027, itemName = "Healthy Courser Gland", oi = 1, mobLevel = 53, spots = "52.1,35.4;52.4,25.2;53,14.7;46.2,18.6;62.5,16.1" },
+		{ t = "collect", quest = 8255, title = "Of Coursers We Know", map = 1447, x = 52.1, y = 35.39, era = true, count = 4, item = 20027, itemName = "Healthy Courser Gland", oi = 1, mobLevel = 53, src = "Mosshoof Courser", srcKind = "npc", spots = "52.1,35.4;52.4,25.2;53,14.7;46.2,18.6;62.5,16.1" },
 	} },
 	{ title = "Ogtinc", goals = {
 		{ t = "turnin", quest = 8255, title = "Of Coursers We Know", npc = "Ogtinc", map = 1447, x = 42.4, y = 42.62, era = true },
 		{ t = "accept", quest = 8256, title = "The Ichor of Undeath", npc = "Ogtinc", map = 1447, x = 42.4, y = 42.62, era = true, qlvl = 52 },
 	} },
 	{ title = "The Ichor of Undeath", note = "Carrying an Ichor of Undeath already? It counts at once. Otherwise any undead may drop one, rarely: the Lingering Highborne (level 48) in the Ruins of Eldarath below Ogtinc's cliff drop it about one kill in ten, the highborne ghosts on Azshara's border with Ashenvale (level 45-46) a little less, the Anguished and Suffering Highborne in Winterspring (54-55) about one in eight. The Auction House is usually quicker.", goals = {
-		{ t = "collect", quest = 8256, title = "The Ichor of Undeath", map = 1447, x = 40.28, y = 46.13, era = true, count = 1, item = 7972, itemName = "Ichor of Undeath", oi = 1, mobLevel = 50, spots = "40.3,46.1;39.4,50.3;39.1,55.3;38.8,60.6;35.2,51.8" },
+		{ t = "collect", quest = 8256, title = "The Ichor of Undeath", map = 1447, x = 40.28, y = 46.13, era = true, count = 1, item = 7972, itemName = "Ichor of Undeath", oi = 1, mobLevel = 50, src = "Lingering Highborne, Highborne Apparition, Highborne Lichling", srcKind = "npc", spots = "40.3,46.1;39.4,50.3;39.1,55.3;38.8,60.6;35.2,51.8" },
 	} },
 	{ title = "Ogtinc", goals = {
 		{ t = "turnin", quest = 8256, title = "The Ichor of Undeath", npc = "Ogtinc", map = 1447, x = 42.4, y = 42.62, era = true },
@@ -6279,7 +6279,7 @@ Waypost.RegisterSteps("class/rogue/ravenholdt", function() return {
 	} },
 	{ title = "Lord Tomas", note = "Lord Tomas is inside Durnholde Keep, the Syndicate fortress south of the manor; he can stand in any of fifteen spots in the keep, so search. Quick and quiet, says Myrokos. Pick the pockets of the level 20-21 Syndicate Rogues, Shadow Mages and Watchmen on your way: they carry Syndicate Emblems for the guards' repeatable reputation quest.", goals = {
 		{ t = "kill", quest = 96779, title = "Syndicate Sabotage", map = 1424, x = 79.35, y = 46.02, era = true, count = 1, target = "Lord Tomas", oi = 1, mobLevel = 24 },
-		{ t = "collect", map = 1424, x = 79.28, y = 46.37, era = true, item = 17124, itemName = "Syndicate Emblem", mobLevel = 22, optional = true, text = "Pick Pocket Syndicate members for Syndicate Emblems", spots = "78.2,45.4;81.1,45.5;82.3,41;79.2,40.9;75.7,41.1" },
+		{ t = "collect", map = 1424, x = 79.28, y = 46.37, era = true, item = 17124, itemName = "Syndicate Emblem", mobLevel = 22, optional = true, text = "Pick Pocket Syndicate members for Syndicate Emblems", src = "Syndicate Rogue, Syndicate Wizard, Syndicate Watchman and others", srcKind = "npc", spots = "78.2,45.4;81.1,45.5;82.3,41;79.2,40.9;75.7,41.1" },
 	} },
 	{ title = "Myrokos Silentform", goals = {
 		{ t = "turnin", quest = 96779, title = "Syndicate Sabotage", npc = "Myrokos Silentform", map = 1416, x = 84.93, y = 80.38, era = true },
@@ -6335,14 +6335,14 @@ Waypost.RegisterSteps("class/rogue/the-azure-key", function() return {
 	{ title = "Sealed Azure Bag", note = "Alliance fly to Talrendis Point, Horde to Valormok. Only the level 50-51 Timbermaw Shamans in the furbolg hills of northern Azshara carry the bag (the level 47-49 furbolgs further south do not): about one kill in thirty drops it. Pick Pocket them instead and you lose no Timbermaw reputation; if you are Unfriendly or better with Timbermaw Hold, mark them At War in your reputation panel first. They cast Lightning Bolt and Lightning Cloud, heal each other and run at low health.", goals = {
 		{ t = "getfp", npc = "Jarrodenus", map = 1447, x = 11.9, y = 77.59, era = true, location = "Talrendis Point", only = { factions = {"Alliance"} } },
 		{ t = "getfp", npc = "Kroum", map = 1447, x = 21.96, y = 49.62, era = true, location = "Valormok", only = { factions = {"Horde"} } },
-		{ t = "collect", quest = 8234, title = "Sealed Azure Bag", map = 1447, x = 44.2, y = 26.6, era = true, count = 1, item = 19775, itemName = "Sealed Azure Bag", oi = 1, mobLevel = 51, note = "Sealed Azure Bag: Timbermaw Shaman", spots = "44.2,26.6;45.5,25.4;45.8,22.3;44.6,21.4;42.8,18.5" },
+		{ t = "collect", quest = 8234, title = "Sealed Azure Bag", map = 1447, x = 44.2, y = 26.6, era = true, count = 1, item = 19775, itemName = "Sealed Azure Bag", oi = 1, mobLevel = 51, note = "Sealed Azure Bag: Timbermaw Shaman", src = "Timbermaw Shaman", srcKind = "npc", spots = "44.2,26.6;45.5,25.4;45.8,22.3;44.6,21.4;42.8,18.5" },
 	} },
 	{ title = "Archmage Xylem", note = "Sanath Lim-yo, camped below the cliffs just east of Valormok, teleports you up (dismount first); a trail leads to Xylem's tower.", goals = {
 		{ t = "turnin", quest = 8234, title = "Sealed Azure Bag", npc = "Archmage Xylem", map = 1447, x = 29.25, y = 40.21, era = true },
 		{ t = "accept", quest = 8235, title = "Encoded Fragments", npc = "Archmage Xylem", map = 1447, x = 29.25, y = 40.21, era = true, qlvl = 52 },
 	} },
 	{ title = "Encoded Fragments", note = "The Forest Oozes (level 52-53, Diseased Slime up close) drop a fragment four times in five: the biggest group, seven of them, is in the Bitter Reaches hills of north-eastern Azshara, four more south-east of Valormok. Pick their pockets before the kill for an extra fragment or two. Killing the Mistwing Ravagers and hippogryphs that share their spots makes more oozes appear.", goals = {
-		{ t = "collect", quest = 8235, title = "Encoded Fragments", map = 1447, x = 36.16, y = 67.86, era = true, count = 10, item = 20023, itemName = "Encoded Fragment", oi = 1, mobLevel = 53, note = "Encoded Fragment: Forest Ooze", spots = "37.5,69.6;43.1,70.5;69.5,27.9;75.7,27.5;80.4,24.5" },
+		{ t = "collect", quest = 8235, title = "Encoded Fragments", map = 1447, x = 36.16, y = 67.86, era = true, count = 10, item = 20023, itemName = "Encoded Fragment", oi = 1, mobLevel = 53, note = "Encoded Fragment: Forest Ooze", src = "Forest Ooze", srcKind = "npc", spots = "37.5,69.6;43.1,70.5;69.5,27.9;75.7,27.5;80.4,24.5" },
 	} },
 	{ title = "Back to Xylem", goals = {
 		{ t = "turnin", quest = 8235, title = "Encoded Fragments", npc = "Archmage Xylem", map = 1447, x = 29.25, y = 40.21, era = true },
@@ -6380,7 +6380,7 @@ Waypost.RegisterSteps("class/rogue/the-horn-of-xelthos", function() return {
 	{ title = "Veenix", note = "Veenix, a goblin friendly to both factions, stands among the Venture Co. in the Windshear Crag, east Stonetalon, a short way north-east of Sun Rock Retreat. Horde fly to Sun Rock Retreat; Alliance to Stonetalon Peak. He wants a Venture Co. Work Order before he hands over explosives: the Venture Co. Loggers (level 18) working around him carry them in their pockets. Stealth up behind one and Pick Pocket it; killing them does not give it.", goals = {
 		{ t = "talk", npc = "Veenix", map = 1442, x = 58.22, y = 51.74, era = true },
 		{ t = "accept", quest = 78270, title = "Goblin Lockpicks", npc = "Veenix", map = 1442, x = 58.22, y = 51.74, era = true, qlvl = 23 },
-		{ t = "collect", map = 1442, x = 59.44, y = 52.26, era = true, count = 1, item = 210187, itemName = "Venture Co. Work Order", mobLevel = 19, text = "Pick Pocket a Venture Co. Logger for a Venture Co. Work Order", spots = "60.3,53.6;63.1,55.1;64.8,57.1;68,57.2;71.2,55.9" },
+		{ t = "collect", map = 1442, x = 59.44, y = 52.26, era = true, count = 1, item = 210187, itemName = "Venture Co. Work Order", mobLevel = 19, text = "Pick Pocket a Venture Co. Logger for a Venture Co. Work Order", src = "Venture Co. Logger", srcKind = "npc", spots = "60.3,53.6;63.1,55.1;64.8,57.1;68,57.2;71.2,55.9" },
 		{ t = "turnin", quest = 78270, title = "Goblin Lockpicks", npc = "Veenix", map = 1442, x = 58.22, y = 51.74, era = true },
 	} },
 	{ title = "Shadowfang Keep", note = "Go in alone and use the Breaching Charge at the courtyard gate. Players also report a freed prisoner opening the courtyard door for you: if you die while he is opening it, stay dead until it is open; it stays open once you release. If you know Vanish, bring Flash Powder and check its cooldown before entering; keep it ready for a failed approach. Pickpocket the sister in the dining hall for the Sister's Half-Key, then the brother in the room reached by turning right at the top of the stairs for the Brother's Half-Key (a level 20 rogue without Vanish may need ranks in Master of Deception to reach the second one unseen). Combine them somewhere safe: this breaks stealth. Free a bag slot first: opening the chest with full bags can use up the key without giving the horn. Return to the courtyard stables and use the combined key on the chest for the horn. Stay clear of the nearby elites; the minimum quest level does not guarantee a safe approach.", goals = {
@@ -6434,11 +6434,11 @@ Waypost.RegisterSteps("class/warlock/enchanted-gold-bloodrobe", function() retur
 		{ t = "accept", quest = 4783, title = "Components for the Enchanted Gold Bloodrobe", npc = "Menara Voidrender", map = 1413, x = 62.51, y = 35.45, era = true, qlvl = 37 },
 	} },
 	{ title = "Hatefury satyrs", note = "The Hatefury satyrs (level 31-32) hold Sargeron in the far north-east of Desolace, past Nijel's Point: two kills in five give a vial, so plan on about 25.", goals = {
-		{ t = "collect", quest = 4783, title = "Components for the Enchanted Gold Bloodrobe", map = 1443, x = 74.7, y = 17.82, era = true, count = 10, item = 6989, itemName = "Vial of Hatefury Blood", oi = 1, mobLevel = 33, note = "Vials of Hatefury Blood", spots = "74.5,16.3;72.4,18.2;70.7,15.7;74.2,11;77,16.7" },
+		{ t = "collect", quest = 4783, title = "Components for the Enchanted Gold Bloodrobe", map = 1443, x = 74.7, y = 17.82, era = true, count = 10, item = 6989, itemName = "Vial of Hatefury Blood", oi = 1, mobLevel = 33, note = "Vials of Hatefury Blood", src = "Hatefury Rogue, Hatefury Trickster, Hatefury Felsworn and others", srcKind = "npc", spots = "74.5,16.3;72.4,18.2;70.7,15.7;74.2,11;77,16.7" },
 	} },
 	{ title = "Mannoroc Coven", note = "The Lesser Infernals (36-37) and Demon Portal Guardians (38) of Mannoroc Coven, in the south of Desolace, drop the stone half the time. The guide waits for level 35 first: at 31 they are too strong to solo. They resist fire, so use Shadow Bolt and Corruption.", goals = {
 		{ t = "level", level = 35 },
-		{ t = "collect", quest = 4783, title = "Components for the Enchanted Gold Bloodrobe", map = 1443, x = 56.8, y = 71.13, era = true, count = 1, item = 6990, itemName = "Lesser Infernal Stone", oi = 2, mobLevel = 39, spots = "55,71.3;50.9,70.7;54.5,79.7;50.2,74.1;52.3,80.9" },
+		{ t = "collect", quest = 4783, title = "Components for the Enchanted Gold Bloodrobe", map = 1443, x = 56.8, y = 71.13, era = true, count = 1, item = 6990, itemName = "Lesser Infernal Stone", oi = 2, mobLevel = 39, src = "Lesser Infernal, Demon Portal Guardian", srcKind = "npc", spots = "55,71.3;50.9,70.7;54.5,79.7;50.2,74.1;52.3,80.9" },
 	} },
 	{ title = "Menara again", goals = {
 		{ t = "turnin", quest = 4783, title = "Components for the Enchanted Gold Bloodrobe", npc = "Menara Voidrender", map = 1413, x = 62.51, y = 35.45, era = true },
@@ -6446,11 +6446,11 @@ Waypost.RegisterSteps("class/warlock/enchanted-gold-bloodrobe", function() retur
 	} },
 	{ title = "Fine Gold Thread", note = "Back to Xizk in Booty Bay: he offers Fine Gold Thread as a quest you hand straight back to him. He may show no quest marker; talk to him anyway.", goals = {
 		{ t = "turnin", quest = 4785, title = "Fine Gold Thread", npc = "Xizk Goodstitch", map = 1434, x = 28.71, y = 76.89, era = true, qlvl = 37, note = "Xizk Goodstitch: Fine Gold Thread, handed straight back" },
-		{ t = "collect", quest = 4784, title = "Components for the Enchanted Gold Bloodrobe", map = 1434, x = 28.71, y = 76.89, era = true, count = 1, item = 12293, itemName = "Fine Gold Thread", oi = 1 },
+		{ t = "collect", quest = 4784, title = "Components for the Enchanted Gold Bloodrobe", map = 1434, x = 28.71, y = 76.89, era = true, count = 1, item = 12293, itemName = "Fine Gold Thread", oi = 1, src = "Xizk Goodstitch", srcKind = "npc" },
 	} },
 	{ title = "Smoldering Coal", note = "The Burning Exiles (level 38-39), fire elementals at the Circle of West Binding in western Arathi Highlands, drop the coal about one time in three. The guide waits for level 37 first: below it they hit too hard to solo. They resist fire: Shadow Bolt and Corruption. The Cresting Charms from the Cresting Exiles near Hammerfall finish one off once you have hurt it. Make a Soul Shard with Drain Soul on the way.", goals = {
 		{ t = "level", level = 37 },
-		{ t = "collect", quest = 4784, title = "Components for the Enchanted Gold Bloodrobe", map = 1417, x = 25.61, y = 30.4, era = true, count = 2, item = 6991, itemName = "Smoldering Coal", oi = 2, mobLevel = 39, spots = "25.3,30.1;26.8,31.7" },
+		{ t = "collect", quest = 4784, title = "Components for the Enchanted Gold Bloodrobe", map = 1417, x = 25.61, y = 30.4, era = true, count = 2, item = 6991, itemName = "Smoldering Coal", oi = 2, mobLevel = 39, src = "Burning Exile", srcKind = "npc", spots = "25.3,30.1;26.8,31.7" },
 		{ t = "collect", quest = 4784, title = "Components for the Enchanted Gold Bloodrobe", map = 1417, x = 24.9, y = 30.5, era = true, count = 1, item = 6265, itemName = "Soul Shard", oi = 3, note = "Soul Shard: Drain Soul on an Exile as it dies" },
 	} },
 	{ title = "The Completed Robe", note = "Back to Menara with the thread, the coals and a Soul Shard. Then wait beside her while she works the robe (do not attack her: the quest log calls it a kill), and speak to her again.", goals = {
@@ -6479,7 +6479,7 @@ Waypost.RegisterSteps("class/warlock/impsys-request", function() return {
 		{ t = "accept", quest = 8419, title = "An Imp's Request", npc = "Kaal Soulreaper", map = 1458, x = 86.21, y = 15.93, era = true, qlvl = 52 },
 	} },
 	{ title = "Felcloth", note = "One Felcloth: the Jadefire satyrs of Felwood drop it about one kill in fourteen, and so do the Legashi satyrs and the Felguard Sentries you hunt for Niby's essences. Quicker: buy one at the Auction House. You need it for the trainer's An Imp's Request or for Impsy's own Hot and Itchy, the same errand: whichever you hold.", goals = {
-		{ t = "collect", map = 1448, x = 32.23, y = 67.11, era = true, item = 14256, itemName = "Felcloth", mobLevel = 51, spots = "32.3,66.6;37.5,69.1;36.6,56.4;38.5,50.7;37.7,45.9" },
+		{ t = "collect", map = 1448, x = 32.23, y = 67.11, era = true, item = 14256, itemName = "Felcloth", mobLevel = 51, src = "Xavathras, Salia, Rakaiah and others", srcKind = "npc", spots = "32.3,66.6;37.5,69.1;36.6,56.4;38.5,50.7;37.7,45.9" },
 	} },
 	{ title = "Impsy", note = "Impsy waits beside Niby the Almighty on a rise just north-east of Bloodvenom Post: coming north over the Bloodvenom Falls bridge, they stand off the road to the east, past a few oozes. Hand him the trainer's An Imp's Request with the cloth. Next he wants ten Rotting Wood and four Bloodvenom Essence.", when = {{ k = "onquest", q = {8419} }}, goals = {
 		{ t = "turnin", quest = 8419, title = "An Imp's Request", npc = "Impsy", map = 1448, x = 41.36, y = 45.02, era = true },
@@ -6490,8 +6490,8 @@ Waypost.RegisterSteps("class/warlock/impsys-request", function() return {
 	} },
 	{ title = "Rotting Wood and Bloodvenom", note = "The Irontree treants (level 52) of Irontree Woods, in northern Felwood west of Talonbranch Glade, drop Rotting Wood one time in four; the big Withered Protector (55) often drops three at once but hits hard and dazes. The Tainted Oozes (51) around Impsy and along the Bloodvenom drop the essence one time in five.", goals = {
 		{ t = "accept", quest = 8421, title = "The Wrong Stuff", npc = "Impsy", map = 1448, x = 41.36, y = 45.02, era = true, qlvl = 52, note = "Impsy: The Wrong Stuff" },
-		{ t = "collect", quest = 8421, title = "The Wrong Stuff", map = 1448, x = 48.51, y = 29.84, era = true, count = 10, item = 20613, itemName = "Rotting Wood", oi = 1, mobLevel = 53, spots = "48.5,29.5;47.9,27.2;46.6,23.9;51.7,24.8;53.2,23.4" },
-		{ t = "collect", quest = 8421, title = "The Wrong Stuff", map = 1448, x = 43.99, y = 46.35, era = true, count = 4, item = 20614, itemName = "Bloodvenom Essence", oi = 2, mobLevel = 52, spots = "44,46.4;43.3,48.2;41.7,49.5;42.7,50.8;41.4,46.3" },
+		{ t = "collect", quest = 8421, title = "The Wrong Stuff", map = 1448, x = 48.51, y = 29.84, era = true, count = 10, item = 20613, itemName = "Rotting Wood", oi = 1, mobLevel = 53, src = "Irontree Stomper, Withered Protector, Irontree Wanderer", srcKind = "npc", spots = "48.5,29.5;47.9,27.2;46.6,23.9;51.7,24.8;53.2,23.4" },
+		{ t = "collect", quest = 8421, title = "The Wrong Stuff", map = 1448, x = 43.99, y = 46.35, era = true, count = 4, item = 20614, itemName = "Bloodvenom Essence", oi = 2, mobLevel = 52, src = "Tainted Ooze", srcKind = "npc", spots = "44,46.4;43.3,48.2;41.7,49.5;42.7,50.8;41.4,46.3" },
 	} },
 	{ title = "Impsy again", note = "Impsy now wants six Voodoo Feathers from the Sunken Temple: a dungeon run.", goals = {
 		{ t = "turnin", quest = 8421, title = "The Wrong Stuff", npc = "Impsy", map = 1448, x = 41.36, y = 45.02, era = true },
@@ -6536,9 +6536,9 @@ Waypost.RegisterSteps("class/warlock/orb-of-orahil", function() return {
 		{ t = "accept", quest = 4963, title = "Shard of an Infernal", npc = "Acolyte Magaz", map = 1413, x = 62.56, y = 35.23, era = true, qlvl = 40, note = "Acolyte Magaz: he gives you the Infus Emerald" },
 	} },
 	{ title = "Mannoroc Coven", note = "Mannoroc Coven fills south-central Desolace, east of Shadowprey Village. The Burning Blade Summoners (level 38-39, warlocks with imps) carry the Infernal Orb every time. For the spirit, bring your demon to low health with your damage over time, then channel the ruby or the emerald on it and keep channelling while it dies, as with Drain Soul: the gem does no damage of its own. The ruby works on the coven's felhounds: the two Mana Eaters (37-38) in the north, and the Mage Hunters (38) and Ley Hunters (39) further south. The emerald works on the Lesser Infernals (36-37, sixteen of them, fire-resistant).", goals = {
-		{ t = "collect", quest = 1799, title = "Fragments of the Orb of Orahil", map = 1443, x = 66.49, y = 77.94, era = true, count = 1, item = 7291, itemName = "Infernal Orb", oi = 1, mobLevel = 39, note = "Infernal Orb, from the Burning Blade Summoners", spots = "54.9,71.7;50.3,72.3;49.6,77.2;52.7,80.2;80.5,77.1" },
-		{ t = "collect", quest = 4962, title = "Shard of a Felhound", map = 1443, x = 52.91, y = 68.14, era = true, count = 1, item = 12648, itemName = "Imprisoned Felhound Spirit", oi = 1, mobLevel = 38, note = "Imprisoned Felhound Spirit, from a Mana Eater, Mage Hunter or Ley Hunter" },
-		{ t = "collect", quest = 4963, title = "Shard of an Infernal", map = 1443, x = 54.31, y = 71.14, era = true, count = 1, item = 12649, itemName = "Imprisoned Infernal Spirit", oi = 1, mobLevel = 37, note = "Imprisoned Infernal Spirit, from a Lesser Infernal", spots = "53.1,71.8;50,76.1;54.3,80.1;53.7,84;56.8,71.1" },
+		{ t = "collect", quest = 1799, title = "Fragments of the Orb of Orahil", map = 1443, x = 66.49, y = 77.94, era = true, count = 1, item = 7291, itemName = "Infernal Orb", oi = 1, mobLevel = 39, note = "Infernal Orb, from the Burning Blade Summoners", src = "Burning Blade Summoner", srcKind = "npc", spots = "54.9,71.7;50.3,72.3;49.6,77.2;52.7,80.2;80.5,77.1" },
+		{ t = "collect", quest = 4962, title = "Shard of a Felhound", map = 1443, x = 52.91, y = 68.14, era = true, count = 1, item = 12648, itemName = "Imprisoned Felhound Spirit", oi = 1, mobLevel = 38, note = "Imprisoned Felhound Spirit, from a Mana Eater, Mage Hunter or Ley Hunter", src = "Mana Eater", srcKind = "npc" },
+		{ t = "collect", quest = 4963, title = "Shard of an Infernal", map = 1443, x = 54.31, y = 71.14, era = true, count = 1, item = 12649, itemName = "Imprisoned Infernal Spirit", oi = 1, mobLevel = 37, note = "Imprisoned Infernal Spirit, from a Lesser Infernal", src = "Lesser Infernal", srcKind = "npc", spots = "53.1,71.8;50,76.1;54.3,80.1;53.7,84;56.8,71.1" },
 	} },
 	{ title = "The demon's spirit", note = "Back to Menara in the tower above Ratchet with the spirit and the gem first: her orb follows from it.", goals = {
 		{ t = "turnin", quest = 4962, title = "Shard of a Felhound", npc = "Menara Voidrender", map = 1413, x = 62.51, y = 35.45, era = true },
@@ -6589,14 +6589,14 @@ Waypost.RegisterSteps("class/warlock/shard-of-the-green-flame", function() retur
 		{ t = "accept", quest = 7602, title = "Flawless Fel Essence", npc = "Impsy", map = 1448, x = 41.36, y = 45.02, era = true, qlvl = 55 },
 	} },
 	{ title = "Azshara", note = "The Legashi satyrs (level 51-53) hold the Legash Encampment on Azshara's northern coast. Every kind drops the essence three times in four; the satyrs burn mana and the Hellcallers rain fire, so pull them singly.", goals = {
-		{ t = "collect", quest = 7602, title = "Flawless Fel Essence", map = 1447, x = 61.42, y = 20.92, era = true, count = 1, item = 18624, itemName = "Flawless Fel Essence (Azshara)", oi = 1, mobLevel = 53, spots = "62.2,24;60.9,24.5;62.1,26.2;66.6,18.6;65.7,16.9" },
+		{ t = "collect", quest = 7602, title = "Flawless Fel Essence", map = 1447, x = 61.42, y = 20.92, era = true, count = 1, item = 18624, itemName = "Flawless Fel Essence (Azshara)", oi = 1, mobLevel = 53, src = "Legashi Satyr, Legashi Rogue, Legashi Hellcaller", srcKind = "npc", spots = "62.2,24;60.9,24.5;62.1,26.2;66.6,18.6;65.7,16.9" },
 	} },
 	{ title = "Jaedenar", note = "Jaedenar lies just south of Bloodvenom Post, west of the road. The guide waits for level 53 first: its Legionnaires are 55. Of its two caves, Shadow Hold is the northern one, further up the hill; the other has no Legionnaires. Shadow Hold's tunnels run north under the hills, and the Jaedenar Legionnaires (level 55) stand in its deeper halls, from the first ramps on toward Lord Banehollow's chamber; they Uppercut anyone in melee. Three kills in four give the essence, but only about eleven spawn: clear your way in and wait out a five-minute respawn if you must. The cultists of Jaedenar and Shadow Hold are all hostile.", goals = {
 		{ t = "level", level = 53 },
-		{ t = "collect", quest = 7602, title = "Flawless Fel Essence", map = 1448, x = 37.58, y = 50.21, era = true, count = 1, item = 18622, itemName = "Flawless Fel Essence (Jaedenar)", oi = 2, mobLevel = 55, spots = "39.3,50;37.3,54.5;36.7,46" },
+		{ t = "collect", quest = 7602, title = "Flawless Fel Essence", map = 1448, x = 37.58, y = 50.21, era = true, count = 1, item = 18622, itemName = "Flawless Fel Essence (Jaedenar)", oi = 2, mobLevel = 55, src = "Jaedenar Legionnaire", srcKind = "npc", spots = "39.3,50;37.3,54.5;36.7,46" },
 	} },
 	{ title = "The Dark Portal", note = "The Felguard Sentries (level 54) walk around the Dark Portal in the south of the Blasted Lands, each with a felhunter. Leave the level 57 Servants of Razelikh alone: they cannot be killed without their own quest.", goals = {
-		{ t = "collect", quest = 7602, title = "Flawless Fel Essence", map = 1419, x = 58.52, y = 51.23, era = true, count = 1, item = 18623, itemName = "Flawless Fel Essence (Dark Portal)", oi = 3, mobLevel = 55, spots = "57.8,50;61,52.3;54.9,51.5" },
+		{ t = "collect", quest = 7602, title = "Flawless Fel Essence", map = 1419, x = 58.52, y = 51.23, era = true, count = 1, item = 18623, itemName = "Flawless Fel Essence (Dark Portal)", oi = 3, mobLevel = 55, src = "Felguard Sentry", srcKind = "npc", spots = "57.8,50;61,52.3;54.9,51.5" },
 	} },
 	{ title = "Impsy", note = "Back to Impsy. He hands you the Fel Fire: keep it, it wakes the infernal Kroshius.", goals = {
 		{ t = "turnin", quest = 7602, title = "Flawless Fel Essence", npc = "Impsy", map = 1448, x = 41.36, y = 45.02, era = true },
@@ -6605,7 +6605,7 @@ Waypost.RegisterSteps("class/warlock/shard-of-the-green-flame", function() retur
 	{ title = "Kroshius", note = "Kroshius' remains lie in Shatter Scar Vale, the burnt crater north of Niby: follow the road north from his camp; the remains lie a little east of it. Use the Fel Fire beside them and wait for him to rise. Kroshius is elite (level 55): grouping up is encouraged; a warlock of 55 or more can solo him with Fear and damage over time, or with Enslave Demon, but fire spells do nothing to him and he knocks you back. If you die he heals to full; he rises again three minutes after he dies. An elite infernal patrols the pool south of the remains: pull Kroshius away from it. He always drops his core. Lost the Fel Fire? Abandon the quest and take it again from Impsy.", goals = {
 		{ t = "use", map = 1448, x = 45.7, y = 34.8, era = true, item = 18626, itemName = "Fel Fire", note = "Fel Fire, at Kroshius' Remains" },
 		{ t = "kill", quest = 7603, title = "Kroshius' Infernal Core", map = 1448, x = 45.7, y = 34.76, era = true, count = 1, target = "Kroshius", oi = 1, group = true },
-		{ t = "collect", quest = 7603, title = "Kroshius' Infernal Core", map = 1448, x = 45.7, y = 34.76, era = true, count = 1, item = 18625, itemName = "Kroshius' Infernal Core", oi = 2, group = true },
+		{ t = "collect", quest = 7603, title = "Kroshius' Infernal Core", map = 1448, x = 45.7, y = 34.76, era = true, count = 1, item = 18625, itemName = "Kroshius' Infernal Core", oi = 2, group = true, src = "Kroshius", srcKind = "npc" },
 	} },
 	{ title = "Back to Niby", goals = {
 		{ t = "turnin", quest = 7603, title = "Kroshius' Infernal Core", npc = "Niby the Almighty", map = 1448, x = 41.38, y = 44.85, era = true, note = "Niby the Almighty: Shard of the Green Flame" },
@@ -6622,14 +6622,14 @@ Waypost.RegisterSteps("class/warlock/tome-of-sacrifice", function() return {
 		{ t = "collect", quest = 7581, title = "The Prison's Bindings", map = 1444, x = 59.2, y = 45.1, era = true, count = 15, item = 18603, itemName = "Satyr Blood", oi = 1, group = true, note = "Satyr Blood, from the Wildspawn inside" },
 	} },
 	{ title = "Tears of the Hederine", note = "The Hederine demons (level 57-60, elite) hold Darkwhisper Gorge in the far south of Winterspring: grouping up is encouraged. Two Slayers guard the gorge past the bridge; the western tunnel leads to more Initiates, the easiest of them (watch for their Dominate Mind). A warlock can solo them one at a time with Fear or Banish and damage over time, but slowly. Any of them can drop the Tears, four kills in five.", goals = {
-		{ t = "collect", quest = 7582, title = "The Prison's Casing", map = 1452, x = 58.3, y = 82.25, era = true, count = 5, item = 18604, itemName = "Tears of the Hederine", oi = 1, mobLevel = 60, group = true, spots = "58.7,83.6;59.2,87.6;57.5,88.4;55.5,84.2;52.8,84.9" },
+		{ t = "collect", quest = 7582, title = "The Prison's Casing", map = 1452, x = 58.3, y = 82.25, era = true, count = 5, item = 18604, itemName = "Tears of the Hederine", oi = 1, mobLevel = 60, group = true, src = "Hederine Initiate, Hederine Manastalker, Hederine Slayer", srcKind = "npc", spots = "58.7,83.6;59.2,87.6;57.5,88.4;55.5,84.2;52.8,84.9" },
 	} },
 	{ title = "Suppression", note = "Hand both in to Daio and take the Glowing Crystal Prison. Find a Doomguard Commander (level 61, elite) standing alone in the Tainted Scar, open from about 30 yards with your voidwalker on him, and channel the prison on him for about 20 seconds: he attacks you to break free, and his War Stomp can interrupt the channel, so sacrifice the voidwalker for its shield if you must. Grouping up is encouraged: a second player to tank makes it easy. When the channel finishes he becomes the Imprisoned Doomguard: click it. If the channel breaks, kill him or run, and try another.", goals = {
 		{ t = "turnin", quest = 7581, title = "The Prison's Bindings", npc = "Daio the Decrepit", map = 1419, x = 34.13, y = 50.14, era = true },
 		{ t = "turnin", quest = 7582, title = "The Prison's Casing", npc = "Daio the Decrepit", map = 1419, x = 34.13, y = 50.14, era = true },
 		{ t = "accept", quest = 7583, title = "Suppression", npc = "Daio the Decrepit", map = 1419, x = 34.13, y = 50.14, era = true, qlvl = 60 },
 		{ t = "use", quest = 7583, title = "Suppression", map = 1419, x = 34.5, y = 63.7, era = true, item = 18601, itemName = "Glowing Crystal Prison", oi = 1, note = "Glowing Crystal Prison, on a Doomguard Commander" },
-		{ t = "collect", quest = 7583, title = "Suppression", map = 1419, x = 34.55, y = 63.73, era = true, count = 1, item = 18605, itemName = "Imprisoned Doomguard", oi = 1, note = "Imprisoned Doomguard, click it", spots = "34.7,63.7;39,67.9;40.1,63.3;44.2,74;41.6,78.1" },
+		{ t = "collect", quest = 7583, title = "Suppression", map = 1419, x = 34.55, y = 63.73, era = true, count = 1, item = 18605, itemName = "Imprisoned Doomguard", oi = 1, note = "Imprisoned Doomguard, click it", src = "Imprisoned Doomguard", srcKind = "object", spots = "34.7,63.7;39,67.9;40.1,63.3;44.2,74;41.6,78.1" },
 	} },
 	{ title = "Back to Daio", goals = {
 		{ t = "turnin", quest = 7583, title = "Suppression", npc = "Daio the Decrepit", map = 1419, x = 34.13, y = 50.14, era = true, note = "Daio the Decrepit: Tome of Sacrifice" },
@@ -6753,13 +6753,13 @@ Waypost.RegisterSteps("class/warrior/whirlwind-weapon", function() return {
 		{ t = "collect", quest = 1712, title = "Cyclonian", map = 1416, x = 77.21, y = 64.4, era = true, count = 8, item = 3357, itemName = "Liferoot", oi = 1, spots = "76.7,63.4;72.6,69.3;83.5,52.6;37.7,20.8;36.1,25.4" },
 	} },
 	{ title = "Bloodscalp Tusks", note = "You need 30 tusks. Every Bloodscalp troll (level 33-37) of north-west Stranglethorn drops one about one kill in three, so plan on some 80 kills: the camps and ruins north and north-west of Grom'gol Base Camp and around the Bal'lal Ruins on the coast. They enrage below 30% health and the Warriors disarm; back in 5 minutes.", goals = {
-		{ t = "collect", quest = 1712, title = "Cyclonian", map = 1434, x = 32.26, y = 17.17, era = true, count = 30, item = 3901, itemName = "Bloodscalp Tusk", oi = 2, mobLevel = 34, spots = "30.5,17.4;30,21.2;34.3,14.6;31.4,12.2;27.5,11.3" },
+		{ t = "collect", quest = 1712, title = "Cyclonian", map = 1434, x = 32.26, y = 17.17, era = true, count = 30, item = 3901, itemName = "Bloodscalp Tusk", oi = 2, mobLevel = 34, src = "Bloodscalp Warrior, Bloodscalp Scout, Bloodscalp Hunter and others", srcKind = "npc", spots = "30.5,17.4;30,21.2;34.3,14.6;31.4,12.2;27.5,11.3" },
 	} },
 	{ title = "The exiles of Arathi", note = "The cauldron wants 8 of each charm, 24 in all, and each exile drops its charm about one kill in three, so plan on some 70 kills. All are level 38-39, not elite: the guide waits for level 37 first, and a friend helps. Burning Exiles (fire) by the Circle of West Binding in the north-west, north-west of Refuge Pointe; Thundering Exiles (air) by the Circle of Outer Binding south-east of Refuge Pointe, casting Lightning Bolt from 40 yards; Cresting Exiles (water) by the Circle of East Binding, north-west of Hammerfall, with Frost Nova. About a dozen of each, back in under 7 minutes. The charms trade and sell on the auction house; using one banishes another kind of exile for a while (Burning on Thundering, Thundering on Cresting, Cresting on Burning).", goals = {
 		{ t = "level", level = 37 },
-		{ t = "collect", map = 1417, x = 25.61, y = 30.4, era = true, count = 8, item = 4479, itemName = "Burning Charm", mobLevel = 39, note = "Burning Charm, from Burning Exiles", spots = "25.3,30.1;26.8,31.7" },
-		{ t = "collect", map = 1417, x = 50.39, y = 50.83, era = true, count = 8, item = 4480, itemName = "Thundering Charm", mobLevel = 39, note = "Thundering Charm, from Thundering Exiles", spots = "51.5,51.3;52.7,49.3" },
-		{ t = "collect", map = 1417, x = 65.36, y = 31.01, era = true, count = 8, item = 4481, itemName = "Cresting Charm", mobLevel = 39, note = "Cresting Charm, from Cresting Exiles" },
+		{ t = "collect", map = 1417, x = 25.61, y = 30.4, era = true, count = 8, item = 4479, itemName = "Burning Charm", mobLevel = 39, note = "Burning Charm, from Burning Exiles", src = "Burning Exile", srcKind = "npc", spots = "25.3,30.1;26.8,31.7" },
+		{ t = "collect", map = 1417, x = 50.39, y = 50.83, era = true, count = 8, item = 4480, itemName = "Thundering Charm", mobLevel = 39, note = "Thundering Charm, from Thundering Exiles", src = "Thundering Exile", srcKind = "npc", spots = "51.5,51.3;52.7,49.3" },
+		{ t = "collect", map = 1417, x = 65.36, y = 31.01, era = true, count = 8, item = 4481, itemName = "Cresting Charm", mobLevel = 39, note = "Cresting Charm, from Cresting Exiles", src = "Cresting Exile", srcKind = "npc" },
 	} },
 	{ title = "Essence of the Exile", note = "Click Bath'rah's Cauldron with the 24 charms in your bags and Cyclonian in your log. Its window asks for the charms straight away, with nothing to accept: Continue, then Complete, and it hands you the Essence of the Exile.", goals = {
 		{ t = "turnin", quest = 1714, title = "Essence of the Exile", npc = "Bath'rah's Cauldron", map = 1416, x = 79.32, y = 66.8, era = true, qlvl = 37, note = "Bath'rah's Cauldron: Essence of the Exile" },
@@ -6770,7 +6770,7 @@ Waypost.RegisterSteps("class/warrior/whirlwind-weapon", function() return {
 		{ t = "level", level = 38 },
 		{ t = "accept", quest = 1713, title = "The Summoning", npc = "Bath'rah the Windwatcher", map = 1416, x = 80.5, y = 66.92, era = true, qlvl = 40 },
 		{ t = "kill", map = 1416, x = 80.32, y = 62.14, era = true, target = "Cyclonian", group = true },
-		{ t = "collect", quest = 1713, title = "The Summoning", map = 1416, x = 80.32, y = 62.14, era = true, count = 1, item = 6894, itemName = "Whirlwind Heart", oi = 1, group = true, note = "Whirlwind Heart, from Cyclonian" },
+		{ t = "collect", quest = 1713, title = "The Summoning", map = 1416, x = 80.32, y = 62.14, era = true, count = 1, item = 6894, itemName = "Whirlwind Heart", oi = 1, group = true, note = "Whirlwind Heart, from Cyclonian", src = "Cyclonian", srcKind = "npc" },
 		{ t = "turnin", quest = 1713, title = "The Summoning", npc = "Bath'rah the Windwatcher", map = 1416, x = 80.5, y = 66.92, era = true },
 		{ t = "accept", quest = 1792, title = "Whirlwind Weapon", npc = "Bath'rah the Windwatcher", map = 1416, x = 80.5, y = 66.92, era = true, qlvl = 40 },
 		{ t = "turnin", quest = 1792, title = "Whirlwind Weapon", npc = "Bath'rah the Windwatcher", map = 1416, x = 80.5, y = 66.92, era = true, note = "Bath'rah the Windwatcher: Whirlwind Axe, Sword or Warhammer" },
@@ -6875,7 +6875,7 @@ Waypost.RegisterSteps("collectibles/mounts/neutral/warlock-dreadsteed", function
 		{ t = "accept", quest = 7563, title = "Rage of Blood", npc = "Mor'zul Bloodbringer", map = 1428, x = 12.69, y = 31.64, era = true, qlvl = 58 },
 	} },
 	{ title = "Raging Beast's Blood", note = "Every owlbeast of Winterspring (level 53-58, none elite) drops the blood about one time in three: about ninety kills for thirty. Owl Wing Thicket, in the north-east, and the Hidden Grove's surroundings are packed with them, and they respawn in five and a half minutes.", goals = {
-		{ t = "collect", quest = 7563, title = "Rage of Blood", map = 1452, x = 43.16, y = 39.43, era = true, count = 30, item = 18590, itemName = "Raging Beast's Blood", oi = 1, mobLevel = 55, spots = "44.4,38;48.2,46.4;51.5,39.3;56.6,32.1;62.2,31.8" },
+		{ t = "collect", quest = 7563, title = "Rage of Blood", map = 1452, x = 43.16, y = 39.43, era = true, count = 30, item = 18590, itemName = "Raging Beast's Blood", oi = 1, mobLevel = 55, src = "Ragged Owlbeast, Raging Owlbeast, Crazed Owlbeast and others", srcKind = "npc", spots = "44.4,38;48.2,46.4;51.5,39.3;56.6,32.1;62.2,31.8" },
 	} },
 	{ title = "Wildeyes", note = "Back to Mor'zul: he gives you the Case of Blood for Gorzeeki beside him. Then Mor'zul asks for the bell, the wheel and the candle, and Gorzeeki sends you to Lord Banehollow in Jaedenar: buy three Shadowy Potions from him for that trip (6 gold each: one to walk in, one after Ulathek, and a spare in case one runs out) and bring 150 gold for the stardust.", goals = {
 		{ t = "turnin", quest = 7563, title = "Rage of Blood", npc = "Mor'zul Bloodbringer", map = 1428, x = 12.69, y = 31.64, era = true },
@@ -6892,8 +6892,8 @@ Waypost.RegisterSteps("collectibles/mounts/neutral/warlock-dreadsteed", function
 		{ t = "collect", quest = 7626, title = "Bell of Dethmoora", map = 1454, x = 55.9, y = 62.7, era = true, count = 10, item = 9264, itemName = "Elixir of Shadow Power", oi = 1, only = { factions = {"Horde"} }, note = "Elixir of Shadow Power: the Auction House" },
 		{ t = "collect", quest = 7627, title = "Wheel of the Black March", map = 1453, x = 61.2, y = 71.3, count = 6, item = 14344, itemName = "Large Brilliant Shard", oi = 1, only = { factions = {"Alliance"} }, note = "Large Brilliant Shard: the Auction House" },
 		{ t = "collect", quest = 7627, title = "Wheel of the Black March", map = 1454, x = 55.9, y = 62.7, era = true, count = 6, item = 14344, itemName = "Large Brilliant Shard", oi = 1, only = { factions = {"Horde"} }, note = "Large Brilliant Shard: the Auction House" },
-		{ t = "collect", quest = 7627, title = "Wheel of the Black March", map = 1428, x = 56.05, y = 47.78, era = true, count = 25, item = 11370, itemName = "Dark Iron Ore", oi = 2, spots = "56.9,42.9;65.9,21.9;79.2,25.3;81.4,47.9;73,64.3" },
-		{ t = "collect", quest = 7628, title = "Doomsday Candle", map = 1428, x = 56.33, y = 60.61, era = true, count = 35, item = 15416, itemName = "Black Dragonscale", oi = 1, mobLevel = 54, spots = "56.3,60.6;76.9,62.1;91.8,55.2;91,51.3;89.9,43.9" },
+		{ t = "collect", quest = 7627, title = "Wheel of the Black March", map = 1428, x = 56.05, y = 47.78, era = true, count = 25, item = 11370, itemName = "Dark Iron Ore", oi = 2, src = "Dark Iron Deposit", srcKind = "object", spots = "56.9,42.9;65.9,21.9;79.2,25.3;81.4,47.9;73,64.3" },
+		{ t = "collect", quest = 7628, title = "Doomsday Candle", map = 1428, x = 56.33, y = 60.61, era = true, count = 35, item = 15416, itemName = "Black Dragonscale", oi = 1, mobLevel = 54, src = "Black Dragonspawn, Flamescale Wyrmkin, Flamescale Dragonspawn and others", srcKind = "npc", spots = "56.3,60.6;76.9,62.1;91.8,55.2;91,51.3;89.9,43.9" },
 	} },
 	{ title = "Arcanite", note = "Hand the three pieces to Gorzeeki. He then wants 3 Arcanite Bars for the Black Lodestone: alchemists transmute them (an Arcane Crystal and a Thorium Bar each, on a long cooldown); everyone else buys them.", goals = {
 		{ t = "turnin", quest = 7626, title = "Bell of Dethmoora", npc = "Gorzeeki Wildeyes", map = 1428, x = 12.44, y = 31.63, era = true },
@@ -6911,7 +6911,7 @@ Waypost.RegisterSteps("collectibles/mounts/neutral/warlock-dreadsteed", function
 	} },
 	{ title = "Ulathek the Traitor", note = "Ulathek waits in a small side room up a bridge you passed on the way down. Speak to him and he and four guards attack (all level 57, none elite): let your voidwalker hold the guards and burn Ulathek, sacrificing it if you must. Or click off your Taint of Shadow aura to start the fight, kill Ulathek, then drink another potion: the guards stop at once. Take his heart back to Lord Banehollow with a potion active.", goals = {
 		{ t = "kill", map = 1448, x = 40.76, y = 48.42, era = true, target = "Ulathek", optional = true },
-		{ t = "collect", quest = 7624, title = "Ulathek the Traitor", map = 1448, x = 40.76, y = 48.42, era = true, count = 1, item = 18719, itemName = "The Traitor's Heart", oi = 1 },
+		{ t = "collect", quest = 7624, title = "Ulathek the Traitor", map = 1448, x = 40.76, y = 48.42, era = true, count = 1, item = 18719, itemName = "The Traitor's Heart", oi = 1, src = "Ulathek", srcKind = "npc" },
 		{ t = "turnin", quest = 7624, title = "Ulathek the Traitor", npc = "Lord Banehollow", map = 1448, x = 35.9, y = 44.4, era = true },
 		{ t = "accept", quest = 7625, title = "Xorothian Stardust", npc = "Lord Banehollow", map = 1448, x = 35.93, y = 44.42, era = true, qlvl = 60 },
 	} },
@@ -6996,13 +6996,13 @@ Waypost.RegisterSteps("collectibles/pets/bitter-baitling", function() return {
 
 Waypost.RegisterSteps("collectibles/pets/condor-hatchling", function() return {
 	{ title = "Lord Condar", note = "Lord Condar is a rare level 15-16 condor in south-eastern Loch Modan. He appears at one of four spots, hours after he last died; the arrow takes you round them. He drops the Shaking Egg only about once in 500 kills, so this is a pet for players who pass through Loch Modan often: check his spots each time, and kill him whenever you see him.", goals = {
-		{ t = "collect", map = 1432, x = 77.7, y = 74.9, era = true, item = 282637, itemName = "Shaking Egg", spots = "77.7,74.9;74.6,70.8;74.7,66.9;62.6,78.5" },
+		{ t = "collect", map = 1432, x = 77.7, y = 74.9, era = true, item = 282637, itemName = "Shaking Egg", src = "Lord Condar", srcKind = "npc", spots = "77.7,74.9;74.6,70.8;74.7,66.9;62.6,78.5" },
 	} },
 } end)
 
 Waypost.RegisterSteps("collectibles/pets/dark-whelpling", function() return {
 	{ title = "Black whelps", note = "The Searing Whelps of the Wyrmbog in southern Dustwallow Marsh (level 42-43) and the Scalding Whelps of eastern Badlands (level 41-43) drop it about once in 900 kills. The waypoint is the Wyrmbog, where the whelps stand thickest; the Badlands whelps are the same grind. The whelpling can be traded, so the Auction House may be quicker.", goals = {
-		{ t = "collect", map = 1445, x = 46.9, y = 72.5, era = true, item = 10822, itemName = "Dark Whelpling", mobLevel = 43, note = "The Wyrmbog", spots = "46.9,72.5;45.4,73;44.5,74.7;45,69.2;46.4,77" },
+		{ t = "collect", map = 1445, x = 46.9, y = 72.5, era = true, item = 10822, itemName = "Dark Whelpling", mobLevel = 43, note = "The Wyrmbog", src = "Searing Whelp", srcKind = "npc", spots = "46.9,72.5;45.4,73;44.5,74.7;45,69.2;46.4,77" },
 	} },
 } end)
 
@@ -7030,7 +7030,7 @@ Waypost.RegisterSteps("collectibles/pets/green-wing-macaw", function() return {
 
 Waypost.RegisterSteps("collectibles/pets/hyacinth-macaw", function() return {
 	{ title = "Bloodsail pirates", note = "Every Bloodsail pirate on the Stranglethorn coast (level 39-45) can drop it, but only about once in 5,000 kills; the Swabbies on the ships off the southern tip, about once in 2,500. That is a grind of many hours, so most players kill pirates while doing something else there, or buy the cage on the Auction House. The waypoint is the Swashbucklers' and Warlocks' camp on the Wild Shore, south of Booty Bay. Every pirate kill also lowers your Bloodsail Buccaneers standing.", goals = {
-		{ t = "collect", map = 1434, x = 27.2, y = 83, era = true, item = 8494, itemName = "Parrot Cage (Hyacinth Macaw)", mobLevel = 43, note = "Bloodsail camp, the Wild Shore", spots = "27.2,83;29.7,81.1;31,81.1;29.9,87.6;32,79.5" },
+		{ t = "collect", map = 1434, x = 27.2, y = 83, era = true, item = 8494, itemName = "Parrot Cage (Hyacinth Macaw)", mobLevel = 43, note = "Bloodsail camp, the Wild Shore", src = "Bloodsail Warlock, Bloodsail Swashbuckler", srcKind = "npc", spots = "27.2,83;29.7,81.1;31,81.1;29.9,87.6;32,79.5" },
 	} },
 } end)
 
@@ -7168,19 +7168,19 @@ Waypost.RegisterSteps("collectibles/pets/spectral-bear-cub", function() return {
 
 Waypost.RegisterSteps("collectibles/pets/tallstrider-hatchling", function() return {
 	{ title = "Strider Clutchmother", note = "The Strider Clutchmother is a rare level 20 tallstrider in southern Darkshore, near the Master's Glaive. Kill counts so far give her about 0.6% per kill, roughly one in 170, and in Classic she comes back only every few hours: check her spot whenever you pass, rather than camping. The hatchling binds when you loot it, so it never reaches the Auction House.", goals = {
-		{ t = "collect", map = 1439, x = 34.8, y = 87.3, era = true, item = 284176, itemName = "Tallstrider Hatchling" },
+		{ t = "collect", map = 1439, x = 34.8, y = 87.3, era = true, item = 284176, itemName = "Tallstrider Hatchling", src = "Strider Clutchmother", srcKind = "npc" },
 	} },
 } end)
 
 Waypost.RegisterSteps("collectibles/pets/tiny-crimson-whelpling", function() return {
 	{ title = "Wetlands whelps", note = "The red whelps live in the hills of the eastern Wetlands, towards Grim Batol: about 50 of them, back about five minutes after a kill in Classic's data. Red Whelps (levels 23-24) and Crimson Whelps (25-26) drop the whelpling about once in 650 kills, the Flamesnorting Whelps (26-27) mixed in with them only once in 1,600, so expect a long farm. It can be traded, so the Auction House may be quicker.", goals = {
-		{ t = "collect", map = 1437, x = 64.6, y = 42.2, era = true, item = 8499, itemName = "Tiny Crimson Whelpling", mobLevel = 26, note = "Wetlands whelps", spots = "64.6,42.2;65.7,44.5;62,46.7;67.9,45.7;63.2,36.4" },
+		{ t = "collect", map = 1437, x = 64.6, y = 42.2, era = true, item = 8499, itemName = "Tiny Crimson Whelpling", mobLevel = 26, note = "Wetlands whelps", src = "Crimson Whelp, Red Whelp", srcKind = "npc", spots = "64.6,42.2;65.7,44.5;62,46.7;67.9,45.7;63.2,36.4" },
 	} },
 } end)
 
 Waypost.RegisterSteps("collectibles/pets/tiny-emerald-whelpling", function() return {
 	{ title = "Dreaming Whelps", note = "The Dreaming Whelps (levels 35-36) live in western Swamp of Sorrows, near the Deadwind Pass border. They drop it about once in 1,250 kills, and there are only a handful, back about every five minutes, so expect days of farming; it can be traded, so the Auction House may be quicker.", goals = {
-		{ t = "collect", map = 1435, x = 11.5, y = 62.9, era = true, item = 8498, itemName = "Tiny Emerald Whelpling", note = "Dreaming Whelps", spots = "11.5,62.9;13.6,64.5;12.2,58.5;16.7,56.2" },
+		{ t = "collect", map = 1435, x = 11.5, y = 62.9, era = true, item = 8498, itemName = "Tiny Emerald Whelpling", note = "Dreaming Whelps", src = "Dreaming Whelp", srcKind = "npc", spots = "11.5,62.9;13.6,64.5;12.2,58.5;16.7,56.2" },
 	} },
 } end)
 
@@ -8521,46 +8521,46 @@ Waypost.RegisterSteps("miscellaneous/cozy-sleeping-bag", function() return {
 
 Waypost.RegisterSteps("miscellaneous/library-books", function() return {
 	{ title = "Elwynn Forest", note = "Halfway up the Tower of Azora, east of Goldshire. Nothing hostile inside.", only = { factions = {"Alliance"} }, goals = {
-		{ t = "collect", map = 1429, x = 65.4, y = 70.1, era = true, item = 203755, itemName = "Archmage Theocritus' Research Journal" },
+		{ t = "collect", map = 1429, x = 65.4, y = 70.1, era = true, item = 203755, itemName = "Archmage Theocritus' Research Journal", src = "Library Book", srcKind = "object" },
 	} },
 	{ title = "Westfall", note = "Two books: one in a house at Moonbrook, one at Sentinel Hill (Alliance only).", goals = {
-		{ t = "collect", map = 1436, x = 45.4, y = 70.4, era = true, item = 209845, itemName = "Bewitchments and Glamours" },
-		{ t = "collect", map = 1436, x = 52.7, y = 53.8, era = true, item = 208860, itemName = "Rumi of Gnomeregan: The Collected Works", only = { factions = {"Alliance"} }, note = "Rumi of Gnomeregan" },
+		{ t = "collect", map = 1436, x = 45.4, y = 70.4, era = true, item = 209845, itemName = "Bewitchments and Glamours", src = "Spellbook", srcKind = "object" },
+		{ t = "collect", map = 1436, x = 52.7, y = 53.8, era = true, item = 208860, itemName = "Rumi of Gnomeregan: The Collected Works", only = { factions = {"Alliance"} }, note = "Rumi of Gnomeregan", src = "Gnomish Tome", srcKind = "object" },
 	} },
 	{ title = "Duskwood", note = "The spellbook lies in the Dawning Wood Catacombs, the crypt in north-western Duskwood. Undead fill it; a corpse run works if you are low.", goals = {
-		{ t = "collect", map = 1431, x = 16.7, y = 28.4, era = true, item = 209849, itemName = "Crimes Against Anatomy" },
+		{ t = "collect", map = 1431, x = 16.7, y = 28.4, era = true, item = 209849, itemName = "Crimes Against Anatomy", src = "Spellbook", srcKind = "object" },
 	} },
 	{ title = "Ironforge", only = { factions = {"Alliance"} }, goals = {
-		{ t = "collect", map = 1455, x = 76, y = 10.4, era = true, item = 203754, itemName = "Archmage Antonidas: The Unabridged Autobiography" },
+		{ t = "collect", map = 1455, x = 76, y = 10.4, era = true, item = 203754, itemName = "Archmage Antonidas: The Unabridged Autobiography", src = "Library Book", srcKind = "object" },
 	} },
 	{ title = "Loch Modan", note = "Scrolls in the Mo'grosh ogre cave in the north-east. The ogres in the cave are level 18-19 elites: grouping up is advised. (Rumi of Gnomeregan also lies in Thelsamar, if you missed it at Sentinel Hill.)", only = { factions = {"Alliance"} }, goals = {
-		{ t = "collect", map = 1432, x = 77.4, y = 14, era = true, item = 209850, itemName = "Runes of the Sorcerer-Kings", group = true },
+		{ t = "collect", map = 1432, x = 77.4, y = 14, era = true, item = 209850, itemName = "Runes of the Sorcerer-Kings", group = true, src = "Scrolls", srcKind = "object" },
 	} },
 	{ title = "Wetlands", note = "At Whelgar's Excavation Site, the dig in the middle of the Wetlands.", goals = {
-		{ t = "collect", map = 1437, x = 33.6, y = 47.9, era = true, item = 209848, itemName = "Goaz Scrolls" },
+		{ t = "collect", map = 1437, x = 33.6, y = 47.9, era = true, item = 209848, itemName = "Goaz Scrolls", src = "Scrolls", srcKind = "object" },
 	} },
 	{ title = "Silverpine Forest", note = "At Ambermill, the mage village in south-eastern Silverpine.", goals = {
-		{ t = "collect", map = 1421, x = 63.5, y = 63.2, era = true, item = 209844, itemName = "The Dalaran Digest, Vol. 23", note = "The Dalaran Digest" },
+		{ t = "collect", map = 1421, x = 63.5, y = 63.2, era = true, item = 209844, itemName = "The Dalaran Digest, Vol. 23", note = "The Dalaran Digest", src = "Dalaran Digest", srcKind = "object" },
 	} },
 	{ title = "Tirisfal Glades", note = "On a shelf in Brill's apothecary.", only = { factions = {"Horde"} }, goals = {
-		{ t = "collect", map = 1420, x = 59.4, y = 52.3, era = true, item = 208185, itemName = "The Apothecary's Metaphysical Primer" },
+		{ t = "collect", map = 1420, x = 59.4, y = 52.3, era = true, item = 208185, itemName = "The Apothecary's Metaphysical Primer", src = "Apothecary Society Primer", srcKind = "object" },
 	} },
 	{ title = "Darkshore", note = "Down the stairs at the Ruins of Mathystra in northern Darkshore.", goals = {
-		{ t = "collect", map = 1439, x = 59.6, y = 22.2, era = true, item = 209843, itemName = "Nar'thalas Almanac, Vol. 74", note = "Nar'thalas Almanac" },
+		{ t = "collect", map = 1439, x = 59.6, y = 22.2, era = true, item = 209843, itemName = "Nar'thalas Almanac, Vol. 74", note = "Nar'thalas Almanac", src = "Scrolls", srcKind = "object" },
 	} },
 	{ title = "Stonetalon Mountains", note = "On a barrel in a tent at Grimtotem Post, in the far south-east of the zone.", goals = {
-		{ t = "collect", map = 1442, x = 74.4, y = 85.7, era = true, item = 209851, itemName = "Fury of the Land" },
+		{ t = "collect", map = 1442, x = 74.4, y = 85.7, era = true, item = 209851, itemName = "Fury of the Land", src = "Scrolls", srcKind = "object" },
 	} },
 	{ title = "The Barrens", note = "Two books: the manual in the control room at the top of the oil rig at the Sludge Fen, and the Goblin Tome beside Gazlowe in Ratchet.", goals = {
-		{ t = "collect", map = 1413, x = 56.3, y = 8.8, era = true, item = 209847, itemName = "Arcanic Systems Manual" },
-		{ t = "collect", map = 1413, x = 62.7, y = 36.3, era = true, item = 208800, itemName = "Baxtan: On Destructive Magics" },
+		{ t = "collect", map = 1413, x = 56.3, y = 8.8, era = true, item = 209847, itemName = "Arcanic Systems Manual", src = "Manual", srcKind = "object" },
+		{ t = "collect", map = 1413, x = 62.7, y = 36.3, era = true, item = 208800, itemName = "Baxtan: On Destructive Magics", src = "Goblin Tome", srcKind = "object" },
 	} },
 	{ title = "The Wailing Caverns' cave", note = "The scrolls lie underground, in the cave below Lushwater Oasis by the Wailing Caverns entrance, not inside the dungeon. Go in at the cave mouth in the oasis and follow the cave down; the arrow points at the scrolls from the surface.", goals = {
 		{ t = "goto", map = 1413, x = 46, y = 36.4, era = true, text = "Cave mouth at Lushwater Oasis" },
-		{ t = "collect", map = 1413, x = 49.3, y = 32.9, era = true, item = 209846, itemName = "Secrets of the Dreamers" },
+		{ t = "collect", map = 1413, x = 49.3, y = 32.9, era = true, item = 209846, itemName = "Secrets of the Dreamers", src = "Scrolls", srcKind = "object" },
 	} },
 	{ title = "Orgrimmar", note = "The Mural of Ta'zo is the stone tablet leaning against the wall in the Valley of Spirits, on the way to the mage trainers. Use it to take the book.", only = { factions = {"Horde"} }, goals = {
-		{ t = "collect", map = 1454, x = 38.7, y = 78.4, era = true, item = 207972, itemName = "The Lessons of Ta'zo" },
+		{ t = "collect", map = 1454, x = 38.7, y = 78.4, era = true, item = 207972, itemName = "The Lessons of Ta'zo", src = "Mural of Ta'zo", srcKind = "object" },
 	} },
 	{ title = "The library: first books", note = "Hand in the books so far. Garion Wendell keeps the library at the top of the Wizard's Sanctum in the Mage Quarter. He offers each book's quest while the book is in your bags: take it and hand it in, one at a time, so your quest log stays free. Skip the books you did not find.", only = { factions = {"Alliance"} }, goals = {
 		{ t = "accept", quest = 79092, title = "Archmage Theocritus' Research Journal", npc = "Garion Wendell", map = 1453, x = 48.94, y = 86.54, qlvl = 20 },
@@ -8621,28 +8621,28 @@ Waypost.RegisterSteps("miscellaneous/library-books", function() return {
 		{ t = "turnin", quest = 78150, title = "Friend of the Library", npc = "Owen Thadd", map = 1458, x = 73.4, y = 33, era = true, optional = true, only = { factions = {"Horde"} } },
 	} },
 	{ title = "Alterac Mountains", note = "Inside the first tower of the ogre fort at Gallows' Corner, in the middle of the zone.", goals = {
-		{ t = "collect", map = 1416, x = 48.4, y = 57.6, era = true, item = 215815, itemName = "Defensive Magics 101" },
+		{ t = "collect", map = 1416, x = 48.4, y = 57.6, era = true, item = 215815, itemName = "Defensive Magics 101", src = "Manual", srcKind = "object" },
 	} },
 	{ title = "Arathi Highlands", note = "Beside a tent entrance in the troll village in south-eastern Arathi.", goals = {
-		{ t = "collect", map = 1417, x = 73.6, y = 65.2, era = true, item = 215816, itemName = "A Web of Lies: Debunking Myths and Legends" },
+		{ t = "collect", map = 1417, x = 73.6, y = 65.2, era = true, item = 215816, itemName = "A Web of Lies: Debunking Myths and Legends", src = "Scrolls", srcKind = "object" },
 	} },
 	{ title = "Stranglethorn Vale", note = "On a bench beside the Crystalvein Mine entrance, in the middle of the zone.", goals = {
-		{ t = "collect", map = 1434, x = 41.5, y = 50.9, era = true, item = 213165, itemName = "Basilisks: Should Petrification be Feared?" },
+		{ t = "collect", map = 1434, x = 41.5, y = 50.9, era = true, item = 213165, itemName = "Basilisks: Should Petrification be Feared?", src = "Research Notes", srcKind = "object" },
 	} },
 	{ title = "Badlands", note = "Inside a crypt near the middle of the zone, reached from the path to its south.", goals = {
-		{ t = "collect", map = 1418, x = 56.7, y = 39.9, era = true, item = 215820, itemName = "Mummies: A Guide to the Unsavory Undead" },
+		{ t = "collect", map = 1418, x = 56.7, y = 39.9, era = true, item = 215820, itemName = "Mummies: A Guide to the Unsavory Undead", src = "Scrolls", srcKind = "object" },
 	} },
 	{ title = "Swamp of Sorrows", note = "On the top walkway of the Temple of Atal'Hakkar, outside the dungeon.", goals = {
-		{ t = "collect", map = 1435, x = 70, y = 51, era = true, item = 220345, itemName = "Sanguine Sorcery" },
+		{ t = "collect", map = 1435, x = 70, y = 51, era = true, item = 220345, itemName = "Sanguine Sorcery", src = "Book", srcKind = "object" },
 	} },
 	{ title = "Desolace", goals = {
-		{ t = "collect", map = 1443, x = 55, y = 26.2, era = true, item = 215817, itemName = "Demons and You" },
+		{ t = "collect", map = 1443, x = 55, y = 26.2, era = true, item = 215817, itemName = "Demons and You", src = "Mysterious Book", srcKind = "object" },
 	} },
 	{ title = "Thousand Needles", note = "Inside a hut on the Darkcloud Pinnacle mesa.", goals = {
-		{ t = "collect", map = 1441, x = 34.4, y = 40.1, era = true, item = 215683, itemName = "Geomancy: The Stone-Cold Truth" },
+		{ t = "collect", map = 1441, x = 34.4, y = 40.1, era = true, item = 215683, itemName = "Geomancy: The Stone-Cold Truth", src = "Scrolls", srcKind = "object" },
 	} },
 	{ title = "Dustwallow Marsh", note = "On the ground at the eastern side of the murloc camp in north-eastern Dustwallow.", goals = {
-		{ t = "collect", map = 1445, x = 57.2, y = 20.8, era = true, item = 215822, itemName = "RwlRwlRwlRwl!" },
+		{ t = "collect", map = 1445, x = 57.2, y = 20.8, era = true, item = 215822, itemName = "RwlRwlRwlRwl!", src = "Waterlogged Book", srcKind = "object" },
 	} },
 	{ title = "The library: second books", note = "Hand in this part's books. Garion Wendell keeps the library at the top of the Wizard's Sanctum in the Mage Quarter. He offers each book's quest while the book is in your bags: take it and hand it in, one at a time, so your quest log stays free. Skip the books you did not find.", only = { factions = {"Alliance"} }, goals = {
 		{ t = "accept", quest = 79948, title = "Defensive Magics 101", npc = "Garion Wendell", map = 1453, x = 48.94, y = 86.54, qlvl = 35 },
@@ -8686,22 +8686,22 @@ Waypost.RegisterSteps("miscellaneous/library-books", function() return {
 		{ t = "turnin", quest = 79536, title = "Greater Friend of the Library", npc = "Garion Wendell", map = 1453, x = 48.94, y = 86.54, optional = true },
 	} },
 	{ title = "The Hinterlands", note = "In the troll ruins of Shadra'Alor, in the south of the Hinterlands.", goals = {
-		{ t = "collect", map = 1425, x = 36, y = 72.8, era = true, item = 220350, itemName = "Venomous Journeys" },
+		{ t = "collect", map = 1425, x = 36, y = 72.8, era = true, item = 220350, itemName = "Venomous Journeys", src = "Book", srcKind = "object" },
 	} },
 	{ title = "Searing Gorge", note = "On a table inside a tent near the middle of the zone.", goals = {
-		{ t = "collect", map = 1427, x = 37.8, y = 49.3, era = true, item = 220352, itemName = "A Mind of Metal" },
+		{ t = "collect", map = 1427, x = 37.8, y = 49.3, era = true, item = 220352, itemName = "A Mind of Metal", src = "Book", srcKind = "object" },
 	} },
 	{ title = "Blackrock Mountain", note = "Inside Blackrock Mountain, not in a dungeon: the book lies on the altar in Franclorn Forgewright's tomb, near Lothos Riftwaker. The waypoint marks the mountain.", goals = {
-		{ t = "collect", map = 1428, x = 28.96, y = 28.93, era = true, item = 220349, itemName = "Stonewrought Design" },
+		{ t = "collect", map = 1428, x = 28.96, y = 28.93, era = true, item = 220349, itemName = "Stonewrought Design", src = "Book", srcKind = "object" },
 	} },
 	{ title = "Blasted Lands", goals = {
-		{ t = "collect", map = 1419, x = 55.4, y = 32.2, era = true, item = 220353, itemName = "Conjurer's Codex" },
+		{ t = "collect", map = 1419, x = 55.4, y = 32.2, era = true, item = 220353, itemName = "Conjurer's Codex", src = "Book", srcKind = "object" },
 	} },
 	{ title = "Azshara", note = "On a crate in the Haldarr Encampment, in the far west of Azshara.", goals = {
-		{ t = "collect", map = 1447, x = 20.7, y = 62, era = true, item = 220348, itemName = "Everyday Etiquette" },
+		{ t = "collect", map = 1447, x = 20.7, y = 62, era = true, item = 220348, itemName = "Everyday Etiquette", src = "Book", srcKind = "object" },
 	} },
 	{ title = "Tanaris", note = "On a bookshelf in the middle building of the pirate camp on the eastern coast.", goals = {
-		{ t = "collect", map = 1446, x = 72.6, y = 47.8, era = true, item = 220346, itemName = "Legends of the Tidesages" },
+		{ t = "collect", map = 1446, x = 72.6, y = 47.8, era = true, item = 220346, itemName = "Legends of the Tidesages", src = "Book", srcKind = "object" },
 	} },
 	{ title = "The library: third books", note = "Hand in this part's books. Garion Wendell keeps the library at the top of the Wizard's Sanctum in the Mage Quarter. He offers each book's quest while the book is in your bags: take it and hand it in, one at a time, so your quest log stays free. Skip the books you did not find.", only = { factions = {"Alliance"} }, goals = {
 		{ t = "accept", quest = 81954, title = "Venomous Journeys", npc = "Garion Wendell", map = 1453, x = 48.94, y = 86.54, qlvl = 45 },
@@ -8738,22 +8738,22 @@ Waypost.RegisterSteps("miscellaneous/library-books", function() return {
 	} },
 	{ title = "Level 60 books: Western Plaguelands", note = "Eight more books lie in level 55-60 zones; the mage trainers beside the librarians take them, not the librarians. Necromancy 101 lies on a table in the ruined keep on Caer Darrow, above Scholomance (outside the dungeon); Undead Potatoes at Felstone Field.", goals = {
 		{ t = "level", level = 55 },
-		{ t = "collect", map = 1422, x = 69.4, y = 72.8, era = true, item = 228141, itemName = "Necromancy 101" },
-		{ t = "collect", map = 1422, x = 38.2, y = 54.6, era = true, item = 228132, itemName = "Undead Potatoes" },
+		{ t = "collect", map = 1422, x = 69.4, y = 72.8, era = true, item = 228141, itemName = "Necromancy 101", src = "Book", srcKind = "object" },
+		{ t = "collect", map = 1422, x = 38.2, y = 54.6, era = true, item = 228132, itemName = "Undead Potatoes", src = "Book", srcKind = "object" },
 	} },
 	{ title = "Level 60 books: Eastern Plaguelands", note = "A Study of the Light is inside Light's Hope Chapel. The Knight and the Lady lies at Corin's Crossing; other copies lie elsewhere in the zone (one by the Stratholme gates), and you can take only one. Scourge: Undead Menace or Misunderstood? is on a table in Plaguewood: wait for the patrolling elite to clear the creatures beside it and walk on.", goals = {
-		{ t = "collect", map = 1423, x = 71.8, y = 48.2, item = 228135, itemName = "A Study of the Light" },
-		{ t = "collect", map = 1423, x = 54.4, y = 51.1, era = true, item = 228138, itemName = "The Knight and the Lady" },
-		{ t = "collect", map = 1423, x = 31.2, y = 21, era = true, item = 228140, itemName = "Scourge: Undead Menace or Misunderstood?" },
+		{ t = "collect", map = 1423, x = 71.8, y = 48.2, item = 228135, itemName = "A Study of the Light", src = "Book", srcKind = "object" },
+		{ t = "collect", map = 1423, x = 54.4, y = 51.1, era = true, item = 228138, itemName = "The Knight and the Lady", src = "Book", srcKind = "object" },
+		{ t = "collect", map = 1423, x = 31.2, y = 21, era = true, item = 228140, itemName = "Scourge: Undead Menace or Misunderstood?", src = "Book", srcKind = "object" },
 	} },
 	{ title = "Level 60 books: Timbermaw Hold", note = "Northern Kalimdor - A Comprehensive Guide lies inside the Timbermaw Hold tunnel between Felwood and Winterspring.", goals = {
-		{ t = "collect", map = 1448, x = 65.2, y = 3.3, era = true, item = 228134, itemName = "Northern Kalimdor - A Comprehensive Guide" },
+		{ t = "collect", map = 1448, x = 65.2, y = 3.3, era = true, item = 228134, itemName = "Northern Kalimdor - A Comprehensive Guide", src = "Book", srcKind = "object" },
 	} },
 	{ title = "Level 60 books: Everlook", note = "Ka-Boom! sits on a shelf behind the alchemy supplier in Everlook.", goals = {
-		{ t = "collect", map = 1452, x = 60.7, y = 37.7, era = true, item = 228136, itemName = "Ka-Boom!" },
+		{ t = "collect", map = 1452, x = 60.7, y = 37.7, era = true, item = 228136, itemName = "Ka-Boom!", src = "Book", srcKind = "object" },
 	} },
 	{ title = "Level 60 books: Blackrock Mountain", note = "Magma or Lava? lies inside Blackrock Mountain, in the mine passage towards Blackrock Depths beyond the Molten Core quest giver. The waypoint marks the mountain.", goals = {
-		{ t = "collect", map = 1428, x = 28.96, y = 28.93, era = true, item = 228133, itemName = "Magma or Lava?" },
+		{ t = "collect", map = 1428, x = 28.96, y = 28.93, era = true, item = 228133, itemName = "Magma or Lava?", src = "Book", srcKind = "object" },
 	} },
 	{ title = "The level 60 books: Jennea Cannon", note = "Jennea Cannon, the mage trainer beside Garion Wendell in the Wizard's Sanctum, takes the level 60 books: she offers each book's quest while the book is in your bags. Hand in Undead Potatoes, The Knight and the Lady and Scourge: Undead Menace or Misunderstood? the same way (their quests are not in Polestar's data yet).", only = { factions = {"Alliance"} }, goals = {
 		{ t = "accept", quest = 84402, title = "Necromancy 101", npc = "Jennea Cannon", map = 1453, x = 49.56, y = 85.8, qlvl = 60 },
@@ -8904,10 +8904,10 @@ Waypost.RegisterSteps("professions/alchemy", function() return {
 		{ t = "buy", count = 83, item = 3372, itemName = "Leaded Vial" },
 	} },
 	{ title = "Wild Steelbloom (Alliance)", note = "40 Wild Steelbloom for Elixir of Defense (8 of them for 225-300: pick them all now): Herbalism: Wild Steelbloom (skill 115) in Stonetalon Mountains (15-27), Arathi Highlands (30-40) and Stranglethorn Vale (30-45); or the Auction House. The densest patch of Wild Steelbloom in Stranglethorn Vale is marked.", only = { factions = {"Alliance"} }, section = 3, goals = {
-		{ t = "collect", map = 1434, x = 26.6, y = 9.9, era = true, count = 40, item = 3355, itemName = "Wild Steelbloom", spots = "26.6,9.9;25.6,15.9;20.9,7;32,16;33.7,5.8" },
+		{ t = "collect", map = 1434, x = 26.6, y = 9.9, era = true, count = 40, item = 3355, itemName = "Wild Steelbloom", src = "Wild Steelbloom", srcKind = "object", spots = "26.6,9.9;25.6,15.9;20.9,7;32,16;33.7,5.8" },
 	} },
 	{ title = "Wild Steelbloom (Horde)", note = "40 Wild Steelbloom for Elixir of Defense (8 of them for 225-300: pick them all now): Herbalism: Wild Steelbloom (skill 115) in Stonetalon Mountains (15-27), Arathi Highlands (30-40) and Stranglethorn Vale (30-45); or the Auction House. The densest patch of Wild Steelbloom in Stonetalon Mountains is marked.", only = { factions = {"Horde"} }, section = 3, goals = {
-		{ t = "collect", map = 1442, x = 25.8, y = 71.2, era = true, count = 40, item = 3355, itemName = "Wild Steelbloom", spots = "25.8,71.2;31.7,75.4;31.4,57.3;36.4,76.3;38.7,67.6" },
+		{ t = "collect", map = 1442, x = 25.8, y = 71.2, era = true, count = 40, item = 3355, itemName = "Wild Steelbloom", src = "Wild Steelbloom", srcKind = "object", spots = "25.8,71.2;31.7,75.4;31.4,57.3;36.4,76.3;38.7,67.6" },
 	} },
 	{ title = "Kingsblood (Alliance)", note = "39 Kingsblood for Mana Potion: Herbalism: Kingsblood (skill 125) in Ashenvale (18-30), Wetlands (20-30) and Stranglethorn Vale (30-45); or the Auction House. The densest patch of Kingsblood in Stranglethorn Vale is marked.", only = { factions = {"Alliance"} }, section = 3, goals = {
 		{ t = "collect", map = 1434, x = 31.2, y = 16.4, era = true, count = 39, item = 3356, itemName = "Kingsblood", spots = "31.2,16.4;33.8,18.8;28.4,14.5;31.7,22.7;29.6,10.2" },
@@ -8916,16 +8916,16 @@ Waypost.RegisterSteps("professions/alchemy", function() return {
 		{ t = "collect", map = 1413, x = 47.4, y = 74.5, era = true, count = 39, item = 3356, itemName = "Kingsblood", spots = "47.4,74.5;48,70.3;47.9,80;44.1,71.7;45.4,65.5" },
 	} },
 	{ title = "Stranglekelp (Alliance)", note = "39 Stranglekelp for Mana Potion: Herbalism: Stranglekelp (skill 85) in Wetlands (20-30), Stranglethorn Vale (30-45) and The Hinterlands (40-50); or the Auction House. The densest patch of Stranglekelp in Stranglethorn Vale is marked.", only = { factions = {"Alliance"} }, section = 3, goals = {
-		{ t = "collect", map = 1434, x = 23, y = 62.4, era = true, count = 39, item = 3820, itemName = "Stranglekelp", spots = "23,62.4;23.3,58.9;24.8,67.5;22.1,68.5;26.9,57.1" },
+		{ t = "collect", map = 1434, x = 23, y = 62.4, era = true, count = 39, item = 3820, itemName = "Stranglekelp", src = "Stranglekelp", srcKind = "object", spots = "23,62.4;23.3,58.9;24.8,67.5;22.1,68.5;26.9,57.1" },
 	} },
 	{ title = "Stranglekelp (Horde)", note = "39 Stranglekelp for Mana Potion: Herbalism: Stranglekelp (skill 85) in The Barrens (10-25), Stranglethorn Vale (30-45) and The Hinterlands (40-50); or the Auction House. The densest patch of Stranglekelp in The Barrens is marked.", only = { factions = {"Horde"} }, section = 3, goals = {
-		{ t = "collect", map = 1413, x = 65.9, y = 44.6, era = true, count = 39, item = 3820, itemName = "Stranglekelp", spots = "65.9,44.6;66,42.4;64.4,42.4;65.5,48.2;67,48.7" },
+		{ t = "collect", map = 1413, x = 65.9, y = 44.6, era = true, count = 39, item = 3820, itemName = "Stranglekelp", src = "Stranglekelp", srcKind = "object", spots = "65.9,44.6;66,42.4;64.4,42.4;65.5,48.2;67,48.7" },
 	} },
 	{ title = "Goldthorn (Alliance)", note = "40 Goldthorn for Elixir of Defense (8 of them for 225-300: pick them all now): Herbalism: Goldthorn (skill 170) in Arathi Highlands (30-40), The Hinterlands (40-50) and Feralas (40-50); or the Auction House. The densest patch of Goldthorn in Arathi Highlands is marked.", only = { factions = {"Alliance"} }, section = 3, goals = {
-		{ t = "collect", map = 1417, x = 49.8, y = 72.7, era = true, count = 40, item = 3821, itemName = "Goldthorn", spots = "49.8,72.7;50.2,76.2;53.4,72.4;46.9,76.5;46.1,69" },
+		{ t = "collect", map = 1417, x = 49.8, y = 72.7, era = true, count = 40, item = 3821, itemName = "Goldthorn", src = "Goldthorn", srcKind = "object", spots = "49.8,72.7;50.2,76.2;53.4,72.4;46.9,76.5;46.1,69" },
 	} },
 	{ title = "Goldthorn (Horde)", note = "40 Goldthorn for Elixir of Defense (8 of them for 225-300: pick them all now): Herbalism: Goldthorn (skill 170) in Arathi Highlands (30-40), The Hinterlands (40-50) and Feralas (40-50); or the Auction House. The densest patch of Goldthorn in Feralas is marked.", only = { factions = {"Horde"} }, section = 3, goals = {
-		{ t = "collect", map = 1444, x = 45, y = 26.1, era = true, count = 40, item = 3821, itemName = "Goldthorn", spots = "45,26.1;50.2,27.8;40.1,22.5;50.1,35.1;48.1,11" },
+		{ t = "collect", map = 1444, x = 45, y = 26.1, era = true, count = 40, item = 3821, itemName = "Goldthorn", src = "Goldthorn", srcKind = "object", spots = "45,26.1;50.2,27.8;40.1,22.5;50.1,35.1;48.1,11" },
 	} },
 	{ title = "Expert Alchemy", note = "Expert raises the cap from 150 to 225 for 50s (Classic's price; Forever's is not in the data); it needs Alchemy 125 and character level 20, so you can take it on any visit from 125. Only a few trainers teach it: Alliance Ainethil (Darnassus); Horde Doctor Herbert Halsey (Undercity). The arrow picks the nearest of your faction. 150-225 takes about 33s 20c of vendor goods, plus 40 Wild Steelbloom, 39 Kingsblood, 39 Stranglekelp and 40 Goldthorn to gather or buy. Come with all of it in your bags (the steps above, the rest from the Auction House): these trainers also teach Mana Potion (from 160) and Elixir of Defense (from 195), and the crafts need no station, so craft right here and learn each recipe as you reach its skill. One trip instead of 3.", section = 3, goals = {
 		{ t = "level", level = 20 },
@@ -8955,22 +8955,22 @@ Waypost.RegisterSteps("professions/alchemy", function() return {
 		{ t = "buy", item = 13478, itemName = "Recipe: Elixir of Superior Defense" },
 	} },
 	{ title = "Arthas' Tears (Alliance)", note = "43 Arthas' Tears for Draught of Detect Undead: Herbalism: Arthas' Tears (skill 220) in Felwood (48-55), Western Plaguelands (51-58) and Eastern Plaguelands (53-60); or the Auction House. The densest patch of Arthas' Tears in Western Plaguelands is marked.", only = { factions = {"Alliance"} }, section = 4, goals = {
-		{ t = "collect", map = 1422, x = 45.5, y = 67.5, era = true, count = 43, item = 8836, itemName = "Arthas' Tears", spots = "45.5,67.5;48,63.6;44.5,73.3;49.3,69.4;40.8,66.7" },
+		{ t = "collect", map = 1422, x = 45.5, y = 67.5, era = true, count = 43, item = 8836, itemName = "Arthas' Tears", src = "Arthas' Tears", srcKind = "object", spots = "45.5,67.5;48,63.6;44.5,73.3;49.3,69.4;40.8,66.7" },
 	} },
 	{ title = "Arthas' Tears (Horde)", note = "43 Arthas' Tears for Draught of Detect Undead: Herbalism: Arthas' Tears (skill 220) in Felwood (48-55), Western Plaguelands (51-58) and Eastern Plaguelands (53-60); or the Auction House. The densest patch of Arthas' Tears in Felwood is marked.", only = { factions = {"Horde"} }, section = 4, goals = {
-		{ t = "collect", map = 1448, x = 37.8, y = 45.1, era = true, count = 43, item = 8836, itemName = "Arthas' Tears", spots = "37.8,45.1;41.4,40.3;43.1,43.3;45.5,37.6;37.7,60.8" },
+		{ t = "collect", map = 1448, x = 37.8, y = 45.1, era = true, count = 43, item = 8836, itemName = "Arthas' Tears", src = "Arthas' Tears", srcKind = "object", spots = "37.8,45.1;41.4,40.3;43.1,43.3;45.5,37.6;37.7,60.8" },
 	} },
 	{ title = "Sungrass (Alliance)", note = "43 Sungrass for Elixir of Greater Defense: Herbalism: Sungrass (skill 230) in The Hinterlands (40-50), Feralas (40-50) and Azshara (45-55); or the Auction House. The densest patch of Sungrass in The Hinterlands is marked.", only = { factions = {"Alliance"} }, section = 4, goals = {
-		{ t = "collect", map = 1425, x = 21.7, y = 57.3, era = true, count = 43, item = 8838, itemName = "Sungrass", spots = "21.7,57.3;22.8,52.9;25,58.2;17.9,54.3;26.2,55.2" },
+		{ t = "collect", map = 1425, x = 21.7, y = 57.3, era = true, count = 43, item = 8838, itemName = "Sungrass", src = "Sungrass", srcKind = "object", spots = "21.7,57.3;22.8,52.9;25,58.2;17.9,54.3;26.2,55.2" },
 	} },
 	{ title = "Sungrass (Horde)", note = "43 Sungrass for Elixir of Greater Defense: Herbalism: Sungrass (skill 230) in The Hinterlands (40-50), Feralas (40-50) and Azshara (45-55); or the Auction House. The densest patch of Sungrass in Feralas is marked.", only = { factions = {"Horde"} }, section = 4, goals = {
-		{ t = "collect", map = 1444, x = 55.7, y = 74, era = true, count = 43, item = 8838, itemName = "Sungrass", spots = "55.7,74;61.2,71.7;57.1,63;58.5,55.6;59,49.1" },
+		{ t = "collect", map = 1444, x = 55.7, y = 74, era = true, count = 43, item = 8838, itemName = "Sungrass", src = "Sungrass", srcKind = "object", spots = "55.7,74;61.2,71.7;57.1,63;58.5,55.6;59,49.1" },
 	} },
 	{ title = "Stonescale Eel (Alliance)", note = "43 Stonescale Eel for Elixir of Greater Defense: Fishing; or the Auction House. Fish Stonescale Eel Swarm here.", only = { factions = {"Alliance"} }, section = 4, goals = {
-		{ t = "collect", map = 1434, x = 27.5, y = 76.5, era = true, count = 43, item = 13422, itemName = "Stonescale Eel", spots = "27.5,76.5;27.4,83.6;31.7,81.9;26.1,68.4;33.9,76.4" },
+		{ t = "collect", map = 1434, x = 27.5, y = 76.5, era = true, count = 43, item = 13422, itemName = "Stonescale Eel", src = "Stonescale Eel Swarm", srcKind = "object", spots = "27.5,76.5;27.4,83.6;31.7,81.9;26.1,68.4;33.9,76.4" },
 	} },
 	{ title = "Stonescale Eel (Horde)", note = "43 Stonescale Eel for Elixir of Greater Defense: Fishing; or the Auction House. Fish Stonescale Eel Swarm here.", only = { factions = {"Horde"} }, section = 4, goals = {
-		{ t = "collect", map = 1444, x = 44.2, y = 46.5, era = true, count = 43, item = 13422, itemName = "Stonescale Eel", spots = "44.2,46.5;44.4,50.9;43.9,41.2;48.2,52.7;40.6,38.5" },
+		{ t = "collect", map = 1444, x = 44.2, y = 46.5, era = true, count = 43, item = 13422, itemName = "Stonescale Eel", src = "Stonescale Eel Swarm", srcKind = "object", spots = "44.2,46.5;44.4,50.9;43.9,41.2;48.2,52.7;40.6,38.5" },
 	} },
 	{ title = "Artisan Alchemy", note = "Artisan raises the cap from 225 to 300 for 4g 50s (Classic's price; Forever's is not in the data); it needs Alchemy 200 and character level 35, so you can take it on any visit from 200. Only a few trainers teach it: Alliance Kylanna Windwhisper (Feralas); Horde Rogvar (Swamp of Sorrows). The arrow picks the nearest of your faction. 225-300 takes about 1g 30s of recipes and 4g 50s 40c of vendor goods, plus 43 Arthas' Tears, 43 Sungrass and 43 Stonescale Eel to gather or buy. Come with all of it in your bags (the steps above, the rest from the Auction House): these trainers also teach Draught of Detect Undead (from 230) and Stonescale Oil (from 250), and the crafts need no station, so craft right here and learn each recipe as you reach its skill. One trip instead of 3.", section = 4, goals = {
 		{ t = "level", level = 35 },
@@ -9061,10 +9061,10 @@ Waypost.RegisterSteps("professions/blacksmithing", function() return {
 		{ t = "collect", map = 1417, x = 15.8, y = 63.2, era = true, count = 28, item = 2838, itemName = "Heavy Stone", spots = "15.8,63.2;15.7,67.2;18.5,56.2;16.7,71.2;18.7,71.6" },
 	} },
 	{ title = "Heavy Stone (Ashenvale)", note = "28 Heavy Stone for Heavy Sharpening Stone: Mining: Iron Deposit (skill 125); or the Auction House. The densest cluster of Iron Deposit in Ashenvale is marked.", only = { races = {"NightElf"} }, section = 2, goals = {
-		{ t = "collect", map = 1440, x = 70.7, y = 53.5, era = true, count = 28, item = 2838, itemName = "Heavy Stone", spots = "70.7,53.5;71.2,60.6;64.6,55.4;76.9,54.6;63.6,47.4" },
+		{ t = "collect", map = 1440, x = 70.7, y = 53.5, era = true, count = 28, item = 2838, itemName = "Heavy Stone", src = "Searing Infernal", srcKind = "npc", spots = "70.7,53.5;71.2,60.6;64.6,55.4;76.9,54.6;63.6,47.4" },
 	} },
 	{ title = "Heavy Stone (The Barrens)", note = "28 Heavy Stone for Heavy Sharpening Stone: Mining: Iron Deposit (skill 125); or the Auction House. The densest cluster of Iron Deposit in The Barrens is marked.", only = { races = {"Orc", "Troll", "Tauren", "Skyborne"}, factions = {"Horde"} }, section = 2, goals = {
-		{ t = "collect", map = 1413, x = 45.2, y = 94.5, era = true, count = 28, item = 2838, itemName = "Heavy Stone", spots = "45.2,94.5;46.9,96.8;42.3,95.1;48.5,96.5;48.9,97.3" },
+		{ t = "collect", map = 1413, x = 45.2, y = 94.5, era = true, count = 28, item = 2838, itemName = "Heavy Stone", src = "Searing Infernal", srcKind = "npc", spots = "45.2,94.5;46.9,96.8;42.3,95.1;48.5,96.5;48.9,97.3" },
 	} },
 	{ title = "Heavy Stone (Arathi Highlands)", note = "28 Heavy Stone for Heavy Sharpening Stone: Mining: Iron Deposit (skill 125); or the Auction House. The densest cluster of Iron Deposit in Arathi Highlands is marked.", only = { races = {"Scourge"} }, section = 2, goals = {
 		{ t = "collect", map = 1417, x = 15.8, y = 63.2, era = true, count = 28, item = 2838, itemName = "Heavy Stone", spots = "15.8,63.2;15.7,67.2;18.5,56.2;16.7,71.2;18.7,71.6" },
@@ -9103,7 +9103,7 @@ Waypost.RegisterSteps("professions/blacksmithing", function() return {
 		{ t = "collect", map = 1417, x = 15.8, y = 63.2, era = true, count = 234, item = 2838, itemName = "Heavy Stone", spots = "15.8,63.2;15.7,67.2;18.5,56.2;16.7,71.2;18.7,71.6" },
 	} },
 	{ title = "Heavy Stone (Horde)", note = "234 Heavy Stone for Golden Scale Bracers: Mining: Iron Deposit (skill 125) in Thousand Needles (25-35), Arathi Highlands (30-40) and Stranglethorn Vale (30-45); or the Auction House. The densest cluster of Iron Deposit in Thousand Needles is marked.", only = { factions = {"Horde"} }, section = 3, goals = {
-		{ t = "collect", map = 1441, x = 8.9, y = 34.3, era = true, count = 234, item = 2838, itemName = "Heavy Stone", spots = "8.9,34.3;12.4,37.7;14.9,34.5;14.3,27.2;12.2,24.3" },
+		{ t = "collect", map = 1441, x = 8.9, y = 34.3, era = true, count = 234, item = 2838, itemName = "Heavy Stone", src = "Thundering Boulderkin", srcKind = "npc", spots = "8.9,34.3;12.4,37.7;14.9,34.5;14.3,27.2;12.2,24.3" },
 	} },
 	{ title = "Solid Stone (Alliance)", note = "30 Solid Stone for Solid Sharpening Stone: Mining: Mithril Deposit (skill 175) in Stranglethorn Vale (30-45), The Hinterlands (40-50) and Feralas (40-50); or the Auction House. The densest cluster of Mithril Deposit in Stranglethorn Vale is marked.", only = { factions = {"Alliance"} }, section = 3, goals = {
 		{ t = "collect", map = 1434, x = 29.4, y = 60.1, era = true, count = 30, item = 7912, itemName = "Solid Stone", spots = "29.4,60.1;27.8,63.4;26.3,63;33,62;31.4,65.3" },
@@ -9387,7 +9387,7 @@ Waypost.RegisterSteps("professions/cooking", function() return {
 		{ t = "accept", quest = 6611, title = "To Gadgetzan You Go!", npc = "Zamja", map = 1454, x = 57.4, y = 53.96, era = true, skillName = "Cooking", skillRank = 225, qlvl = 45, note = "Zamja, Orgrimmar" },
 	} },
 	{ title = "Giant Eggs", note = "Clamlette Surprise asks for 12 Giant Eggs, 10 Zesty Clam Meat and 20 Alterac Swiss: bring all three before you go to Tanaris, so you make the trip once. Giant Eggs drop from the owlbeasts of The Hinterlands: Savage Owlbeast (54%). Monster Omelet takes about 120 more after Artisan: farm them now too if you like.", section = 5, goals = {
-		{ t = "collect", map = 1425, x = 58.76, y = 51.05, era = true, count = 12, item = 12207, itemName = "Giant Egg", mobLevel = 47, spots = "58.8,52.8;65.6,57.5;62.1,42.6;51.4,42.2;45.4,53" },
+		{ t = "collect", map = 1425, x = 58.76, y = 51.05, era = true, count = 12, item = 12207, itemName = "Giant Egg", mobLevel = 47, src = "Marauding Owlbeast, Savage Owlbeast, Primitive Owlbeast and others", srcKind = "npc", spots = "58.8,52.8;65.6,57.5;62.1,42.6;51.4,42.2;45.4,53" },
 	} },
 	{ title = "Alterac Swiss", note = "Innkeepers and food vendors sell Alterac Swiss; the arrow picks the nearest.", section = 5, goals = {
 		{ t = "buy", count = 20, item = 8932, itemName = "Alterac Swiss" },
@@ -9500,10 +9500,10 @@ Waypost.RegisterSteps("professions/enchanting", function() return {
 		{ t = "buy", item = 16217, itemName = "Formula: Enchant Shield - Greater Stamina" },
 	} },
 	{ title = "Purple Lotus (Alliance)", note = "34 Purple Lotus for Lesser Mana Oil: Herbalism: Purple Lotus (skill 210) in The Hinterlands (40-50), Feralas (40-50) and Azshara (45-55); or the Auction House. The densest patch of Purple Lotus in The Hinterlands is marked.", only = { factions = {"Alliance"} }, section = 4, goals = {
-		{ t = "collect", map = 1425, x = 66.3, y = 71.6, era = true, count = 34, item = 8831, itemName = "Purple Lotus", spots = "66.3,71.6;68.7,69.7;68,75.5;63.4,69.6;66.2,66.5" },
+		{ t = "collect", map = 1425, x = 66.3, y = 71.6, era = true, count = 34, item = 8831, itemName = "Purple Lotus", src = "Purple Lotus", srcKind = "object", spots = "66.3,71.6;68.7,69.7;68,75.5;63.4,69.6;66.2,66.5" },
 	} },
 	{ title = "Purple Lotus (Horde)", note = "34 Purple Lotus for Lesser Mana Oil: Herbalism: Purple Lotus (skill 210) in The Hinterlands (40-50), Feralas (40-50) and Azshara (45-55); or the Auction House. The densest patch of Purple Lotus in Feralas is marked.", only = { factions = {"Horde"} }, section = 4, goals = {
-		{ t = "collect", map = 1444, x = 56.7, y = 68.9, era = true, count = 34, item = 8831, itemName = "Purple Lotus", spots = "56.7,68.9;59.8,65.6;61.5,72.8;60.1,62.3;60.8,56.2" },
+		{ t = "collect", map = 1444, x = 56.7, y = 68.9, era = true, count = 34, item = 8831, itemName = "Purple Lotus", src = "Purple Lotus", srcKind = "object", spots = "56.7,68.9;59.8,65.6;61.5,72.8;60.1,62.3;60.8,56.2" },
 	} },
 	{ title = "Enchant Gloves - Agility to 253", note = "Enchant Gloves - Agility is orange at 225 (yellow 230, green 250, grey 270): about 39 crafts to 253. Each takes 1 Vision Dust. Annora teaches it with Artisan: learn it on that visit. Vision Dust again; bring about 40. Vision Dust (39 for 225-300): Enchanting: disenchant green items of item level 31-40; or the Auction House. Enchant any item for that slot in your bags, even a grey one.", section = 4, goals = {
 		{ t = "craft", spell = 13815, spellName = "Enchant Gloves - Agility" },
@@ -9596,10 +9596,10 @@ Waypost.RegisterSteps("professions/engineering", function() return {
 		{ t = "collect", map = 1417, x = 15.8, y = 63.2, era = true, count = 27, item = 2838, itemName = "Heavy Stone", spots = "15.8,63.2;15.7,67.2;18.5,56.2;16.7,71.2;18.7,71.6" },
 	} },
 	{ title = "Heavy Stone (Ashenvale)", note = "27 Heavy Stone for Heavy Blasting Powder: Mining: Iron Deposit (skill 125); or the Auction House. The densest cluster of Iron Deposit in Ashenvale is marked.", only = { races = {"NightElf"} }, section = 2, goals = {
-		{ t = "collect", map = 1440, x = 70.7, y = 53.5, era = true, count = 27, item = 2838, itemName = "Heavy Stone", spots = "70.7,53.5;71.2,60.6;64.6,55.4;76.9,54.6;63.6,47.4" },
+		{ t = "collect", map = 1440, x = 70.7, y = 53.5, era = true, count = 27, item = 2838, itemName = "Heavy Stone", src = "Searing Infernal", srcKind = "npc", spots = "70.7,53.5;71.2,60.6;64.6,55.4;76.9,54.6;63.6,47.4" },
 	} },
 	{ title = "Heavy Stone (The Barrens)", note = "27 Heavy Stone for Heavy Blasting Powder: Mining: Iron Deposit (skill 125); or the Auction House. The densest cluster of Iron Deposit in The Barrens is marked.", only = { races = {"Orc", "Troll", "Tauren", "Skyborne"}, factions = {"Horde"} }, section = 2, goals = {
-		{ t = "collect", map = 1413, x = 45.2, y = 94.5, era = true, count = 27, item = 2838, itemName = "Heavy Stone", spots = "45.2,94.5;46.9,96.8;42.3,95.1;48.5,96.5;48.9,97.3" },
+		{ t = "collect", map = 1413, x = 45.2, y = 94.5, era = true, count = 27, item = 2838, itemName = "Heavy Stone", src = "Searing Infernal", srcKind = "npc", spots = "45.2,94.5;46.9,96.8;42.3,95.1;48.5,96.5;48.9,97.3" },
 	} },
 	{ title = "Heavy Stone (Arathi Highlands)", note = "27 Heavy Stone for Heavy Blasting Powder: Mining: Iron Deposit (skill 125); or the Auction House. The densest cluster of Iron Deposit in Arathi Highlands is marked.", only = { races = {"Scourge"} }, section = 2, goals = {
 		{ t = "collect", map = 1417, x = 15.8, y = 63.2, era = true, count = 27, item = 2838, itemName = "Heavy Stone", spots = "15.8,63.2;15.7,67.2;18.5,56.2;16.7,71.2;18.7,71.6" },
@@ -9661,7 +9661,7 @@ Waypost.RegisterSteps("professions/engineering", function() return {
 		{ t = "collect", map = 1417, x = 15.8, y = 63.2, era = true, count = 74, item = 2838, itemName = "Heavy Stone", spots = "15.8,63.2;15.7,67.2;18.5,56.2;16.7,71.2;18.7,71.6" },
 	} },
 	{ title = "Heavy Stone (Horde)", note = "74 Heavy Stone for Big Iron Bomb: Mining: Iron Deposit (skill 125) in Thousand Needles (25-35), Arathi Highlands (30-40) and Stranglethorn Vale (30-45); or the Auction House. The densest cluster of Iron Deposit in Thousand Needles is marked.", only = { factions = {"Horde"} }, section = 3, goals = {
-		{ t = "collect", map = 1441, x = 8.9, y = 34.3, era = true, count = 74, item = 2838, itemName = "Heavy Stone", spots = "8.9,34.3;12.4,37.7;14.9,34.5;14.3,27.2;12.2,24.3" },
+		{ t = "collect", map = 1441, x = 8.9, y = 34.3, era = true, count = 74, item = 2838, itemName = "Heavy Stone", src = "Thundering Boulderkin", srcKind = "npc", spots = "8.9,34.3;12.4,37.7;14.9,34.5;14.3,27.2;12.2,24.3" },
 	} },
 	{ title = "Solid Stone (Alliance)", note = "62 Solid Stone for Solid Blasting Powder: Mining: Mithril Deposit (skill 175) in Stranglethorn Vale (30-45), The Hinterlands (40-50) and Feralas (40-50); or the Auction House. The densest cluster of Mithril Deposit in Stranglethorn Vale is marked.", only = { factions = {"Alliance"} }, section = 3, goals = {
 		{ t = "collect", map = 1434, x = 29.4, y = 60.1, era = true, count = 62, item = 7912, itemName = "Solid Stone", spots = "29.4,60.1;27.8,63.4;26.3,63;33,62;31.4,65.3" },
@@ -9959,23 +9959,23 @@ Waypost.RegisterSteps("professions/fishing", function() return {
 		{ t = "accept", quest = 6607, title = "Nat Pagle, Angler Extreme", npc = "Nat Pagle", map = 1445, x = 58.61, y = 60.06, era = true, skillName = "Fishing", skillRank = 225, qlvl = 45 },
 	} },
 	{ title = "Sar'theris Striker", note = "Fish along the coast of Desolace (Sar'theris Strand in the north-west, or the shore west of Shadowprey Village) until you catch a Sar'theris Striker: about one catch in five there brings it up, and it bites nowhere else. At skill 225 nothing gets away here.", only = { factions = {"Alliance"} }, section = 4, goals = {
-		{ t = "collect", quest = 6607, title = "Nat Pagle, Angler Extreme", map = 1443, x = 39.5, y = 22.7, era = true, count = 1, item = 16968, itemName = "Sar'theris Striker", oi = 3, skillName = "Fishing", skillRank = 225, spots = "39.5,22.7;35.8,33.1;33,36.8;27.2,42.9;26,76.9" },
+		{ t = "collect", quest = 6607, title = "Nat Pagle, Angler Extreme", map = 1443, x = 39.5, y = 22.7, era = true, count = 1, item = 16968, itemName = "Sar'theris Striker", oi = 3, skillName = "Fishing", skillRank = 225, src = "Sar'theris Striker Fishing Location", srcKind = "object", spots = "39.5,22.7;35.8,33.1;33,36.8;27.2,42.9;26,76.9" },
 	} },
 	{ title = "Sar'theris Striker", note = "Fish along the coast of Desolace (Sar'theris Strand in the north-west, or the shore west of Shadowprey Village) until you catch a Sar'theris Striker: about one catch in five there brings it up, and it bites nowhere else. At skill 225 nothing gets away here.", only = { factions = {"Horde"} }, section = 4, goals = {
-		{ t = "collect", quest = 6607, title = "Nat Pagle, Angler Extreme", map = 1443, x = 22.8, y = 76.8, era = true, count = 1, item = 16968, itemName = "Sar'theris Striker", oi = 3, skillName = "Fishing", skillRank = 225, spots = "22.8,76.8;26,76.9;25.1,81.4;22.2,87.6;27.2,42.9" },
+		{ t = "collect", quest = 6607, title = "Nat Pagle, Angler Extreme", map = 1443, x = 22.8, y = 76.8, era = true, count = 1, item = 16968, itemName = "Sar'theris Striker", oi = 3, skillName = "Fishing", skillRank = 225, src = "Sar'theris Striker Fishing Location", srcKind = "object", spots = "22.8,76.8;26,76.9;25.1,81.4;22.2,87.6;27.2,42.9" },
 	} },
 	{ title = "Feralas Ahi", note = "Fish along the Verdantis River in Feralas (south-east of Dire Maul) until you catch a Feralas Ahi: about one catch in five there brings it up, and it bites nowhere else. This water loses fish below skill 300: at 225 most get away, so put Bright Baubles (+75) on the pole first.", section = 4, goals = {
 		{ t = "buy", count = 2, item = 6532, itemName = "Bright Baubles" },
-		{ t = "collect", quest = 6607, title = "Nat Pagle, Angler Extreme", map = 1444, x = 63.7, y = 53.1, era = true, count = 1, item = 16967, itemName = "Feralas Ahi", oi = 1, skillName = "Fishing", skillRank = 225, spots = "63.7,53.1;62.7,52.1;62.4,50.3" },
+		{ t = "collect", quest = 6607, title = "Nat Pagle, Angler Extreme", map = 1444, x = 63.7, y = 53.1, era = true, count = 1, item = 16967, itemName = "Feralas Ahi", oi = 1, skillName = "Fishing", skillRank = 225, src = "Feralas Ahi Fishing Location", srcKind = "object", spots = "63.7,53.1;62.7,52.1;62.4,50.3" },
 	} },
 	{ title = "Savage Coast Blue Sailfin", note = "Fish along Stranglethorn Vale's Savage Coast (the west shore) until you catch a Savage Coast Blue Sailfin: about one catch in five there brings it up, and it bites nowhere else. At skill 225 nothing gets away here.", only = { factions = {"Alliance"} }, section = 4, goals = {
-		{ t = "collect", quest = 6607, title = "Nat Pagle, Angler Extreme", map = 1434, x = 27.4, y = 68.9, era = true, count = 1, item = 16969, itemName = "Savage Coast Blue Sailfin", oi = 4, skillName = "Fishing", skillRank = 225, spots = "27.4,68.9;24.5,65.7;25,58.3;25.8,48.9;25.3,45.2" },
+		{ t = "collect", quest = 6607, title = "Nat Pagle, Angler Extreme", map = 1434, x = 27.4, y = 68.9, era = true, count = 1, item = 16969, itemName = "Savage Coast Blue Sailfin", oi = 4, skillName = "Fishing", skillRank = 225, src = "Savage Coast Blue Sailfin Fishing Location", srcKind = "object", spots = "27.4,68.9;24.5,65.7;25,58.3;25.8,48.9;25.3,45.2" },
 	} },
 	{ title = "Savage Coast Blue Sailfin", note = "Fish along Stranglethorn Vale's Savage Coast (the west shore) until you catch a Savage Coast Blue Sailfin: about one catch in five there brings it up, and it bites nowhere else. At skill 225 nothing gets away here.", only = { factions = {"Horde"} }, section = 4, goals = {
-		{ t = "collect", quest = 6607, title = "Nat Pagle, Angler Extreme", map = 1434, x = 33, y = 32.1, era = true, count = 1, item = 16969, itemName = "Savage Coast Blue Sailfin", oi = 4, skillName = "Fishing", skillRank = 225, spots = "33,32.1;34.6,32.8;34.7,34.9;29.4,27.6;29.4,24.4" },
+		{ t = "collect", quest = 6607, title = "Nat Pagle, Angler Extreme", map = 1434, x = 33, y = 32.1, era = true, count = 1, item = 16969, itemName = "Savage Coast Blue Sailfin", oi = 4, skillName = "Fishing", skillRank = 225, src = "Savage Coast Blue Sailfin Fishing Location", srcKind = "object", spots = "33,32.1;34.6,32.8;34.7,34.9;29.4,27.6;29.4,24.4" },
 	} },
 	{ title = "Misty Reed Mahi Mahi", note = "Fish along the Misty Reed Strand (the east shore of Swamp of Sorrows) until you catch a Misty Reed Mahi Mahi: about one catch in five there brings it up, and it bites nowhere else. At skill 225 nothing gets away here.", section = 4, goals = {
-		{ t = "collect", quest = 6607, title = "Nat Pagle, Angler Extreme", map = 1435, x = 76.2, y = 95.6, era = true, count = 1, item = 16970, itemName = "Misty Reed Mahi Mahi", oi = 2, skillName = "Fishing", skillRank = 225, spots = "76.2,95.6;83.4,92.9;86.2,87.3;87.5,81.1;91.5,82.4" },
+		{ t = "collect", quest = 6607, title = "Nat Pagle, Angler Extreme", map = 1435, x = 76.2, y = 95.6, era = true, count = 1, item = 16970, itemName = "Misty Reed Mahi Mahi", oi = 2, skillName = "Fishing", skillRank = 225, src = "Misty Reed Mahi Mahi Fishing Location", srcKind = "object", spots = "76.2,95.6;83.4,92.9;86.2,87.3;87.5,81.1;91.5,82.4" },
 	} },
 	{ title = "Nat Pagle", section = 4, goals = {
 		{ t = "turnin", quest = 6607, title = "Nat Pagle, Angler Extreme", npc = "Nat Pagle", map = 1445, x = 58.61, y = 60.06, era = true, skillName = "Fishing", skillRank = 225, note = "Artisan Fishing" },
@@ -11441,10 +11441,10 @@ Waypost.RegisterSteps("professions/tailoring", function() return {
 		{ t = "collect", count = 3195, item = 14047, itemName = "Runecloth" },
 	} },
 	{ title = "Ironweb Spider Silk (Alliance)", note = "124 Ironweb Spider Silk for Runecloth Shoulders: it drops from Plague Lurker (level 54-55) at the marked spot, or buy it at the Auction House.", only = { factions = {"Alliance"} }, section = 4, goals = {
-		{ t = "collect", map = 1422, x = 57.1, y = 53.5, era = true, count = 124, item = 14227, itemName = "Ironweb Spider Silk", mobLevel = 55, spots = "57.1,53.5;55.9,50.6;60,53.9;60,50.8;56.5,59.1" },
+		{ t = "collect", map = 1422, x = 57.1, y = 53.5, era = true, count = 124, item = 14227, itemName = "Ironweb Spider Silk", mobLevel = 55, src = "Plague Lurker", srcKind = "npc", spots = "57.1,53.5;55.9,50.6;60,53.9;60,50.8;56.5,59.1" },
 	} },
 	{ title = "Ironweb Spider Silk (Horde)", note = "124 Ironweb Spider Silk for Runecloth Shoulders: it drops from Rock Stalker (level 57-59) at the marked spot, or buy it at the Auction House.", only = { factions = {"Horde"} }, section = 4, goals = {
-		{ t = "collect", map = 1451, x = 24.7, y = 81.8, era = true, count = 124, item = 14227, itemName = "Ironweb Spider Silk", mobLevel = 59, spots = "24.7,81.8;23.1,78.2;27.7,83.5;26.9,76.4;23.1,88.6" },
+		{ t = "collect", map = 1451, x = 24.7, y = 81.8, era = true, count = 124, item = 14227, itemName = "Ironweb Spider Silk", mobLevel = 59, src = "Rock Stalker", srcKind = "npc", spots = "24.7,81.8;23.1,78.2;27.7,83.5;26.9,76.4;23.1,88.6" },
 	} },
 	{ title = "Runecloth Belt to 234", note = "Runecloth Belt is yellow at 225 (yellow 225, green 240, grey 255): about 11 crafts to 234. Each takes 3 Bolt of Runecloth and 1 Rune Thread. Make the 33 Bolt of Runecloth first. Rune Thread from tailoring vendors.", section = 4, goals = {
 		{ t = "craft", count = 33, item = 14048, itemName = "Bolt of Runecloth", spell = 18401, spellName = "Bolt of Runecloth" },
@@ -11483,10 +11483,10 @@ Waypost.RegisterSteps("reputation/alterac-valley", function() return {
 		{ t = "accept", quest = 7367, title = "Defusing the Threat", npc = "Stormpike Explosives Expert", map = 1459, x = 42.8, y = 17, era = true, qlvl = 60, note = "Stormpike Explosives Expert: Defusing the Threat, 100" },
 	} },
 	{ title = "Icewing Cavern", note = "Icewing Cavern lies southwest of Dun Baldar. The Stormpike Banner stands at the back of the cave, past the yetis and harpies.", only = { factions = {"Alliance"} }, goals = {
-		{ t = "collect", quest = 7162, title = "Proving Grounds", map = 1459, x = 41.9, y = 36.18, era = true, count = 1, item = 17849, itemName = "Stormpike Banner", oi = 1 },
+		{ t = "collect", quest = 7162, title = "Proving Grounds", map = 1459, x = 41.9, y = 36.18, era = true, count = 1, item = 17849, itemName = "Stormpike Banner", oi = 1, src = "Stormpike Banner", srcKind = "object" },
 	} },
 	{ title = "The battle", note = "Most of this happens on the way to Drek'Thar. Loot Armor Scraps from Horde players and guards you kill. Assault the Snowfall Graveyard or any Horde graveyard, burn a Horde tower (click its banner), and take Coldtooth Mine. Commander Louis Philips stands at Tower Point; the Frostwolf Explosives Expert at Frostwolf Village. Fallen Sky Lords asks you to find where the three wing commanders landed. In Classic every tower, graveyard or mine paid 12 reputation, Captain Galvangar 125 and Drek'Thar about 300.", only = { factions = {"Alliance"} }, goals = {
-		{ t = "collect", quest = 7223, title = "Armor Scraps", map = 1459, x = 44.59, y = 45.57, era = true, count = 20, item = 17422, itemName = "Armor Scraps", oi = 1, mobLevel = 60, spots = "44.6,45.6;46.5,56.9;48.9,58.8;49.7,55.4;51.3,60.1" },
+		{ t = "collect", quest = 7223, title = "Armor Scraps", map = 1459, x = 44.59, y = 45.57, era = true, count = 20, item = 17422, itemName = "Armor Scraps", oi = 1, mobLevel = 60, src = "Seasoned Warrior, Frostwolf Bowman, Najak Hexxen and others", srcKind = "npc", spots = "44.6,45.6;46.5,56.9;48.9,58.8;49.7,55.4;51.3,60.1" },
 		{ t = "kill", quest = 7081, title = "Alterac Valley Graveyards", map = 1459, x = 51.8, y = 36, era = true, count = 1, target = "PvP Graveyard Credit Marker", oi = 1, mobLevel = 60, note = "assault a graveyard", spots = "51.8,36;51.6,57.1;49.3,76.7;49.3,88.5;42.4,15.6" },
 		{ t = "kill", quest = 7102, title = "Towers and Bunkers", map = 1459, x = 48.2, y = 58.7, era = true, count = 1, target = "PvP Tower Credit Marker", oi = 1, note = "Iceblood Tower banner" },
 		{ t = "kill", quest = 7122, title = "Capture a Mine", map = 1459, x = 44.3, y = 67.9, era = true, count = 1, target = "PvP Mine Credit Marker", oi = 1, mobLevel = 60, note = "Coldtooth Mine", spots = "44.3,67.9;52.5,7.6" },
@@ -11565,10 +11565,10 @@ Waypost.RegisterSteps("reputation/alterac-valley", function() return {
 		{ t = "accept", quest = 7368, title = "Defusing the Threat", npc = "Frostwolf Explosives Expert", map = 1459, x = 49.6, y = 82.3, era = true, qlvl = 60, note = "Frostwolf Explosives Expert: Defusing the Threat, 100" },
 	} },
 	{ title = "Wildpaw Cavern", note = "Wildpaw Cavern lies south of Frostwolf Keep. The Frostwolf Banner stands at the back of the cave, past the gnolls.", only = { factions = {"Horde"} }, goals = {
-		{ t = "collect", quest = 7161, title = "Proving Grounds", map = 1459, x = 50.63, y = 93.36, era = true, count = 1, item = 17850, itemName = "Frostwolf Banner", oi = 1 },
+		{ t = "collect", quest = 7161, title = "Proving Grounds", map = 1459, x = 50.63, y = 93.36, era = true, count = 1, item = 17850, itemName = "Frostwolf Banner", oi = 1, src = "Frostwolf Banner", srcKind = "object" },
 	} },
 	{ title = "The battle", note = "Most of this happens on the way to Vanndar Stormpike. Loot Armor Scraps from Alliance players and guards you kill. Assault the Snowfall Graveyard or any Alliance graveyard, burn an Alliance bunker (click its banner), and take Irondeep Mine. Commander Karl Philips stands at Icewing Bunker; the Stormpike Explosives Expert in Dun Baldar. Fallen Sky Lords asks you to find where the three wing commanders landed. In Classic every tower, graveyard or mine paid 12 reputation, Captain Balinda Stonehearth 125 and Vanndar about 300.", only = { factions = {"Horde"} }, goals = {
-		{ t = "collect", quest = 7224, title = "Enemy Booty", map = 1459, x = 49.39, y = 88.3, era = true, count = 20, item = 17422, itemName = "Armor Scraps", oi = 1, mobLevel = 61, spots = "49.3,88.1;50,76.9;51.3,60;44.6,45.6;49.2,39.9" },
+		{ t = "collect", quest = 7224, title = "Enemy Booty", map = 1459, x = 49.39, y = 88.3, era = true, count = 20, item = 17422, itemName = "Armor Scraps", oi = 1, mobLevel = 61, src = "Veteran Defender, Stormpike Bowman, Dirk Swindle and others", srcKind = "npc", spots = "49.3,88.1;50,76.9;51.3,60;44.6,45.6;49.2,39.9" },
 		{ t = "kill", quest = 7082, title = "The Graveyards of Alterac", map = 1459, x = 49.3, y = 88.5, era = true, count = 1, target = "PvP Graveyard Credit Marker", oi = 1, mobLevel = 60, note = "assault a graveyard", spots = "49.3,88.5;49.3,76.7;51.6,57.1;51.8,36;49.2,14.8" },
 		{ t = "kill", quest = 7101, title = "Towers and Bunkers", map = 1459, x = 52.5, y = 43.8, era = true, count = 1, target = "PvP Tower Credit Marker", oi = 1, note = "Stonehearth Bunker banner" },
 		{ t = "kill", quest = 7124, title = "Capture a Mine", map = 1459, x = 52.5, y = 7.6, era = true, count = 1, target = "PvP Mine Credit Marker", oi = 1, mobLevel = 60, note = "Irondeep Mine", spots = "52.5,7.6;44.3,67.9" },
@@ -11757,8 +11757,8 @@ Waypost.RegisterSteps("reputation/argent-dawn", function() return {
 	{ title = "Plaguelands quests and the Scourge Cauldrons", note = "The Plaguelands quests pay in full at 60 from level 55 up and never stop counting, about 1,500 in all; the leveling guides walk them. The cauldron chain from High Priestess MacDonnell at Chillwind Camp (Horde: Shadow Priestess Vandis at the Bulwark): 150 per cauldron with its return, then Mission Accomplished! 200. Alas, Andorhal 150 (Araj the Summoner, elite). At Light's Hope Chapel, Carlin Redpath's Darrowshire quests (Brother Carlin 50 from Chromie in Andorhal, Villains of Darrowshire 100, Marauders of Darrowshire 100) and Pamela Redpath's Hidden Treasures 200 at the end of the Darrowshire story; Zaeldarr the Outcast 75 from Caretaker Alen. After Mission Accomplished!, each cauldron takes a repeatable delivery: 25 reputation every time, until Exalted. Alchemist Arbington at Chillwind Camp (Horde: Apothecary Dithers at the Bulwark) gives you a Vitreous Focuser, without which the reagents never drop, and sells Arcane Quickeners for 50 silver (one per delivery; it crumbles after 30 minutes, so buy it last). Each delivery also takes 4 Runecloth. Farm Gahrron's Withering: its ghosts drop an Ectoplasmic Resonator about one time in four, so about 16 kills fill a delivery; the other cauldrons want 5 or 6 reagents that drop one time in ten or less. Once the Plaguelands Scourge stop counting, this earns about four times what their Scourgestones alone do.", goals = {
 		{ t = "talk", npc = "Alchemist Arbington", map = 1422, x = 42.66, y = 83.77, era = true, optional = true, only = { factions = {"Alliance"} }, note = "Alchemist Arbington: ask for a Vitreous Focuser" },
 		{ t = "talk", npc = "Apothecary Dithers", map = 1420, x = 83.28, y = 69.23, era = true, optional = true, only = { factions = {"Horde"} }, note = "Apothecary Dithers, at the Bulwark: ask for a Vitreous Focuser" },
-		{ t = "collect", map = 1422, x = 63.38, y = 58.4, era = true, count = 4, item = 13354, itemName = "Ectoplasmic Resonator", mobLevel = 58, optional = true, note = "Ectoplasmic Resonators: the ghosts around the cauldron", spots = "63.8,56.7;62.1,58.5;64.8,59;62.8,60.6" },
-		{ t = "collect", map = 1422, x = 63.64, y = 58.57, era = true, count = 4, item = 14047, itemName = "Runecloth", mobLevel = 56, optional = true, spots = "64.8,59;54.4,65.9;48.1,63.3;45.6,74.3;49.3,82.3" },
+		{ t = "collect", map = 1422, x = 63.38, y = 58.4, era = true, count = 4, item = 13354, itemName = "Ectoplasmic Resonator", mobLevel = 58, optional = true, note = "Ectoplasmic Resonators: the ghosts around the cauldron", src = "Wailing Death, Haunting Vision, Hungering Wraith", srcKind = "npc", spots = "63.8,56.7;62.1,58.5;64.8,59;62.8,60.6" },
+		{ t = "collect", map = 1422, x = 63.64, y = 58.57, era = true, count = 4, item = 14047, itemName = "Runecloth", mobLevel = 56, optional = true, src = "Haunting Vision, Scarlet Smith, High Protector Tarsen and others", srcKind = "npc", spots = "64.8,59;54.4,65.9;48.1,63.3;45.6,74.3;49.3,82.3" },
 		{ t = "buy", npc = "Alchemist Arbington", map = 1422, x = 42.66, y = 83.77, era = true, item = 13320, itemName = "Arcane Quickener", optional = true, only = { factions = {"Alliance"} }, note = "Arcane Quickener, 50 silver" },
 		{ t = "buy", npc = "Apothecary Dithers", map = 1420, x = 83.28, y = 69.23, era = true, item = 13320, itemName = "Arcane Quickener", optional = true, only = { factions = {"Horde"} }, note = "Arcane Quickener, 50 silver" },
 		{ t = "turnin", quest = 5227, title = "Gahrron's Withering Cauldron", npc = "Scourge Cauldron", map = 1422, x = 62.54, y = 58.47, era = true, qlvl = 58, optional = true, note = "the cauldron at Gahrron's Withering: handed in from its window, never in the log" },
@@ -11789,7 +11789,7 @@ Waypost.RegisterSteps("reputation/argent-dawn", function() return {
 	} },
 	{ title = "Friendly to Honored: stones and named Scourge", note = "Normal Scourge outside the dungeons stop giving reputation halfway through Friendly (3,000 of 6,000); Lord Darkscythe, Hed'mush and Gish stop at the end of Friendly. After that only Araj, the Scholomance and Stratholme mobs, the cauldron deliveries and Scourgestones count. Now turn in the stones you saved: Duke Nicholas Zverenhoff at Light's Hope Chapel takes all three kinds, and so do the officers at Chillwind Camp and the Bulwark. Every turn-in pays 25 and an Argent Dawn Valor Token: keep 35 tokens for the mantles at Revered and Exalted. Invader's Scourgestones are worth twice as much per stone: the Dark Adepts, Shadowmages, Dread Weavers and Scourge Champions (level 58-60) at Northdale, just north of Light's Hope Chapel, drop them about a third of the time or more, next to the turn-in. The named Scourge below drop a Corruptor's Scourgestone half the time or more (Putridius two times in three, Araj and Hed'mush half the time) and give 15 a kill, Araj until Exalted; Putridius gives no reputation, only the stone. Friendly opens the Enriched Manna Biscuits (60 silver) at the quartermasters.", goals = {
 		{ t = "collect", count = 10, item = 12841, itemName = "Invader's Scourgestone", optional = true, note = "Invader's Scourgestones" },
-		{ t = "collect", map = 1423, x = 65.23, y = 43.94, count = 1, item = 12843, itemName = "Corruptor's Scourgestone", mobLevel = 57, optional = true, note = "Corruptor's Scourgestone: the named Scourge below, and dungeon bosses", spots = "65.2,43.9;58.8,41.5;48.2,18.7;22,25.8;34,64.1" },
+		{ t = "collect", map = 1423, x = 65.23, y = 43.94, count = 1, item = 12843, itemName = "Corruptor's Scourgestone", mobLevel = 57, optional = true, note = "Corruptor's Scourgestone: the named Scourge below, and dungeon bosses", src = "Gish the Unmoving, Lord Darkscythe, Hed'mush the Rotting", srcKind = "npc", spots = "65.2,43.9;58.8,41.5;48.2,18.7;22,25.8;34,64.1" },
 		{ t = "kill", map = 1423, x = 73.6, y = 34.1, target = "Dark Adept", mobLevel = 59, optional = true, note = "Dark Adepts and Shadowmages at Northdale", spots = "73.6,34.1;73.3,31.8;75.5,36.6;72.1,38.2;57.9,30" },
 		{ t = "kill", map = 1422, x = 45.27, y = 69.21, era = true, target = "Araj the Summoner", optional = true, group = true, note = "Araj the Summoner, Andorhal" },
 		{ t = "kill", map = 1422, x = 48.05, y = 67.39, era = true, target = "Putridius", optional = true, group = true, note = "Putridius, Western Plaguelands: the stone only" },
@@ -11889,11 +11889,11 @@ Waypost.RegisterSteps("reputation/brood-of-nozdormu", function() return {
 	{ title = "The Path of the Righteous", note = "The Path of the Righteous wants 200 Silithid Carapace Fragments. Every hive silithid drops one to three on most kills: the Hive'Ashi Workers, Stingers, Swarmers and Defenders north and north-west of Cenarion Hold, and those of Hive'Zora in the west and Hive'Regal in the south. Almost all of them are elites of level 57 to 60: one at a time solo, faster in a group.", goals = {
 		{ t = "turnin", quest = 8288, title = "Only One May Rise", npc = "Baristolth of the Shifting Sands", map = 1451, x = 49.45, y = 36.45, era = true, optional = true, group = true, note = "200" },
 		{ t = "accept", quest = 8301, title = "The Path of the Righteous", npc = "Baristolth of the Shifting Sands", map = 1451, x = 49.45, y = 36.45, era = true, qlvl = 60, optional = true },
-		{ t = "collect", quest = 8301, title = "The Path of the Righteous", map = 1451, x = 37.1, y = 62.1, era = true, count = 200, item = 20384, itemName = "Silithid Carapace Fragment", oi = 1, mobLevel = 59, optional = true, spots = "37.1,62.1;33.2,68.4;27.2,69.4;27.9,61.3;26.6,58.5" },
+		{ t = "collect", quest = 8301, title = "The Path of the Righteous", map = 1451, x = 37.1, y = 62.1, era = true, count = 200, item = 20384, itemName = "Silithid Carapace Fragment", oi = 1, mobLevel = 59, optional = true, src = "Hive'Ashi Drone, Hive'Zora Wasp", srcKind = "npc", spots = "37.1,62.1;33.2,68.4;27.2,69.4;27.9,61.3;26.6,58.5" },
 		{ t = "turnin", quest = 8301, title = "The Path of the Righteous", npc = "Baristolth of the Shifting Sands", map = 1451, x = 49.45, y = 36.45, era = true, optional = true, note = "200" },
 	} },
 	{ title = "Hated to Neutral", note = "After The Path, Baristolth takes 200 more fragments for The Hand of the Righteous: 200 reputation, again and again, but only until Neutral. From Hated 500 that is 208 turn-ins, 41,600 fragments, 20,000 to 30,000 elite kills: the only way without the Temple, and a very long one. With the Temple of Ahn'Qiraj open (a 40-player raid) it is far quicker: every Temple trash mob gives 100 until 2,999 of 3,000 Neutral, about 9,500 a full clear, so four to five clears reach Neutral. Save every Ancient Qiraji Artifact and Qiraji Lord's Insignia you loot until the trash stops counting: they pay the same later.", goals = {
-		{ t = "collect", map = 1451, x = 37.1, y = 62.1, era = true, count = 200, item = 20384, itemName = "Silithid Carapace Fragment", mobLevel = 59, optional = true, spots = "37.1,62.1;33.2,68.4;27.2,69.4;27.9,61.3;26.6,58.5" },
+		{ t = "collect", map = 1451, x = 37.1, y = 62.1, era = true, count = 200, item = 20384, itemName = "Silithid Carapace Fragment", mobLevel = 59, optional = true, src = "Hive'Ashi Drone, Hive'Zora Wasp", srcKind = "npc", spots = "37.1,62.1;33.2,68.4;27.2,69.4;27.9,61.3;26.6,58.5" },
 		{ t = "turnin", quest = 8302, title = "The Hand of the Righteous", npc = "Baristolth of the Shifting Sands", map = 1451, x = 49.45, y = 36.45, era = true, qlvl = 60, optional = true, note = "The Hand of the Righteous: 200 fragments, 200" },
 		{ t = "rep", factionName = "Brood of Nozdormu", faction = 910, standing = 4 },
 	} },
@@ -11958,8 +11958,8 @@ Waypost.RegisterSteps("reputation/brood-of-nozdormu", function() return {
 		{ t = "accept", quest = 8585, title = "The Isle of Dread!", npc = "Dirge Quikcleave", map = 1446, x = 52.63, y = 28.11, era = true, qlvl = 60, optional = true },
 	} },
 	{ title = "The Isle of Dread", note = "Lord Lakmaeran and the Chimaerok on the Isle of Dread are elites of level 60 to 62 that respawn every ten minutes: a raid's work. The Chimaerok drop a tenderloin about half the time, Lakmaeran two to four now and then.", goals = {
-		{ t = "collect", quest = 8585, title = "The Isle of Dread!", map = 1444, x = 29.3, y = 72.6, era = true, count = 1, item = 21027, itemName = "Lakmaeran's Carcass", oi = 1, optional = true, group = true, note = "Lakmaeran's Carcass, Lord Lakmaeran: raid" },
-		{ t = "collect", quest = 8585, title = "The Isle of Dread!", map = 1444, x = 29.5, y = 78, era = true, count = 20, item = 21024, itemName = "Chimaerok Tenderloin", oi = 2, mobLevel = 62, optional = true, group = true, spots = "29.5,78;29.1,79.1;29.4,75.7;30,80.2;30.6,75.8" },
+		{ t = "collect", quest = 8585, title = "The Isle of Dread!", map = 1444, x = 29.3, y = 72.6, era = true, count = 1, item = 21027, itemName = "Lakmaeran's Carcass", oi = 1, optional = true, group = true, note = "Lakmaeran's Carcass, Lord Lakmaeran: raid", src = "Lord Lakmaeran", srcKind = "npc" },
+		{ t = "collect", quest = 8585, title = "The Isle of Dread!", map = 1444, x = 29.5, y = 78, era = true, count = 20, item = 21024, itemName = "Chimaerok Tenderloin", oi = 2, mobLevel = 62, optional = true, group = true, src = "Chimaerok Devourer, Arcane Chimaerok, Chimaerok and others", srcKind = "npc", spots = "29.5,78;29.1,79.1;29.4,75.7;30,80.2;30.6,75.8" },
 	} },
 	{ title = "Draconic for Dummies, Volume II", note = "The Only Prescription needs the eight chapters of Draconic for Dummies, Volume II: from Doctor Weavil in his house on Alcaz Island (a level 63 elite with guards, raid), the Felguard Elites, Doomguard Commanders and Dreadlords of the Blasted Lands, the Hederine south of Everlook, and a book in the Undercity. Narain hands out the binding when you accept.", goals = {
 		{ t = "collect", quest = 8620, title = "The Only Prescription", map = 1445, x = 77.9, y = 17.1, era = true, count = 1, item = 21111, itemName = "Draconic For Dummies: Volume II", oi = 1, optional = true, note = "Draconic for Dummies: Volume II" },
@@ -11967,8 +11967,8 @@ Waypost.RegisterSteps("reputation/brood-of-nozdormu", function() return {
 	{ title = "Dirge's Chops", note = "Dirge wants 20 Goblin Rocket Fuel and 20 Deeprock Salt with the meat. Narain then wants 20 Arcanite Bars, 10 Elementium Ore, 10 Azerothian Diamonds and 10 Blue Sapphires, and gives you an Arcanite Buoy: placed at the Swirling Maelstrom in Azshara's Bay of Storms, it calls up Maws, a level 63 boss for a raid. Maws drops the Blue Scepter Shard for one raider on the quest each kill.", goals = {
 		{ t = "turnin", quest = 8585, title = "The Isle of Dread!", npc = "Dirge Quikcleave", map = 1446, x = 52.63, y = 28.11, era = true, optional = true },
 		{ t = "accept", quest = 8586, title = "Dirge's Kickin' Chimaerok Chops", npc = "Dirge Quikcleave", map = 1446, x = 52.63, y = 28.11, era = true, qlvl = 60, optional = true },
-		{ t = "collect", quest = 8586, title = "Dirge's Kickin' Chimaerok Chops", map = 1451, x = 62.04, y = 52.7, era = true, count = 20, item = 9061, itemName = "Goblin Rocket Fuel", oi = 1, mobLevel = 56, optional = true, spots = "63.1,53.7;60.6,53.6;62.8,50.2;60.6,50;60.4,57.5" },
-		{ t = "collect", quest = 8586, title = "Dirge's Kickin' Chimaerok Chops", map = 1446, x = 48.1, y = 54.03, era = true, count = 20, item = 8150, itemName = "Deeprock Salt", oi = 2, mobLevel = 43, optional = true, spots = "51,50.3;58.8,54.4;44.5,58.7;35.3,56.4;44.8,27.9" },
+		{ t = "collect", quest = 8586, title = "Dirge's Kickin' Chimaerok Chops", map = 1451, x = 62.04, y = 52.7, era = true, count = 20, item = 9061, itemName = "Goblin Rocket Fuel", oi = 1, mobLevel = 56, optional = true, src = "Tortured Druid, Hive'Ashi Drone", srcKind = "npc", spots = "63.1,53.7;60.6,53.6;62.8,50.2;60.6,50;60.4,57.5" },
+		{ t = "collect", quest = 8586, title = "Dirge's Kickin' Chimaerok Chops", map = 1446, x = 48.1, y = 54.03, era = true, count = 20, item = 8150, itemName = "Deeprock Salt", oi = 2, mobLevel = 43, optional = true, src = "Land Rager, Ground Pounder", srcKind = "npc", spots = "51,50.3;58.8,54.4;44.5,58.7;35.3,56.4;44.8,27.9" },
 		{ t = "turnin", quest = 8586, title = "Dirge's Kickin' Chimaerok Chops", npc = "Dirge Quikcleave", map = 1446, x = 52.63, y = 28.11, era = true, optional = true },
 		{ t = "accept", quest = 8587, title = "Return to Narain", npc = "Dirge Quikcleave", map = 1446, x = 52.63, y = 28.11, era = true, qlvl = 60, optional = true },
 		{ t = "turnin", quest = 8587, title = "Return to Narain", npc = "Narain Soothfancy", map = 1446, x = 65.24, y = 18.58, era = true, optional = true, note = "Narain Soothfancy: 200" },
@@ -11982,7 +11982,7 @@ Waypost.RegisterSteps("reputation/brood-of-nozdormu", function() return {
 		{ t = "accept", quest = 8729, title = "The Wrath of Neptulon", npc = "Narain Soothfancy", map = 1446, x = 65.24, y = 18.58, era = true, qlvl = 60, optional = true },
 	} },
 	{ title = "Maws", goals = {
-		{ t = "collect", quest = 8729, title = "The Wrath of Neptulon", map = 1447, x = 68, y = 52.5, era = true, count = 1, item = 21137, itemName = "Blue Scepter Shard", oi = 1, optional = true, group = true, note = "Blue Scepter Shard, Maws: raid" },
+		{ t = "collect", quest = 8729, title = "The Wrath of Neptulon", map = 1447, x = 68, y = 52.5, era = true, count = 1, item = 21137, itemName = "Blue Scepter Shard", oi = 1, optional = true, group = true, note = "Blue Scepter Shard, Maws: raid", src = "Maws", srcKind = "npc" },
 	} },
 	{ title = "The green shard: Eranikus", note = "Malfurion Stormrage appears beside the Shade of Eranikus at the bottom of the Temple of Atal'Hakkar (a five-player dungeon). He sends you to a Forest Wisp outside Darnassus (Horde players walk past the city's guards), then to Keeper Remulos in Moonglade.", goals = {
 		{ t = "accept", quest = 8733, title = "Eranikus, Tyrant of the Dream", npc = "Malfurion Stormrage", map = 1435, x = 69.9, y = 53.6, era = true, qlvl = 60, optional = true, group = true, note = "Malfurion Stormrage, inside the Temple of Atal'Hakkar" },
@@ -11996,16 +11996,16 @@ Waypost.RegisterSteps("reputation/brood-of-nozdormu", function() return {
 		{ t = "accept", quest = 8735, title = "The Nightmare's Corruption", npc = "Keeper Remulos", map = 1450, x = 36.18, y = 41.79, era = true, qlvl = 60, optional = true },
 	} },
 	{ title = "The Ashenvale portal", note = "The four dream portals sit in groves guarded by elite dragonkin of level 60 to 62 that respawn every 30 minutes; each drops the portal's fragment one time in twenty. Raid content.", goals = {
-		{ t = "collect", quest = 8735, title = "The Nightmare's Corruption", map = 1440, x = 92.78, y = 38.6, era = true, count = 1, item = 21147, itemName = "Fragment of the Nightmare's Corruption", oi = 1, mobLevel = 62, optional = true, group = true, spots = "92.8,39.4;92.7,37.2;91.5,39;95,39.9;95.2,37.3" },
+		{ t = "collect", quest = 8735, title = "The Nightmare's Corruption", map = 1440, x = 92.78, y = 38.6, era = true, count = 1, item = 21147, itemName = "Fragment of the Nightmare's Corruption", oi = 1, mobLevel = 62, optional = true, group = true, src = "Emeraldon Boughguard, Emeraldon Tree Warder, Emeraldon Oracle", srcKind = "npc", spots = "92.8,39.4;92.7,37.2;91.5,39;95,39.9;95.2,37.3" },
 	} },
 	{ title = "The Duskwood portal", note = "The Twilight Corrupter (level 63 boss) always drops its fragment.", goals = {
-		{ t = "collect", quest = 8735, title = "The Nightmare's Corruption", map = 1431, x = 48.6, y = 40, era = true, count = 1, item = 21149, itemName = "Fragment of the Nightmare's Corruption", oi = 2, optional = true, group = true },
+		{ t = "collect", quest = 8735, title = "The Nightmare's Corruption", map = 1431, x = 48.6, y = 40, era = true, count = 1, item = 21149, itemName = "Fragment of the Nightmare's Corruption", oi = 2, optional = true, group = true, src = "Twilight Corrupter", srcKind = "npc" },
 	} },
 	{ title = "The Feralas portal", goals = {
-		{ t = "collect", quest = 8735, title = "The Nightmare's Corruption", map = 1444, x = 51.41, y = 11.56, era = true, count = 1, item = 21148, itemName = "Fragment of the Nightmare's Corruption", oi = 3, mobLevel = 62, optional = true, group = true, spots = "51.6,12;50.6,10.3;52.6,9.7;54.1,10.4;54.5,7.4" },
+		{ t = "collect", quest = 8735, title = "The Nightmare's Corruption", map = 1444, x = 51.41, y = 11.56, era = true, count = 1, item = 21148, itemName = "Fragment of the Nightmare's Corruption", oi = 3, mobLevel = 62, optional = true, group = true, src = "Jademir Oracle, Jademir Tree Warder, Jademir Boughguard", srcKind = "npc", spots = "51.6,12;50.6,10.3;52.6,9.7;54.1,10.4;54.5,7.4" },
 	} },
 	{ title = "The Hinterlands portal", goals = {
-		{ t = "collect", quest = 8735, title = "The Nightmare's Corruption", map = 1425, x = 64.21, y = 25.36, era = true, count = 1, item = 21146, itemName = "Fragment of the Nightmare's Corruption", oi = 4, mobLevel = 62, optional = true, group = true, spots = "65.5,24.2;68.4,28;67.5,30.7;64.9,33.6;62.8,30.8" },
+		{ t = "collect", quest = 8735, title = "The Nightmare's Corruption", map = 1425, x = 64.21, y = 25.36, era = true, count = 1, item = 21146, itemName = "Fragment of the Nightmare's Corruption", oi = 4, mobLevel = 62, optional = true, group = true, src = "Verdantine Boughguard, Verdantine Oracle, Verdantine Tree Warder", srcKind = "npc", spots = "65.5,24.2;68.4,28;67.5,30.7;64.9,33.6;62.8,30.8" },
 	} },
 	{ title = "The Nightmare Manifests", note = "A raid event: follow Keeper Remulos toward Nighthaven and keep him alive against Eranikus and his nightmare adds until Tyrande arrives and redeems Eranikus. Do not kill Eranikus.", goals = {
 		{ t = "turnin", quest = 8735, title = "The Nightmare's Corruption", npc = "Keeper Remulos", map = 1450, x = 36.18, y = 41.79, era = true, optional = true, note = "100 (and 100 Cenarion Circle)" },
@@ -12086,7 +12086,7 @@ Waypost.RegisterSteps("reputation/cenarion-circle", function() return {
 		{ t = "accept", quest = 8320, title = "Twilight Geolords", npc = "Huum Wildmane", map = 1451, x = 48.62, y = 37.87, era = true, qlvl = 60, optional = true, note = "Huum Wildmane, level 60" },
 	} },
 	{ title = "The cultist camp west of Cenarion Hold", note = "The nearest Twilight's Hammer camp lies just south-west of the Hold. Avengers, Geolords and Stonecallers (level 57 to 59) each drop an Encrypted Twilight Text about a third of the time, and every cultist kill is 1 reputation. Twilight Keeper Havunth walks the edge of the camp. Keep every cultist robe, cowl and mantle you loot: they are the Twilight Trappings for the Wind Stones later.", goals = {
-		{ t = "collect", quest = 8318, title = "Secret Communication", map = 1451, x = 41.84, y = 44.13, era = true, count = 10, item = 20404, itemName = "Encrypted Twilight Text", oi = 1, mobLevel = 60, spots = "40.9,44.7;39,41.7;27.5,32.8;24.9,36.7;18,31.2" },
+		{ t = "collect", quest = 8318, title = "Secret Communication", map = 1451, x = 41.84, y = 44.13, era = true, count = 10, item = 20404, itemName = "Encrypted Twilight Text", oi = 1, mobLevel = 60, src = "Twilight Avenger, Twilight Overlord, Twilight Stonecaller and others", srcKind = "npc", spots = "40.9,44.7;39,41.7;27.5,32.8;24.9,36.7;18,31.2" },
 		{ t = "kill", quest = 8320, title = "Twilight Geolords", map = 1451, x = 41.08, y = 44.03, era = true, count = 10, target = "Twilight Geolord", oi = 1, mobLevel = 60, optional = true, spots = "40.4,45.7;37.8,43.7;38.7,41.6;28,33.4;25.6,34" },
 	} },
 	{ title = "Back to Cenarion Hold", goals = {
@@ -12106,7 +12106,7 @@ Waypost.RegisterSteps("reputation/cenarion-circle", function() return {
 		{ t = "rep", factionName = "Cenarion Circle", faction = 609, standing = 6 },
 	} },
 	{ title = "Vyral the Vile", note = "Vyral the Vile (level 61, not elite) waits at the back of Twilight's Run, the cave in the north-east of Silithus. Flamereavers and Twilight Masters guard the way: the Flamereavers count until the top of Honored, the Masters stop at the top of Friendly like the other cultists.", goals = {
-		{ t = "collect", quest = 8321, title = "Vyral the Vile", map = 1451, x = 72.4, y = 15.6, era = true, count = 1, item = 20466, itemName = "Vyral's Signet Ring", oi = 1, optional = true },
+		{ t = "collect", quest = 8321, title = "Vyral the Vile", map = 1451, x = 72.4, y = 15.6, era = true, count = 1, item = 20466, itemName = "Vyral's Signet Ring", oi = 1, optional = true, src = "Vyral the Vile", srcKind = "npc" },
 		{ t = "turnin", quest = 8321, title = "Vyral the Vile", npc = "Huum Wildmane", map = 1451, x = 48.62, y = 37.87, era = true, optional = true },
 	} },
 	{ title = "Silithus quests at Cenarion Hold", note = "Now cash in the one-time quests: about 1,700 reputation alone, 2,400 with the group quests. They are level 55 to 60, so they pay in full at 60. Securing the Supply Lines needs Taking Back Silithus first. Deathclasp is an elite scorpid with two guards (group of 2 or 3). Calandrath's Desert Recipe is for Cooks: its recipe makes the Smoked Desert Dumplings he wants. Beetix Ficklespragg stands upstairs in his building: go up inside, the arrow cannot tell the floors apart.", goals = {
@@ -12120,8 +12120,8 @@ Waypost.RegisterSteps("reputation/cenarion-circle", function() return {
 		{ t = "accept", quest = 9416, title = "Report to General Kirika", npc = "Scout Bloodfist", map = 1451, x = 48.95, y = 36.69, era = true, qlvl = 60, optional = true, only = { factions = {"Horde"} }, note = "Scout Bloodfist: Report to General Kirika" },
 	} },
 	{ title = "Around Cenarion Hold", note = "Stonelash Scorpids and Sand Skitterers roam the sands around the Hold; Dredge Strikers dig north-east of it. The Sandy Cookbook lies in the cultist camp south-west of the Hold.", goals = {
-		{ t = "collect", quest = 8277, title = "Deadly Desert Venom", map = 1451, x = 44.4, y = 37.06, era = true, count = 8, item = 20373, itemName = "Stonelash Scorpid Stinger", oi = 1, mobLevel = 55, spots = "43.4,38.8;39.9,32;33.5,28.9;37,16.7;48.9,13.4" },
-		{ t = "collect", quest = 8277, title = "Deadly Desert Venom", map = 1451, x = 44.63, y = 42.63, era = true, count = 8, item = 20376, itemName = "Sand Skitterer Fang", oi = 2, mobLevel = 56, spots = "44.8,41.8;36.4,31.8;30.9,25.9;38.7,16.8;50.7,15.3" },
+		{ t = "collect", quest = 8277, title = "Deadly Desert Venom", map = 1451, x = 44.4, y = 37.06, era = true, count = 8, item = 20373, itemName = "Stonelash Scorpid Stinger", oi = 1, mobLevel = 55, src = "Stonelash Scorpid", srcKind = "npc", spots = "43.4,38.8;39.9,32;33.5,28.9;37,16.7;48.9,13.4" },
+		{ t = "collect", quest = 8277, title = "Deadly Desert Venom", map = 1451, x = 44.63, y = 42.63, era = true, count = 8, item = 20376, itemName = "Sand Skitterer Fang", oi = 2, mobLevel = 56, src = "Sand Skitterer", srcKind = "npc", spots = "44.8,41.8;36.4,31.8;30.9,25.9;38.7,16.8;50.7,15.3" },
 		{ t = "kill", quest = 8280, title = "Securing the Supply Lines", map = 1451, x = 41.96, y = 39.32, era = true, count = 15, target = "Dredge Striker", oi = 1, mobLevel = 56, optional = true, spots = "43.6,37.9;34.3,31.1;35.6,17.1;55.3,12.5;57.2,23.6" },
 		{ t = "turnin", quest = 8307, title = "Desert Recipe", npc = "Sandy Cookbook", map = 1451, x = 37.94, y = 45.31, era = true, skillName = "Cooking", skillRank = 285, optional = true },
 		{ t = "accept", quest = 8313, title = "Sharing the Knowledge", npc = "Sandy Cookbook", map = 1451, x = 37.94, y = 45.31, era = true, skillName = "Cooking", skillRank = 285, qlvl = 57, optional = true },
@@ -12135,9 +12135,9 @@ Waypost.RegisterSteps("reputation/cenarion-circle", function() return {
 		{ t = "accept", quest = 8317, title = "Kitchen Assistance", npc = "Calandrath", map = 1451, x = 51.89, y = 39.16, era = true, skillName = "Cooking", skillRank = 285, qlvl = 57, optional = true },
 	} },
 	{ title = "Stonelash and Dredge Crushers", note = "Stonelash Flayers, Pincers and Rock Stalkers live south and south-west of the Hold; their stingers and fangs drop about one time in ten. Dredge Crushers dig south and west of the Hold.", goals = {
-		{ t = "collect", quest = 8278, title = "Noggle's Last Hope", map = 1451, x = 49.53, y = 66.58, era = true, count = 3, item = 20375, itemName = "Stonelash Flayer Stinger", oi = 1, mobLevel = 58, spots = "48.5,68.7;43.1,73.9;41.3,81.1;37.3,87.1;44.8,91.5" },
-		{ t = "collect", quest = 8278, title = "Noggle's Last Hope", map = 1451, x = 49.65, y = 65.66, era = true, count = 3, item = 20374, itemName = "Stonelash Pincer Stinger", oi = 2, mobLevel = 56, spots = "49.6,64.2;42.7,58;40.3,66.7;34.1,66.8;34.7,54.8" },
-		{ t = "collect", quest = 8278, title = "Noggle's Last Hope", map = 1451, x = 48.58, y = 67.17, era = true, count = 3, item = 20377, itemName = "Rock Stalker Fang", oi = 3, mobLevel = 59, spots = "48,68.5;38.9,75;33.9,78.8;27.7,83.5;23.1,88.6" },
+		{ t = "collect", quest = 8278, title = "Noggle's Last Hope", map = 1451, x = 49.53, y = 66.58, era = true, count = 3, item = 20375, itemName = "Stonelash Flayer Stinger", oi = 1, mobLevel = 58, src = "Stonelash Flayer", srcKind = "npc", spots = "48.5,68.7;43.1,73.9;41.3,81.1;37.3,87.1;44.8,91.5" },
+		{ t = "collect", quest = 8278, title = "Noggle's Last Hope", map = 1451, x = 49.65, y = 65.66, era = true, count = 3, item = 20374, itemName = "Stonelash Pincer Stinger", oi = 2, mobLevel = 56, src = "Stonelash Pincer", srcKind = "npc", spots = "49.6,64.2;42.7,58;40.3,66.7;34.1,66.8;34.7,54.8" },
+		{ t = "collect", quest = 8278, title = "Noggle's Last Hope", map = 1451, x = 48.58, y = 67.17, era = true, count = 3, item = 20377, itemName = "Rock Stalker Fang", oi = 3, mobLevel = 59, src = "Rock Stalker", srcKind = "npc", spots = "48,68.5;38.9,75;33.9,78.8;27.7,83.5;23.1,88.6" },
 		{ t = "kill", quest = 8281, title = "Stepping Up Security", map = 1451, x = 48.22, y = 62.91, era = true, count = 20, target = "Dredge Crusher", oi = 1, mobLevel = 58, optional = true, spots = "48.2,62.9;42.1,62.8;38.5,55.9;44,49.7;35.1,39.1" },
 		{ t = "learn", spell = 24801, spellName = "Smoked Desert Dumplings", optional = true, note = "Smoked Desert Dumplings, from the Sandy Cookbook" },
 		{ t = "craft", count = 10, item = 20452, itemName = "Smoked Desert Dumplings", spell = 24801, spellName = "Smoked Desert Dumplings", optional = true, note = "Smoked Desert Dumplings, from Sandworm Meat and Soothing Spices" },
@@ -12149,7 +12149,7 @@ Waypost.RegisterSteps("reputation/cenarion-circle", function() return {
 		{ t = "turnin", quest = 8317, title = "Kitchen Assistance", npc = "Calandrath", map = 1451, x = 51.89, y = 39.16, era = true, skillName = "Cooking", skillRank = 285, optional = true },
 	} },
 	{ title = "The Ravaged Twilight Camp", note = "The broken camp in the far north-west of Silithus: the Twilight Tablet Fragments lie on the ground among the ruins.", goals = {
-		{ t = "collect", quest = 8284, title = "The Twilight Mystery", map = 1451, x = 33.6, y = 16.8, era = true, count = 8, item = 20378, itemName = "Twilight Tablet Fragment", oi = 1, mobLevel = 57, spots = "33.2,14.3;29.2,18.7;27.2,12;23.2,15.3;20.2,17.3" },
+		{ t = "collect", quest = 8284, title = "The Twilight Mystery", map = 1451, x = 33.6, y = 16.8, era = true, count = 8, item = 20378, itemName = "Twilight Tablet Fragment", oi = 1, mobLevel = 57, src = "Dust Stormer, Desert Rumbler, Whirling Invader", srcKind = "npc", spots = "33.2,14.3;29.2,18.7;27.2,12;23.2,15.3;20.2,17.3" },
 	} },
 	{ title = "Larksbane", goals = {
 		{ t = "turnin", quest = 8284, title = "The Twilight Mystery", npc = "Geologist Larksbane", map = 1451, x = 49.67, y = 37.46, era = true },
@@ -12160,9 +12160,9 @@ Waypost.RegisterSteps("reputation/cenarion-circle", function() return {
 		{ t = "accept", quest = 8279, title = "The Twilight Lexicon", npc = "Hermit Ortell", map = 1451, x = 67.19, y = 69.76, era = true, qlvl = 60 },
 	} },
 	{ title = "The three Twilight Keepers", note = "Each Keeper is a level 60, not elite, alone at a camp edge, and always drops its chapter: Mayna in the far west camp, Havunth in the camp south-west of the Hold, Exeter in the far south-west camp beside the Twilight Lord.", goals = {
-		{ t = "collect", quest = 8279, title = "The Twilight Lexicon", map = 1451, x = 26.35, y = 36.62, era = true, count = 1, item = 20394, itemName = "Twilight Lexicon - Chapter 1", oi = 1 },
-		{ t = "collect", quest = 8279, title = "The Twilight Lexicon", map = 1451, x = 16.09, y = 86.37, era = true, count = 1, item = 20395, itemName = "Twilight Lexicon - Chapter 2", oi = 2, note = "Twilight Keeper Havunth" },
-		{ t = "collect", quest = 8279, title = "The Twilight Lexicon", map = 1451, x = 40.86, y = 42.22, era = true, count = 1, item = 20396, itemName = "Twilight Lexicon - Chapter 3", oi = 3, note = "Twilight Keeper Exeter" },
+		{ t = "collect", quest = 8279, title = "The Twilight Lexicon", map = 1451, x = 26.35, y = 36.62, era = true, count = 1, item = 20394, itemName = "Twilight Lexicon - Chapter 1", oi = 1, src = "Twilight Keeper Mayna", srcKind = "npc" },
+		{ t = "collect", quest = 8279, title = "The Twilight Lexicon", map = 1451, x = 16.09, y = 86.37, era = true, count = 1, item = 20395, itemName = "Twilight Lexicon - Chapter 2", oi = 2, note = "Twilight Keeper Havunth", src = "Twilight Keeper Exeter", srcKind = "npc" },
+		{ t = "collect", quest = 8279, title = "The Twilight Lexicon", map = 1451, x = 40.86, y = 42.22, era = true, count = 1, item = 20396, itemName = "Twilight Lexicon - Chapter 3", oi = 3, note = "Twilight Keeper Exeter", src = "Twilight Keeper Havunth", srcKind = "npc" },
 	} },
 	{ title = "Back to Ortell", goals = {
 		{ t = "turnin", quest = 8279, title = "The Twilight Lexicon", npc = "Hermit Ortell", map = 1451, x = 67.19, y = 69.76, era = true },
@@ -12170,8 +12170,8 @@ Waypost.RegisterSteps("reputation/cenarion-circle", function() return {
 	} },
 	{ title = "Bronzebeard's Encampment", note = "The dwarves' camp in the south of Silithus. Talk Frankal Stonebridge and Rutgar Glyphshaper through their whole stories for Dearest Natalia. Noggle's Satchel lies on the mountain south-east of the camp. Deathclasp lives up the trail east of the camp: an elite, and his Knock Away can throw you off the cliff.", goals = {
 		{ t = "complete", quest = 8304, title = "Dearest Natalia", map = 1451, x = 41, y = 88.7, era = true, note = "Frankal Stonebridge and Rutgar Glyphshaper", objs = {"Frankal Stonebridge", "Rutgar Glyphshaper"} },
-		{ t = "collect", quest = 8282, title = "Noggle's Lost Satchel", map = 1451, x = 44.56, y = 91.38, era = true, count = 1, item = 20379, itemName = "Noggle's Satchel", oi = 1 },
-		{ t = "collect", quest = 8283, title = "Wanted - Deathclasp, Terror of the Sands", map = 1451, x = 45.1, y = 92.3, era = true, count = 1, item = 20385, itemName = "Deathclasp's Pincer", oi = 1, optional = true, group = true, note = "Deathclasp's Pincer, elite: group of 2 or 3" },
+		{ t = "collect", quest = 8282, title = "Noggle's Lost Satchel", map = 1451, x = 44.56, y = 91.38, era = true, count = 1, item = 20379, itemName = "Noggle's Satchel", oi = 1, src = "Noggle's Satchel", srcKind = "object" },
+		{ t = "collect", quest = 8283, title = "Wanted - Deathclasp, Terror of the Sands", map = 1451, x = 45.1, y = 92.3, era = true, count = 1, item = 20385, itemName = "Deathclasp's Pincer", oi = 1, optional = true, group = true, note = "Deathclasp's Pincer, elite: group of 2 or 3", src = "Deathclasp", srcKind = "npc" },
 	} },
 	{ title = "Back to Cenarion Hold with news", note = "Noggle Ficklespragg stands upstairs in his building: go up inside, the arrow cannot tell the floors apart.", goals = {
 		{ t = "turnin", quest = 8287, title = "A Terrible Purpose", npc = "Commander Mar'alith", map = 1451, x = 49.2, y = 34.18, era = true },
@@ -12183,12 +12183,12 @@ Waypost.RegisterSteps("reputation/cenarion-circle", function() return {
 	{ title = "Rubbings and brains", note = "Rutgar and Frankal hand out the next two quests at their camp. Each hive has a Glyphed Crystal to rub with the Geologist's Transcription Kit, and its silithid drop the brains: Hive'Ashi north of the Hold, Hive'Zora in the west, Hive'Regal in the south. Inside Hive'Regal waits Mistress Natalia (level 62 elite, mind control and fear; group of 3 to 5). Now and then a hive silithid drops Brann Bronzebeard's Lost Letter: it starts a quest for Rutgar worth 100.", goals = {
 		{ t = "accept", quest = 8309, title = "Glyph Chasing", npc = "Rutgar Glyphshaper", map = 1451, x = 41.28, y = 88.45, era = true, qlvl = 60 },
 		{ t = "accept", quest = 8310, title = "Breaking the Code", npc = "Frankal Stonebridge", map = 1451, x = 40.81, y = 88.86, era = true, qlvl = 60 },
-		{ t = "collect", quest = 8309, title = "Glyph Chasing", map = 1451, x = 50.87, y = 26.76, era = true, count = 1, item = 20455, itemName = "Hive'Ashi Rubbing", oi = 1 },
-		{ t = "collect", quest = 8309, title = "Glyph Chasing", map = 1451, x = 37.27, y = 62.5, era = true, count = 1, item = 20454, itemName = "Hive'Zora Rubbing", oi = 2 },
-		{ t = "collect", quest = 8309, title = "Glyph Chasing", map = 1451, x = 52, y = 99, era = true, count = 1, item = 20456, itemName = "Hive'Regal Rubbing", oi = 3, note = "Hive'Regal Rubbing, deep in Hive'Regal" },
-		{ t = "collect", quest = 8310, title = "Breaking the Code", map = 1451, x = 60.2, y = 52.4, era = true, count = 1, item = 20457, itemName = "Hive'Ashi Silithid Brain", oi = 1, mobLevel = 58, spots = "61,52.5;62.8,49.7" },
-		{ t = "collect", quest = 8310, title = "Breaking the Code", map = 1451, x = 38.06, y = 62.63, era = true, count = 1, item = 20458, itemName = "Hive'Zora Silithid Brain", oi = 2, mobLevel = 59, spots = "37.1,62.1;33.2,68.4;27.2,69.4;27.9,61.3;26.6,58.5" },
-		{ t = "collect", quest = 8310, title = "Breaking the Code", map = 1451, x = 49.54, y = 73.26, era = true, count = 1, item = 20459, itemName = "Hive'Regal Silithid Brain", oi = 3, mobLevel = 61, group = true, spots = "49.5,73.3;49.8,82.1;54,84.8;57.8,83.1;60.8,75.7" },
+		{ t = "collect", quest = 8309, title = "Glyph Chasing", map = 1451, x = 50.87, y = 26.76, era = true, count = 1, item = 20455, itemName = "Hive'Ashi Rubbing", oi = 1, src = "Hive'Ashi Glyphed Crystal", srcKind = "object" },
+		{ t = "collect", quest = 8309, title = "Glyph Chasing", map = 1451, x = 37.27, y = 62.5, era = true, count = 1, item = 20454, itemName = "Hive'Zora Rubbing", oi = 2, src = "Hive'Zora Glyphed Crystal", srcKind = "object" },
+		{ t = "collect", quest = 8309, title = "Glyph Chasing", map = 1451, x = 52, y = 99, era = true, count = 1, item = 20456, itemName = "Hive'Regal Rubbing", oi = 3, note = "Hive'Regal Rubbing, deep in Hive'Regal", src = "Hive'Regal Glyphed Crystal", srcKind = "object" },
+		{ t = "collect", quest = 8310, title = "Breaking the Code", map = 1451, x = 60.2, y = 52.4, era = true, count = 1, item = 20457, itemName = "Hive'Ashi Silithid Brain", oi = 1, mobLevel = 58, src = "Hive'Ashi Ambusher, Hive'Ashi Drone", srcKind = "npc", spots = "61,52.5;62.8,49.7" },
+		{ t = "collect", quest = 8310, title = "Breaking the Code", map = 1451, x = 38.06, y = 62.63, era = true, count = 1, item = 20458, itemName = "Hive'Zora Silithid Brain", oi = 2, mobLevel = 59, src = "Hive'Zora Wasp", srcKind = "npc", spots = "37.1,62.1;33.2,68.4;27.2,69.4;27.9,61.3;26.6,58.5" },
+		{ t = "collect", quest = 8310, title = "Breaking the Code", map = 1451, x = 49.54, y = 73.26, era = true, count = 1, item = 20459, itemName = "Hive'Regal Silithid Brain", oi = 3, mobLevel = 61, group = true, src = "Hive'Regal Spitfire, Hive'Regal Ambusher, Hive'Regal Burrower and others", srcKind = "npc", spots = "49.5,73.3;49.8,82.1;54,84.8;57.8,83.1;60.8,75.7" },
 		{ t = "accept", quest = 8308, title = "Brann Bronzebeard's Lost Letter", item = 20461, itemName = "Brann Bronzebeard's Lost Letter", qlvl = 60, optional = true, note = "Brann Bronzebeard's Lost Letter, a rare drop" },
 	} },
 	{ title = "Mistress Natalia", note = "Optional: Natalia waits deep in Hive'Regal, the hive in the south of Silithus. She is a level 62 elite who mind-controls, fears and heals herself below half health: bring a group of 3 to 5 and interrupt her heals.", goals = {
@@ -12202,7 +12202,7 @@ Waypost.RegisterSteps("reputation/cenarion-circle", function() return {
 		{ t = "turnin", quest = 8314, title = "Unraveling the Mystery", npc = "Geologist Larksbane", map = 1451, x = 49.67, y = 37.46, era = true },
 		{ t = "accept", quest = 8315, title = "The Calling", npc = "Geologist Larksbane", map = 1451, x = 49.67, y = 37.46, era = true, qlvl = 60, optional = true, note = "raid of 20" },
 		{ t = "turnin", quest = 8306, title = "Into The Maw of Madness", npc = "Commander Mar'alith", map = 1451, x = 49.2, y = 34.18, era = true, optional = true },
-		{ t = "collect", quest = 8315, title = "The Calling", map = 1451, x = 48.8, y = 58.1, era = true, count = 1, item = 20465, itemName = "Crystal Unlocking Mechanism", oi = 1, optional = true, group = true, note = "Crystal Unlocking Mechanism, Emissary Roman'khan: raid of 20" },
+		{ t = "collect", quest = 8315, title = "The Calling", map = 1451, x = 48.8, y = 58.1, era = true, count = 1, item = 20465, itemName = "Crystal Unlocking Mechanism", oi = 1, optional = true, group = true, note = "Crystal Unlocking Mechanism, Emissary Roman'khan: raid of 20", src = "Emissary Roman'khan", srcKind = "npc" },
 		{ t = "turnin", quest = 8315, title = "The Calling", npc = "Geologist Larksbane", map = 1451, x = 49.67, y = 37.46, era = true, optional = true },
 	} },
 	{ title = "The New Frontier, Thunder Bluff", note = "Optional: Rabine Saturna's chain pays 525 Cenarion reputation over seven quests of level 55 to 57, full at 60. Bluff Runner Windstrider sends you to Arch Druid Hamuul Runetotem on Elder Rise, who sends you to Rabine Saturna in Nighthaven, Moonglade.", only = { factions = {"Horde"} }, goals = {
@@ -12231,7 +12231,7 @@ Waypost.RegisterSteps("reputation/cenarion-circle", function() return {
 		{ t = "kill", quest = 1125, title = "The Spirits of Southwind", map = 1451, x = 65.91, y = 48.49, era = true, count = 8, target = "Tortured Sentinel", oi = 2, mobLevel = 57, optional = true, spots = "65.9,49.2;62.7,49.5;63.5,53.1;62.6,56.2;60,55" },
 		{ t = "turnin", quest = 1125, title = "The Spirits of Southwind", npc = "Layo Starstrike", map = 1451, x = 81.87, y = 18.93, era = true, optional = true },
 		{ t = "accept", quest = 1126, title = "Hive in the Tower", npc = "Layo Starstrike", map = 1451, x = 81.87, y = 18.93, era = true, qlvl = 57, optional = true },
-		{ t = "collect", quest = 1126, title = "Hive in the Tower", map = 1451, x = 60.2, y = 52.4, era = true, count = 1, item = 17346, itemName = "Encrusted Silithid Object", oi = 1, optional = true },
+		{ t = "collect", quest = 1126, title = "Hive in the Tower", map = 1451, x = 60.2, y = 52.4, era = true, count = 1, item = 17346, itemName = "Encrusted Silithid Object", oi = 1, optional = true, src = "Hive'Ashi Ambusher", srcKind = "npc" },
 		{ t = "turnin", quest = 1126, title = "Hive in the Tower", npc = "Layo Starstrike", map = 1451, x = 81.87, y = 18.93, era = true, optional = true },
 		{ t = "accept", quest = 6844, title = "Umber, Archivist", npc = "Layo Starstrike", map = 1451, x = 81.87, y = 18.93, era = true, qlvl = 57, optional = true },
 	} },
@@ -12273,7 +12273,7 @@ Waypost.RegisterSteps("reputation/cenarion-circle", function() return {
 	} },
 	{ title = "Templars and the Abyssal Council", note = "Wearing a full set of Twilight Trappings (cultist Cowl, Mantle and Robe, about 8%, 8% and 6% per cultist) lets you use a Lesser Wind Stone: two stand in each of the three western camps. A random Abyssal Templar appears: a level 60 elite for 1 to 3 players, 5 reputation until the top of Honored and an Abyssal Crest 93% of the time. The summon uses up the set (and later the medallion and ring too), and if the elemental gets away they are gone: summon only when you can win. Abyssal Contacts pays 100 for the first crest; after that Bor takes 3 crests for 50. From Friendly, Huum Wildmane sends you to Aurel Goldleaf: 3 crests and a Large Brilliant Shard buy the Medallion of Station that, worn with a set, opens the larger Wind Stone for a Duke (level 62 elite, group of 5; 25 reputation, Abyssal Signet 85%).", goals = {
 		{ t = "accept", quest = 8361, title = "Abyssal Contacts", npc = "Bor Wildmane", map = 1451, x = 48.57, y = 37.78, era = true, qlvl = 60, optional = true },
-		{ t = "collect", quest = 8361, title = "Abyssal Contacts", map = 1451, x = 24.4, y = 36, era = true, count = 1, item = 20513, itemName = "Abyssal Crest", oi = 1, mobLevel = 60, optional = true, group = true, note = "Abyssal Crest: Templar, group of 1 to 3", spots = "24.4,36;27.9,30.6;39,42.4;38.3,46.5;18.2,81.1" },
+		{ t = "collect", quest = 8361, title = "Abyssal Contacts", map = 1451, x = 24.4, y = 36, era = true, count = 1, item = 20513, itemName = "Abyssal Crest", oi = 1, mobLevel = 60, optional = true, group = true, note = "Abyssal Crest: Templar, group of 1 to 3", src = "Crimson Templar, Earthen Templar, Hoary Templar and others", srcKind = "npc", spots = "24.4,36;27.9,30.6;39,42.4;38.3,46.5;18.2,81.1" },
 		{ t = "turnin", quest = 8361, title = "Abyssal Contacts", npc = "Bor Wildmane", map = 1451, x = 48.57, y = 37.78, era = true, optional = true },
 		{ t = "turnin", quest = 8362, title = "Abyssal Crests", npc = "Bor Wildmane", map = 1451, x = 48.57, y = 37.78, era = true, qlvl = 60, optional = true, note = "3 Abyssal Crests: 50" },
 		{ t = "accept", quest = 8331, title = "Aurel Goldleaf", npc = "Huum Wildmane", map = 1451, x = 48.62, y = 37.87, era = true, qlvl = 60, optional = true, note = "Huum Wildmane, Friendly" },
@@ -12283,7 +12283,7 @@ Waypost.RegisterSteps("reputation/cenarion-circle", function() return {
 		{ t = "accept", quest = 8349, title = "Bor Wildmane", npc = "Aurel Goldleaf", map = 1451, x = 51.96, y = 38.16, era = true, qlvl = 60, optional = true },
 		{ t = "turnin", quest = 8349, title = "Bor Wildmane", npc = "Bor Wildmane", map = 1451, x = 48.57, y = 37.78, era = true, optional = true },
 		{ t = "accept", quest = 8348, title = "Signet of the Dukes", npc = "Bor Wildmane", map = 1451, x = 48.57, y = 37.78, era = true, qlvl = 60, optional = true },
-		{ t = "collect", quest = 8348, title = "Signet of the Dukes", map = 1451, x = 24.7, y = 32.7, era = true, count = 1, item = 20514, itemName = "Abyssal Signet", oi = 1, mobLevel = 62, optional = true, group = true, note = "Abyssal Signet: Duke, group of 5", spots = "24.7,32.7;37.6,44.8;17.2,84.8" },
+		{ t = "collect", quest = 8348, title = "Signet of the Dukes", map = 1451, x = 24.7, y = 32.7, era = true, count = 1, item = 20514, itemName = "Abyssal Signet", oi = 1, mobLevel = 62, optional = true, group = true, note = "Abyssal Signet: Duke, group of 5", src = "The Duke of Cynders, The Duke of Shards, The Duke of Fathoms and others", srcKind = "npc", spots = "24.7,32.7;37.6,44.8;17.2,84.8" },
 		{ t = "turnin", quest = 8348, title = "Signet of the Dukes", npc = "Bor Wildmane", map = 1451, x = 48.57, y = 37.78, era = true, optional = true },
 	} },
 	{ title = "Signets and scepters to Exalted", note = "Revered to Exalted is 21,000 reputation: 210 text turn-ins (2,100 texts), or less with the rest. From Honored, Bor takes 3 Abyssal Signets for 100 (each Duke also gives 25, to Exalted), and Aurel takes one Abyssal Scepter for A Humble Offering (200, once). From Revered, Goldleaf's Discovery leads to Lords of the Council: 3 signets and 5 Large Brilliant Shards buy the Ring of Lordship, and set, medallion and ring open the Greater Wind Stone for an Abyssal Lord: a level 63 boss for a raid of about 20, 50 reputation, and an Abyssal Scepter. Bor pays 200 for the first scepter and 150 for each 3 after. Revered opens Mishta's Satchel of Cenarius (5g), Gaea's Embrace (9g) and Sylvan Vest (5g); Exalted is the standing for Champion's Battlegear at Vargus.", goals = {
@@ -12291,7 +12291,7 @@ Waypost.RegisterSteps("reputation/cenarion-circle", function() return {
 		{ t = "turnin", quest = 8319, title = "Encrypted Twilight Texts", npc = "Bor Wildmane", map = 1451, x = 48.57, y = 37.78, era = true, qlvl = 60, optional = true, note = "10 texts: 100" },
 		{ t = "turnin", quest = 8363, title = "Abyssal Signets", npc = "Bor Wildmane", map = 1451, x = 48.57, y = 37.78, era = true, qlvl = 60, optional = true, note = "3 Abyssal Signets: 100, Honored" },
 		{ t = "accept", quest = 9248, title = "A Humble Offering", npc = "Aurel Goldleaf", map = 1451, x = 51.96, y = 38.16, era = true, qlvl = 60, optional = true, note = "Aurel Goldleaf: A Humble Offering" },
-		{ t = "collect", quest = 9248, title = "A Humble Offering", map = 1451, x = 25.6, y = 34, era = true, count = 1, item = 20515, itemName = "Abyssal Scepter", oi = 1, mobLevel = 63, optional = true, group = true, note = "Abyssal Scepter: Lord, raid of 20", spots = "25.6,34;39.6,45.1;18.6,83.5" },
+		{ t = "collect", quest = 9248, title = "A Humble Offering", map = 1451, x = 25.6, y = 34, era = true, count = 1, item = 20515, itemName = "Abyssal Scepter", oi = 1, mobLevel = 63, optional = true, group = true, note = "Abyssal Scepter: Lord, raid of 20", src = "Lord Skwol, Baron Kazum, Prince Skaldrenox and others", srcKind = "npc", spots = "25.6,34;39.6,45.1;18.6,83.5" },
 		{ t = "turnin", quest = 9248, title = "A Humble Offering", npc = "Aurel Goldleaf", map = 1451, x = 51.96, y = 38.16, era = true, optional = true },
 		{ t = "accept", quest = 8343, title = "Goldleaf's Discovery", npc = "Huum Wildmane", map = 1451, x = 48.62, y = 37.87, era = true, qlvl = 60, optional = true, note = "Huum Wildmane, Revered" },
 		{ t = "turnin", quest = 8343, title = "Goldleaf's Discovery", npc = "Aurel Goldleaf", map = 1451, x = 51.96, y = 38.16, era = true, optional = true },
@@ -12300,7 +12300,7 @@ Waypost.RegisterSteps("reputation/cenarion-circle", function() return {
 		{ t = "accept", quest = 8351, title = "Bor Wishes to Speak", npc = "Aurel Goldleaf", map = 1451, x = 51.96, y = 38.16, era = true, qlvl = 60, optional = true },
 		{ t = "turnin", quest = 8351, title = "Bor Wishes to Speak", npc = "Bor Wildmane", map = 1451, x = 48.57, y = 37.78, era = true, optional = true },
 		{ t = "accept", quest = 8352, title = "Scepter of the Council", npc = "Bor Wildmane", map = 1451, x = 48.57, y = 37.78, era = true, qlvl = 60, optional = true },
-		{ t = "collect", quest = 8352, title = "Scepter of the Council", map = 1451, x = 25.6, y = 34, era = true, count = 1, item = 20515, itemName = "Abyssal Scepter", oi = 1, mobLevel = 63, optional = true, group = true, note = "Abyssal Scepter: Lord, raid of 20", spots = "25.6,34;39.6,45.1;18.6,83.5" },
+		{ t = "collect", quest = 8352, title = "Scepter of the Council", map = 1451, x = 25.6, y = 34, era = true, count = 1, item = 20515, itemName = "Abyssal Scepter", oi = 1, mobLevel = 63, optional = true, group = true, note = "Abyssal Scepter: Lord, raid of 20", src = "Lord Skwol, Baron Kazum, Prince Skaldrenox and others", srcKind = "npc", spots = "25.6,34;39.6,45.1;18.6,83.5" },
 		{ t = "turnin", quest = 8352, title = "Scepter of the Council", npc = "Bor Wildmane", map = 1451, x = 48.57, y = 37.78, era = true, optional = true },
 		{ t = "turnin", quest = 8364, title = "Abyssal Scepters", npc = "Bor Wildmane", map = 1451, x = 48.57, y = 37.78, era = true, qlvl = 60, optional = true, note = "3 Abyssal Scepters: 150, Revered" },
 		{ t = "rep", factionName = "Cenarion Circle", faction = 609, standing = 8 },
@@ -12328,8 +12328,8 @@ Waypost.RegisterSteps("reputation/centaur-clans", function() return {
 		{ t = "task", text = "Take the quests of one clan" },
 	} },
 	{ title = "Carved Centaur Totems", note = "The Kolkar centaurs (level 30-33) in the camps along the eastern road, south of Nijel's Point, drop the totems, and so do the Magram and the Maraudine. Bring five back, then take your clan's Buying Friendship (Gelkis below; the Magram's instead for the Magram).", goals = {
-		{ t = "collect", quest = 93224, title = "Carved Centaur Totems", map = 1443, x = 69.5, y = 44, era = true, count = 5, item = 254432, itemName = "Carved Centaur Totem", oi = 1, mobLevel = 33, only = { factions = {"Alliance"} }, note = "Carved Centaur Totem: Kolkar centaurs", spots = "69.5,44;69,41.9;71.2,42.8;69.4,47.9;69.7,40" },
-		{ t = "collect", quest = 93225, title = "Carved Centaur Totems", map = 1443, x = 69.5, y = 44, era = true, count = 5, item = 254432, itemName = "Carved Centaur Totem", oi = 1, mobLevel = 33, only = { factions = {"Horde"} }, note = "Carved Centaur Totem: Kolkar centaurs", spots = "69.5,44;69,41.9;71.2,42.8;69.4,47.9;69.7,40" },
+		{ t = "collect", quest = 93224, title = "Carved Centaur Totems", map = 1443, x = 69.5, y = 44, era = true, count = 5, item = 254432, itemName = "Carved Centaur Totem", oi = 1, mobLevel = 33, only = { factions = {"Alliance"} }, note = "Carved Centaur Totem: Kolkar centaurs", src = "Kolkar Scout, Kolkar Centaur, Kolkar Battle Lord and others", srcKind = "npc", spots = "69.5,44;69,41.9;71.2,42.8;69.4,47.9;69.7,40" },
+		{ t = "collect", quest = 93225, title = "Carved Centaur Totems", map = 1443, x = 69.5, y = 44, era = true, count = 5, item = 254432, itemName = "Carved Centaur Totem", oi = 1, mobLevel = 33, only = { factions = {"Horde"} }, note = "Carved Centaur Totem: Kolkar centaurs", src = "Kolkar Scout, Kolkar Centaur, Kolkar Battle Lord and others", srcKind = "npc", spots = "69.5,44;69,41.9;71.2,42.8;69.4,47.9;69.7,40" },
 		{ t = "turnin", quest = 93224, title = "Carved Centaur Totems", npc = "Captain Pentigast", map = 1443, x = 66.66, y = 10.93, era = true, only = { factions = {"Alliance"} } },
 		{ t = "turnin", quest = 93225, title = "Carved Centaur Totems", npc = "Gurda Wildmane", map = 1443, x = 56.29, y = 59.68, era = true, only = { factions = {"Horde"} } },
 		{ t = "accept", quest = 93227, title = "Buying Friendship: Gelkis", npc = "Captain Pentigast", map = 1443, x = 66.66, y = 10.93, era = true, qlvl = 45, optional = true, only = { factions = {"Alliance"} }, note = "Buying Friendship: Gelkis" },
@@ -12352,23 +12352,23 @@ Waypost.RegisterSteps("reputation/centaur-clans", function() return {
 		{ t = "turnin", quest = 94873, title = "Buying Friendship: Gelkis", npc = "Molkar", map = 1443, x = 35.6, y = 92, era = true, only = { factions = {"Horde"} }, note = "Molkar: 3,000" },
 	} },
 	{ title = "Gelkis: the Kolkar camps", note = "The Kolkar centaurs (level 30-33) hold the camps south of Nijel's Point, along the eastern road. About one in four drops a Crude Charm.", only = { factions = {"Alliance"} }, goals = {
-		{ t = "collect", quest = 1384, title = "Raid on the Kolkar", map = 1443, x = 69.5, y = 44, era = true, count = 10, item = 6079, itemName = "Crude Charm", oi = 1, mobLevel = 33, note = "Crude Charm: Kolkar centaurs", spots = "69.5,44;69,41.9;71.6,41.9;69.4,47.9;69.7,40" },
+		{ t = "collect", quest = 1384, title = "Raid on the Kolkar", map = 1443, x = 69.5, y = 44, era = true, count = 10, item = 6079, itemName = "Crude Charm", oi = 1, mobLevel = 33, note = "Crude Charm: Kolkar centaurs", src = "Kolkar Scout, Kolkar Centaur, Kolkar Battle Lord and others", srcKind = "npc", spots = "69.5,44;69,41.9;71.6,41.9;69.4,47.9;69.7,40" },
 		{ t = "turnin", quest = 1384, title = "Raid on the Kolkar", npc = "Uthek the Wise", map = 1443, x = 36.22, y = 79.25, era = true, note = "Uthek the Wise: 500" },
 		{ t = "accept", quest = 1370, title = "Stealing Supplies", npc = "Uthek the Wise", map = 1443, x = 36.22, y = 79.25, era = true, qlvl = 35 },
 	} },
 	{ title = "Gelkis: Magram Village", note = "The Sacks of Meat lie about Magram Village, in the south-east. Every Magram you kill on the way pays the Gelkis 20.", goals = {
-		{ t = "collect", quest = 1370, title = "Stealing Supplies", map = 1443, x = 69.8, y = 77.9, era = true, count = 6, item = 6069, itemName = "Crudely Dried Meat", oi = 1, note = "Crudely Dried Meat: Sacks of Meat", spots = "69.8,77.9;70.9,75.4;72.4,78.5;66.3,80.7;73.6,73.7" },
+		{ t = "collect", quest = 1370, title = "Stealing Supplies", map = 1443, x = 69.8, y = 77.9, era = true, count = 6, item = 6069, itemName = "Crudely Dried Meat", oi = 1, note = "Crudely Dried Meat: Sacks of Meat", src = "Sack of Meat", srcKind = "object", spots = "69.8,77.9;70.9,75.4;72.4,78.5;66.3,80.7;73.6,73.7" },
 		{ t = "kill", map = 1443, x = 69.51, y = 75.82, era = true, target = "Magram Wrangler", mobLevel = 34, optional = true, note = "Magram Wrangler: 20 Gelkis", spots = "69.9,74.4;67.4,72.2;66.1,79.7;68.8,82;72.8,77.8" },
 		{ t = "kill", map = 1443, x = 68.63, y = 76.66, era = true, target = "Magram Windchaser", mobLevel = 34, optional = true, note = "Magram Windchaser: 20 Gelkis", spots = "66.6,77;67.2,72.5;70,69;74.2,69.8;76,75.9" },
 	} },
 	{ title = "Gelkis: Ongeku", note = "Back to Uthek, then east to the Swamp of Sorrows: Ongeku (level 37) waits by a black cauldron in Fallow Sanctuary, north-east of Stonard.", goals = {
 		{ t = "turnin", quest = 1370, title = "Stealing Supplies", npc = "Uthek the Wise", map = 1443, x = 36.22, y = 79.25, era = true, note = "Uthek the Wise: 500" },
 		{ t = "accept", quest = 1373, title = "Ongeku", npc = "Uthek the Wise", map = 1443, x = 36.22, y = 79.25, era = true, qlvl = 37 },
-		{ t = "collect", quest = 1373, title = "Ongeku", map = 1435, x = 65.07, y = 21.97, era = true, count = 1, item = 6190, itemName = "Draenethyst Shard", oi = 1, note = "Draenethyst Shard: Ongeku" },
+		{ t = "collect", quest = 1373, title = "Ongeku", map = 1435, x = 65.07, y = 21.97, era = true, count = 1, item = 6190, itemName = "Draenethyst Shard", oi = 1, note = "Draenethyst Shard: Ongeku", src = "Ongeku", srcKind = "npc" },
 		{ t = "turnin", quest = 1373, title = "Ongeku", npc = "Uthek the Wise", map = 1443, x = 36.22, y = 79.25, era = true, note = "Uthek the Wise: 1,000" },
 	} },
 	{ title = "Gelkis: totems and kills to Honored", note = "Friendly to Honored is 6,000; after the clan's quests you are about 4,000 into it, so 2,000 to go. Molkar's Economic Warfare takes 5 Carved Centaur Totems for 750, again and again: three turn-ins, 15 totems. The Maraudine centaurs (level 36-40) of western Desolace drop them; the totems do not bind, so the auction house is the other source. Magram kills add 20 each, but Forever's kill data stops them at the end of Friendly, 1 short of Honored. At Friendly the village also has three craft orders for 1,000 each: Halea wants 3 Greater Mystic Essences, Molkar a White Bandit Mask (tailoring) and Talra a Barbaric Harness (leatherworking). Legacy Diplomat adds up to 10%.", goals = {
-		{ t = "collect", map = 1443, x = 29.5, y = 58, era = true, count = 5, item = 254432, itemName = "Carved Centaur Totem", mobLevel = 38, optional = true, note = "Carved Centaur Totem: Maraudine centaurs", spots = "29.5,58;29.8,61.3;30,54.1;31.9,60.2;32.5,54.6" },
+		{ t = "collect", map = 1443, x = 29.5, y = 58, era = true, count = 5, item = 254432, itemName = "Carved Centaur Totem", mobLevel = 38, optional = true, note = "Carved Centaur Totem: Maraudine centaurs", src = "Maraudine Windchaser, Maraudine Mauler, Maraudine Marauder and others", srcKind = "npc", spots = "29.5,58;29.8,61.3;30,54.1;31.9,60.2;32.5,54.6" },
 		{ t = "accept", quest = 92812, title = "Economic Warfare", npc = "Molkar", map = 1443, x = 35.6, y = 92, era = true, qlvl = 60, optional = true, note = "Economic Warfare" },
 		{ t = "turnin", quest = 92812, title = "Economic Warfare", npc = "Molkar", map = 1443, x = 35.6, y = 92, era = true, optional = true, note = "Molkar: 750" },
 		{ t = "rep", factionName = "Gelkis Clan Centaur", faction = 92, standing = 6 },
@@ -12387,7 +12387,7 @@ Waypost.RegisterSteps("reputation/centaur-clans", function() return {
 		{ t = "turnin", quest = 93128, title = "Khan Jehn", npc = "Uthek the Wise", map = 1443, x = 36.22, y = 79.25, era = true, note = "Uthek the Wise: 6,000" },
 	} },
 	{ title = "Gelkis: totems to Exalted", note = "From Revered on only Economic Warfare is left: Revered to Exalted is 21,000, 28 turn-ins, 140 totems. Nothing is sold for standing; the recipes below need only totems.", goals = {
-		{ t = "collect", map = 1443, x = 29.5, y = 58, era = true, count = 5, item = 254432, itemName = "Carved Centaur Totem", mobLevel = 38, optional = true, spots = "29.5,58;29.8,61.3;30,54.1;31.9,60.2;32.5,54.6" },
+		{ t = "collect", map = 1443, x = 29.5, y = 58, era = true, count = 5, item = 254432, itemName = "Carved Centaur Totem", mobLevel = 38, optional = true, src = "Maraudine Windchaser, Maraudine Mauler, Maraudine Marauder and others", srcKind = "npc", spots = "29.5,58;29.8,61.3;30,54.1;31.9,60.2;32.5,54.6" },
 		{ t = "accept", quest = 92812, title = "Economic Warfare", npc = "Molkar", map = 1443, x = 35.6, y = 92, era = true, qlvl = 60, optional = true },
 		{ t = "turnin", quest = 92812, title = "Economic Warfare", npc = "Molkar", map = 1443, x = 35.6, y = 92, era = true, optional = true },
 		{ t = "rep", factionName = "Gelkis Clan Centaur", faction = 92, standing = 7 },
@@ -12416,7 +12416,7 @@ Waypost.RegisterSteps("reputation/centaur-clans", function() return {
 		{ t = "accept", quest = 1369, title = "Broken Tears", npc = "Warug", map = 1443, x = 74.97, y = 68.16, era = true, qlvl = 33 },
 	} },
 	{ title = "Magram: Broken Tears", note = "The Tears of Theradras are crystals in the cave behind Gelkis Village, in the south-west. Every Gelkis you kill on the way pays the Magram 20.", goals = {
-		{ t = "collect", quest = 1369, title = "Broken Tears", map = 1443, x = 39.7, y = 93.7, era = true, count = 3, item = 6083, itemName = "Broken Tears", oi = 1, note = "Broken Tears: the Tear of Theradras crystals", spots = "39.7,93.7;40.5,91.9" },
+		{ t = "collect", quest = 1369, title = "Broken Tears", map = 1443, x = 39.7, y = 93.7, era = true, count = 3, item = 6083, itemName = "Broken Tears", oi = 1, note = "Broken Tears: the Tear of Theradras crystals", src = "Tear of Theradras", srcKind = "object", spots = "39.7,93.7;40.5,91.9" },
 		{ t = "kill", map = 1443, x = 40.47, y = 93.54, era = true, target = "Gelkis Stamper", mobLevel = 34, optional = true, note = "Gelkis Stamper: 20 Magram", spots = "40.6,92.9;38.7,95;38.8,90.1;35.2,90.2;38.1,85.2" },
 		{ t = "kill", map = 1443, x = 40.39, y = 93.05, era = true, target = "Gelkis Windchaser", mobLevel = 34, optional = true, note = "Gelkis Windchaser: 20 Magram", spots = "39.6,93.6;38.7,96.2;37,89.4;36.5,87.1;37.4,85" },
 		{ t = "turnin", quest = 1369, title = "Broken Tears", npc = "Warug", map = 1443, x = 74.97, y = 68.16, era = true, note = "Warug: 500" },
@@ -12429,7 +12429,7 @@ Waypost.RegisterSteps("reputation/centaur-clans", function() return {
 	{ title = "Magram: totems and kills to Honored", note = "Friendly to Honored is 6,000; after the clan's quests you are about 3,000 into it (4,000 with Gizmo for Warug), so 2,000 to 3,000 to go. Gorhak's Economic Warfare takes 5 Carved Centaur Totems for 750, again and again; the Maraudine centaurs (level 36-40) of western Desolace drop them, and the totems do not bind, so the auction house is the other source. Gelkis kills add 20 each, but Forever's kill data stops them at the end of Friendly, 1 short of Honored. At Friendly the village has two craft orders for 1,000 each: Mirda's 3 Greater Shadow Protection Potions and Grolkar's 2 Massive Iron Axes (blacksmithing). Warug's A Conqueror's Crown (1,000) is no craft order: he wants a Conqueror's Helm from a crypt in the Badlands, and Forever's quest pages put it in his chain before the Valley of Bones, so bring it before you reach Honored. Legacy Diplomat adds up to 10%.", goals = {
 		{ t = "accept", quest = 92743, title = "A Conqueror's Crown", npc = "Warug", map = 1443, x = 74.97, y = 68.16, era = true, qlvl = 40, optional = true, note = "A Conqueror's Crown: Warug" },
 		{ t = "turnin", quest = 92743, title = "A Conqueror's Crown", npc = "Warug", map = 1443, x = 74.97, y = 68.16, era = true, optional = true, note = "Warug: 1,000" },
-		{ t = "collect", map = 1443, x = 29.5, y = 58, era = true, count = 5, item = 254432, itemName = "Carved Centaur Totem", mobLevel = 38, optional = true, note = "Carved Centaur Totem: Maraudine centaurs", spots = "29.5,58;29.8,61.3;30,54.1;31.9,60.2;32.5,54.6" },
+		{ t = "collect", map = 1443, x = 29.5, y = 58, era = true, count = 5, item = 254432, itemName = "Carved Centaur Totem", mobLevel = 38, optional = true, note = "Carved Centaur Totem: Maraudine centaurs", src = "Maraudine Windchaser, Maraudine Mauler, Maraudine Marauder and others", srcKind = "npc", spots = "29.5,58;29.8,61.3;30,54.1;31.9,60.2;32.5,54.6" },
 		{ t = "accept", quest = 92811, title = "Economic Warfare", npc = "Gorhak", map = 1443, x = 66.21, y = 79.36, era = true, qlvl = 60, optional = true, note = "Economic Warfare" },
 		{ t = "turnin", quest = 92811, title = "Economic Warfare", npc = "Gorhak", map = 1443, x = 66.21, y = 79.36, era = true, optional = true, note = "Gorhak: 750" },
 		{ t = "rep", factionName = "Magram Clan Centaur", faction = 93, standing = 6 },
@@ -12446,7 +12446,7 @@ Waypost.RegisterSteps("reputation/centaur-clans", function() return {
 		{ t = "turnin", quest = 93196, title = "Khan Jehn", npc = "Orgrul", map = 2652, x = 35.8, y = 13, note = "Orgrul: 6,000" },
 	} },
 	{ title = "Magram: totems to Exalted", note = "From Revered on only Economic Warfare is left: Revered to Exalted is 21,000, 28 turn-ins, 140 totems.", goals = {
-		{ t = "collect", map = 1443, x = 29.5, y = 58, era = true, count = 5, item = 254432, itemName = "Carved Centaur Totem", mobLevel = 38, optional = true, spots = "29.5,58;29.8,61.3;30,54.1;31.9,60.2;32.5,54.6" },
+		{ t = "collect", map = 1443, x = 29.5, y = 58, era = true, count = 5, item = 254432, itemName = "Carved Centaur Totem", mobLevel = 38, optional = true, src = "Maraudine Windchaser, Maraudine Mauler, Maraudine Marauder and others", srcKind = "npc", spots = "29.5,58;29.8,61.3;30,54.1;31.9,60.2;32.5,54.6" },
 		{ t = "accept", quest = 92811, title = "Economic Warfare", npc = "Gorhak", map = 1443, x = 66.21, y = 79.36, era = true, qlvl = 60, optional = true },
 		{ t = "turnin", quest = 92811, title = "Economic Warfare", npc = "Gorhak", map = 1443, x = 66.21, y = 79.36, era = true, optional = true },
 		{ t = "rep", factionName = "Magram Clan Centaur", faction = 93, standing = 7 },
@@ -12590,7 +12590,7 @@ Waypost.RegisterSteps("reputation/hydraxian-waterlords", function() return {
 	} },
 	{ title = "Poisoned Water", note = "Use the Aspect of Neptulon on a Blighted Horror or a Plague Monstrosity: it turns into a Discordant Surge. Kill the surge and loot its Discordant Bracers. Twelve are needed, and the vial must still be in your bags at the turn-in.", goals = {
 		{ t = "use", map = 1423, x = 44, y = 41, era = true, item = 17310, itemName = "Aspect of Neptulon", optional = true, note = "Aspect of Neptulon, on the poisoned elementals" },
-		{ t = "collect", quest = 6804, title = "Poisoned Water", map = 1423, x = 44.01, y = 40.96, count = 12, item = 17309, itemName = "Discordant Bracers", oi = 1, mobLevel = 56, spots = "44.2,41.9;44.4,39.5;62.4,28.4;62.8,26.9;53.6,66.4" },
+		{ t = "collect", quest = 6804, title = "Poisoned Water", map = 1423, x = 44.01, y = 40.96, count = 12, item = 17309, itemName = "Discordant Bracers", oi = 1, mobLevel = 56, src = "Blighted Horror, Blighted Surge, Plague Ravager and others", srcKind = "npc", spots = "44.2,41.9;44.4,39.5;62.4,28.4;62.8,26.9;53.6,66.4" },
 	} },
 	{ title = "Back to Duke Hydraxis", goals = {
 		{ t = "turnin", quest = 6804, title = "Poisoned Water", npc = "Duke Hydraxis", map = 1447, x = 79.28, y = 73.7, era = true },
@@ -12878,10 +12878,10 @@ Waypost.RegisterSteps("reputation/nightclaw-druids", function() return {
 		{ t = "accept", quest = 93165, title = "Mercy Falls on Deaf Ears", npc = "Vayn Moongaze", map = 2521, x = 63.81, y = 36.01, qlvl = 13 },
 	} },
 	{ title = "Shadowgale Forest", note = "The Al'Aketh Footsoldiers and Stormchasers camp just north of Elegael and drop the Bloody Heirlooms (and ears, about one kill in four). The Shadowgale Shrieklings flying west of her drop the feathers; the Lady's Tear Moss grows on the trees along the stream west of her.", goals = {
-		{ t = "collect", quest = 94487, title = "Unwanted and Unworthy", map = 2521, x = 63.76, y = 36.06, count = 10, item = 265141, itemName = "Bloody Heirloom", oi = 1, mobLevel = 11, spots = "63.8,35.9;62.6,36.5;64.4,38.2;62.7,38.3;65.6,36.5" },
-		{ t = "collect", quest = 94486, title = "Feathers for Binding", map = 2521, x = 63.91, y = 37.5, count = 20, item = 265140, itemName = "Pristine Shriekling Feather", oi = 1, mobLevel = 11, spots = "63.5,37.1;64.4,41;63.6,43.6;59.4,42.9;59.4,40.1" },
-		{ t = "collect", quest = 94485, title = "Tears of the Lady", map = 2521, x = 64.3, y = 39.3, count = 8, item = 265105, itemName = "Lady's Tear Moss", oi = 1, spots = "63.5,39.4;61.6,35.9;60.2,38.8" },
-		{ t = "collect", quest = 93165, title = "Mercy Falls on Deaf Ears", map = 2521, x = 65.32, y = 44.13, count = 10, item = 258771, itemName = "Al'Aketh Cultist's Ear", oi = 1, mobLevel = 11, optional = true, note = "ears for Vayn: keep every one", spots = "65,44.8;64.6,51;61.8,49.9;59.3,53;62.2,61.7" },
+		{ t = "collect", quest = 94487, title = "Unwanted and Unworthy", map = 2521, x = 63.76, y = 36.06, count = 10, item = 265141, itemName = "Bloody Heirloom", oi = 1, mobLevel = 11, src = "Al'Aketh Stormchaser, Al'Aketh Footsoldier", srcKind = "npc", spots = "63.8,35.9;62.6,36.5;64.4,38.2;62.7,38.3;65.6,36.5" },
+		{ t = "collect", quest = 94486, title = "Feathers for Binding", map = 2521, x = 63.91, y = 37.5, count = 20, item = 265140, itemName = "Pristine Shriekling Feather", oi = 1, mobLevel = 11, src = "Shadowgale Shriekling", srcKind = "npc", spots = "63.5,37.1;64.4,41;63.6,43.6;59.4,42.9;59.4,40.1" },
+		{ t = "collect", quest = 94485, title = "Tears of the Lady", map = 2521, x = 64.3, y = 39.3, count = 8, item = 265105, itemName = "Lady's Tear Moss", oi = 1, src = "Lady's Tear Moss", srcKind = "object", spots = "63.5,39.4;61.6,35.9;60.2,38.8" },
+		{ t = "collect", quest = 93165, title = "Mercy Falls on Deaf Ears", map = 2521, x = 65.32, y = 44.13, count = 10, item = 258771, itemName = "Al'Aketh Cultist's Ear", oi = 1, mobLevel = 11, optional = true, note = "ears for Vayn: keep every one", src = "Al'Aketh Guardian, Al'Aketh Skypriest, Al'Aketh Brawler and others", srcKind = "npc", spots = "65,44.8;64.6,51;61.8,49.9;59.3,53;62.2,61.7" },
 	} },
 	{ title = "Elegael's next tasks", goals = {
 		{ t = "turnin", quest = 94485, title = "Tears of the Lady", npc = "Elegael Thornpaw", map = 2521, x = 61.7, y = 39.22, note = "500 reputation" },
@@ -12893,7 +12893,7 @@ Waypost.RegisterSteps("reputation/nightclaw-druids", function() return {
 	{ title = "The Nightfang Den and Commander Haalien", note = "The Nightfang Den is the cave north across the clearing from Elegael. Heal the seven injured druids inside (Naaleos Leafwhisper among them) and find Jorel Windsinger. Commander Haalien stands east of the den: he drops his head and a Ripped Missive; right-click the missive to start its quest.", goals = {
 		{ t = "kill", quest = 94489, title = "The Wounds of Betrayal", map = 2521, x = 64.96, y = 34.95, count = 1, target = "Naaleos Leafwhisper", oi = 1 },
 		{ t = "talk", quest = 94489, title = "The Wounds of Betrayal", npc = "Jorel Windsinger", map = 2521, x = 64.48, y = 34.74, oi = 2 },
-		{ t = "collect", quest = 94488, title = "The Ties That Bind", map = 2521, x = 65.53, y = 36.32, count = 1, item = 265475, itemName = "Commander Haalien's Severed Head", oi = 1 },
+		{ t = "collect", quest = 94488, title = "The Ties That Bind", map = 2521, x = 65.53, y = 36.32, count = 1, item = 265475, itemName = "Commander Haalien's Severed Head", oi = 1, src = "Commander Haalien", srcKind = "npc" },
 		{ t = "accept", quest = 94490, title = "Ripped Missive", item = 265476, itemName = "Ripped Missive", qlvl = 12, note = "from Commander Haalien" },
 	} },
 	{ title = "Elegael, the den's fate", goals = {
@@ -12903,7 +12903,7 @@ Waypost.RegisterSteps("reputation/nightclaw-druids", function() return {
 		{ t = "accept", quest = 94491, title = "The Fate of the Den", npc = "Elegael Thornpaw", map = 2521, x = 61.7, y = 39.22, qlvl = 12 },
 	} },
 	{ title = "Ears at the Shrine of Akir", note = "The best ears are south of the forest at the Shrine of Akir: Skypriests drop one in more than half their kills, Guardians in four of ten, Spiritcallers and Honor Guards in a third. The Gustberry Lowlands just north-west of Valanaar are next best (Brawlers and Pillagers, about four in ten). All cultists are level 8 to 10.", goals = {
-		{ t = "collect", quest = 93165, title = "Mercy Falls on Deaf Ears", map = 2521, x = 61.9, y = 45.11, count = 10, item = 258771, itemName = "Al'Aketh Cultist's Ear", oi = 1, mobLevel = 11, spots = "63.3,46.2;66.3,47.7;66.3,52;62.4,52.4;59.3,53" },
+		{ t = "collect", quest = 93165, title = "Mercy Falls on Deaf Ears", map = 2521, x = 61.9, y = 45.11, count = 10, item = 258771, itemName = "Al'Aketh Cultist's Ear", oi = 1, mobLevel = 11, src = "Al'Aketh Guardian, Al'Aketh Skypriest, Al'Aketh Brawler and others", srcKind = "npc", spots = "63.3,46.2;66.3,47.7;66.3,52;62.4,52.4;59.3,53" },
 	} },
 	{ title = "Mercy Falls on Deaf Ears", note = "Back to Vayn inside the den. Ten ears for 1000 reputation and a green piece: leather gloves, cloth pants or mail boots. Vayn then takes ears five at a time, for 1000 each, as often as you like, up to level 18; in Classic the pay drops from level 19 and is 200 from level 22. The Legacy perk Diplomat adds up to 10% to every gain.", goals = {
 		{ t = "turnin", quest = 93165, title = "Mercy Falls on Deaf Ears", npc = "Vayn Moongaze", map = 2521, x = 63.81, y = 36.01, note = "1000 reputation" },
@@ -12913,19 +12913,19 @@ Waypost.RegisterSteps("reputation/nightclaw-druids", function() return {
 	} },
 	{ title = "Friendly to Honored", note = "The storyline and Vayn's first quest leave you at Friendly with 2100 to spare. Honored is 3900 more: four turn-ins of five ears up to level 18, twenty from level 22. Friendly opens 32 of Vayn's patterns, in two colours, Cloudy and Azure: Blacksmithing Skyforged Wristguards and Chain (skill 50, 9s 50c), Gauntlets and Greaves (55, 11s); Leatherworking Gustwoven and Windraveled bracers and belts (50) and gloves and boots (55); Tailoring Stormsewn Cuffs and Cord (50), Handwraps and Shoes (55). They bind when you buy them, so buy them on the crafter.", goals = {
 		{ t = "rep", factionName = "Nightclaw Druids", faction = 2758, standing = 6 },
-		{ t = "collect", map = 2521, x = 65.42, y = 71.96, count = 5, item = 258771, itemName = "Al'Aketh Cultist's Ear", mobLevel = 11, optional = true, note = "five ears per turn-in", spots = "65.5,71.4;64.8,67.9;66.3,64.1;68.4,67.5;64.9,58.3" },
+		{ t = "collect", map = 2521, x = 65.42, y = 71.96, count = 5, item = 258771, itemName = "Al'Aketh Cultist's Ear", mobLevel = 11, optional = true, note = "five ears per turn-in", src = "Al'Aketh Brawler, Al'Aketh Skypriest, Al'Aketh Guardian and others", srcKind = "npc", spots = "65.5,71.4;64.8,67.9;66.3,64.1;68.4,67.5;64.9,58.3" },
 		{ t = "turnin", quest = 93459, title = "More Al'Aketh Ears", npc = "Vayn Moongaze", map = 2521, x = 63.81, y = 36.01, qlvl = 13, optional = true, note = "More Al'Aketh Ears: 1000 reputation, handed in from Vayn's window" },
 		{ t = "vendor", npc = "Vayn Moongaze", map = 2521, x = 63.81, y = 36.01, optional = true, note = "Vayn's patterns" },
 	} },
 	{ title = "Honored to Revered", note = "Honored opens the chest and leg patterns (skill 60, 12s 50c): Skyforged chainmail and legguards, Gustwoven harness and trousers, Windraveled jerkin and pants, Stormsewn vest and leggings. Revered is 12000 more: 12 turn-ins (60 ears, about 160 cultist kills at the Shrine) up to level 18, 60 turn-ins (300 ears) from level 22.", goals = {
 		{ t = "rep", factionName = "Nightclaw Druids", faction = 2758, standing = 7 },
-		{ t = "collect", map = 2521, x = 65.32, y = 44.13, count = 5, item = 258771, itemName = "Al'Aketh Cultist's Ear", mobLevel = 11, optional = true, note = "five ears per turn-in", spots = "65,44.8;64.6,51;61.8,49.9;59.3,53;62.2,61.7" },
+		{ t = "collect", map = 2521, x = 65.32, y = 44.13, count = 5, item = 258771, itemName = "Al'Aketh Cultist's Ear", mobLevel = 11, optional = true, note = "five ears per turn-in", src = "Al'Aketh Guardian, Al'Aketh Skypriest, Al'Aketh Brawler and others", srcKind = "npc", spots = "65,44.8;64.6,51;61.8,49.9;59.3,53;62.2,61.7" },
 		{ t = "turnin", quest = 93459, title = "More Al'Aketh Ears", npc = "Vayn Moongaze", map = 2521, x = 63.81, y = 36.01, qlvl = 13, optional = true, note = "More Al'Aketh Ears: 1000 reputation, handed in from Vayn's window" },
 		{ t = "vendor", npc = "Vayn Moongaze", map = 2521, x = 63.81, y = 36.01, optional = true, note = "Vayn's patterns" },
 	} },
 	{ title = "Revered to Exalted", note = "Revered opens the Shadowgale Squirrel, a companion pet, for 50s. Exalted is 21000 more: 21 turn-ins (105 ears, about 280 kills) up to level 18, 105 turn-ins (525 ears) from level 22.", goals = {
 		{ t = "rep", factionName = "Nightclaw Druids", faction = 2758, standing = 8 },
-		{ t = "collect", map = 2521, x = 65.32, y = 44.13, count = 5, item = 258771, itemName = "Al'Aketh Cultist's Ear", mobLevel = 11, optional = true, note = "five ears per turn-in", spots = "65,44.8;64.6,51;61.8,49.9;59.3,53;62.2,61.7" },
+		{ t = "collect", map = 2521, x = 65.32, y = 44.13, count = 5, item = 258771, itemName = "Al'Aketh Cultist's Ear", mobLevel = 11, optional = true, note = "five ears per turn-in", src = "Al'Aketh Guardian, Al'Aketh Skypriest, Al'Aketh Brawler and others", srcKind = "npc", spots = "65,44.8;64.6,51;61.8,49.9;59.3,53;62.2,61.7" },
 		{ t = "turnin", quest = 93459, title = "More Al'Aketh Ears", npc = "Vayn Moongaze", map = 2521, x = 63.81, y = 36.01, qlvl = 13, optional = true, note = "More Al'Aketh Ears: 1000 reputation, handed in from Vayn's window" },
 		{ t = "buy", npc = "Vayn Moongaze", map = 2521, x = 63.81, y = 36.01, item = 280347, itemName = "Shadowgale Squirrel", optional = true, note = "Shadowgale Squirrel, 50s" },
 	} },
@@ -12977,7 +12977,7 @@ Waypost.RegisterSteps("reputation/ravenholdt", function() return {
 		{ t = "turnin", quest = 96782, title = "Covert Extraction", npc = "Myrokos Silentform", map = 1416, x = 84.93, y = 80.38, era = true, note = "Myrokos Silentform: 100" },
 	} },
 	{ title = "Syndicate Emblems to Friendly", note = "Neutral to Friendly is 3,000 reputation; the quests above pay 700 of it. Any Ravenholdt Guard on the path takes Syndicate Emblems, 100 reputation each, until you reach Friendly: 23 emblems after the quests. Pick the pockets of Syndicate humans; they never drop emblems when killed. The Arathi camps pay best: Syndicate Prowlers and Conjurors carry one about a quarter of the time. Kill what you have robbed so the next ones respawn fresh.", only = { classes = {"ROGUE"} }, goals = {
-		{ t = "collect", map = 1417, x = 30, y = 27, era = true, count = 5, item = 17124, itemName = "Syndicate Emblem", mobLevel = 33, optional = true, note = "Syndicate Emblem: pickpocket Syndicate", spots = "30,27;33,31.2;34.2,27.7" },
+		{ t = "collect", map = 1417, x = 30, y = 27, era = true, count = 5, item = 17124, itemName = "Syndicate Emblem", mobLevel = 33, optional = true, note = "Syndicate Emblem: pickpocket Syndicate", src = "Syndicate Highwayman, Syndicate Mercenary, Syndicate Pathstalker", srcKind = "npc", spots = "30,27;33,31.2;34.2,27.7" },
 		{ t = "turnin", quest = 6701, title = "Syndicate Emblems", npc = "Ravenholdt Guard", map = 1416, x = 83.69, y = 77.93, era = true, qlvl = 60, optional = true, note = "a Ravenholdt Guard: 100 per emblem, handed in from his window" },
 		{ t = "rep", factionName = "Ravenholdt", faction = 349, standing = 5 },
 	} },
@@ -12993,10 +12993,10 @@ Waypost.RegisterSteps("reputation/ravenholdt", function() return {
 		{ t = "accept", quest = 8233, title = "A Simple Request", npc = "Ormok", map = 1454, x = 43.9, y = 54.63, era = true, qlvl = 52, only = { factions = {"Horde"} }, note = "Ormok, Orgrimmar" },
 		{ t = "turnin", quest = 8233, title = "A Simple Request", npc = "Lord Jorach Ravenholdt", map = 1416, x = 86.02, y = 78.88, era = true },
 		{ t = "accept", quest = 8234, title = "Sealed Azure Bag", npc = "Lord Jorach Ravenholdt", map = 1416, x = 86.02, y = 78.88, era = true, qlvl = 52 },
-		{ t = "collect", quest = 8234, title = "Sealed Azure Bag", map = 1447, x = 44.38, y = 24.58, era = true, count = 1, item = 19775, itemName = "Sealed Azure Bag", oi = 1, mobLevel = 51, note = "Sealed Azure Bag: Timbermaw Shamans", spots = "45.5,25.4;44.2,26.6;45.8,22.3;44.6,21.4;42.8,18.5" },
+		{ t = "collect", quest = 8234, title = "Sealed Azure Bag", map = 1447, x = 44.38, y = 24.58, era = true, count = 1, item = 19775, itemName = "Sealed Azure Bag", oi = 1, mobLevel = 51, note = "Sealed Azure Bag: Timbermaw Shamans", src = "Timbermaw Shaman", srcKind = "npc", spots = "45.5,25.4;44.2,26.6;45.8,22.3;44.6,21.4;42.8,18.5" },
 		{ t = "turnin", quest = 8234, title = "Sealed Azure Bag", npc = "Archmage Xylem", map = 1447, x = 29.25, y = 40.21, era = true },
 		{ t = "accept", quest = 8235, title = "Encoded Fragments", npc = "Archmage Xylem", map = 1447, x = 29.25, y = 40.21, era = true, qlvl = 52 },
-		{ t = "collect", quest = 8235, title = "Encoded Fragments", map = 1447, x = 36.16, y = 67.86, era = true, count = 10, item = 20023, itemName = "Encoded Fragment", oi = 1, mobLevel = 53, note = "Encoded Fragment: Forest Oozes", spots = "37.5,69.6;43.1,70.5;69.5,27.9;75.7,27.5;80.4,24.5" },
+		{ t = "collect", quest = 8235, title = "Encoded Fragments", map = 1447, x = 36.16, y = 67.86, era = true, count = 10, item = 20023, itemName = "Encoded Fragment", oi = 1, mobLevel = 53, note = "Encoded Fragment: Forest Oozes", src = "Forest Ooze", srcKind = "npc", spots = "37.5,69.6;43.1,70.5;69.5,27.9;75.7,27.5;80.4,24.5" },
 		{ t = "turnin", quest = 8235, title = "Encoded Fragments", npc = "Archmage Xylem", map = 1447, x = 29.25, y = 40.21, era = true },
 		{ t = "accept", quest = 8236, title = "The Azure Key", npc = "Archmage Xylem", map = 1447, x = 29.25, y = 40.21, era = true, qlvl = 52 },
 		{ t = "collect", quest = 8236, title = "The Azure Key", map = 1435, x = 70.2, y = 45.2, era = true, count = 1, item = 20022, itemName = "Azure Key", oi = 1, optional = true, group = true, note = "Azure Key: Morphaz, Temple of Atal'Hakkar (group)" },
@@ -13017,10 +13017,10 @@ Waypost.RegisterSteps("reputation/steamwheedle-cartel", function() return {
 	} },
 	{ title = "Zapped giants", note = "Use Zorbin's Ultra-Shrinker on a living giant (Land Walker, Cliff Giant, or a Shore, Deep or Wave Strider, level 47-50) and it shrinks into a zapped version; kill that for its Miniaturization Residue, one every time. The Land Walkers and Cliff Giants in the north-west hills are the thickest; the striders walk the coast and the shallows. The shrinker lasts two hours: if it runs out, abandon the quest and take it again.", goals = {
 		{ t = "use", map = 1444, x = 37.8, y = 22, era = true, item = 18904, itemName = "Zorbin's Ultra-Shrinker", optional = true, note = "Zorbin's Ultra-Shrinker, on a living giant" },
-		{ t = "collect", quest = 7003, title = "Zapped Giants", map = 1444, x = 37.8, y = 22, era = true, count = 15, item = 18956, itemName = "Miniaturization Residue", oi = 1, note = "Miniaturization Residue, from the zapped giants", spots = "37.8,22;36.4,34;44.3,46.6;45.1,58" },
+		{ t = "collect", quest = 7003, title = "Zapped Giants", map = 1444, x = 37.8, y = 22, era = true, count = 15, item = 18956, itemName = "Miniaturization Residue", oi = 1, note = "Miniaturization Residue, from the zapped giants", src = "Zapped Land Walker, Zapped Shore Strider, Zapped Wave Strider and others", srcKind = "npc", spots = "37.8,22;36.4,34;44.3,46.6;45.1,58" },
 	} },
 	{ title = "Sea Elementals and Sea Sprays", note = "The Sea Elementals and Sea Sprays (level 47-49) drift along the Forgotten Coast and in the shallows below the giants: about half drop a Water Elemental Core.", goals = {
-		{ t = "collect", quest = 7721, title = "Fuel for the Zapping", map = 1444, x = 34.4, y = 35.6, era = true, count = 10, item = 18958, itemName = "Water Elemental Core", oi = 1, note = "Water Elemental Core: Sea Elementals and Sea Sprays", spots = "34.4,35.6;44.5,52.5" },
+		{ t = "collect", quest = 7721, title = "Fuel for the Zapping", map = 1444, x = 34.4, y = 35.6, era = true, count = 10, item = 18958, itemName = "Water Elemental Core", oi = 1, note = "Water Elemental Core: Sea Elementals and Sea Sprays", src = "Sea Spray, Sea Elemental", srcKind = "npc", spots = "34.4,35.6;44.5,52.5" },
 	} },
 	{ title = "Back to Zorbin", note = "From now on Zorbin offers Again With the Zapped Giants (10 residue) and Refuel for the Zapping (6 cores), again and again: 25 reputation with every town each time.", goals = {
 		{ t = "turnin", quest = 7003, title = "Zapped Giants", npc = "Zorbin Fandazzle", map = 1444, x = 44.81, y = 43.42, era = true },
@@ -13033,7 +13033,7 @@ Waypost.RegisterSteps("reputation/steamwheedle-cartel", function() return {
 		{ t = "kill", quest = 8366, title = "Southsea Shakedown", map = 1446, x = 70.95, y = 43.14, era = true, count = 10, target = "Southsea Freebooter", oi = 2, mobLevel = 45, spots = "71.1,43.3;72,44.6;71.3,46.6;73,45.2;72.4,48" },
 		{ t = "kill", quest = 8366, title = "Southsea Shakedown", map = 1446, x = 73.32, y = 47.27, era = true, count = 10, target = "Southsea Dock Worker", oi = 3, mobLevel = 45 },
 		{ t = "kill", quest = 8366, title = "Southsea Shakedown", map = 1446, x = 73.29, y = 47.87, era = true, count = 10, target = "Southsea Swashbuckler", oi = 4, mobLevel = 45, spots = "72.7,47.3;75.4,45.6" },
-		{ t = "collect", quest = 8365, title = "Pirate Hats Ahoy!", map = 1446, x = 73.29, y = 47.87, era = true, count = 20, item = 20519, itemName = "Southsea Pirate Hat", oi = 1, mobLevel = 45, spots = "73,48;73.4,46.3;74.5,47.4;71.6,46.6;72.2,44.6" },
+		{ t = "collect", quest = 8365, title = "Pirate Hats Ahoy!", map = 1446, x = 73.29, y = 47.87, era = true, count = 20, item = 20519, itemName = "Southsea Pirate Hat", oi = 1, mobLevel = 45, src = "Southsea Swashbuckler, Southsea Pirate, Southsea Freebooter and others", srcKind = "npc", spots = "73,48;73.4,46.3;74.5,47.4;71.6,46.6;72.2,44.6" },
 		{ t = "turnin", quest = 8366, title = "Southsea Shakedown", npc = "Security Chief Bilgewhizzle", map = 1446, x = 67.06, y = 23.89, era = true },
 		{ t = "turnin", quest = 8365, title = "Pirate Hats Ahoy!", npc = "Haughty Modiste", map = 1446, x = 66.56, y = 22.27, era = true },
 	} },
@@ -13043,14 +13043,14 @@ Waypost.RegisterSteps("reputation/steamwheedle-cartel", function() return {
 		{ t = "goto", map = 1428, x = 73.2, y = 27.1, era = true, text = "Scalding Broodlings east of Flame Crest" },
 		{ t = "goto", map = 1428, x = 87.8, y = 33.5, era = true, text = "Black Broodlings in the north-east" },
 		{ t = "use", map = 1428, x = 87.8, y = 33.5, era = true, item = 12284, itemName = "Draco-Incarcinatrix 900", optional = true, note = "Draco-Incarcinatrix 900, on a Black or Scalding Broodling" },
-		{ t = "collect", quest = 4726, title = "Broodling Essence", map = 1428, x = 87.8, y = 33.5, era = true, count = 8, item = 12283, itemName = "Broodling Essence", oi = 1, note = "Broodling Essence, left by the broodlings", spots = "87.8,33.5;91.7,35.8;90.2,45.5;80.3,27.4;90.5,50.9" },
+		{ t = "collect", quest = 4726, title = "Broodling Essence", map = 1428, x = 87.8, y = 33.5, era = true, count = 8, item = 12283, itemName = "Broodling Essence", oi = 1, note = "Broodling Essence, left by the broodlings", src = "Broodling Essence", srcKind = "object", spots = "87.8,33.5;91.7,35.8;90.2,45.5;80.3,27.4;90.5,50.9" },
 		{ t = "turnin", quest = 4726, title = "Broodling Essence", npc = "Tinkee Steamboil", map = 1428, x = 65.24, y = 24, era = true, note = "100 to every town" },
 		{ t = "accept", quest = 4808, title = "Felnok Steelspring", npc = "Tinkee Steamboil", map = 1428, x = 65.24, y = 24, era = true, qlvl = 54 },
 	} },
 	{ title = "Everlook: Felnok Steelspring", note = "Felnok Steelspring is in Everlook. The Chillwind Chimaeras (level 55-57) south-west of Everlook drop the horns one time in five.", goals = {
 		{ t = "turnin", quest = 4808, title = "Felnok Steelspring", npc = "Felnok Steelspring", map = 1452, x = 61.63, y = 38.61, era = true, note = "50 Everlook" },
 		{ t = "accept", quest = 4809, title = "Chillwind Horns", npc = "Felnok Steelspring", map = 1452, x = 61.63, y = 38.61, era = true, qlvl = 54 },
-		{ t = "collect", quest = 4809, title = "Chillwind Horns", map = 1452, x = 55.4, y = 47.5, era = true, count = 8, item = 12444, itemName = "Uncracked Chillwind Horn", oi = 1, mobLevel = 57, note = "Uncracked Chillwind Horn: Chillwind Chimaeras", spots = "55.4,47.5;59.1,44;57.4,40.8;55.6,37.1;61.2,41.7" },
+		{ t = "collect", quest = 4809, title = "Chillwind Horns", map = 1452, x = 55.4, y = 47.5, era = true, count = 8, item = 12444, itemName = "Uncracked Chillwind Horn", oi = 1, mobLevel = 57, note = "Uncracked Chillwind Horn: Chillwind Chimaeras", src = "Chillwind Chimaera", srcKind = "npc", spots = "55.4,47.5;59.1,44;57.4,40.8;55.6,37.1;61.2,41.7" },
 		{ t = "turnin", quest = 4809, title = "Chillwind Horns", npc = "Felnok Steelspring", map = 1452, x = 61.63, y = 38.61, era = true, note = "100 Everlook" },
 		{ t = "accept", quest = 4810, title = "Return to Tinkee", npc = "Felnok Steelspring", map = 1452, x = 61.63, y = 38.61, era = true, qlvl = 54 },
 	} },
@@ -13066,10 +13066,10 @@ Waypost.RegisterSteps("reputation/steamwheedle-cartel", function() return {
 	} },
 	{ title = "Every town to Friendly", note = "Neutral 500 to Friendly is 2,500 with each town. The quests above pay every town up to 700 (Zorbin's two 300, Tinkee's 150, the first Free Knot 150 and the first Ogre Suit 100); Zorbin's repeatables do the rest, 25 to every town each: 10 residue (ten giants) or 6 cores (about twelve elementals). The towns' own quests count too, each giving the other towns half: Ratchet's in the Barrens (levels 10-25, about 4,300: the Samophlange chain 625, Mebok Mizzyrix's errands, the Wizzlecrank and Gilthares escorts 150 each), Booty Bay's in Stranglethorn, Arathi and the Badlands (30-50, about 6,500: the three OOX robot rescues 250 each, An OOX of Your Own 200, Stranglethorn Fever 200, Facing Negolash 200, the Sunken Treasure chain at Faldir's Cove), Gadgetzan's in Tanaris (43-55, about 3,000: the Divino-matic Rod 200, Wastewander Justice 100 each, the WANTED posters) and Everlook's in Winterspring (52-60, about 1,450: Donova Snowden's Winterfall chain, Umi's yeti quests). Forever adds a few low ones: A Simmering Storm and Stormy Potential in Durotar and WANTED: Bruuz (Ratchet 100 each), Important Heirlooms in Ironforge (Gadgetzan 100). Forever pays them in full at any level. Kills help while they are not grey, 5 each: Southsea pirates in the Barrens for Ratchet and in Tanaris for Gadgetzan and Stranglethorn's Venture Co. camps for Booty Bay, up to the end of Honored; Wastewander bandits for Gadgetzan and Bloodsail pirates for Booty Bay only up to the end of Neutral. Friendly opens each quartermaster's first gear.", goals = {
 		{ t = "accept", quest = 7725, title = "Again With the Zapped Giants", npc = "Zorbin Fandazzle", map = 1444, x = 44.81, y = 43.42, era = true, qlvl = 55, optional = true, note = "Again With the Zapped Giants: 10 residue" },
-		{ t = "collect", map = 1444, x = 44.34, y = 46.61, era = true, count = 10, item = 18956, itemName = "Miniaturization Residue", mobLevel = 49, optional = true, spots = "44.3,46.6;42.5,46.9;44.1,49.6;45.2,52.9;43.1,53" },
+		{ t = "collect", map = 1444, x = 44.34, y = 46.61, era = true, count = 10, item = 18956, itemName = "Miniaturization Residue", mobLevel = 49, optional = true, src = "Zapped Wave Strider, Zapped Shore Strider, Zapped Land Walker and others", srcKind = "npc", spots = "44.3,46.6;42.5,46.9;44.1,49.6;45.2,52.9;43.1,53" },
 		{ t = "turnin", quest = 7725, title = "Again With the Zapped Giants", npc = "Zorbin Fandazzle", map = 1444, x = 44.81, y = 43.42, era = true, optional = true, note = "25 to every town" },
 		{ t = "accept", quest = 7726, title = "Refuel for the Zapping", npc = "Zorbin Fandazzle", map = 1444, x = 44.81, y = 43.42, era = true, qlvl = 55, optional = true, note = "Refuel for the Zapping: 6 cores" },
-		{ t = "collect", map = 1444, x = 44.97, y = 46.29, era = true, count = 6, item = 18958, itemName = "Water Elemental Core", mobLevel = 49, optional = true, spots = "45,46.3;45.4,52;46.5,56.2;46.7,61.2;45.7,65.3" },
+		{ t = "collect", map = 1444, x = 44.97, y = 46.29, era = true, count = 6, item = 18958, itemName = "Water Elemental Core", mobLevel = 49, optional = true, src = "Sea Spray, Sea Elemental", srcKind = "npc", spots = "45,46.3;45.4,52;46.5,56.2;46.7,61.2;45.7,65.3" },
 		{ t = "turnin", quest = 7726, title = "Refuel for the Zapping", npc = "Zorbin Fandazzle", map = 1444, x = 44.81, y = 43.42, era = true, optional = true, note = "25 to every town" },
 		{ t = "rep", factionName = "Ratchet", faction = 470, standing = 5, note = "Ratchet" },
 		{ t = "rep", factionName = "Booty Bay", faction = 21, standing = 5, note = "Booty Bay" },
@@ -13079,10 +13079,10 @@ Waypost.RegisterSteps("reputation/steamwheedle-cartel", function() return {
 	} },
 	{ title = "Every town to Honored", note = "Friendly to Honored is 6,000: 240 of Zorbin's turn-ins, or 40 Free Knot runs, or a mix. Nothing can be saved up: residue and cores drop only while their quest is in your log, and you can carry one Gordok Shackle Key at a time, so hand each in before the next run. Honored opens each quartermaster's blue items.", goals = {
 		{ t = "accept", quest = 7725, title = "Again With the Zapped Giants", npc = "Zorbin Fandazzle", map = 1444, x = 44.81, y = 43.42, era = true, qlvl = 55, optional = true },
-		{ t = "collect", map = 1444, x = 44.34, y = 46.61, era = true, count = 10, item = 18956, itemName = "Miniaturization Residue", mobLevel = 49, optional = true, spots = "44.3,46.6;42.5,46.9;44.1,49.6;45.2,52.9;43.1,53" },
+		{ t = "collect", map = 1444, x = 44.34, y = 46.61, era = true, count = 10, item = 18956, itemName = "Miniaturization Residue", mobLevel = 49, optional = true, src = "Zapped Wave Strider, Zapped Shore Strider, Zapped Land Walker and others", srcKind = "npc", spots = "44.3,46.6;42.5,46.9;44.1,49.6;45.2,52.9;43.1,53" },
 		{ t = "turnin", quest = 7725, title = "Again With the Zapped Giants", npc = "Zorbin Fandazzle", map = 1444, x = 44.81, y = 43.42, era = true, optional = true },
 		{ t = "accept", quest = 7726, title = "Refuel for the Zapping", npc = "Zorbin Fandazzle", map = 1444, x = 44.81, y = 43.42, era = true, qlvl = 55, optional = true },
-		{ t = "collect", map = 1444, x = 44.97, y = 46.29, era = true, count = 6, item = 18958, itemName = "Water Elemental Core", mobLevel = 49, optional = true, spots = "45,46.3;45.4,52;46.5,56.2;46.7,61.2;45.7,65.3" },
+		{ t = "collect", map = 1444, x = 44.97, y = 46.29, era = true, count = 6, item = 18958, itemName = "Water Elemental Core", mobLevel = 49, optional = true, src = "Sea Spray, Sea Elemental", srcKind = "npc", spots = "45,46.3;45.4,52;46.5,56.2;46.7,61.2;45.7,65.3" },
 		{ t = "turnin", quest = 7726, title = "Refuel for the Zapping", npc = "Zorbin Fandazzle", map = 1444, x = 44.81, y = 43.42, era = true, optional = true },
 		{ t = "rep", factionName = "Ratchet", faction = 470, standing = 6 },
 		{ t = "rep", factionName = "Booty Bay", faction = 21, standing = 6 },
@@ -13092,10 +13092,10 @@ Waypost.RegisterSteps("reputation/steamwheedle-cartel", function() return {
 	} },
 	{ title = "Every town to Revered", note = "Honored to Revered is 12,000 more: 480 of Zorbin's turn-ins (4,800 residue) or 80 Free Knot runs. Revered opens the five cosmetic hats, the reason most players do this. Legacy Diplomat adds up to 10%.", goals = {
 		{ t = "accept", quest = 7725, title = "Again With the Zapped Giants", npc = "Zorbin Fandazzle", map = 1444, x = 44.81, y = 43.42, era = true, qlvl = 55, optional = true },
-		{ t = "collect", map = 1444, x = 44.34, y = 46.61, era = true, count = 10, item = 18956, itemName = "Miniaturization Residue", mobLevel = 49, optional = true, spots = "44.3,46.6;42.5,46.9;44.1,49.6;45.2,52.9;43.1,53" },
+		{ t = "collect", map = 1444, x = 44.34, y = 46.61, era = true, count = 10, item = 18956, itemName = "Miniaturization Residue", mobLevel = 49, optional = true, src = "Zapped Wave Strider, Zapped Shore Strider, Zapped Land Walker and others", srcKind = "npc", spots = "44.3,46.6;42.5,46.9;44.1,49.6;45.2,52.9;43.1,53" },
 		{ t = "turnin", quest = 7725, title = "Again With the Zapped Giants", npc = "Zorbin Fandazzle", map = 1444, x = 44.81, y = 43.42, era = true, optional = true },
 		{ t = "accept", quest = 7726, title = "Refuel for the Zapping", npc = "Zorbin Fandazzle", map = 1444, x = 44.81, y = 43.42, era = true, qlvl = 55, optional = true },
-		{ t = "collect", map = 1444, x = 44.97, y = 46.29, era = true, count = 6, item = 18958, itemName = "Water Elemental Core", mobLevel = 49, optional = true, spots = "45,46.3;45.4,52;46.5,56.2;46.7,61.2;45.7,65.3" },
+		{ t = "collect", map = 1444, x = 44.97, y = 46.29, era = true, count = 6, item = 18958, itemName = "Water Elemental Core", mobLevel = 49, optional = true, src = "Sea Spray, Sea Elemental", srcKind = "npc", spots = "45,46.3;45.4,52;46.5,56.2;46.7,61.2;45.7,65.3" },
 		{ t = "turnin", quest = 7726, title = "Refuel for the Zapping", npc = "Zorbin Fandazzle", map = 1444, x = 44.81, y = 43.42, era = true, optional = true },
 		{ t = "rep", factionName = "Ratchet", faction = 470, standing = 7 },
 		{ t = "rep", factionName = "Booty Bay", faction = 21, standing = 7 },
@@ -13147,10 +13147,10 @@ Waypost.RegisterSteps("reputation/steamwheedle-cartel", function() return {
 	} },
 	{ title = "Every town to Exalted", note = "Revered to Exalted is 21,000 more with each town: 840 of Zorbin's turn-ins or 140 Free Knot runs. No quartermaster sells anything for Exalted: this is for the title bar only.", goals = {
 		{ t = "accept", quest = 7725, title = "Again With the Zapped Giants", npc = "Zorbin Fandazzle", map = 1444, x = 44.81, y = 43.42, era = true, qlvl = 55, optional = true },
-		{ t = "collect", map = 1444, x = 44.34, y = 46.61, era = true, count = 10, item = 18956, itemName = "Miniaturization Residue", mobLevel = 49, optional = true, spots = "44.3,46.6;42.5,46.9;44.1,49.6;45.2,52.9;43.1,53" },
+		{ t = "collect", map = 1444, x = 44.34, y = 46.61, era = true, count = 10, item = 18956, itemName = "Miniaturization Residue", mobLevel = 49, optional = true, src = "Zapped Wave Strider, Zapped Shore Strider, Zapped Land Walker and others", srcKind = "npc", spots = "44.3,46.6;42.5,46.9;44.1,49.6;45.2,52.9;43.1,53" },
 		{ t = "turnin", quest = 7725, title = "Again With the Zapped Giants", npc = "Zorbin Fandazzle", map = 1444, x = 44.81, y = 43.42, era = true, optional = true },
 		{ t = "accept", quest = 7726, title = "Refuel for the Zapping", npc = "Zorbin Fandazzle", map = 1444, x = 44.81, y = 43.42, era = true, qlvl = 55, optional = true },
-		{ t = "collect", map = 1444, x = 44.97, y = 46.29, era = true, count = 6, item = 18958, itemName = "Water Elemental Core", mobLevel = 49, optional = true, spots = "45,46.3;45.4,52;46.5,56.2;46.7,61.2;45.7,65.3" },
+		{ t = "collect", map = 1444, x = 44.97, y = 46.29, era = true, count = 6, item = 18958, itemName = "Water Elemental Core", mobLevel = 49, optional = true, src = "Sea Spray, Sea Elemental", srcKind = "npc", spots = "45,46.3;45.4,52;46.5,56.2;46.7,61.2;45.7,65.3" },
 		{ t = "turnin", quest = 7726, title = "Refuel for the Zapping", npc = "Zorbin Fandazzle", map = 1444, x = 44.81, y = 43.42, era = true, optional = true },
 		{ t = "rep", factionName = "Ratchet", faction = 470, standing = 8, optional = true },
 		{ t = "rep", factionName = "Booty Bay", faction = 21, standing = 8, optional = true },
@@ -13174,16 +13174,16 @@ Waypost.RegisterSteps("reputation/thorium-brotherhood", function() return {
 		{ t = "kill", quest = 7723, title = "Curse These Fat Fingers", map = 1427, x = 35.24, y = 40.91, era = true, count = 20, target = "Heavy War Golem", oi = 1, mobLevel = 49, spots = "33.9,43.4;35.4,47.8;43.1,42;48.3,38.7;36.4,61.1" },
 		{ t = "kill", quest = 7729, title = "JOB OPPORTUNITY: Culling the Competition", map = 1427, x = 35.53, y = 42.91, era = true, count = 15, target = "Dark Iron Taskmaster", oi = 1, mobLevel = 48, spots = "34.8,45.4;39.8,44.5;40.1,52.3;44.9,39.7;43.4,33.4" },
 		{ t = "kill", quest = 7729, title = "JOB OPPORTUNITY: Culling the Competition", map = 1427, x = 36.22, y = 41.88, era = true, count = 15, target = "Dark Iron Slaver", oi = 2, mobLevel = 46, spots = "39.4,41.2;42.4,31.4;45.3,26.1;47.7,46.9;40.9,52.9" },
-		{ t = "collect", quest = 7728, title = "STOLEN: Smithing Tuyere and Lookout's Spyglass", map = 1427, x = 37.69, y = 49.65, era = true, count = 1, item = 18959, itemName = "Smithing Tuyere", oi = 1, mobLevel = 47, note = "Smithing Tuyere, Dark Iron Steamsmiths", spots = "39.1,49.7;43,51.7" },
-		{ t = "collect", quest = 7728, title = "STOLEN: Smithing Tuyere and Lookout's Spyglass", map = 1427, x = 33.71, y = 51.92, era = true, count = 1, item = 18960, itemName = "Lookout's Spyglass", oi = 2, mobLevel = 48, note = "Lookout's Spyglass, Dark Iron Lookouts", spots = "33,54;36.1,61.5;42.7,62.8;52.1,58" },
+		{ t = "collect", quest = 7728, title = "STOLEN: Smithing Tuyere and Lookout's Spyglass", map = 1427, x = 37.69, y = 49.65, era = true, count = 1, item = 18959, itemName = "Smithing Tuyere", oi = 1, mobLevel = 47, note = "Smithing Tuyere, Dark Iron Steamsmiths", src = "Dark Iron Steamsmith", srcKind = "npc", spots = "39.1,49.7;43,51.7" },
+		{ t = "collect", quest = 7728, title = "STOLEN: Smithing Tuyere and Lookout's Spyglass", map = 1427, x = 33.71, y = 51.92, era = true, count = 1, item = 18960, itemName = "Lookout's Spyglass", oi = 2, mobLevel = 48, note = "Lookout's Spyglass, Dark Iron Lookouts", src = "Dark Iron Lookout", srcKind = "npc", spots = "33,54;36.1,61.5;42.7,62.8;52.1,58" },
 	} },
 	{ title = "Greater Lava Spiders", note = "The spiders roam the lava pools and plateaus of the south-west.", goals = {
 		{ t = "kill", quest = 7724, title = "Fiery Menace!", map = 1427, x = 29.56, y = 56.52, era = true, count = 20, target = "Greater Lava Spider", oi = 1, mobLevel = 49, spots = "28.9,55.9;30.2,61.9;30.9,69.4;27,68;24,76.1" },
 	} },
 	{ title = "The Slag Pit", note = "The Slag Pit is the cave in the north of the Cauldron. The Secret Plans: Fiery Flux lie on a bench on its upper ledge, beside Overseer Maltorius: a level 50 elite with guards, easy at 60, worth a group below 55. Incendosaurs swim in the lava pools inside and around the north rim; every one drops two to four Incendosaur Scales. Keep every scale: Burninate's turn-ins take two each. If you find Chambermaid Pillaclencher's ornate pillow in the dwarves' sleeping quarters, take it to Evonice Sootsmoker at Thorium Point for 100 more.", goals = {
-		{ t = "collect", quest = 7722, title = "What the Flux?", map = 1427, x = 40.45, y = 35.74, era = true, count = 1, item = 18922, itemName = "Secret Plans: Fiery Flux", oi = 1 },
+		{ t = "collect", quest = 7722, title = "What the Flux?", map = 1427, x = 40.45, y = 35.74, era = true, count = 1, item = 18922, itemName = "Secret Plans: Fiery Flux", oi = 1, src = "Secret Plans: Fiery Flux", srcKind = "object" },
 		{ t = "kill", quest = 7727, title = "Incendosaurs? Whateverosaur is More Like It", map = 1427, x = 43.38, y = 28.26, era = true, count = 20, target = "Incendosaur", oi = 1, mobLevel = 49, spots = "45.4,23.2;49.5,25.3;50.8,31.9;50.8,38.2" },
-		{ t = "collect", quest = 7701, title = "WANTED: Overseer Maltorius", map = 1427, x = 40.77, y = 35.89, era = true, count = 1, item = 18946, itemName = "Head of Overseer Maltorius", oi = 1, optional = true, group = true, note = "Head of Overseer Maltorius, elite: group up below 55" },
+		{ t = "collect", quest = 7701, title = "WANTED: Overseer Maltorius", map = 1427, x = 40.77, y = 35.89, era = true, count = 1, item = 18946, itemName = "Head of Overseer Maltorius", oi = 1, optional = true, group = true, note = "Head of Overseer Maltorius, elite: group up below 55", src = "Overseer Maltorius", srcKind = "npc" },
 		{ t = "accept", quest = 7704, title = "Look at the Size of It!", item = 18950, itemName = "Chambermaid Pillaclencher's Pillow", qlvl = 50, optional = true, note = "Chambermaid Pillaclencher's Pillow, if you find it" },
 	} },
 	{ title = "Back to Thorium Point", goals = {
@@ -13222,16 +13222,16 @@ Waypost.RegisterSteps("reputation/thorium-brotherhood", function() return {
 		{ t = "collect", map = 1441, x = 78.5, y = 59, era = true, count = 10, item = 4234, itemName = "Heavy Leather", optional = true },
 	} },
 	{ title = "Fiery Flux to Friendly", note = "Neutral to Friendly is 3,000 reputation. Burninate takes Restoring Fiery Flux Supplies only while you are Neutral: 25 reputation for 2 Incendosaur Scales, 1 Coal and either 4 Iron Bars, 4 Kingsblood or 10 Heavy Leather. These are level 60 quests, so they always pay in full. After the 700 from the Thorium Point quests that is 92 turn-ins: 184 scales (about 60 Incendosaurs), 92 Coal (Burninate sells it at 5 silver: 4g 60s) and 368 Iron Bars, 368 Kingsblood or 920 Heavy Leather. If those quests paid you only 140 at 60, it is 115 turn-ins: 230 scales, 115 Coal (5g 75s) and 460 bars or Kingsblood or 1,150 Heavy Leather. Miners smelt the bars from Iron Ore, herbalists pick Kingsblood, skinners get Heavy Leather from beasts of level 28 to 40; all three sell on the Auction House. Pick whichever is cheapest for you, or mix them. Blacksmiths who did the Imperial Plate quests need 46 fewer turn-ins.", goals = {
-		{ t = "collect", map = 1427, x = 48.43, y = 28.01, era = true, count = 20, item = 18944, itemName = "Incendosaur Scale", mobLevel = 49, optional = true, note = "Incendosaur Scale, 2 per turn-in", spots = "49.5,25.3;50.8,31.9;45.4,23.2;50.8,38.2" },
+		{ t = "collect", map = 1427, x = 48.43, y = 28.01, era = true, count = 20, item = 18944, itemName = "Incendosaur Scale", mobLevel = 49, optional = true, note = "Incendosaur Scale, 2 per turn-in", src = "Incendosaur", srcKind = "npc", spots = "49.5,25.3;50.8,31.9;45.4,23.2;50.8,38.2" },
 		{ t = "buy", npc = "Master Smith Burninate", map = 1427, x = 38.8, y = 28.51, era = true, count = 10, item = 3857, itemName = "Coal", optional = true, note = "Coal, 1 per turn-in" },
 		{ t = "turnin", quest = 8241, title = "Restoring Fiery Flux Supplies via Iron", npc = "Master Smith Burninate", map = 1427, x = 38.8, y = 28.51, era = true, qlvl = 60, optional = true, note = "via Iron: 4 Iron Bars" },
-		{ t = "collect", map = 1427, x = 39.91, y = 27.83, era = true, count = 4, item = 3356, itemName = "Kingsblood", mobLevel = 49, optional = true, note = "Kingsblood, 4 per turn-in", spots = "40.2,23.6;49.9,26.3;47.2,46.4;51.7,59.3;44.9,63.8" },
+		{ t = "collect", map = 1427, x = 39.91, y = 27.83, era = true, count = 4, item = 3356, itemName = "Kingsblood", mobLevel = 49, optional = true, note = "Kingsblood, 4 per turn-in", src = "Slave Worker, Dustbelcher Ogre Mage, Greater Rock Elemental and others", srcKind = "npc", spots = "40.2,23.6;49.9,26.3;47.2,46.4;51.7,59.3;44.9,63.8" },
 		{ t = "turnin", quest = 7736, title = "Restoring Fiery Flux Supplies via Kingsblood", npc = "Master Smith Burninate", map = 1427, x = 38.8, y = 28.51, era = true, qlvl = 60, optional = true, note = "via Kingsblood: 4 Kingsblood" },
 		{ t = "turnin", quest = 8242, title = "Restoring Fiery Flux Supplies via Heavy Leather", npc = "Master Smith Burninate", map = 1427, x = 38.8, y = 28.51, era = true, qlvl = 60, optional = true, note = "via Heavy Leather: 10 Heavy Leather" },
 		{ t = "rep", factionName = "Thorium Brotherhood", faction = 59, standing = 5 },
 	} },
 	{ title = "Gaining Acceptance to Honored", note = "Friendly to Honored is 6,000 reputation. While you are Friendly Burninate takes Gaining Acceptance instead: 25 reputation for 4 Dark Iron Residue, 240 turn-ins and 960 residue in all. About a third of the Dark Iron dwarves in Blackrock Depths drop residue, sometimes several at once; it also sells on the Auction House. Dark Iron Ore or Molten Core materials at Lokhtos (next steps) count here too. Lokhtos's shop opens at Friendly: Flarecore Gloves 8g, Corehound Boots 15g, Molten Helm 16g, Dark Iron Bracers 7g, Enchant Weapon - Strength 3g, Transmute Elemental Fire 12g.", goals = {
-		{ t = "collect", map = 1427, x = 25.2, y = 75.2, era = true, count = 40, item = 18945, itemName = "Dark Iron Residue", mobLevel = 50, optional = true, group = true, note = "Dark Iron Residue, 4 per turn-in", spots = "25.6,77.6;30.2,83.8;27.1,86.9;31.1,88.9" },
+		{ t = "collect", map = 1427, x = 25.2, y = 75.2, era = true, count = 40, item = 18945, itemName = "Dark Iron Residue", mobLevel = 50, optional = true, group = true, note = "Dark Iron Residue, 4 per turn-in", src = "Anvilrage Overseer, Anvilrage Warden", srcKind = "npc", spots = "25.6,77.6;30.2,83.8;27.1,86.9;31.1,88.9" },
 		{ t = "turnin", quest = 7737, title = "Gaining Acceptance", npc = "Master Smith Burninate", map = 1427, x = 38.8, y = 28.51, era = true, qlvl = 60, optional = true },
 		{ t = "rep", factionName = "Thorium Brotherhood", faction = 59, standing = 6 },
 	} },
@@ -13248,7 +13248,7 @@ Waypost.RegisterSteps("reputation/thorium-brotherhood", function() return {
 		{ t = "collect", map = 1427, x = 32.1, y = 94.7, era = true, count = 5, item = 17011, itemName = "Lava Core", optional = true, group = true, note = "Lava Core: Lava Elementals, Lava Reavers and Molten Destroyers" },
 		{ t = "collect", map = 1427, x = 32.1, y = 94.7, era = true, count = 2, item = 17012, itemName = "Core Leather", optional = true, note = "Core Leather: skin Ancient Core Hounds and Magmadar" },
 		{ t = "collect", map = 1427, x = 36.7, y = 78.04, era = true, count = 1, item = 11382, itemName = "Blood of the Mountain", optional = true, note = "Blood of the Mountain: Molten Destroyers, sometimes a Dark Iron Deposit", spots = "36.7,78;39.5,56.4;42.7,36.4;31.3,38.8;22.5,24.4" },
-		{ t = "collect", map = 1427, x = 36.7, y = 78.04, era = true, count = 10, item = 11370, itemName = "Dark Iron Ore", optional = true, note = "Dark Iron Ore: Dark Iron Deposits, Mining 230", spots = "36.7,78;39.5,56.4;42.7,36.4;31.3,38.8;22.5,24.4" },
+		{ t = "collect", map = 1427, x = 36.7, y = 78.04, era = true, count = 10, item = 11370, itemName = "Dark Iron Ore", optional = true, note = "Dark Iron Ore: Dark Iron Deposits, Mining 230", src = "Dark Iron Deposit", srcKind = "object", spots = "36.7,78;39.5,56.4;42.7,36.4;31.3,38.8;22.5,24.4" },
 		{ t = "turnin", quest = 6643, title = "Favor Amongst the Brotherhood, Fiery Core", npc = "Lokhtos Darkbargainer", map = 1427, x = 32.1, y = 94.7, era = true, qlvl = 60, optional = true, group = true, note = "Fiery Core: 200" },
 		{ t = "turnin", quest = 6644, title = "Favor Amongst the Brotherhood, Lava Core", npc = "Lokhtos Darkbargainer", map = 1427, x = 32.1, y = 94.7, era = true, qlvl = 60, optional = true, group = true, note = "Lava Core: 200" },
 		{ t = "turnin", quest = 6646, title = "Favor Amongst the Brotherhood, Blood of the Mountain", npc = "Lokhtos Darkbargainer", map = 1427, x = 32.1, y = 94.7, era = true, qlvl = 60, optional = true, group = true, note = "Blood of the Mountain: 200" },
@@ -13345,7 +13345,7 @@ Waypost.RegisterSteps("reputation/timbermaw-hold", function() return {
 		{ t = "buy", npc = "Meilosh", map = 1448, x = 65.69, y = 2.81, era = true, item = 13484, itemName = "Recipe: Transmute Earth to Water", optional = true, note = "Recipe: Transmute Earth to Water (Alchemy)" },
 	} },
 	{ title = "Runecloth for Meilosh", note = "Runecloth drops from the humanoids of the level 50-60 zones, the Deadwood and Winterfall furbolgs among them.", goals = {
-		{ t = "collect", quest = 6031, title = "Runecloth", map = 1448, x = 65.58, y = 2.82, era = true, count = 30, item = 14047, itemName = "Runecloth", oi = 1, mobLevel = 54, spots = "65.6,2.8;60.2,5.8;45.1,14.3;42,19.3;39.1,22.2" },
+		{ t = "collect", quest = 6031, title = "Runecloth", map = 1448, x = 65.58, y = 2.82, era = true, count = 30, item = 14047, itemName = "Runecloth", oi = 1, mobLevel = 54, src = "Timbermaw Woodbender, Bloodvenom Post Brave, Rakaiah and others", srcKind = "npc", spots = "65.6,2.8;60.2,5.8;45.1,14.3;42,19.3;39.1,22.2" },
 		{ t = "turnin", quest = 6031, title = "Runecloth", npc = "Meilosh", map = 1448, x = 65.69, y = 2.81, era = true },
 	} },
 	{ title = "Sacred Cloth", note = "Tailors with skill 290: Meilosh takes 2 Mooncloth once for 100 reputation and teaches the Mooncloth Boots.", when = {{ k = "skill", n = 290, name = "Tailoring", skillLine = 197 }}, goals = {
@@ -13461,7 +13461,7 @@ Waypost.RegisterSteps("reputation/zandalar-tribe", function() return {
 		{ t = "accept", quest = 8240, title = "A Bijou for Zanza", npc = "Vinchaxa", map = 1434, x = 14.5, y = 15.83, era = true, qlvl = 60, note = "Vinchaxa: A Bijou for Zanza" },
 	} },
 	{ title = "Zul'Gurub to Friendly", note = "Zul'Gurub is the troll city in the north-east of Stranglethorn Vale: a 20-player raid. Trash pays 3 to 5 each until 11,999 of 12,000 Honored, one point short of Revered; the Speakers 15, Ohgan 15, the Edge of Madness boss 25, Gahz'ranka and the five High Priests 100, Bloodlord Mandokir and Jin'do 200 and Hakkar 400, all the way to Exalted. A full clear is about 4,050: one clear reaches Friendly (3,000). Loot every coin, bijou, Primal Hakkari Idol, Channeler's Head and Primal Hakkari set piece. Coins and bijous pay the same at any standing: save them until the trash stops counting, except one bijou for A Bijou for Zanza.", goals = {
-		{ t = "collect", map = 1434, x = 49.6, y = 17.5, era = true, item = 19707, itemName = "Red Hakkari Bijou", mobLevel = 60, optional = true, group = true, note = "Red Hakkari Bijou; any of the nine colours does", spots = "50.9,17.5;52.6,17.3" },
+		{ t = "collect", map = 1434, x = 49.6, y = 17.5, era = true, item = 19707, itemName = "Red Hakkari Bijou", mobLevel = 60, optional = true, group = true, note = "Red Hakkari Bijou; any of the nine colours does", src = "Hakkari Priest", srcKind = "npc", spots = "50.9,17.5;52.6,17.3" },
 		{ t = "rep", factionName = "Zandalar Tribe", faction = 270, standing = 5 },
 	} },
 	{ title = "A Bijou for Zanza", note = "Destroy one bijou at the Altar of Zanza, the stone altar on the west side of Yojamba Isle (right-click the bijou there), then tell Vinchaxa: 150 reputation and an extra Zandalar Honor Token, once. From then on every bijou you destroy at the altar pays 75 reputation and a token, and every set of three coins Vinchaxa takes pays 25 and a token. They never stop counting.", goals = {
@@ -13489,23 +13489,23 @@ Waypost.RegisterSteps("reputation/zandalar-tribe", function() return {
 	} },
 	{ title = "Zanza's enchants, from Friendly", note = "Zanza the Restless, a spirit just inside Zul'Gurub's entrance, trades your class's head and leg enchant for a Primal Hakkari Idol (Jin'do the Hexxer or Bloodlord Mandokir, about 90%) and your class's Punctured Voodoo Doll (the Jinxed Hoodoo Piles scattered through Zul'Gurub, now and then from its trash): 100 reputation each, as often as you like.", goals = {
 		{ t = "collect", map = 1434, x = 54, y = 17.6, era = true, item = 22637, itemName = "Primal Hakkari Idol", optional = true, group = true, note = "Primal Hakkari Idol, Jin'do or Mandokir" },
-		{ t = "collect", map = 1434, x = 51.2, y = 17.6, era = true, item = 19813, itemName = "Punctured Voodoo Doll", optional = true, group = true, only = { classes = {"WARRIOR"} }, note = "your class's Punctured Voodoo Doll" },
+		{ t = "collect", map = 1434, x = 51.2, y = 17.6, era = true, item = 19813, itemName = "Punctured Voodoo Doll", optional = true, group = true, only = { classes = {"WARRIOR"} }, note = "your class's Punctured Voodoo Doll", src = "Gurubashi Berserker", srcKind = "npc" },
 		{ t = "turnin", quest = 8184, title = "Presence of Might", npc = "Zanza the Restless", map = 1434, x = 54, y = 17.6, era = true, qlvl = 60, optional = true, group = true, only = { classes = {"WARRIOR"} }, note = "Zanza: idol and doll, 100" },
 		{ t = "collect", map = 1434, x = 51.2, y = 17.6, era = true, item = 19815, itemName = "Punctured Voodoo Doll", optional = true, only = { classes = {"PALADIN"} }, note = "your class's Punctured Voodoo Doll" },
 		{ t = "turnin", quest = 8185, title = "Syncretist's Sigil", npc = "Zanza the Restless", map = 1434, x = 54, y = 17.6, era = true, qlvl = 60, optional = true, group = true, only = { classes = {"PALADIN"} }, note = "Zanza: idol and doll, 100" },
-		{ t = "collect", map = 1434, x = 51.2, y = 17.6, era = true, item = 19814, itemName = "Punctured Voodoo Doll", optional = true, group = true, only = { classes = {"ROGUE"} }, note = "your class's Punctured Voodoo Doll" },
+		{ t = "collect", map = 1434, x = 51.2, y = 17.6, era = true, item = 19814, itemName = "Punctured Voodoo Doll", optional = true, group = true, only = { classes = {"ROGUE"} }, note = "your class's Punctured Voodoo Doll", src = "Gurubashi Berserker", srcKind = "npc" },
 		{ t = "turnin", quest = 8186, title = "Death's Embrace", npc = "Zanza the Restless", map = 1434, x = 54, y = 17.6, era = true, qlvl = 60, optional = true, group = true, only = { classes = {"ROGUE"} }, note = "Zanza: idol and doll, 100" },
 		{ t = "collect", map = 1434, x = 51.2, y = 17.6, era = true, item = 19816, itemName = "Punctured Voodoo Doll", optional = true, only = { classes = {"HUNTER"} }, note = "your class's Punctured Voodoo Doll" },
 		{ t = "turnin", quest = 8187, title = "Falcon's Call", npc = "Zanza the Restless", map = 1434, x = 54, y = 17.6, era = true, qlvl = 60, optional = true, group = true, only = { classes = {"HUNTER"} }, note = "Zanza: idol and doll, 100" },
 		{ t = "collect", map = 1434, x = 51.2, y = 17.6, era = true, item = 19817, itemName = "Punctured Voodoo Doll", optional = true, only = { classes = {"SHAMAN"} }, note = "your class's Punctured Voodoo Doll" },
 		{ t = "turnin", quest = 8188, title = "Vodouisant's Vigilant Embrace", npc = "Zanza the Restless", map = 1434, x = 54, y = 17.6, era = true, qlvl = 60, optional = true, group = true, only = { classes = {"SHAMAN"} }, note = "Zanza: idol and doll, 100" },
-		{ t = "collect", map = 1434, x = 51.2, y = 17.6, era = true, item = 19818, itemName = "Punctured Voodoo Doll", optional = true, group = true, only = { classes = {"MAGE"} }, note = "your class's Punctured Voodoo Doll" },
+		{ t = "collect", map = 1434, x = 51.2, y = 17.6, era = true, item = 19818, itemName = "Punctured Voodoo Doll", optional = true, group = true, only = { classes = {"MAGE"} }, note = "your class's Punctured Voodoo Doll", src = "Gurubashi Berserker", srcKind = "npc" },
 		{ t = "turnin", quest = 8189, title = "Presence of Sight", npc = "Zanza the Restless", map = 1434, x = 54, y = 17.6, era = true, qlvl = 60, optional = true, group = true, only = { classes = {"MAGE"} }, note = "Zanza: idol and doll, 100" },
-		{ t = "collect", map = 1434, x = 51.2, y = 17.6, era = true, item = 19819, itemName = "Punctured Voodoo Doll", mobLevel = 60, optional = true, group = true, only = { classes = {"WARLOCK"} }, note = "your class's Punctured Voodoo Doll", spots = "51.2,17.6;52.6,17.3" },
+		{ t = "collect", map = 1434, x = 51.2, y = 17.6, era = true, item = 19819, itemName = "Punctured Voodoo Doll", mobLevel = 60, optional = true, group = true, only = { classes = {"WARLOCK"} }, note = "your class's Punctured Voodoo Doll", src = "Hakkari Priest", srcKind = "npc", spots = "51.2,17.6;52.6,17.3" },
 		{ t = "turnin", quest = 8190, title = "Hoodoo Hex", npc = "Zanza the Restless", map = 1434, x = 54, y = 17.6, era = true, qlvl = 60, optional = true, group = true, only = { classes = {"WARLOCK"} }, note = "Zanza: idol and doll, 100" },
-		{ t = "collect", map = 1434, x = 51.2, y = 17.6, era = true, item = 19820, itemName = "Punctured Voodoo Doll", optional = true, group = true, only = { classes = {"PRIEST"} }, note = "your class's Punctured Voodoo Doll" },
+		{ t = "collect", map = 1434, x = 51.2, y = 17.6, era = true, item = 19820, itemName = "Punctured Voodoo Doll", optional = true, group = true, only = { classes = {"PRIEST"} }, note = "your class's Punctured Voodoo Doll", src = "Gurubashi Berserker", srcKind = "npc" },
 		{ t = "turnin", quest = 8191, title = "Prophetic Aura", npc = "Zanza the Restless", map = 1434, x = 54, y = 17.6, era = true, qlvl = 60, optional = true, group = true, only = { classes = {"PRIEST"} }, note = "Zanza: idol and doll, 100" },
-		{ t = "collect", map = 1434, x = 51.2, y = 17.6, era = true, item = 19821, itemName = "Punctured Voodoo Doll", mobLevel = 60, optional = true, group = true, only = { classes = {"DRUID"} }, note = "your class's Punctured Voodoo Doll", spots = "51.2,17.6;52.6,17.3" },
+		{ t = "collect", map = 1434, x = 51.2, y = 17.6, era = true, item = 19821, itemName = "Punctured Voodoo Doll", mobLevel = 60, optional = true, group = true, only = { classes = {"DRUID"} }, note = "your class's Punctured Voodoo Doll", src = "Hakkari Priest", srcKind = "npc", spots = "51.2,17.6;52.6,17.3" },
 		{ t = "turnin", quest = 8192, title = "Animist's Caress", npc = "Zanza the Restless", map = 1434, x = 54, y = 17.6, era = true, qlvl = 60, optional = true, group = true, only = { classes = {"DRUID"} }, note = "Zanza: idol and doll, 100" },
 	} },
 	{ title = "Zul'Gurub to Honored", note = "Friendly to Honored is 6,000: one and a half clears. Honored opens Bloodvine Leggings, Primal Batskin Gloves, Blood Tiger Shoulders, Bloodsoul Shoulders, Darksoul Leggings and Major Troll's Blood Elixir (5g each), Schematic: Bloodvine Goggles (12g), Formula: Brilliant Wizard Oil (4g) and Magnificent Trollshine (4g), the Paragons of Power belts and mantles (150 each), Essence Mangoes (one Honor Token) and The Savage Guard.", goals = {
@@ -13564,17 +13564,17 @@ Waypost.RegisterSteps("reputation/zandalar-tribe", function() return {
 		{ t = "turnin", quest = 8143, title = "Zandalarian Shadow Talisman", npc = "Falthir the Sightless", map = 1434, x = 14.08, y = 13.72, era = true, optional = true, group = true, only = { classes = {"ROGUE"} }, note = "100" },
 		{ t = "accept", quest = 8147, title = "The Maelstrom's Tendril", npc = "Falthir the Sightless", map = 1434, x = 14.08, y = 13.72, era = true, qlvl = 60, optional = true, group = true, only = { classes = {"HUNTER"} }, note = "Falthir the Sightless: Maelstrom's Tendril, Revered" },
 		{ t = "turnin", quest = 8147, title = "The Maelstrom's Tendril", npc = "Falthir the Sightless", map = 1434, x = 14.08, y = 13.72, era = true, optional = true, group = true, only = { classes = {"HUNTER"} }, note = "100" },
-		{ t = "collect", map = 1434, x = 49.6, y = 17.5, era = true, item = 19698, itemName = "Zulian Coin", mobLevel = 60, optional = true, group = true, spots = "50.9,17.5;52.6,17.3" },
-		{ t = "collect", map = 1434, x = 49.6, y = 17.5, era = true, item = 19699, itemName = "Razzashi Coin", mobLevel = 60, optional = true, group = true, spots = "50.9,17.5;52.6,17.3" },
-		{ t = "collect", map = 1434, x = 49.6, y = 17.5, era = true, item = 19700, itemName = "Hakkari Coin", mobLevel = 60, optional = true, group = true, spots = "50.9,17.5;52.6,17.3" },
+		{ t = "collect", map = 1434, x = 49.6, y = 17.5, era = true, item = 19698, itemName = "Zulian Coin", mobLevel = 60, optional = true, group = true, src = "Hakkari Priest", srcKind = "npc", spots = "50.9,17.5;52.6,17.3" },
+		{ t = "collect", map = 1434, x = 49.6, y = 17.5, era = true, item = 19699, itemName = "Razzashi Coin", mobLevel = 60, optional = true, group = true, src = "Hakkari Priest", srcKind = "npc", spots = "50.9,17.5;52.6,17.3" },
+		{ t = "collect", map = 1434, x = 49.6, y = 17.5, era = true, item = 19700, itemName = "Hakkari Coin", mobLevel = 60, optional = true, group = true, src = "Hakkari Priest", srcKind = "npc", spots = "50.9,17.5;52.6,17.3" },
 		{ t = "turnin", quest = 8195, title = "Zulian, Razzashi, and Hakkari Coins", npc = "Vinchaxa", map = 1434, x = 14.5, y = 15.83, era = true, qlvl = 60, optional = true, note = "Vinchaxa: 3 coins, 25 and a token" },
-		{ t = "collect", map = 1434, x = 49.6, y = 17.5, era = true, item = 19701, itemName = "Gurubashi Coin", mobLevel = 60, optional = true, group = true, spots = "50.9,17.5;52.6,17.3" },
-		{ t = "collect", map = 1434, x = 49.6, y = 17.5, era = true, item = 19702, itemName = "Vilebranch Coin", mobLevel = 60, optional = true, group = true, spots = "50.9,17.5;52.6,17.3" },
-		{ t = "collect", map = 1434, x = 49.6, y = 17.5, era = true, item = 19703, itemName = "Witherbark Coin", mobLevel = 60, optional = true, group = true, spots = "50.9,17.5;52.6,17.3" },
+		{ t = "collect", map = 1434, x = 49.6, y = 17.5, era = true, item = 19701, itemName = "Gurubashi Coin", mobLevel = 60, optional = true, group = true, src = "Hakkari Priest", srcKind = "npc", spots = "50.9,17.5;52.6,17.3" },
+		{ t = "collect", map = 1434, x = 49.6, y = 17.5, era = true, item = 19702, itemName = "Vilebranch Coin", mobLevel = 60, optional = true, group = true, src = "Hakkari Priest", srcKind = "npc", spots = "50.9,17.5;52.6,17.3" },
+		{ t = "collect", map = 1434, x = 49.6, y = 17.5, era = true, item = 19703, itemName = "Witherbark Coin", mobLevel = 60, optional = true, group = true, src = "Hakkari Priest", srcKind = "npc", spots = "50.9,17.5;52.6,17.3" },
 		{ t = "turnin", quest = 8238, title = "Gurubashi, Vilebranch, and Witherbark Coins", npc = "Vinchaxa", map = 1434, x = 14.5, y = 15.83, era = true, qlvl = 60, optional = true, note = "25 and a token" },
-		{ t = "collect", map = 1434, x = 49.6, y = 17.5, era = true, item = 19704, itemName = "Sandfury Coin", mobLevel = 60, optional = true, group = true, spots = "50.9,17.5;52.6,17.3" },
-		{ t = "collect", map = 1434, x = 49.6, y = 17.5, era = true, item = 19705, itemName = "Skullsplitter Coin", mobLevel = 60, optional = true, group = true, spots = "50.9,17.5;52.6,17.3" },
-		{ t = "collect", map = 1434, x = 49.6, y = 17.5, era = true, item = 19706, itemName = "Bloodscalp Coin", mobLevel = 60, optional = true, group = true, spots = "50.9,17.5;52.6,17.3" },
+		{ t = "collect", map = 1434, x = 49.6, y = 17.5, era = true, item = 19704, itemName = "Sandfury Coin", mobLevel = 60, optional = true, group = true, src = "Hakkari Priest", srcKind = "npc", spots = "50.9,17.5;52.6,17.3" },
+		{ t = "collect", map = 1434, x = 49.6, y = 17.5, era = true, item = 19705, itemName = "Skullsplitter Coin", mobLevel = 60, optional = true, group = true, src = "Hakkari Priest", srcKind = "npc", spots = "50.9,17.5;52.6,17.3" },
+		{ t = "collect", map = 1434, x = 49.6, y = 17.5, era = true, item = 19706, itemName = "Bloodscalp Coin", mobLevel = 60, optional = true, group = true, src = "Hakkari Priest", srcKind = "npc", spots = "50.9,17.5;52.6,17.3" },
 		{ t = "turnin", quest = 8239, title = "Sandfury, Skullsplitter, and Bloodscalp Coins", npc = "Vinchaxa", map = 1434, x = 14.5, y = 15.83, era = true, qlvl = 60, optional = true, note = "25 and a token" },
 		{ t = "turnin", quest = 8243, title = "Zanza's Potent Potables", npc = "Rin'wosho the Trader", map = 1434, x = 15.07, y = 16, era = true, qlvl = 60, optional = true, group = true, note = "Zanza's Potent Potables: one token" },
 		{ t = "rep", factionName = "Zandalar Tribe", faction = 270, standing = 8 },

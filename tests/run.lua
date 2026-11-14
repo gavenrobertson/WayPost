@@ -72,17 +72,39 @@ check(cur == 0 and need == 8, "objective progress read from the quest log")
 local text = E.GoalText(wolf, 2)
 check(text:find("Tough Wolf Meat") and text:find("0/8"), "goal text shows item and count: " .. text)
 
--- combat: quiet, then catches up
+-- combat: by default objectives tick off as they happen
+check(W.opt.combatUpdates == true, "live updates in combat are the default")
 M.player.combat = true
 M.fire("PLAYER_REGEN_DISABLED")
+M.quests[33].objectives[1].numFulfilled = 5
+M.update()
+local _, midFight = E.GoalState(wolf, 2)
+check(midFight == 5, "progress is read during combat (" .. tostring(midFight) .. "/8)")
+-- with "keep updating during combat" off: quiet, then catches up
+W.Set("combatUpdates", false)
 M.quests[33].objectives[1].finished = true
 M.quests[33].objectives[1].numFulfilled = 8
 M.update()
-check(E.index == 2, "no advance during combat")
+check(E.index == 2, "no advance during combat when live updates are off")
 M.player.combat = false
 M.fire("PLAYER_REGEN_ENABLED")
 M.advance(0.5)
 check(E.index == 3, "advances once combat ends (" .. tostring(E.index) .. ")")
+W.Set("combatUpdates", true)
+
+-- and with the default, a step finished mid-fight advances at once
+do
+	local at = E.index
+	M.player.combat = true
+	M.fire("PLAYER_REGEN_DISABLED")
+	E.Next()
+	check(E.index > at, "step completes during combat with live updates on")
+	M.player.combat = false
+	M.fire("PLAYER_REGEN_ENABLED")
+	M.advance(0.5)
+	E.Back()
+	if E.view then E.Look(0) end
+end
 
 ---------------------------------------------------------------------------
 section("engine: skip, undo, look ahead, back")
@@ -287,7 +309,12 @@ E.Load("alliance/human/01-elwynn-forest", true)
 try("render step frame", function() W.StepFrame.Render() end)
 try("compact mode", function() W.Set("ui.compact", true) W.StepFrame.Render() W.Set("ui.compact", false) end)
 try("step list", function() W.Set("ui.listOpen", true) M.advance(0.2) W.StepFrame.Render() W.StepFrame.RenderList(true) end)
-try("each skin", function() for _, sk in ipairs(W.UI.SKINS) do W.Set("ui.skin", sk[1]) end W.Set("ui.skin", "classic") end)
+try("each skin", function() for _, sk in ipairs(W.UI.SKINS) do W.Set("ui.skin", sk[1]) W.StepFrame.Render() end W.Set("ui.skin", "panel") end)
+try("game menu button", function()
+	GameMenuFrame:Show()
+	check(W.opt.ui.gameMenu == true, "game menu button is on by default")
+	GameMenuFrame:Hide()
+end)
 try("arrow refresh + update", function()
 	W.Arrow.Refresh()
 	local f = WaypostArrow

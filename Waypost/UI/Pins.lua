@@ -14,7 +14,6 @@ W.Pins = P
 
 local sqrt, cos, sin, min = math.sqrt, math.cos, math.sin, math.min
 
-local ICONS
 local list = {}          -- pins for the current step: { goal, c, wx, wy, kind = "goal"|"spot", current }
 local dirty = true
 
@@ -106,13 +105,10 @@ local function dress(f, p, size)
 	end
 	local t = p.goal.t
 	f.icon:Show()
-	f.icon:SetTexture(ICONS[t] or ICONS.note)
-	f.icon:SetSize(s * 0.56, s * 0.56)
-	if W.StepFrame.ICON_FILE and W.StepFrame.ICON_FILE[t] then
-		f.icon:SetTexCoord(0.1, 0.9, 0.1, 0.9)
-	else
-		f.icon:SetTexCoord(0, 1, 0, 1)
-	end
+	UI.SetIcon(f.icon, W.StepFrame.GLYPH[t] or "note")
+	f.icon:SetSize(s * 0.5, s * 0.5)
+	local c = (p.kind ~= "next" and W.StepFrame.TINT[t]) or UI.C.text
+	f.icon:SetVertexColor(c[1], c[2], c[3])
 end
 
 ---------------------------------------------------------------------------
@@ -259,7 +255,6 @@ end
 
 ---------------------------------------------------------------------------
 function P.Refresh()
-	ICONS = W.StepFrame.ICONS
 	collect()
 	dirty = false
 	hookWorldMap()

@@ -31,6 +31,7 @@ UI\Picker.lua
 UI\Options.lua
 UI\Editor.lua
 UI\MinimapButton.lua
+UI\GameMenu.lua
 
 Modules\Automation.lua
 Modules\XP.lua

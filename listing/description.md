@@ -6,7 +6,7 @@ It comes with routes from 1 to 60 for every race on both factions, plus guides f
 
 ## While you play
 
-- Shows the current step and the next few. There's a compact mode if you only want the current one.
+- Shows what to do now, who it involves and where it is (distance and direction), then the rest of the step and what's next. There's a compact mode too.
 - An arrow points to the next objective. It's a 3D arrow that turns as you turn, with distance and a rough time to get there. Pins go on the map and minimap too.
 - Picks up and hands in the guide's quests for you. It stops when there's a reward to choose. Hold Shift when you open an NPC if you'd rather do it yourself.
 - A button for the step's quest item and one to target the mob or NPC. Both can be bound to keys.
@@ -25,7 +25,7 @@ It comes with routes from 1 to 60 for every race on both factions, plus guides f
 
 ## Combat
 
-Waypost sits idle during combat and catches up when you leave it. If you'd rather the arrow and counters kept updating in a fight, there's a setting for that.
+Objectives tick off as they happen, in combat too. If you'd rather Waypost stayed idle during a fight and caught up afterwards, there's a setting for that.
 
 ## Commands
 

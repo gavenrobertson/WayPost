@@ -155,6 +155,15 @@ def convert_goal(go, resolve):
     if go.get("startItemName"):
         out["startItem"] = go.get("startItem")
         out["startItemName"] = go["startItemName"]
+    # Where an item comes from: the creatures that drop it, or the object to loot.
+    if t == "collect":
+        names = [n.get("npcName") for n in (go.get("fromNpcs") or []) if n.get("npcName")]
+        if names:
+            out["src"] = ", ".join(names[:3]) + (" and others" if len(names) > 3 else "")
+            out["srcKind"] = "npc"
+        elif go.get("from"):
+            out["src"] = go["from"]
+            out["srcKind"] = go.get("fromKind") or "npc"
     sp = go.get("spotsPacked")
     if sp and t in ("kill", "collect", "interact", "use"):
         pts = []

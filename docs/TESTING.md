@@ -13,7 +13,10 @@ The automated tests run the addon against a mock of the game API. These checks n
 
 - [ ] Guide quests are accepted and turned in automatically; Shift at the NPC stops that.
 - [ ] Kill and collect counts tick up; the step advances on its own.
-- [ ] In combat the window does not change; it catches up when combat ends.
+- [ ] Counts and ticks update during combat. With "Keep updating during combat" off, the window
+      waits and catches up when combat ends.
+- [ ] The Now card shows distance and direction, and they change as you move.
+- [ ] Esc shows a Waypost button under the game menu; it opens the guide list.
 - [ ] Reward choices are not picked for you.
 - [ ] The quest item button appears for a "use" step and its key binding works.
 - [ ] The target button targets the step's enemy.
