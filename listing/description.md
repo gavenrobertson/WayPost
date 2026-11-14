@@ -1,40 +1,79 @@
-![Waypost](banner-1600x400.png)
+![Waypost](BANNER_URL)
+
+# Waypost
 
 Waypost is a leveling guide addon for WoW Forever. It's free, the source is on GitHub, and there's no account to link.
 
 It comes with routes from 1 to 60 for every race on both factions, plus guides for class quests, professions and reputations. The routes are [Polestar's](https://github.com/fitzforge/polestar), converted to run in this addon, so the credit for the routing work is theirs.
 
-The first time you log in, a welcome window explains the basics and offers the guide for your character. `/waypost help` brings it back.
+The first time you log in, a welcome window explains the basics and offers the guide for your character. Press Start and follow the arrow.
 
-## While you play
+## The guide window
 
-- Shows what to do now, who it involves and where it is (distance and direction), then the rest of the step and what's next. There's a compact mode too.
-- An arrow points to the next objective. It's a 3D arrow that turns as you turn, with distance and a rough time to get there. Pins go on the map and minimap too.
-- Picks up and hands in the guide's quests for you. It stops when there's a reward to choose. Hold Shift when you open an NPC if you'd rather do it yourself.
+- A card at the top says the one thing to do right now: the quest, mob or item, who gives or takes the quest, what drops the item, and how far away it is and in which direction.
+- Under it are the rest of the step's goals. They tick themselves off as you do them, in combat too.
+- Below that is what's coming next and how far away it is.
+- XP per hour and time to level sit in the corner. Click it for a graph of how long each level took.
+- When you ding, a level-up banner plays in the window.
+- There's a compact mode, three window styles, and it uses the game's own fonts.
+
+## The arrow
+
+![The arrow at different headings](ARROW_URL)
+
+- A 3D gold arrow points at your next objective and turns as you turn.
+- Distance and a rough time to get there are under it.
+- It points down and goes green when you arrive.
+- Pins for the step go on the world map and minimap, with dots where the step's mobs or items are found.
+- If you use TomTom, a setting hands the waypoint to TomTom instead.
+
+## Less clicking
+
+- Picks up and hands in the guide's quests for you. It stops when there's a reward to choose, and it never touches quests that aren't in the guide.
+- Hold Shift when you open an NPC if you'd rather do it yourself.
 - A button for the step's quest item and one to target the mob or NPC. Both can be bound to keys.
 - Keeps track of your flight paths and takes the flight the guide wants.
-- Skip a step, undo the skip, or peek ahead and come back.
-- Can't do a quest yet? Hit Later. It's set aside and offered back when you join a party or gain a couple of levels. Group quests are set aside for you while you're solo.
+
+## When you're stuck
+
+- **Skip** drops a step. Anything later that needed its quests is dropped too, so the guide never waits on something you skipped. Undo brings it back.
+- **Later** sets the step's quests aside instead. You get them offered back when you join a party or gain a couple of levels.
+- Group quests are left out while you're solo and set aside for you. Join a party and it tells you they can be done.
 - If the route needs a level you haven't reached, it shows how much XP you're short and points you at the quests you set aside or the nearest mobs your level.
-- XP per hour and time to level sit in the corner of the window. Click it for a graph of how long each level took.
-- A level-up banner plays in the guide window when you ding.
+- Did some quests without the addon? "Re-read my quest log" in the menu catches the guide up.
+
+![Golden arrow on a forest road](GALLERY_URL)
+
+## Leveling with friends
+
+- Party panel: see which guide and step everyone is on, pull the party onto your guide, share a quest someone missed.
+- Guild board: who's on which guide and what level. Officers can set a guide for the guild and send notices.
+- Everyone needs Waypost for these. People without it show as "no data".
 
 ## Other things it does
 
 - Suggests a talent when you level up.
 - Flags quest rewards and vendor items that beat what you're wearing. Uses Pawn if you have it.
-- `/waypost orphans` lists quests in your log that the route will never finish, so you can drop them.
-- Party panel: see where everyone is in the guide, pull them onto your step, share a quest someone missed.
-- Guild board: who's on which guide and what level. Officers can set a guide for the guild.
+- Lists quests in your log that your route will never finish, so you can drop them.
+- "Why?" on any step explains what the step is for.
+- Warns about elite and group quests, and has a safer route for Hardcore.
 - Write your own guides in a simple text format, or record one by playing it. Guides can be shared as import strings.
-
-## Combat
-
-Objectives tick off as they happen, in combat too. If you'd rather Waypost stayed idle during a fight and caught up afterwards, there's a setting for that.
 
 ## Commands
 
-`/waypost` shows or hides the window. `/waypost guides` picks a guide. `/waypost config` opens settings. `/waypost help` opens the help window.
+| Command | What it does |
+|---|---|
+| `/waypost` | Show or hide the guide window |
+| `/waypost guides` | Pick a guide |
+| `/waypost config` | Settings |
+| `/waypost help` | The welcome and help window |
+| `/waypost later` | Quests you set aside |
+| `/waypost xp` | Leveling speed and the time-per-level graph |
+| `/waypost party` | Party progress |
+| `/waypost guild` | Guild leveling board |
+| `/waypost report` | A report to paste when a step is wrong |
+
+Esc also has a Waypost button under the game menu, and there's a minimap button.
 
 ## What's missing
 
@@ -46,4 +85,6 @@ Objectives tick off as they happen, in combat too. If you'd rather Waypost staye
 
 Type `/waypost report` in game and paste what it gives you into an issue on [GitHub](https://github.com/gavenrobertson/waypost/issues).
 
-Licensed GPL-3.0. Full credits are in the addon's About window.
+## Credits
+
+Routes and talent plans are from [Polestar Guides](https://github.com/fitzforge/polestar) by The Polestar authors, used under the GPL-3.0. Waypost is GPL-3.0 too. Full credits are in the addon's About window.
