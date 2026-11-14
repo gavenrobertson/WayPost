@@ -4,6 +4,8 @@ Waypost is a leveling guide addon for WoW Forever. It's free, the source is on G
 
 It comes with routes from 1 to 60 for every race on both factions, plus guides for class quests, professions and reputations. The routes are [Polestar's](https://github.com/fitzforge/polestar), converted to run in this addon, so the credit for the routing work is theirs.
 
+The first time you log in, a welcome window explains the basics and offers the guide for your character. `/waypost help` brings it back.
+
 ## While you play
 
 - Shows what to do now, who it involves and where it is (distance and direction), then the rest of the step and what's next. There's a compact mode too.
