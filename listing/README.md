@@ -10,7 +10,7 @@
 | `arrow-headings.png` | The arrow at different headings, cut from the sprite sheet the addon ships. |
 | `midjourney-prompts.md` | Prompts for generating better logo, banner and gallery art. |
 | `summary.txt` | The short summary field. |
-| `description.md` | The description. It has three image placeholders: `BANNER_URL`, `ARROW_URL` and `GALLERY_URL`. Upload `banner-1600x400.png`, `arrow-headings.png` and `gallery-art.jpg` to the project's images, then replace each placeholder with that image's URL. |
+| `description.md` | The description, ready to paste. Its three images load from this repository on GitHub (pinned to a commit, so they keep working after the branch is merged). |
 | `../CHANGELOG.md` | Paste the newest section into the file's changelog when uploading. |
 
 The images are made by `tools/make_listing.py`.

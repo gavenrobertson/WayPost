@@ -1,4 +1,4 @@
-![Waypost](BANNER_URL)
+![Waypost](https://raw.githubusercontent.com/gavenrobertson/WayPost/1f9b81f155c3b1974717946da8cbb88bcb1581d8/listing/banner-1600x400.png)
 
 # Waypost
 
@@ -19,7 +19,7 @@ The first time you log in, a welcome window explains the basics and offers the g
 
 ## The arrow
 
-![The arrow at different headings](ARROW_URL)
+![The arrow at different headings](https://raw.githubusercontent.com/gavenrobertson/WayPost/1f9b81f155c3b1974717946da8cbb88bcb1581d8/listing/arrow-headings.png)
 
 - A 3D gold arrow points at your next objective and turns as you turn.
 - Distance and a rough time to get there are under it.
@@ -42,7 +42,7 @@ The first time you log in, a welcome window explains the basics and offers the g
 - If the route needs a level you haven't reached, it shows how much XP you're short and points you at the quests you set aside or the nearest mobs your level.
 - Did some quests without the addon? "Re-read my quest log" in the menu catches the guide up.
 
-![Golden arrow on a forest road](GALLERY_URL)
+![Golden arrow on a forest road](https://raw.githubusercontent.com/gavenrobertson/WayPost/1f9b81f155c3b1974717946da8cbb88bcb1581d8/listing/gallery-art.jpg)
 
 ## Leveling with friends
 
