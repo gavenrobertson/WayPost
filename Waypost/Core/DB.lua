@@ -16,6 +16,7 @@ W.defaults = {
 		scale = 1.0,
 		alpha = 1.0,
 		font = "game",
+		headFont = "quest",      -- quest (the quest-log title face) | text
 		fontSize = 12,
 		locked = false,
 		compact = false,

@@ -35,7 +35,8 @@ Hold **Shift** while opening an NPC to switch automation off for that conversati
 
 - Guide window with a "Now" card: what to do, who or what it involves, and where it is, with live
   distance and direction. Under it the step's other goals, what is done, and what comes next. It
-  uses the game's typeface and colours (quest gold, item quality, hostile red) on its own panels.
+  uses the game's own fonts (Friz Quadrata for text, the quest log's Morpheus for headings) and
+  colours (quest gold, item quality, hostile red) on its own panels.
   `docs/preview-guide-window.png` is a drawing of the layout.
 - 3D arrow with distance and time to arrive, pins on the world map and minimap, optional TomTom
   hand-off.

@@ -30,6 +30,7 @@ The automated tests run the addon against a mock of the game API. These checks n
 - [ ] At a "Reach level N" step below that level, the card shows the XP missing and the two links work.
 - [ ] Skip, `/waypost undo`, Shift-click Next (look ahead), Back.
 - [ ] Compact mode, each window style, font size, scale, lock.
+- [ ] Step titles and window titles are in the quest-log title font; "Heading font" in settings switches it.
 - [ ] Drag the window and the arrow; `/reload`; both stay where they were.
 - [ ] Settings search finds "arrow".
 

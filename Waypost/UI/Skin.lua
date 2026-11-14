@@ -80,35 +80,57 @@ end
 -- Fonts. Two families share the chosen face: the guide window's (sized by
 -- the font-size setting) and the dialogs' (fixed, so their layouts hold).
 ---------------------------------------------------------------------------
+-- The game's own faces, read from its font objects so every client locale
+-- gets the file that has its letters: body text is the standard interface
+-- font (Friz Quadrata), headings are the quest-log title font (Morpheus).
+local function fontOf(object, fallback)
+	local f = _G[object]
+	if f and f.GetFont then
+		local ok, path = pcall(f.GetFont, f)
+		if ok and type(path) == "string" and path ~= "" then return path end
+	end
+	return fallback
+end
+
 local FACES = {
-	game = function() return STANDARD_TEXT_FONT or "Fonts\\FRIZQT__.TTF" end,
+	game = function() return fontOf("GameFontNormal", STANDARD_TEXT_FONT or "Fonts\\FRIZQT__.TTF") end,
 	friz = function() return "Fonts\\FRIZQT__.TTF" end,
 	arial = function() return "Fonts\\ARIALN.TTF" end,
 	morpheus = function() return "Fonts\\MORPHEUS.TTF" end,
 	skurri = function() return "Fonts\\SKURRI.TTF" end,
 }
 UI.FACE_NAMES = {
-	{ "game", "Game default" }, { "friz", "Friz Quadrata" }, { "arial", "Arial Narrow" },
+	{ "game", "Game default (Friz Quadrata)" }, { "friz", "Friz Quadrata" }, { "arial", "Arial Narrow" },
 	{ "morpheus", "Morpheus" }, { "skurri", "Skurri" },
 }
+UI.HEAD_NAMES = { { "quest", "Quest log titles (Morpheus)" }, { "text", "Same as the text" } }
+
+function UI.HeadFace()
+	local o = W.opt and W.opt.ui or W.defaults.ui
+	if o.headFont == "text" then return (FACES[o.font] or FACES.game)() end
+	return fontOf("QuestTitleFont", "Fonts\\MORPHEUS.TTF")
+end
 
 local fonts = {}
-local function makeFont(name, color, delta, fixed)
+-- head: a heading (uses the heading face); headSize: its size when the heading face is Morpheus,
+-- which draws smaller than Friz Quadrata at the same point size
+local function makeFont(name, color, delta, fixed, head, headBoost)
 	local f = CreateFont(name)
 	f:SetTextColor(color[1], color[2], color[3])
 	f:SetShadowColor(0, 0, 0, 1)
 	f:SetShadowOffset(1, -1)
-	fonts[#fonts + 1] = { font = f, delta = delta, fixed = fixed }
+	fonts[#fonts + 1] = { font = f, delta = delta, fixed = fixed, head = head, boost = headBoost or 0 }
 	return f
 end
 -- guide window
-UI.FontTitle = makeFont("WaypostGuideTitle", C.gold, 3)
+UI.FontTitle = makeFont("WaypostGuideTitle", C.gold, 3, nil, true, 3)
 UI.FontGold = makeFont("WaypostGuideGold", C.gold, 0)
 UI.FontText = makeFont("WaypostGuideText", C.text, 0)
 UI.FontNow = makeFont("WaypostGuideNow", C.text, 2)
 UI.FontSmall = makeFont("WaypostGuideSmall", C.dim, -1.5)
 -- dialogs
-makeFont("WaypostFontHead", C.gold, nil, 15)
+makeFont("WaypostFontHead", C.gold, nil, 15, true, 3)
+makeFont("WaypostFontDing", C.gold, nil, 24, true, 8)
 makeFont("WaypostFontBig", C.text, nil, 15)
 makeFont("WaypostFontGold", C.gold, nil, 12)
 makeFont("WaypostFontGoldSmall", C.gold, nil, 11)
@@ -120,12 +142,19 @@ makeFont("WaypostFontGreen", C.good, nil, 11)
 function UI.ApplyFonts()
 	local o = W.opt and W.opt.ui or W.defaults.ui
 	local face = (FACES[o.font] or FACES.game)()
+	local headFace = UI.HeadFace()
+	local questHead = o.headFont ~= "text"
 	local size = o.fontSize or 12
 	local flags = (o.skin == "bare") and "OUTLINE" or ""
 	for _, e in ipairs(fonts) do
 		local s = e.fixed or math.max(8, size + e.delta)
 		local fl = e.fixed and "" or flags
-		if not pcall(e.font.SetFont, e.font, face, s, fl) or not e.font:GetFont() then
+		local f = face
+		if e.head then
+			f = headFace
+			if questHead then s = s + e.boost end
+		end
+		if not pcall(e.font.SetFont, e.font, f, s, fl) or not e.font:GetFont() then
 			e.font:SetFont(FACES.game(), s, fl)
 		end
 	end
@@ -888,6 +917,6 @@ function UI.Toast(title, text, icon, onClick, life)
 end
 
 W.On("WP_SETTINGS", function(path)
-	if path == "*" or path == "ui.font" or path == "ui.fontSize" or path == "ui.skin" then UI.ApplyFonts() end
+	if path == "*" or path == "ui.font" or path == "ui.headFont" or path == "ui.fontSize" or path == "ui.skin" then UI.ApplyFonts() end
 end)
 W.On("WP_LOGIN", UI.ApplyFonts)
