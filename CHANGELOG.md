@@ -1,5 +1,21 @@
 # Changelog
 
+## 1.1.0
+
+- Layouts for the guide window: Simple (just what to do and where), Standard, Detailed (details
+  under every goal, finished goals, why the step is there, five steps ahead, a live XP bar), or
+  Custom: tick the parts you want in Settings. Switch from the ... menu or `/waypost layout`.
+- Resizing: drag the guide window's corner to change its width and the step list's bottom edge to
+  show more steps. Every other window resizes from its corner and remembers its size;
+  double-click a corner to reset it.
+- Live XP tracker (`/waypost tracker`, or click the XP text in the guide window): XP per hour over
+  the last ten minutes that rises and falls as you play, time to level counting down, XP for each
+  of the last ten minutes, quest and kill XP for the session, about how many kills or quests are
+  left to level, and a "+N" on each gain.
+- The Waypost button now sits inside the game menu (Esc), in the menu's own list. Click for
+  settings, right-click for the guide list.
+- Settings has Guides and Help buttons at the top.
+
 ## 1.0.0
 
 First release.

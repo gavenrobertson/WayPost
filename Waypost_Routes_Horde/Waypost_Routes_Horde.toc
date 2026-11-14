@@ -2,7 +2,7 @@
 ## Title: |cffe8c35cWaypost|r Routes: Horde
 ## Notes: Horde leveling routes, levels 1-60. Loaded on demand by Waypost.
 ## Author: Dragon Warriors, routes from Polestar Guides (GPL-3.0)
-## Version: 1.0.0
+## Version: 1.1.0
 ## X-License: GPL-3.0-only
 ## Category: Quests
 ## Dependencies: Waypost

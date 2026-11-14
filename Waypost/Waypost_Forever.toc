@@ -2,7 +2,7 @@
 ## Title: |cffe8c35cWaypost|r
 ## Notes: Free leveling guides for WoW Forever: 1-60 routes, a 3D arrow, party and guild sync.
 ## Author: Dragon Warriors
-## Version: 1.0.0
+## Version: 1.1.0
 ## X-License: GPL-3.0-only
 ## X-Website: https://github.com/gavenrobertson/waypost
 ## Category: Quests
