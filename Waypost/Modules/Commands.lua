@@ -21,7 +21,8 @@ local HELP = {
 	{ "announce <text>", "officers: send a notice to the guild" },
 	{ "orphans", "quests in your log the route won't finish" },
 	{ "talents", "talent guide" },
-	{ "xp", "leveling speed and history" },
+	{ "xp", "leveling speed, with a graph of the time each level took" },
+	{ "ding", "preview the level-up animation" },
 	{ "editor", "write, import or export a guide" },
 	{ "record start|stop", "record your route as a draft guide" },
 	{ "report [note]", "copyable problem report" },
@@ -54,6 +55,11 @@ local function handle(msg)
 	elseif cmd == "later" or cmd == "aside" then W.SetAside.Toggle(true)
 	elseif cmd == "help" or cmd == "welcome" or cmd == "?" then W.Help.Open(cmd == "welcome" and "welcome" or nil)
 	elseif cmd == "commands" then help()
+	elseif cmd == "ding" then
+		W.StepFrame.Toggle(true)
+		if not W.Ding.Play(W.player.level or 1, L["This is what a level-up looks like"]) then
+			W.Print(L["The level-up animation is switched off in settings."])
+		end
 	elseif cmd == "rescan" then
 		E.Rescan()
 		W.Print(L["Guide re-read from the first step."])

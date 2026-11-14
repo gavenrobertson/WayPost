@@ -417,7 +417,33 @@ end)
 try("options", function() W.Options.Toggle(true) W.Options.Refresh() W.Options.Toggle(false) end)
 try("about", function() W.About.Show() end)
 try("editor", function() W.Editor.Open() end)
-try("xp window", function() W.XP.ToggleWindow(true) end)
+try("xp window with the level chart", function()
+	W.char.xp.levels = { [1] = 600, [2] = 900, [3] = 2400, [4] = 1500 }
+	W.char.xp.levelTime = 300
+	M.player.level = 5; W.RefreshPlayer()
+	W.XP.ToggleWindow(true)
+	local series = W.XP.LevelSeries()
+	check(#series == 5 and series[1].level == 1 and series[5].live == true, "chart series: four finished levels and the one in progress")
+	check(series[3].secs == 2400, "bars carry the time for their level")
+	W.XP.RenderChart()
+	W.char.xp.levels = {}
+	W.char.xp.levelTime = 0
+	W.XP.RenderChart()
+	M.player.level = 1; W.RefreshPlayer()
+end)
+try("level-up animation", function()
+	W.StepFrame.Toggle(true)
+	check(W.Ding.Play(7, "Level 6 took 12m 30s") == true, "ding plays in the guide window")
+	W.Set("ui.ding", false)
+	check(W.Ding.Play(8) == false, "and can be switched off")
+	W.Set("ui.ding", true)
+	W.StepFrame.Toggle(false)
+	check(W.Ding.Play(8) == false, "no animation while the window is hidden")
+	W.StepFrame.Toggle(true)
+	M.fire("PLAYER_LEVEL_UP", 2)
+	M.advance(1)
+	M.player.level = 1; W.RefreshPlayer()
+end)
 try("talents window", function() W.Talents.Toggle(true) end)
 try("party window", function() W.Group.Toggle(true) end)
 try("guild window (no guild)", function() W.Guild.Toggle(true) end)
@@ -433,7 +459,7 @@ check(W.db.seenWelcome == true, "the welcome was shown on first login")
 try("toast", function() W.UI.Toast("Title", "Body") end)
 try("empty state", function() E.Unload() W.StepFrame.Render() end)
 try("slash commands", function()
-	for _, c in ipairs({ "help", "commands", "later", "guides", "config", "why", "where", "xp", "talents", "party", "guild", "orphans", "editor",
+	for _, c in ipairs({ "help", "commands", "later", "ding", "guides", "config", "why", "where", "xp", "talents", "party", "guild", "orphans", "editor",
 		"nearest trainer", "resume", "rescan", "reset", "version", "next", "back", "skip", "undo", "show" }) do
 		SlashCmdList["WAYPOST"](c)
 	end

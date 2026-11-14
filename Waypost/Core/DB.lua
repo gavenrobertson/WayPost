@@ -24,6 +24,7 @@ W.defaults = {
 		width = 320,
 		showDone = false,
 		gameMenu = true,
+		ding = true,
 		hideInCombat = false,
 		fadeOutOfCombat = false,
 		hidden = false,

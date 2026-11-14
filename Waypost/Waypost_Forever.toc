@@ -33,6 +33,7 @@ UI\Editor.lua
 UI\MinimapButton.lua
 UI\GameMenu.lua
 UI\Help.lua
+UI\Ding.lua
 
 Modules\Automation.lua
 Modules\XP.lua

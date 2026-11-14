@@ -33,6 +33,11 @@ The automated tests run the addon against a mock of the game API. These checks n
 - [ ] Drag the window and the arrow; `/reload`; both stay where they were.
 - [ ] Settings search finds "arrow".
 
+## Level-up and chart
+
+- [ ] `/waypost ding` plays the banner in the guide window; a real level-up does too and names the time the level took.
+- [ ] `/waypost xp` shows a bar per level; hovering a bar gives its time.
+
 ## Travel
 
 - [ ] Opening a flight master marks the flight point learned and takes the guide's flight.

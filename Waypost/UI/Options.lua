@@ -28,6 +28,8 @@ local function sections()
 			{ type = "check", path = "ui.locked", label = L["Lock the window in place"] },
 			{ type = "check", path = "ui.hideInCombat", label = L["Hide the window in combat"] },
 			{ type = "check", path = "ui.gameMenu", label = L["Waypost button in the game menu (Esc)"] },
+			{ type = "check", path = "ui.ding", label = L["Level-up animation in the guide window"],
+				tip = L["Preview it with /waypost ding."] },
 			{ type = "button", label = L["Reset window position"], func = function() W.StepFrame.ResetPosition() end },
 		},
 		{ title = L["Arrow"],

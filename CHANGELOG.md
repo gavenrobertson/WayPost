@@ -16,7 +16,9 @@ First release.
 - Later: quests set aside and offered back when you group up or gain levels; a catch-up card at
   level checkpoints.
 - Welcome window on first login and an in-game help window.
-- XP per hour, level and guide timers, run history with time saved.
+- XP per hour, level and guide timers, a chart of the time each level took, run history with time
+  saved.
+- Level-up animation in the guide window.
 - Talent guide, gear upgrade hints (Pawn supported), orphaned-quest cleanup.
 - Party sync, guild leveling board, guild route and officer announcements.
 - Custom guides: plain-text format, in-game editor, import/export strings, web editor, route recorder.

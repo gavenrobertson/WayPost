@@ -14,7 +14,8 @@ It comes with routes from 1 to 60 for every race on both factions, plus guides f
 - Skip a step, undo the skip, or peek ahead and come back.
 - Can't do a quest yet? Hit Later. It's set aside and offered back when you join a party or gain a couple of levels. Group quests are set aside for you while you're solo.
 - If the route needs a level you haven't reached, it shows how much XP you're short and points you at the quests you set aside or the nearest mobs your level.
-- XP per hour and time to level sit in the corner of the window.
+- XP per hour and time to level sit in the corner of the window. Click it for a graph of how long each level took.
+- A level-up banner plays in the guide window when you ding.
 
 ## Other things it does
 

@@ -53,6 +53,7 @@ function real:SetSize(w, h) self._w, self._h = w, h end
 function real:SetWidth(w) self._w = w end
 function real:SetHeight(h) self._h = h end
 function real:GetWidth() return self._w end
+function real:SetAllPoints(other) if type(other) == 'table' and other._w then self._w, self._h = other._w, other._h end end
 function real:GetHeight() return self._h end
 function real:GetSize() return self._w, self._h end
 function real:GetStringHeight() return 12 * math.max(1, math.ceil(#self._text / 40)) end

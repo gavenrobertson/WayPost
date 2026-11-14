@@ -83,6 +83,40 @@ def dot(size=16):
     return img.resize((size, size), Image.LANCZOS)
 
 
+def glow(size=128):
+    """Soft round glow, white with alpha falling off to the edge. Drawn additively behind the level-up text."""
+    n = size
+    img = Image.new("RGBA", (n, n), (255, 255, 255, 0))
+    px = img.load()
+    c = (n - 1) / 2.0
+    for y in range(n):
+        for x in range(n):
+            d = (((x - c) ** 2 + (y - c) ** 2) ** 0.5) / c
+            a = max(0.0, 1.0 - d) ** 2.2
+            px[x, y] = (255, 255, 255, int(255 * a))
+    return img
+
+
+def burst(size=256, rays=14):
+    """Rays fanning out from the centre, fading toward the rim. Spun slowly behind the level-up text."""
+    import math
+    n = size * 2
+    img = Image.new("L", (n, n), 0)
+    d = ImageDraw.Draw(img)
+    c = n / 2.0
+    for k in range(rays):
+        a = 2 * math.pi * k / rays
+        w = math.pi / rays * (0.55 if k % 2 == 0 else 0.32)
+        r = c * (0.98 if k % 2 == 0 else 0.74)
+        d.polygon([(c, c), (c + r * math.cos(a - w), c + r * math.sin(a - w)), (c + r * math.cos(a + w), c + r * math.sin(a + w))], fill=255)
+    img = img.filter(ImageFilter.GaussianBlur(3)).resize((size, size), Image.LANCZOS)
+    fade = glow(size).split()[3].point(lambda v: min(255, int(v * 2.4)))
+    alpha = ImageChops.multiply(img, fade)
+    out = Image.new("RGBA", (size, size), (255, 255, 255, 0))
+    out.putalpha(alpha)
+    return out
+
+
 def save(img, name):
     os.makedirs(OUT, exist_ok=True)
     img.save(os.path.join(OUT, name + ".tga"), compression=None, orientation=1)  # top-left origin, 32-bit, uncompressed
@@ -92,4 +126,6 @@ if __name__ == "__main__":
     save(logo(), "Logo")
     save(pin(), "Pin")
     save(dot(), "Dot")
-    print("wrote Logo.tga, Pin.tga, Dot.tga")
+    save(glow(), "Glow")
+    save(burst(), "Burst")
+    print("wrote Logo.tga, Pin.tga, Dot.tga, Glow.tga, Burst.tga")

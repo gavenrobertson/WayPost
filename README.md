@@ -47,7 +47,9 @@ Hold **Shift** while opening an NPC to switch automation off for that conversati
   levels. Group quests are set aside automatically while you are solo. At a level checkpoint the
   window shows how much XP you are short and points you at set-aside quests or enemies your level.
 - A welcome window on first login and a help window (`/waypost help`).
-- XP per hour, level and guide timers, a history of finished guides.
+- XP per hour, level and guide timers, a bar chart of how long each level took, a history of
+  finished guides.
+- A level-up animation in the guide window (`/waypost ding` previews it).
 - Talent suggestions, gear upgrade hints (uses Pawn when installed), a list of quests the route will
   not finish.
 - Party panel: everyone's step, sync the party to your guide, share a missing quest.
