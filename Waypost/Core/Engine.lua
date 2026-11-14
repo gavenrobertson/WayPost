@@ -389,13 +389,32 @@ local function finishGuide()
 end
 
 -- Find the next step at or after `from` that applies and is not complete.
+-- A step the route passes over because its condition does not hold (a group
+-- quest while solo, a dungeon step with dungeons off): the quests it would
+-- have picked up are left out of later steps too, so a hand-in further on
+-- never waits for a quest the route chose not to take. If the player picks
+-- the quest up anyway, its goals count again.
+local function passOver(step)
+	local goals = step.goals
+	for i = 1, #goals do
+		local g = goals[i]
+		if g.t == "accept" and g.quest and G.OnlyOk(g.only) and not Q.IsOn(g.quest) and not Q.IsDone(g.quest) then
+			W.char.skippedQuests[g.quest] = true
+		end
+	end
+end
+
 local function seek(from, softBefore)
 	local steps = E.guide.steps
 	for si = from, #steps do
 		local step = steps[si]
-		if not skipped(si) and stepApplies(step) then
-			if not stepComplete(si, softBefore) then return si end
-			if step.label then W.char.labels[step.label] = true end
+		if not skipped(si) then
+			if stepApplies(step) then
+				if not stepComplete(si, softBefore) then return si end
+				if step.label then W.char.labels[step.label] = true end
+			elseif G.OnlyOk(step.only) then
+				passOver(step)
+			end
 		end
 	end
 	return nil
@@ -463,6 +482,8 @@ end
 function E.Rescan()
 	if not E.guide then return end
 	prog.skipped, prog.done = {}, {}
+	-- forget which of this guide's quests were skipped or passed over, and decide again
+	for q in pairs(E.QuestSet()) do W.char.skippedQuests[q] = nil end
 	E.Advance(1, lastTouched() + 1)
 end
 

@@ -131,6 +131,34 @@ W.Set("route.xpSkips", false)
 M.player.level = 1; W.RefreshPlayer()
 
 ---------------------------------------------------------------------------
+section("group quests: left out when solo, and nothing later waits for them")
+do
+	W.RegisterGuide({ id = "test/group", title = "Group test", steps = {
+		{ title = "Elite quest", when = { { k = "group", q = 9001 } }, goals = { { t = "accept", quest = 9001, title = "Big Bad", group = true } } },
+		{ title = "Kill it", when = { { k = "group", q = 9001 } }, goals = { { t = "kill", quest = 9001, oi = 1, target = "Big Bad", count = 1 } } },
+		{ title = "Hand it in", goals = { { t = "turnin", quest = 9001, title = "Big Bad" } } },
+		{ title = "Carry on", goals = { { t = "accept", quest = 9002, title = "Next Quest" } } },
+	} })
+	M.player.inGroup = false
+	E.Load("test/group", true)
+	check(E.index == 4, "solo: the group quest and its hand-in are passed over (step " .. tostring(E.index) .. ")")
+	M.player.inGroup = true
+	E.Rescan()
+	check(E.index == 1, "in a party: the group quest is back in the route (step " .. tostring(E.index) .. ")")
+	M.player.inGroup = false
+	W.Set("route.groupQuests", true)
+	E.Rescan()
+	check(E.index == 1, "solo with 'include group quests' on: kept (step " .. tostring(E.index) .. ")")
+	W.Set("route.groupQuests", false)
+	-- a quest that cannot be done right now: Skip drops its later goals too, Undo restores it
+	E.Rescan()
+	M.accept(9002, "Next Quest")
+	W.Guides.Unregister("test/group")
+	W.char.skippedQuests = {}
+	M.quests = {}
+end
+
+---------------------------------------------------------------------------
 section("fast-forward for a character who already did part of the guide")
 M.quests, M.completed = {}, {}
 for _, q in ipairs({ 783, 7, 5261, 33, 18, 15, 21, 54 }) do M.completed[q] = true end
