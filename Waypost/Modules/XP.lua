@@ -1,6 +1,12 @@
--- Leveling speed: XP per hour, time to level, time per level and per guide,
--- and a history of finished guides with the time saved against your best.
--- Costs one handler on PLAYER_XP_UPDATE; nothing ticks.
+-- Leveling speed: live XP per hour, time to level, time per level and per
+-- guide, and a history of finished guides with the time saved against your best.
+--
+-- XP per hour is measured over a sliding ten-minute window ending now, so it
+-- moves in real time: it climbs as XP comes in and falls while you are idle.
+-- Each gain is put down to a quest hand-in (QUEST_TURNED_IN reports the XP
+-- just before the XP event) or to kills and exploring, which gives the
+-- "kills / quests to level" estimates. Nothing here ticks on its own; the
+-- tracker window and the guide window ask for fresh numbers while shown.
 
 local W = Waypost
 local L = W.L
@@ -11,10 +17,14 @@ W.XP = X
 local now = function() return (GetTime and GetTime()) or 0 end
 local wall = function() return (time and time()) or 0 end
 
-local sessionStart, sessionXP = nil, 0
-local lastXP, lastMax
-local samples = {}          -- { t, totalGained } ring for a 15 minute window
-local WINDOW = 900
+local WINDOW = 600           -- seconds the XP/hour figure looks back over
+local MIN_SPAN = 120        -- never divide by less than this: one quest in the first minute is not 100k XP/h
+local gains = {}            -- { t =, xp =, src = "quest" | "kill" }, the last WINDOW seconds
+local session = { start = nil, xp = 0, quest = 0, kill = 0, quests = 0, kills = 0, levels = 0 }
+X.session = session
+local killRing, questRing = {}, {}   -- recent gains by source, for the averages
+local pendingQuest                   -- { xp =, t = } from QUEST_TURNED_IN, waiting for the XP event
+local lastXP, lastMax, lastGain
 local mark                  -- wall clock at login or last accounting point
 local timedGuide            -- the guide the time since `mark` belongs to
 
@@ -32,23 +42,76 @@ local function account()
 	mark = t
 end
 
+local function prune(t)
+	while gains[1] and t - gains[1].t > WINDOW do table.remove(gains, 1) end
+end
+
+-- XP per hour over the last ten minutes, as of this moment.
 function X.Rate()
+	if not session.start then return 0 end
 	local t = now()
-	while #samples > 2 and t - samples[1].t > WINDOW do table.remove(samples, 1) end
-	local first, last = samples[1], samples[#samples]
-	if first and last and last.t - first.t >= 60 and last.g > first.g then
-		return (last.g - first.g) / (last.t - first.t) * 3600
+	prune(t)
+	local sum = 0
+	for i = 1, #gains do sum = sum + gains[i].xp end
+	if sum <= 0 then return 0 end
+	local span = math.max(MIN_SPAN, math.min(WINDOW, t - session.start))
+	return sum / span * 3600
+end
+
+-- XP gained in each of the last `n` minutes, oldest first (the last one is the minute in progress).
+function X.PerMinute(n, out)
+	out = out or {}
+	n = n or 10
+	local t = now()
+	prune(t)
+	for i = 1, n do out[i] = 0 end
+	for i = #out, n + 1, -1 do out[i] = nil end
+	for _, g in ipairs(gains) do
+		local age = t - g.t
+		local slot = n - math.floor(age / 60)
+		if slot >= 1 and slot <= n then out[slot] = out[slot] + g.xp end
 	end
-	if sessionStart and t - sessionStart >= 60 and sessionXP > 0 then
-		return sessionXP / (t - sessionStart) * 3600
-	end
-	return 0
+	return out
 end
 
 function X.TimeToLevel()
 	local rate = X.Rate()
 	if rate <= 0 or not lastXP or not lastMax then return nil end
 	return (lastMax - lastXP) / rate * 3600
+end
+
+local function average(ring)
+	if #ring < 3 then return nil end
+	local s = 0
+	for i = 1, #ring do s = s + ring[i] end
+	return s / #ring
+end
+
+local function push(ring, v, size)
+	ring[#ring + 1] = v
+	if #ring > size then table.remove(ring, 1) end
+end
+
+-- Everything the tracker shows, in one table (reused).
+local snap = {}
+function X.Snapshot()
+	local s = snap
+	s.level = W.player.level or 1
+	s.cur, s.max = lastXP or 0, lastMax or 1
+	s.left = math.max(0, s.max - s.cur)
+	s.pct = s.max > 0 and s.cur / s.max or 0
+	local rested = GetXPExhaustion and W.Readable(GetXPExhaustion())
+	s.rested = type(rested) == "number" and rested or 0
+	s.rate = X.Rate()
+	s.ttl = X.TimeToLevel()
+	s.sessionXP, s.sessionTime = session.xp, session.start and (now() - session.start) or 0
+	s.questXP, s.killXP, s.quests, s.kills, s.levels = session.quest, session.kill, session.quests, session.kills, session.levels
+	local ak, aq = average(killRing), average(questRing)
+	s.avgKill, s.avgQuest = ak, aq
+	s.killsToLevel = ak and ak > 0 and math.ceil(s.left / ak) or nil
+	s.questsToLevel = aq and aq > 0 and math.ceil(s.left / aq) or nil
+	s.lastGain = lastGain
+	return s
 end
 
 function X.ShortText()
@@ -63,35 +126,57 @@ function X.TooltipText()
 	local x = W.char.xp
 	local rate = X.Rate()
 	local lines = {}
-	lines[#lines + 1] = (L["XP per hour: %s"]):format(rate > 0 and W.FormatNumber(rate) or "--")
+	lines[#lines + 1] = (L["XP per hour: %s (last 10 minutes)"]):format(rate > 0 and W.FormatNumber(rate) or "--")
 	lines[#lines + 1] = (L["Time to next level: %s"]):format(W.FormatTime(X.TimeToLevel()))
 	lines[#lines + 1] = (L["Time on this level: %s"]):format(W.FormatTime(x.levelTime or 0))
 	if W.char.guide then
 		lines[#lines + 1] = (L["Time on this guide: %s"]):format(W.FormatTime(x.guides[W.char.guide] or 0))
 	end
-	lines[#lines + 1] = L["Click for your level history."]
+	lines[#lines + 1] = L["Click for the live XP tracker. Shift-click for your level history."]
 	return table.concat(lines, "\n")
 end
 
 local function onXP()
 	local cur, max = W.Readable(UnitXP("player")), W.Readable(UnitXPMax("player"))
 	if type(cur) ~= "number" or type(max) ~= "number" then return end
+	local gained = 0
 	if lastXP then
-		local gained = cur - lastXP
+		gained = cur - lastXP
 		if gained < 0 then gained = (lastMax - lastXP) + cur end   -- leveled
-		if gained > 0 then
-			sessionXP = sessionXP + gained
-			samples[#samples + 1] = { t = now(), g = sessionXP }
-		end
-	else
-		samples[1] = { t = now(), g = 0 }
 	end
 	lastXP, lastMax = cur, max
+	if gained > 0 then
+		local t = now()
+		local q = 0
+		if pendingQuest and t - pendingQuest.t < 3 then
+			q = math.min(gained, pendingQuest.xp)
+			pendingQuest = nil
+		end
+		session.xp = session.xp + gained
+		if q > 0 then
+			gains[#gains + 1] = { t = t, xp = q, src = "quest" }
+			session.quest, session.quests = session.quest + q, session.quests + 1
+			push(questRing, q, 10)
+		end
+		local k = gained - q
+		if k > 0 then
+			gains[#gains + 1] = { t = t, xp = k, src = "kill" }
+			session.kill, session.kills = session.kill + k, session.kills + 1
+			push(killRing, k, 20)
+		end
+		lastGain = { xp = gained, src = q > 0 and "quest" or "kill", t = t }
+		W.Fire("WP_XP_GAIN", gained, lastGain.src)
+	end
 	W.Fire("WP_XP")
 end
 
+W.On("QUEST_TURNED_IN", function(_, xp)
+	xp = W.Readable(xp)
+	if type(xp) == "number" and xp > 0 then pendingQuest = { xp = xp, t = now() } end
+end)
+
 W.On("WP_LOGIN", function()
-	sessionStart = now()
+	session.start = now()
 	mark = wall()
 	local x = W.char.xp
 	x.levels = x.levels or {}
@@ -101,6 +186,7 @@ W.On("WP_LOGIN", function()
 	onXP()
 end)
 W.On("PLAYER_XP_UPDATE", function(unit) if unit == nil or unit == "player" then onXP() end end)
+W.On("WP_LEVEL", function() session.levels = session.levels + 1 end)
 
 W.On("WP_LEVEL", function(level)
 	account()
@@ -364,6 +450,7 @@ function X.ToggleWindow(show)
 		chart:SetPoint("TOPLEFT", 14, -40)
 		chart:SetPoint("TOPRIGHT", -14, -40)
 		chart:SetHeight(200)
+		win:HookScript("OnSizeChanged", function(_, _, h) chart:SetHeight(math.max(200, (h - 54) * 0.42)) end)
 		local box = CreateFrame("Frame", nil, win)
 		box:SetPoint("TOPLEFT", chart, "BOTTOMLEFT", 0, -8)
 		box:SetPoint("BOTTOMRIGHT", -14, 14)

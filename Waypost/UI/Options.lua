@@ -16,23 +16,43 @@ local function pct(v) return ("%d%%"):format(math.floor(v * 100 + 0.5)) end
 local function sections()
 	return {
 		{ title = L["Guide window"],
+			{ type = "dropdown", path = "ui.layout", label = L["Layout"], options = function()
+					local out = {}
+					for _, l in ipairs(W.StepFrame.LAYOUTS) do out[#out + 1] = { l[1], L[l[2]] } end
+					return out
+				end, set = function(v) W.StepFrame.SetLayout(v) O.Refresh() end,
+				tip = L["Simple: what to do and where. Standard: plus the step's other goals and what comes next. Detailed: everything. Change any box below to make your own."] },
+			{ type = "elements" },
+			{ type = "slider", path = "ui.width", label = L["Window width"], min = 230, max = 600, step = 10,
+				tip = L["You can also drag the guide window's bottom-right corner."] },
+			{ type = "slider", path = "ui.listRows", label = L["Steps shown in the step list"], min = 4, max = 40, step = 1 },
 			{ type = "dropdown", path = "ui.skin", label = L["Window style"], options = UI.SKINS },
 			{ type = "slider", path = "ui.scale", label = L["Window scale"], min = 0.6, max = 1.6, step = 0.05, fmt = pct },
-			{ type = "slider", path = "ui.width", label = L["Window width"], min = 220, max = 460, step = 10 },
 			{ type = "slider", path = "ui.alpha", label = L["Window opacity"], min = 0.3, max = 1, step = 0.05, fmt = pct },
 			{ type = "dropdown", path = "ui.font", label = L["Text font"], options = UI.FACE_NAMES },
 			{ type = "dropdown", path = "ui.headFont", label = L["Heading font"], options = UI.HEAD_NAMES,
 				tip = L["Step titles, window titles and the level-up banner."] },
 			{ type = "slider", path = "ui.fontSize", label = L["Font size"], min = 9, max = 20, step = 1,
 				tip = L["Scales every line of guide text. Larger sizes help on small or distant screens."] },
-			{ type = "slider", path = "ui.showNext", label = L["Upcoming steps shown"], min = 0, max = 6, step = 1 },
-			{ type = "check", path = "ui.compact", label = L["Compact mode (current step only)"] },
 			{ type = "check", path = "ui.locked", label = L["Lock the window in place"] },
 			{ type = "check", path = "ui.hideInCombat", label = L["Hide the window in combat"] },
 			{ type = "check", path = "ui.gameMenu", label = L["Waypost button in the game menu (Esc)"] },
 			{ type = "check", path = "ui.ding", label = L["Level-up animation in the guide window"],
 				tip = L["Preview it with /waypost ding."] },
 			{ type = "button", label = L["Reset window position"], func = function() W.StepFrame.ResetPosition() end },
+			{ type = "button", label = L["Reset all window sizes"], func = function()
+					UI.ResetWindowSizes()
+					W.opt.ui.width = W.defaults.ui.width
+					W.opt.ui.listRows = W.defaults.ui.listRows
+					W.Fire("WP_SETTINGS", "ui.width")
+				end },
+		},
+		{ title = L["XP tracker"],
+			{ type = "check", path = "tracker.shown", label = L["Show the live XP tracker"],
+				tip = L["XP per hour over the last ten minutes, time to level counting down, XP each minute, and kills or quests to level. Also /waypost tracker."] },
+			{ type = "check", path = "tracker.locked", label = L["Lock the tracker in place"] },
+			{ type = "slider", path = "tracker.scale", label = L["Tracker scale"], min = 0.6, max = 1.6, step = 0.05, fmt = pct },
+			{ type = "slider", path = "tracker.alpha", label = L["Tracker opacity"], min = 0.3, max = 1, step = 0.05, fmt = pct },
 		},
 		{ title = L["Arrow"],
 			{ type = "check", path = "arrow.enabled", label = L["Show the arrow"] },
@@ -113,6 +133,7 @@ local function sections()
 end
 
 local function makeControl(def)
+	if def.type == "elements" then return nil end
 	local get = def.get or function() return W.Get(def.path) end
 	local set = def.set or function(v) W.Set(def.path, v) end
 	local c
@@ -145,6 +166,7 @@ local function layout()
 			if match then shown = shown + 1 end
 		end
 		sec.heading:SetShown(shown > 0)
+		sec.y = -y
 		if shown > 0 then
 			sec.heading:ClearAllPoints()
 			sec.heading:SetPoint("TOPLEFT", 4, y)
@@ -164,14 +186,16 @@ local function layout()
 end
 
 local function build()
-	win = UI.Window("WaypostOptions", L["Waypost Settings"], 420, 540)
+	win = UI.Window("WaypostOptions", L["Waypost Settings"], 420, 540, { minW = 400, minH = 320 })
 	searchBox = UI.EditBox(win, 240, 24, L["Search settings"])
 	searchBox:SetPoint("TOPLEFT", 16, -38)
 	searchBox:HookScript("OnTextChanged", function() layout() end)
 
-	local version = win:CreateFontString(nil, "ARTWORK", "WaypostFontMuted")
-	version:SetPoint("LEFT", searchBox, "RIGHT", 10, 0)
-	version:SetText("v" .. W.version)
+	local help = UI.Button(win, L["Help"], 60, 22, function() W.Help.Open() end)
+	help:SetPoint("TOPRIGHT", -14, -38)
+	local guides = UI.Button(win, L["Guides"], 70, 22, function() W.StepFrame.Toggle(true) W.Picker.Toggle(true) end)
+	guides:SetPoint("RIGHT", help, "LEFT", -6, 0)
+	searchBox:SetPoint("RIGHT", guides, "LEFT", -10, 0)
 
 	local box = CreateFrame("Frame", nil, win, "BackdropTemplate")
 	box:SetPoint("TOPLEFT", 14, -68)
@@ -183,7 +207,26 @@ local function build()
 
 	for _, sec in ipairs(sections()) do
 		local entry = { title = sec.title, heading = UI.Heading(content, sec.title), controls = {} }
-		for _, def in ipairs(sec) do entry.controls[#entry.controls + 1] = makeControl(def) end
+		for _, def in ipairs(sec) do
+			if def.type == "elements" then
+				-- one box per part of the guide window; ticking any makes a Custom layout
+				for _, el in ipairs(W.StepFrame.ELEMENTS) do
+					local key = el[1]
+					local c = makeControl({ type = "check", label = "   " .. L[el[2]],
+						get = function() return W.StepFrame.Layout()[key] and true or false end,
+						set = function(v) W.StepFrame.SetElement(key, v) O.Refresh() end })
+					entry.controls[#entry.controls + 1] = c
+				end
+				local c = makeControl({ type = "slider", label = "   " .. L["Upcoming steps shown"], min = 0, max = 8, step = 1,
+					get = function() return W.StepFrame.Layout().next or 0 end,
+					set = function(v)
+						if v ~= (W.StepFrame.Layout().next or 0) then W.StepFrame.SetElement("next", v) end
+					end })
+				entry.controls[#entry.controls + 1] = c
+			else
+				entry.controls[#entry.controls + 1] = makeControl(def)
+			end
+		end
 		built[#built + 1] = entry
 	end
 
@@ -213,7 +256,7 @@ function O.Refresh()
 	end
 end
 
-function O.Toggle(show)
+function O.Toggle(show, section)
 	if W.InCombat() and not win then
 		W.Print(L["Settings open after combat."])
 		return
@@ -221,7 +264,16 @@ function O.Toggle(show)
 	if not win then build() end
 	if show == nil then show = not win:IsShown() end
 	win:SetShown(show)
-	if show then O.Refresh() layout() end
+	if show then
+		O.Refresh()
+		layout()
+		if section then
+			searchBox:SetText("")
+			for _, sec in ipairs(built) do
+				if sec.title == section and sec.y then scroll.bar:SetValue(math.max(0, sec.y - 4)) end
+			end
+		end
+	end
 end
 
 W.On("WP_SETTINGS", function(path) if path == "*" then O.Refresh() end end)

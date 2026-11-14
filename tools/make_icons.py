@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Draws Waypost's interface glyphs into one sheet (Media/Icons.tga).
 
-8 columns x 5 rows of 64 px cells in a 512x512 texture. The glyphs are white
+8 columns of 64 px cells in a 512x512 texture (room for 8 rows). The glyphs are white
 on transparent so the addon tints them. The order here is the order in
 UI/Skin.lua's ICON table. Needs Pillow.
 
@@ -33,6 +33,7 @@ NAMES = [
     "right", "down", "gear", "list", "close", "minus", "plus", "book",
     "undo", "warn", "dots", "lock", "nav", "interact", "box", "explore",
     "up", "bug", "users", "clock", "boxcheck", "search", "pinoff", "star",
+    "grip", "chart", "layout", "bolt",
 ]
 
 
@@ -295,6 +296,29 @@ def g_star(d):
     poly(d, pts)
 
 
+def g_grip(d):
+    # three diagonal ridges in the bottom-right corner, as on a resizable window
+    for k in (0, 1, 2):
+        o = 20 + k * 13
+        line(d, [(o, 56), (56, o)], 6)
+
+
+def g_chart(d):
+    rect(d, 10, 34, 20, 54, 2)
+    rect(d, 27, 20, 37, 54, 2)
+    rect(d, 44, 8, 54, 54, 2)
+
+
+def g_layout(d):
+    rect(d, 8, 8, 56, 20, 3)
+    rect(d, 8, 26, 56, 38, 3)
+    rect(d, 8, 44, 34, 56, 3)
+
+
+def g_bolt(d):
+    poly(d, [(36, 4), (14, 36), (30, 36), (24, 60), (50, 24), (34, 24), (42, 4)])
+
+
 DRAW = {
     "accept": g_accept, "turnin": g_turnin, "kill": g_kill, "collect": g_collect, "talk": g_talk, "goto": g_goto,
     "use": g_use, "fly": g_fly, "home": g_home, "train": g_train, "level": g_level, "vendor": g_vendor,
@@ -303,6 +327,7 @@ DRAW = {
     "undo": g_undo, "warn": g_warn, "dots": g_dots, "lock": g_lock, "nav": g_nav, "interact": g_interact,
     "box": g_box, "explore": g_explore, "up": g_up, "bug": g_bug, "users": g_users, "clock": g_clock,
     "boxcheck": g_boxcheck, "search": g_search, "pinoff": g_pinoff, "star": g_star,
+    "grip": g_grip, "chart": g_chart, "layout": g_layout, "bolt": g_bolt,
 }
 
 

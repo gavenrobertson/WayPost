@@ -35,8 +35,11 @@ local TOPICS = {
 		gold(L["Moving around"]),
 		L["The arrows at the bottom move back and forward. Shift-click the forward arrow to look ahead without losing your place. Steps opens the whole list. Click the guide's name at the top to change guide."],
 		"",
-		gold(L["Making it yours"]),
-		L["Drag the window anywhere. The minus button shrinks it to just what to do now. Settings has size, width, font and see-through styles."],
+		gold(L["Layouts"]),
+		L["Simple shows only what to do now and where. Standard adds the step's tip, its other goals and what comes next. Detailed shows everything, with a live XP bar. Switch in the ... menu, or with the minus button at the top. In Settings, tick the parts you want to make your own layout."],
+		"",
+		gold(L["Size and place"]),
+		L["Drag the window by its title. Drag the bottom-right corner to make it wider or narrower, and the bottom edge of the step list to show more steps. Every other Waypost window resizes from its corner too; double-click a corner to reset it."],
 	}, "\n") end },
 	{ key = "arrow", title = "Arrow and map", text = function() return table.concat({
 		L["The gold arrow points at your next objective and turns as you turn. Under it are the distance and roughly how long it takes to get there. It points down and turns green when you arrive."],
@@ -44,6 +47,14 @@ local TOPICS = {
 		L["Drag the arrow to move it; right-click it for options. Pins for the step are on the world map and the minimap, with faint dots where a step's enemies or items are found."],
 		"",
 		L["If you use TomTom, Settings can hand the waypoint to TomTom's arrow instead."],
+	}, "\n") end },
+	{ key = "xp", title = "XP tracker", text = function() return table.concat({
+		L["The live XP tracker shows your XP bar with rested experience, XP per hour over the last ten minutes, and the time to your next level counting down. The number goes up as you earn experience and drops while you stand still, so it always says how fast you are going right now."],
+		"",
+		L["Under that: a bar for each of the last ten minutes, what you have earned this session from quests and from kills, and about how many kills or quests are left to level. Each gain pops up over the bar."],
+		"",
+		gold(L["Open it"]),
+		L["Click the XP per hour at the bottom of the guide window, choose Live XP tracker in the ... menu, or type /waypost tracker. Drag its corner to make it wider. The chart button opens a graph of how long each level took."],
 	}, "\n") end },
 	{ key = "auto", title = "What it does for you", text = function() return table.concat({
 		L["Quests from your guide are accepted and handed in for you. It stops when there is a reward to choose, and it never touches quests that are not in the guide."],
@@ -191,7 +202,7 @@ local function build()
 	point(welcomePane, 182, "skip", Col.warn, L["Stuck? Skip it, or save it for later"],
 		L["Skip drops a step. Later sets its quests aside and offers them back when you group up or gain levels."])
 	point(welcomePane, 236, "dots", Col.text, L["Everything else is in the menu"],
-		L["Guides, settings, party and guild are behind the ... button on the guide window. Esc also has a Waypost button, and /waypost works anywhere."])
+		L["Guides, settings, layouts, party and guild are behind the ... button on the guide window. The game menu (Esc) has a Waypost button for settings, and /waypost works anywhere."])
 
 	local line = welcomePane:CreateTexture(nil, "ARTWORK")
 	line:SetTexture(UI.WHITE)

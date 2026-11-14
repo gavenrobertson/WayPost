@@ -91,3 +91,48 @@ if __name__ == "__main__":
     chart(lv, 1500).save(os.path.join(ROOT, "docs", "preview-level-chart.png"))
     ding().save(os.path.join(ROOT, "docs", "preview-level-up.png"))
     print("wrote docs/preview-level-chart.png, docs/preview-level-up.png")
+
+
+def tracker():
+    """The live XP tracker, at its default width."""
+    W, H = 250, 188
+    img = Image.new("RGB", (W * S, H * S), C["bg"])
+    d = ImageDraw.Draw(img)
+    d.rectangle([0, 0, W * S - 1, H * S - 1], outline=C["trim"])
+    d.text((10 * S, 8 * S), "Level 14", font=font(17), fill=C["gold"])
+    d.text((206 * S, 11 * S), "62.4%", font=font(12), fill=C["gold"], anchor="ra")
+    d.text((226 * S, 10 * S), "|||", font=font(10), fill=C["dim"])
+    d.text((240 * S, 9 * S), "x", font=font(10), fill=C["dim"])
+    bx, by, bw, bh = 10, 32, 230, 12
+    d.rectangle([bx * S, by * S, (bx + bw) * S, (by + bh) * S], fill=(0, 0, 0))
+    d.rectangle([bx * S, by * S, (bx + bw * 0.624) * S, (by + bh) * S], fill=(158, 82, 235))
+    d.rectangle([(bx + bw * 0.624) * S, by * S, (bx + bw * 0.78) * S, (by + bh) * S], fill=(48, 70, 120))
+    d.rectangle([bx * S, by * S, (bx + bw) * S, (by + bh) * S], outline=C["trim"])
+    d.text(((bx + bw * 0.6) * S, (by - 15) * S), "+420", font=font(12), fill=C["gold"], anchor="ma")
+    d.text((10 * S, 49 * S), "12,345 / 19,800", font=font(11), fill=C["text"])
+    d.text((240 * S, 49 * S), "7,455 to go", font=font(11), fill=C["muted"], anchor="ra")
+    d.text((10 * S, 66 * S), "21.4k", font=font(26), fill=C["gold"])
+    d.text((240 * S, 72 * S), "0:20:54", font=font(17), fill=C["text"], anchor="ra")
+    d.text((10 * S, 96 * S), "XP per hour, last 10 minutes", font=font(11), fill=C["muted"])
+    d.text((240 * S, 96 * S), "to level 15", font=font(11), fill=C["muted"], anchor="ra")
+    vals = [800, 1200, 0, 600, 1500, 2100, 900, 1800, 2400, 700]
+    top = max(vals)
+    bw2 = (230 - 9 * 2) / 10
+    for i, v in enumerate(vals):
+        x0 = 10 + i * (bw2 + 2)
+        h = max(1, 26 * v / top)
+        col = (255, 209, 0) if v > 0 else (60, 50, 20)
+        if i == 9:
+            col = (128, 105, 0)
+        d.rectangle([x0 * S, (138 - h) * S, (x0 + bw2) * S, 138 * S], fill=col)
+    d.line([(10 * S, 139 * S), (240 * S, 139 * S)], fill=(106, 98, 82))
+    d.text((10 * S, 147 * S), "Session +34.5k in 1h 12m", font=font(11), fill=C["text"])
+    d.text((240 * S, 147 * S), "Quests 22.1k (9)", font=font(11), fill=C["text"], anchor="ra")
+    d.text((10 * S, 163 * S), "About 38 kills or 4 quests", font=font(11), fill=C["muted"])
+    d.text((240 * S, 163 * S), "Kills 12.4k (63)", font=font(11), fill=C["text"], anchor="ra")
+    return img
+
+
+if __name__ == "__main__":
+    tracker().save(os.path.join(ROOT, "docs", "preview-xp-tracker.png"))
+    print("wrote docs/preview-xp-tracker.png")

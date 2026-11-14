@@ -8,7 +8,11 @@ First release.
   reputation, exploration and collection guides, converted from Polestar Guides (GPL-3.0).
 - Guide window with a "Now" card (what, who, where, live distance and direction), the step's other
   goals, upcoming steps, full step list, compact mode, three window styles.
-- A Waypost button on the game menu (Esc).
+- A Waypost button inside the game menu (Esc), in the menu's own list of buttons.
+- Guide window layouts: Simple, Standard, Detailed, or Custom from any mix of parts. Every window
+  resizes from its corner and remembers its size.
+- Live XP tracker: XP per hour over a sliding ten-minute window, time to level counting down, XP
+  per minute, quest and kill XP, kills or quests to level.
 - 3D navigation arrow with distance and time to arrive; world map and minimap pins; TomTom hand-off.
 - Auto accept and turn-in for guide quests, quest item and target buttons with key bindings,
   flight point tracking and auto-flight.

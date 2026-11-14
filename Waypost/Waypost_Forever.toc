@@ -34,6 +34,7 @@ UI\MinimapButton.lua
 UI\GameMenu.lua
 UI\Help.lua
 UI\Ding.lua
+UI\XPTracker.lua
 
 Modules\Automation.lua
 Modules\XP.lua

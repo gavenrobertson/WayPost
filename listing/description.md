@@ -13,9 +13,11 @@ The first time you log in, a welcome window explains the basics and offers the g
 - A card at the top says the one thing to do right now: the quest, mob or item, who gives or takes the quest, what drops the item, and how far away it is and in which direction.
 - Under it are the rest of the step's goals. They tick themselves off as you do them, in combat too.
 - Below that is what's coming next and how far away it is.
-- XP per hour and time to level sit in the corner. Click it for a graph of how long each level took.
+- A live XP tracker: XP per hour over the last ten minutes (it climbs as you earn and drops when you stop), time to level counting down second by second, XP for each of the last ten minutes, and about how many kills or quests are left to level.
+- A graph of how long each level took.
 - When you ding, a level-up banner plays in the window.
-- There's a compact mode, three window styles, and it uses the game's own fonts.
+- Three layouts: Simple (just what to do and where), Standard, and Detailed (everything). Or tick the parts you want and make your own.
+- Every window resizes from its corner, and three window styles. It uses the game's own fonts.
 
 ## The arrow
 
@@ -68,12 +70,14 @@ The first time you log in, a welcome window explains the basics and offers the g
 | `/waypost config` | Settings |
 | `/waypost help` | The welcome and help window |
 | `/waypost later` | Quests you set aside |
+| `/waypost tracker` | The live XP tracker |
 | `/waypost xp` | Leveling speed and the time-per-level graph |
+| `/waypost layout detailed` | Switch layout (simple, standard, detailed) |
 | `/waypost party` | Party progress |
 | `/waypost guild` | Guild leveling board |
 | `/waypost report` | A report to paste when a step is wrong |
 
-Esc also has a Waypost button under the game menu, and there's a minimap button.
+The game menu (Esc) has a Waypost button for settings, and there's a minimap button.
 
 ## What's missing
 

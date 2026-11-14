@@ -19,9 +19,10 @@ W.defaults = {
 		headFont = "quest",      -- quest (the quest-log title face) | text
 		fontSize = 12,
 		locked = false,
-		compact = false,
-		showNext = 3,
+		layout = "standard",     -- simple | standard | detailed | custom
+		lastLayout = "standard", -- what the header's shrink button returns to
 		listOpen = false,
+		listRows = 12,
 		width = 320,
 		showDone = false,
 		gameMenu = true,
@@ -30,6 +31,8 @@ W.defaults = {
 		fadeOutOfCombat = false,
 		hidden = false,
 	},
+	tracker = { shown = false, locked = false, width = 250, scale = 1.0, alpha = 1.0 },
+	windows = {},                -- saved sizes of the dialog windows, by name
 	arrow = {
 		enabled = true,
 		scale = 1.0,
@@ -145,7 +148,13 @@ end)
 function W.SelectProfile(name, silent)
 	local db = W.db
 	if not valid(db.profiles[name]) then db.profiles[name] = {} end
-	merge(db.profiles[name], W.defaults)
+	local p = db.profiles[name]
+	if type(p.ui) == "table" and p.ui.compact ~= nil then
+		if p.ui.compact then p.ui.layout = "simple" end
+		p.ui.compact = nil
+	end
+	if type(p.ui) == "table" and p.ui.showNext ~= nil then p.ui.showNext = nil end
+	merge(p, W.defaults)
 	db.profileKeys[charKey()] = name
 	W.profileName = name
 	W.opt = db.profiles[name]

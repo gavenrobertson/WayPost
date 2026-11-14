@@ -45,7 +45,7 @@ function UI.Hex(c)
 end
 
 ---------------------------------------------------------------------------
--- Icons: one sheet, 8 columns x 5 rows of 64 px cells in 512x512
+-- Icons: one sheet, 8 columns of 64 px cells in 512x512 (up to 8 rows)
 ---------------------------------------------------------------------------
 local ICON = {}
 do
@@ -55,6 +55,7 @@ do
 		"right", "down", "gear", "list", "close", "minus", "plus", "book",
 		"undo", "warn", "dots", "lock", "nav", "interact", "box", "explore",
 		"up", "bug", "users", "clock", "boxcheck", "search", "pinoff", "star",
+		"grip", "chart", "layout", "bolt",
 	}
 	for i, n in ipairs(names) do ICON[n] = i - 1 end
 end
@@ -637,8 +638,80 @@ end
 
 ---------------------------------------------------------------------------
 -- Dialog window: leather panel, header band with a gold title, Esc closes.
+-- Every window can be resized from its bottom-right corner; the size is
+-- remembered per window (double-click the corner to reset it). The size it
+-- was designed at is its smallest, so nothing inside ever overlaps.
+--   opts.minW, opts.minH   allow it smaller than its design size
+--   opts.noResize          a fixed size
 ---------------------------------------------------------------------------
-function UI.Window(name, title, width, height)
+local function windowStore(name)
+	if not (name and W.opt) then return nil end
+	W.opt.windows = W.opt.windows or {}
+	return W.opt.windows
+end
+
+local function addResize(f, name, width, height, opts)
+	local minW, minH = opts.minW or width, opts.minH or height
+	local maxW, maxH = opts.maxW or math.max(width, math.min(1600, width * 2)), opts.maxH or math.max(height, math.min(1100, height * 2))
+	f:SetResizable(true)
+	if f.SetResizeBounds then
+		f:SetResizeBounds(minW, minH, maxW, maxH)
+	elseif f.SetMinResize then
+		f:SetMinResize(minW, minH)
+		f:SetMaxResize(maxW, maxH)
+	end
+	f.wpDesign = { width, height }
+
+	local grip = CreateFrame("Button", nil, f)
+	grip:SetSize(16, 16)
+	grip:SetPoint("BOTTOMRIGHT", -2, 2)
+	grip:SetFrameLevel(f:GetFrameLevel() + 20)
+	grip.icon = UI.Icon(grip, "grip", 11, "OVERLAY", C.muted)
+	grip.icon:SetPoint("CENTER")
+	grip:SetScript("OnEnter", function(self)
+		self.icon:SetVertexColor(C.gold[1], C.gold[2], C.gold[3])
+		GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+		GameTooltip:SetText(L["Drag to resize"], 1, 0.82, 0)
+		GameTooltip:AddLine(L["Double-click to reset the size."], 1, 1, 1)
+		GameTooltip:Show()
+	end)
+	grip:SetScript("OnLeave", function(self)
+		self.icon:SetVertexColor(C.muted[1], C.muted[2], C.muted[3])
+		GameTooltip:Hide()
+	end)
+	grip:SetScript("OnMouseDown", function() f:StartSizing("BOTTOMRIGHT") end)
+	grip:SetScript("OnMouseUp", function()
+		f:StopMovingOrSizing()
+		local store = windowStore(name)
+		if store then store[name] = { w = math.floor(f:GetWidth() + 0.5), h = math.floor(f:GetHeight() + 0.5) } end
+	end)
+	grip:SetScript("OnDoubleClick", function()
+		local store = windowStore(name)
+		if store then store[name] = nil end
+		f:SetSize(width, height)
+	end)
+	f.grip = grip
+
+	f:HookScript("OnShow", function()
+		local store = windowStore(name)
+		local saved = store and store[name]
+		if type(saved) == "table" and saved.w and saved.h then
+			f:SetSize(math.min(maxW, math.max(minW, saved.w)), math.min(maxH, math.max(minH, saved.h)))
+		end
+	end)
+end
+
+-- Forget every saved window size (Settings).
+function UI.ResetWindowSizes()
+	if not W.opt then return end
+	W.opt.windows = {}
+	for _, f in ipairs(UI.windows or {}) do
+		if f.wpDesign then f:SetSize(f.wpDesign[1], f.wpDesign[2]) end
+	end
+end
+
+function UI.Window(name, title, width, height, opts)
+	opts = opts or {}
 	local f = CreateFrame("Frame", name, UIParent)
 	f:SetSize(width, height)
 	f:SetPoint("CENTER")
@@ -682,6 +755,9 @@ function UI.Window(name, title, width, height)
 	if name then tinsert(UISpecialFrames, name) end
 	f:SetScript("OnShow", function() if W.opt and W.opt.sound and PlaySound and SOUNDKIT then PlaySound(SOUNDKIT.IG_CHARACTER_INFO_OPEN) end end)
 	f:SetScript("OnHide", function() UI.HideMenu() if W.opt and W.opt.sound and PlaySound and SOUNDKIT then PlaySound(SOUNDKIT.IG_CHARACTER_INFO_CLOSE) end end)
+	if not opts.noResize then addResize(f, name, width, height, opts) end
+	UI.windows = UI.windows or {}
+	UI.windows[#UI.windows + 1] = f
 	f:Hide()
 	return f
 end
@@ -707,7 +783,7 @@ end
 local copyWindow
 function UI.CopyText(title, text, hint)
 	if not copyWindow then
-		local f = UI.Window("WaypostCopyWindow", "", 520, 360)
+		local f = UI.Window("WaypostCopyWindow", "", 520, 360, { minW = 380, minH = 220 })
 		f.hint = f:CreateFontString(nil, "ARTWORK", "WaypostFontSmall")
 		f.hint:SetPoint("TOPLEFT", 16, -36)
 		f.hint:SetPoint("TOPRIGHT", -16, -36)
@@ -724,6 +800,7 @@ function UI.CopyText(title, text, hint)
 		e:SetFontObject("ChatFontNormal")
 		e:SetAutoFocus(false)
 		e:SetWidth(450)
+		sf:HookScript("OnSizeChanged", function(_, w) e:SetWidth(math.max(100, w - 4)) end)
 		e:SetScript("OnEscapePressed", function() f:Hide() end)
 		e:SetScript("OnTextChanged", function(self) sf.UpdateRange(self:GetHeight()) end)
 		sf:SetScrollChild(e)

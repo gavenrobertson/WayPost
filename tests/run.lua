@@ -390,7 +390,54 @@ local function try(name, fn)
 end
 E.Load("alliance/human/01-elwynn-forest", true)
 try("render step frame", function() W.StepFrame.Render() end)
-try("compact mode", function() W.Set("ui.compact", true) W.StepFrame.Render() W.Set("ui.compact", false) end)
+try("every layout renders", function()
+	for _, l in ipairs({ "simple", "standard", "detailed" }) do W.StepFrame.SetLayout(l) W.StepFrame.Render() end
+	check(W.StepFrame.Layout().xpbar == true and W.StepFrame.Layout().goalInfo == true, "detailed layout shows everything")
+	W.StepFrame.SetElement("tip", false)
+	check(W.opt.ui.layout == "custom" and W.StepFrame.Layout().tip == false and W.StepFrame.Layout().goalInfo == true,
+		"changing one element makes a custom layout from the one in use")
+	W.StepFrame.Render()
+	W.StepFrame.SetLayout("simple")
+	check(W.StepFrame.Layout().goals == false and W.StepFrame.Layout().footer == false, "simple layout")
+	W.StepFrame.SetLayout("standard")
+end)
+try("guide window width grip", function()
+	local grip = WaypostFrame.grip
+	M.cursorX = 100
+	grip._scripts.OnMouseDown(grip)
+	M.cursorX = 180
+	grip._scripts.OnUpdate(grip, 0.1)
+	check(W.opt.ui.width == 400, "dragging the corner widens the window (" .. tostring(W.opt.ui.width) .. ")")
+	M.cursorX = -2000
+	grip._scripts.OnUpdate(grip, 0.1)
+	check(W.opt.ui.width == W.StepFrame.MIN_WIDTH, "and stops at the minimum")
+	grip._scripts.OnMouseUp(grip)
+	grip._scripts.OnDoubleClick(grip)
+	check(W.opt.ui.width == 320, "double-click resets it")
+	M.cursorX = 0
+end)
+try("dialog windows resize and remember their size", function()
+	W.Picker.Toggle(true)
+	local win = WaypostPicker
+	check(win.grip ~= nil, "the guide list has a resize grip")
+	win:SetSize(900, 640)
+	win.grip._scripts.OnMouseUp(win.grip)
+	check(W.opt.windows.WaypostPicker and W.opt.windows.WaypostPicker.w == 900, "its size is saved")
+	win:Hide()
+	win:SetSize(700, 530)
+	win:Show()
+	check(win:GetWidth() == 900, "and restored when it opens again")
+	W.UI.ResetWindowSizes()
+	check(win:GetWidth() == 700 and next(W.opt.windows) == nil, "reset puts every window back")
+	W.Picker.Toggle(false)
+end)
+try("old compact setting becomes the simple layout", function()
+	local prof = W.db.profiles[W.profileName]
+	prof.ui.compact = true
+	W.SelectProfile(W.profileName, true)
+	check(W.opt.ui.layout == "simple" and W.opt.ui.compact == nil, "migrated")
+	W.StepFrame.SetLayout("standard")
+end)
 try("step list", function() W.Set("ui.listOpen", true) M.advance(0.2) W.StepFrame.Render() W.StepFrame.RenderList(true) end)
 try("each skin", function() for _, sk in ipairs(W.UI.SKINS) do W.Set("ui.skin", sk[1]) W.StepFrame.Render() end W.Set("ui.skin", "panel") end)
 try("heading font: quest-log face by default, switchable", function()
@@ -399,10 +446,38 @@ try("heading font: quest-log face by default, switchable", function()
 	check(W.UI.HeadFace():find("FRIZ") ~= nil, "or the text face")
 	W.Set("ui.headFont", "quest")
 end)
-try("game menu button", function()
+try("game menu button (older menu: under it)", function()
 	GameMenuFrame:Show()
 	check(W.opt.ui.gameMenu == true, "game menu button is on by default")
+	local b = W.GameMenu.Button()
+	check(b ~= nil and b:IsShown(), "the button shows with the menu")
+	b._scripts.OnClick(b, "LeftButton")
+	check(WaypostOptions and WaypostOptions:IsShown(), "and opens settings")
+	WaypostOptions:Hide()
 	GameMenuFrame:Hide()
+end)
+try("game menu button (modern menu: inside its list)", function()
+	-- a menu like the modern client's: pooled buttons stacked by layoutIndex
+	local menu = M.newWidget("Frame", nil, UIParent)
+	local function pooled(label, index)
+		local b = M.newWidget("Button", nil, menu)
+		b._text, b.layoutIndex = label, index
+		b:SetSize(160, 28)
+		return b
+	end
+	_G.GAMEMENU_OPTIONS, _G.BLIZZARD_STORE = "Options", "Shop"
+	local list = { pooled("Options", 1), pooled("Shop", 2), pooled("AddOns", 3), pooled("Log Out", 4) }
+	menu.buttonPool = { EnumerateActive = function() local i = 0 return function() i = i + 1 return list[i] end end }
+	menu.buttonTemplate = "UIPanelButtonTemplate"
+	W.GameMenu.Place(menu)
+	local b = W.GameMenu.Button()
+	check(b:IsShown() and b:GetParent() == menu, "our button is a child of the menu")
+	check(b.layoutIndex > 2 and b.layoutIndex < 3, "placed after Shop, before AddOns (" .. tostring(b.layoutIndex) .. ")")
+	check(b.topPadding == 20 and b:GetWidth() == 160, "in its own section, as wide as its neighbours")
+	W.Set("ui.gameMenu", false)
+	W.GameMenu.Place(menu)
+	check(not b:IsShown(), "switched off in settings: not shown")
+	W.Set("ui.gameMenu", true)
 end)
 try("arrow refresh + update", function()
 	W.Arrow.Refresh()
@@ -423,6 +498,39 @@ end)
 try("options", function() W.Options.Toggle(true) W.Options.Refresh() W.Options.Toggle(false) end)
 try("about", function() W.About.Show() end)
 try("editor", function() W.Editor.Open() end)
+try("live XP tracker", function()
+	W.Tracker.Toggle(true)
+	check(WaypostXPTracker:IsShown() and W.opt.tracker.shown, "tracker opens")
+	local t0 = M.clock
+	M.player.xp, M.player.xpMax = 0, 4000
+	M.fire("PLAYER_XP_UPDATE", "player")
+	for i = 1, 6 do
+		M.advance(20)
+		M.player.xp = M.player.xp + 100
+		M.fire("PLAYER_XP_UPDATE", "player")
+	end
+	M.advance(5)
+	M.fire("QUEST_TURNED_IN", 777, 400, 0)
+	M.player.xp = M.player.xp + 450
+	M.fire("PLAYER_XP_UPDATE", "player")
+	local s1 = W.XP.Snapshot()
+	check(s1.kills >= 6 and s1.quests >= 1 and s1.questXP >= 400, "gains split into kills and a quest")
+	check(s1.killsToLevel ~= nil and s1.ttl ~= nil and s1.rate > 0, "kills to level and time to level are known")
+	local r1 = s1.rate
+	M.advance(240)
+	local r2 = W.XP.Rate()
+	check(r2 < r1, "XP per hour falls while nothing is earned (" .. math.floor(r1) .. " -> " .. math.floor(r2) .. ")")
+	M.advance(700)
+	check(W.XP.Rate() == 0, "and reaches zero once the last gain leaves the ten-minute window")
+	local bars = W.XP.PerMinute(10)
+	check(#bars == 10, "ten per-minute bars")
+	WaypostXPTracker._scripts.OnUpdate(WaypostXPTracker, 0.3)
+	W.Tracker.Toggle(false)
+	check(not WaypostXPTracker:IsShown() and not W.opt.tracker.shown, "tracker closes")
+	M.player.xp, M.player.xpMax = 0, 400
+	M.fire("PLAYER_XP_UPDATE", "player")
+	local _ = t0
+end)
 try("xp window with the level chart", function()
 	W.char.xp.levels = { [1] = 600, [2] = 900, [3] = 2400, [4] = 1500 }
 	W.char.xp.levelTime = 300
@@ -465,7 +573,7 @@ check(W.db.seenWelcome == true, "the welcome was shown on first login")
 try("toast", function() W.UI.Toast("Title", "Body") end)
 try("empty state", function() E.Unload() W.StepFrame.Render() end)
 try("slash commands", function()
-	for _, c in ipairs({ "help", "commands", "later", "ding", "guides", "config", "why", "where", "xp", "talents", "party", "guild", "orphans", "editor",
+	for _, c in ipairs({ "help", "commands", "later", "ding", "tracker", "tracker", "layout detailed", "layout simple", "layout standard", "guides", "config", "why", "where", "xp", "talents", "party", "guild", "orphans", "editor",
 		"nearest trainer", "resume", "rescan", "reset", "version", "next", "back", "skip", "undo", "show" }) do
 		SlashCmdList["WAYPOST"](c)
 	end

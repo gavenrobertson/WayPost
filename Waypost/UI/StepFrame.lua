@@ -31,6 +31,51 @@ local GLYPH = {
 local TINT = { accept = Col.gold, turnin = Col.gold, complete = Col.gold, kill = Col.enemy, die = Col.bad }
 SF.GLYPH, SF.TINT = GLYPH, TINT
 
+---------------------------------------------------------------------------
+-- Layouts: how much the window shows. Simple is what to do and where;
+-- Standard adds the step's tip, its other goals and what comes next;
+-- Detailed shows everything (every goal's details, finished goals, why the
+-- step is there, five steps ahead, a live XP bar). Changing any single
+-- element in Settings makes a Custom layout from the current one.
+---------------------------------------------------------------------------
+local PRESETS = {
+	simple = { tip = false, info = false, where = true, goals = false, goalInfo = false, done = false,
+		danger = true, why = false, next = 0, footer = false, xpbar = false },
+	standard = { tip = true, info = true, where = true, goals = true, goalInfo = false, done = false,
+		danger = true, why = false, next = 3, footer = true, xpbar = false },
+	detailed = { tip = true, info = true, where = true, goals = true, goalInfo = true, done = true,
+		danger = true, why = true, next = 5, footer = true, xpbar = true },
+}
+SF.PRESETS = PRESETS
+SF.LAYOUTS = { { "simple", "Simple" }, { "standard", "Standard" }, { "detailed", "Detailed" }, { "custom", "Custom" } }
+SF.ELEMENTS = {
+	{ "tip", "The step's tip" }, { "info", "Details on the current goal" }, { "where", "Distance and direction" },
+	{ "goals", "The step's other goals" }, { "goalInfo", "Details on every goal" }, { "done", "Finished goals" },
+	{ "danger", "Warnings" }, { "why", "Why this step" }, { "footer", "Buttons and XP per hour" }, { "xpbar", "XP bar" },
+}
+
+function SF.Layout()
+	local o = W.opt.ui
+	if o.layout == "custom" and type(o.custom) == "table" then return o.custom end
+	return PRESETS[o.layout] or PRESETS.standard
+end
+
+function SF.SetLayout(name)
+	local o = W.opt.ui
+	if name == "custom" and type(o.custom) ~= "table" then o.custom = W.CopyTable(SF.Layout()) end
+	if name ~= "simple" then o.lastLayout = name end
+	W.Set("ui.layout", name)
+end
+
+-- Change one element; the layout becomes Custom, starting from the one in use.
+function SF.SetElement(key, value)
+	local o = W.opt.ui
+	if o.layout ~= "custom" or type(o.custom) ~= "table" then o.custom = W.CopyTable(SF.Layout()) end
+	o.custom[key] = value
+	o.lastLayout = "custom"
+	W.Set("ui.layout", "custom")
+end
+
 local frame, header, bar, body, footer, list
 local now, rows, nextRows = nil, {}, {}
 local seenDone, seenStep = {}, nil
@@ -200,9 +245,14 @@ local function openMenu(owner)
 		{ text = L["Guide editor"], icon = "book", func = function() W.Editor.Open() end },
 		{ text = L["Report a problem"], icon = "bug", func = function() W.Report.Open() end },
 		{ text = L["Help"], icon = "note", func = function() W.Help.Open() end },
+		{ text = L["Layout"], title = true },
+		{ text = L["Simple"], checked = o.layout == "simple", func = function() SF.SetLayout("simple") end },
+		{ text = L["Standard"], checked = o.layout == "standard", func = function() SF.SetLayout("standard") end },
+		{ text = L["Detailed"], checked = o.layout == "detailed", func = function() SF.SetLayout("detailed") end },
+		{ text = L["Custom..."], checked = o.layout == "custom", func = function() W.Options.Toggle(true, L["Guide window"]) end },
 		{ text = L["Window"], title = true },
+		{ text = L["Live XP tracker"], checked = W.opt.tracker.shown, func = function() W.Tracker.Toggle() end },
 		{ text = L["Lock in place"], checked = o.locked, func = function() W.Set("ui.locked", not o.locked) end },
-		{ text = L["Compact"], checked = o.compact, func = function() W.Set("ui.compact", not o.compact) end },
 	}, 210, "right")
 end
 
@@ -243,9 +293,13 @@ local function build()
 	header.close = UI.IconButton(header, 10, "close", function() SF.Toggle(false) end)
 	header.close:SetPoint("RIGHT", -4, 0)
 	UI.Tooltip(header.close, L["Hide Waypost"], L["Type /waypost, press the minimap button or use the game menu to bring it back."], "ANCHOR_BOTTOMLEFT")
-	header.compact = UI.IconButton(header, 10, "minus", function() W.Set("ui.compact", not W.opt.ui.compact) end)
+	header.compact = UI.IconButton(header, 10, "minus", function()
+		local o = W.opt.ui
+		if o.layout == "simple" then SF.SetLayout(o.lastLayout ~= "simple" and o.lastLayout or "standard") else SF.SetLayout("simple") end
+	end)
 	header.compact:SetPoint("RIGHT", header.close, "LEFT", -1, 0)
-	UI.Tooltip(header.compact, L["Compact"], L["Show only what to do now."], "ANCHOR_BOTTOMLEFT")
+	UI.Tooltip(header.compact, function() return W.opt.ui.layout == "simple" and L["Show more"] or L["Simple layout"] end,
+		function() return W.opt.ui.layout == "simple" and L["Back to your usual layout."] or L["Show only what to do now and where."] end, "ANCHOR_BOTTOMLEFT")
 	header.menu = UI.IconButton(header, 12, "dots", function(self) openMenu(self) end)
 	header.menu:SetPoint("RIGHT", header.compact, "LEFT", -1, 0)
 	UI.Tooltip(header.menu, L["Menu"], L["Guides, settings and everything else."], "ANCHOR_BOTTOMLEFT")
@@ -460,15 +514,78 @@ local function build()
 
 	footer.xp = CreateFrame("Button", nil, footer)
 	footer.xp:SetHeight(20)
-	footer.xp:SetPoint("RIGHT", -PAD, -1)
+	footer.xp:SetPoint("RIGHT", -PAD - 6, -1)
 	footer.xp.text = footer.xp:CreateFontString(nil, "ARTWORK")
 	footer.xp.text:SetFontObject(UI.FontSmall)
 	footer.xp.text:SetPoint("RIGHT")
-	footer.xp:SetScript("OnClick", function() W.XP.ToggleWindow() end)
+	footer.xp:SetScript("OnClick", function()
+		if IsShiftKeyDown() then W.XP.ToggleWindow() else W.Tracker.Toggle() end
+	end)
 	UI.Tooltip(footer.xp, L["Leveling speed"], function() return W.XP.TooltipText() end, "ANCHOR_BOTTOMLEFT")
+
+	-- live XP bar along the bottom edge
+	footer.xpbar = CreateFrame("StatusBar", nil, frame)
+	footer.xpbar:SetHeight(4)
+	footer.xpbar:SetStatusBarTexture(UI.WHITE)
+	footer.xpbar:SetStatusBarColor(0.62, 0.32, 0.92)
+	footer.xpbar:SetMinMaxValues(0, 1)
+	footer.xpbar.bg = footer.xpbar:CreateTexture(nil, "BACKGROUND")
+	footer.xpbar.bg:SetTexture(UI.WHITE)
+	footer.xpbar.bg:SetAllPoints()
+	footer.xpbar.bg:SetVertexColor(0, 0, 0, 0.6)
+	footer.xpbar.rested = footer.xpbar:CreateTexture(nil, "ARTWORK", nil, -1)
+	footer.xpbar.rested:SetTexture(UI.WHITE)
+	footer.xpbar.rested:SetVertexColor(0.3, 0.55, 1, 0.45)
+	footer.xpbar:EnableMouse(true)
+	footer.xpbar:SetScript("OnMouseUp", function() W.Tracker.Toggle() end)
+	UI.Tooltip(footer.xpbar, L["Experience"], function()
+		local x = W.XP.Snapshot()
+		return ("%d / %d XP (%.1f%%)\n%s"):format(x.cur, x.max, x.pct * 100, L["Click for the live XP tracker."])
+	end, "ANCHOR_BOTTOMLEFT")
+
+	-- Resize: drag the corner to change the width
+	local grip = CreateFrame("Button", nil, frame)
+	grip:SetSize(14, 14)
+	grip:SetPoint("BOTTOMRIGHT", -1, 1)
+	grip:SetFrameLevel(frame:GetFrameLevel() + 10)
+	grip.icon = UI.Icon(grip, "grip", 10, "OVERLAY", Col.muted)
+	grip.icon:SetPoint("CENTER")
+	grip:SetScript("OnEnter", function(self)
+		self.icon:SetVertexColor(Col.gold[1], Col.gold[2], Col.gold[3])
+		GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+		GameTooltip:SetText(L["Drag to resize"], 1, 0.82, 0)
+		GameTooltip:AddLine(L["Double-click to reset the width."], 1, 1, 1)
+		GameTooltip:Show()
+	end)
+	grip:SetScript("OnLeave", function(self)
+		self.icon:SetVertexColor(Col.muted[1], Col.muted[2], Col.muted[3])
+		GameTooltip:Hide()
+	end)
+	grip:SetScript("OnMouseDown", function(self)
+		if W.opt.ui.locked then return end
+		local scale = frame:GetEffectiveScale()
+		self.startX = GetCursorPosition() / scale
+		self.startW = W.opt.ui.width or 320
+		self:SetScript("OnUpdate", function()
+			local w = floor(self.startW + GetCursorPosition() / scale - self.startX + 0.5)
+			w = min(SF.MAX_WIDTH, max(SF.MIN_WIDTH, w))
+			if w ~= W.opt.ui.width then
+				W.opt.ui.width = w
+				SF.Render()
+			end
+		end)
+	end)
+	grip:SetScript("OnMouseUp", function(self) self:SetScript("OnUpdate", nil) end)
+	grip:SetScript("OnDoubleClick", function()
+		W.opt.ui.width = W.defaults.ui.width
+		SF.Render()
+	end)
+	frame.grip = grip
 
 	restorePosition()
 end
+
+SF.MIN_WIDTH, SF.MAX_WIDTH = 230, 600
 
 ---------------------------------------------------------------------------
 -- Step list (below the window)
@@ -477,8 +594,37 @@ local function buildList()
 	list = CreateFrame("Frame", "WaypostStepList", frame)
 	list:SetPoint("TOPLEFT", frame, "BOTTOMLEFT", 0, -2)
 	list:SetPoint("TOPRIGHT", frame, "BOTTOMRIGHT", 0, -2)
-	list:SetHeight(12 * 18 + 12)
+	list:SetHeight((W.opt.ui.listRows or 12) * 18 + 12)
 	list:EnableMouse(true)
+	-- drag the bottom edge to show more or fewer steps
+	local lgrip = CreateFrame("Button", nil, list)
+	lgrip:SetHeight(8)
+	lgrip:SetPoint("BOTTOMLEFT", 20, 0)
+	lgrip:SetPoint("BOTTOMRIGHT", -20, 0)
+	lgrip.line = lgrip:CreateTexture(nil, "OVERLAY")
+	lgrip.line:SetTexture(UI.WHITE)
+	lgrip.line:SetSize(30, 2)
+	lgrip.line:SetPoint("CENTER")
+	lgrip.line:SetVertexColor(Col.muted[1], Col.muted[2], Col.muted[3], 0.8)
+	lgrip:SetScript("OnEnter", function(self) self.line:SetVertexColor(Col.gold[1], Col.gold[2], Col.gold[3], 1) end)
+	lgrip:SetScript("OnLeave", function(self) self.line:SetVertexColor(Col.muted[1], Col.muted[2], Col.muted[3], 0.8) end)
+	lgrip:SetScript("OnMouseDown", function(self)
+		if W.opt.ui.locked then return end
+		local scale = list:GetEffectiveScale()
+		local _, y0 = GetCursorPosition()
+		self.startY, self.startRows = y0 / scale, W.opt.ui.listRows or 12
+		self:SetScript("OnUpdate", function()
+			local _, y = GetCursorPosition()
+			local n = floor(self.startRows + (self.startY - y / scale) / 18 + 0.5)
+			n = min(40, max(4, n))
+			if n ~= W.opt.ui.listRows then
+				W.opt.ui.listRows = n
+				list:SetHeight(n * 18 + 12)
+				list.view.Refresh()
+			end
+		end)
+	end)
+	lgrip:SetScript("OnMouseUp", function(self) self:SetScript("OnUpdate", nil) end)
 	list.view = UI.VirtualList(list, 18, function(r)
 		r.num = r:CreateFontString(nil, "ARTWORK")
 		r.num:SetFontObject(UI.FontSmall)
@@ -573,7 +719,8 @@ local function renderEmpty(width)
 end
 
 -- Fill a goal row; returns its height.
-local function fillRow(r, g, si, done, inner, compact)
+local rowInfo = {}
+local function fillRow(r, g, si, done, inner, detail)
 	r.goal, r.si = g, si
 	local main, sub = E.GoalText(g, si)
 	setGlyph(r.icon, g, done, false)
@@ -584,7 +731,11 @@ local function fillRow(r, g, si, done, inner, compact)
 	r.text:SetText(main)
 	r.text:SetAlpha(done and 0.5 or 1)
 	local h = r.text:GetStringHeight()
-	if sub and not done and not compact then
+	if detail and not done then
+		E.GoalInfo(g, si, rowInfo)
+		if #rowInfo > 0 then sub = table.concat(rowInfo, "\n") end
+	end
+	if sub and not done then
 		r.sub:Show()
 		r.sub:SetWidth(inner - 22 - 20)
 		r.sub:SetText(sub)
@@ -609,7 +760,7 @@ end
 
 -- Fill the Now card; returns its height.
 local infoLines = {}
-local function fillNow(g, si, inner)
+local function fillNow(g, si, inner, lay)
 	now.goal, now.si = g, si
 	local main = E.GoalText(g, si)
 	UI.SetIcon(now.icon, GLYPH[g.t] or "note")
@@ -621,7 +772,7 @@ local function fillNow(g, si, inner)
 	local y = 8 + now.text:GetStringHeight()
 
 	E.GoalInfo(g, si, infoLines)
-	if #infoLines > 0 then
+	if lay.info and #infoLines > 0 then
 		now.info:Show()
 		now.info:ClearAllPoints()
 		now.info:SetPoint("TOPLEFT", 36, -(y + 3))
@@ -645,7 +796,7 @@ local function fillNow(g, si, inner)
 		now.bar:Hide()
 	end
 
-	local where = whereText(g)
+	local where = lay.where and whereText(g) or nil
 	whereGoal = where and g or nil
 	if where then
 		now.where:Show()
@@ -668,11 +819,14 @@ end
 function SF.Render()
 	if not frame or not frame:IsShown() then return end
 	local o = W.opt.ui
-	local width = o.width or 320
+	local lay = SF.Layout()
+	local width = min(SF.MAX_WIDTH, max(SF.MIN_WIDTH, o.width or 320))
 	local inner = width - 2 * PAD - 2
 	frame:SetWidth(width)
+	frame.grip:SetShown(not o.locked)
+	footer.xpbar:Hide()
 
-	UI.SetIcon(header.compact.icon, o.compact and "plus" or "minus")
+	UI.SetIcon(header.compact.icon, o.layout == "simple" and "plus" or "minus")
 
 	local guide = E.guide
 	local y = 0
@@ -719,7 +873,7 @@ function SF.Render()
 		place(body.title, y)
 		y = y + body.title:GetStringHeight() + 4
 
-		if step.note and not o.compact then
+		if step.note and lay.tip then
 			body.tip:Show()
 			body.tip:SetWidth(inner)
 			body.tip:SetText(step.note)
@@ -746,7 +900,7 @@ function SF.Render()
 		if current then
 			now:Show()
 			place(now, y)
-			y = y + fillNow(current, si, inner) + 7
+			y = y + fillNow(current, si, inner, lay) + 7
 			if current.t == "level" and (W.player.level or 1) < (current.level or 1) and not E.view then
 				local c = body.catch
 				local n = W.SetAside.Count()
@@ -770,15 +924,16 @@ function SF.Render()
 				r = newRow(body)
 				rows[n] = r
 			end
-			local h = fillRow(r, g, si, done, inner, o.compact)
+			local h = fillRow(r, g, si, done, inner, lay.goalInfo)
 			place(r, y)
 			r:Show()
 			y = y + h + 5
 		end
 
+		local showDone = lay.done or o.showDone
 		for i = 1, #vis do
 			local g = vis[i]
-			if g ~= current and not (W.opt.route.hideOptional and g.optional) then
+			if lay.goals and g ~= current and not (W.opt.route.hideOptional and g.optional) then
 				local done = past or E.GoalState(g, si)
 				if done then
 					if not seenDone[g] then seenDone[g] = tnow end
@@ -788,9 +943,9 @@ function SF.Render()
 						addRow(g, true)
 					elseif g.t ~= "note" then
 						doneCount = doneCount + 1
-						if o.showDone then addRow(g, true) end
+						if showDone then addRow(g, true) end
 					end
-				elseif not o.compact or not g.optional then
+				else
 					addRow(g, false)
 				end
 			end
@@ -802,11 +957,11 @@ function SF.Render()
 			body.done:SetWidth(inner)
 			place(body.done, y)
 			body.done.text:SetText((doneCount == 1 and L["1 done"] or (L["%d done"]):format(doneCount))
-				.. (o.showDone and "" or ("  " .. UI.Hex(Col.muted) .. L["show"] .. "|r")))
+				.. (showDone and "" or ("  " .. UI.Hex(Col.muted) .. L["show"] .. "|r")))
 			y = y + 20
 		end
 
-		local danger = E.Danger(step)
+		local danger = lay.danger and E.Danger(step)
 		if danger then
 			body.danger:Show()
 			body.danger:SetWidth(inner)
@@ -818,7 +973,7 @@ function SF.Render()
 			y = y + h + 7
 		end
 
-		if SF.showWhy and not o.compact then
+		if lay.why or SF.showWhy then
 			body.why:Show()
 			body.why:SetWidth(inner)
 			body.why:SetText(E.Why(si) or "")
@@ -827,7 +982,7 @@ function SF.Render()
 		end
 
 		-- What comes next, with how far away its first stop is
-		local showNext = o.compact and 0 or (o.showNext or 3)
+		local showNext = lay.next or 0
 		if showNext > 0 then
 			local sj, k = si + 1, 0
 			while k < showNext and guide.steps[sj] do
@@ -884,8 +1039,8 @@ function SF.Render()
 			end
 		end
 
-		footer:SetShown(not o.compact)
-		if not o.compact then
+		footer:SetShown(lay.footer and true or false)
+		if lay.footer then
 			footer:ClearAllPoints()
 			footer:SetPoint("TOPLEFT", frame, "TOPLEFT", 1, -(1 + HEADER + 2 + 8 + y + 4))
 			footer:SetPoint("TOPRIGHT", frame, "TOPRIGHT", -1, -(1 + HEADER + 2 + 8 + y + 4))
@@ -898,11 +1053,21 @@ function SF.Render()
 			y = y + 4 + 24 - 6
 		end
 
-		if o.listOpen and not o.compact then
+		if lay.xpbar then
+			footer.xpbar:Show()
+			footer.xpbar:ClearAllPoints()
+			footer.xpbar:SetPoint("TOPLEFT", frame, "TOPLEFT", 1, -(1 + HEADER + 2 + 8 + y + 6))
+			footer.xpbar:SetPoint("TOPRIGHT", frame, "TOPRIGHT", -16, -(1 + HEADER + 2 + 8 + y + 6))
+			SF.UpdateXPBar()
+			y = y + 8
+		end
+
+		if o.listOpen and o.layout ~= "simple" then
 			if not list then buildList() end
 			local sk = UI.Skin(o.skin)
 			UI.Fill(list, Col.bg, max(0.6, sk.fill))
 			UI.Trim(list, Col.trim, max(0.4, sk.trim))
+			list:SetHeight((o.listRows or 12) * 18 + 12)
 			list:Show()
 			SF.RenderList(true)
 		elseif list then
@@ -917,9 +1082,31 @@ end
 local renderSoon = W.Throttle(0.05, function() SF.Render() end)
 SF.RenderSoon = renderSoon
 
--- Twice a second: refresh only the distance and direction texts.
+function SF.UpdateXPBar()
+	if not frame or not footer.xpbar:IsShown() then return end
+	local x = W.XP.Snapshot()
+	footer.xpbar:SetValue(min(1, x.pct))
+	local w = footer.xpbar:GetWidth()
+	local rb = footer.xpbar.rested
+	if x.rested > 0 and x.max > 0 then
+		local from, to = w * min(1, x.pct), w * min(1, (x.cur + x.rested) / x.max)
+		rb:ClearAllPoints()
+		rb:SetPoint("TOPLEFT", footer.xpbar, "TOPLEFT", from, 0)
+		rb:SetPoint("BOTTOMLEFT", footer.xpbar, "BOTTOMLEFT", from, 0)
+		rb:SetWidth(max(1, to - from))
+		rb:Show()
+	else
+		rb:Hide()
+	end
+end
+
+-- Twice a second: refresh the distance and direction texts and the live XP figures.
 local function tickWhere()
 	if not frame or not frame:IsShown() then return end
+	if footer:IsShown() then
+		footer.xp.text:SetText(W.XP.ShortText())
+		footer.xp:SetWidth(max(10, footer.xp.text:GetStringWidth() + 4))
+	end
 	if W.InCombat() and not W.opt.combatUpdates then return end
 	if whereGoal and now:IsShown() then
 		local t = whereText(whereGoal)
@@ -981,6 +1168,7 @@ W.On("WP_SETTINGS", function(path)
 		SF.ApplyStyle()
 	end
 end)
+W.On("WP_XP", function() if frame then SF.UpdateXPBar() end end)
 W.On("WP_COMBAT_STARTED", function()
 	if frame and W.opt.ui.hideInCombat and frame:IsShown() then
 		frame.combatHidden = true

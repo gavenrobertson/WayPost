@@ -37,7 +37,8 @@ Hold **Shift** while opening an NPC to switch automation off for that conversati
   distance and direction. Under it the step's other goals, what is done, and what comes next. It
   uses the game's own fonts (Friz Quadrata for text, the quest log's Morpheus for headings) and
   colours (quest gold, item quality, hostile red) on its own panels.
-  `docs/preview-guide-window.png` is a drawing of the layout.
+  `docs/preview-guide-window.png` is a drawing of the layout. Three layouts (Simple, Standard,
+  Detailed) or your own mix of parts; every window resizes from its corner.
 - 3D arrow with distance and time to arrive, pins on the world map and minimap, optional TomTom
   hand-off.
 - Accepts and turns in the guide's quests (it stops at reward choices). Buttons for the step's quest
@@ -48,8 +49,11 @@ Hold **Shift** while opening an NPC to switch automation off for that conversati
   levels. Group quests are set aside automatically while you are solo. At a level checkpoint the
   window shows how much XP you are short and points you at set-aside quests or enemies your level.
 - A welcome window on first login and a help window (`/waypost help`).
-- XP per hour, level and guide timers, a bar chart of how long each level took, a history of
-  finished guides.
+- A Waypost button inside the game menu (Esc), in the menu's own list.
+- A live XP tracker: XP per hour over the last ten minutes (it rises and falls as you play), time to
+  level counting down, XP per minute, quest and kill XP for the session, and kills or quests left to
+  level (`/waypost tracker`).
+- Level and guide timers, a bar chart of how long each level took, a history of finished guides.
 - A level-up animation in the guide window (`/waypost ding` previews it).
 - Talent suggestions, gear upgrade hints (uses Pawn when installed), a list of quests the route will
   not finish.

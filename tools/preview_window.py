@@ -15,7 +15,8 @@ C = dict(bg=(19, 16, 12), band=(34, 27, 18), well=(9, 7, 6), trim=(143, 112, 56)
          good=(77, 242, 89), bad=(255, 84, 71), info=(128, 204, 255))
 NAMES = ["accept", "turnin", "kill", "collect", "talk", "goto", "use", "fly", "home", "train", "level", "vendor", "note", "check",
          "skip", "left", "right", "down", "gear", "list", "close", "minus", "plus", "book", "undo", "warn", "dots", "lock", "nav",
-         "interact", "box", "explore", "up", "bug", "users", "clock", "boxcheck", "search", "pinoff", "star"]
+         "interact", "box", "explore", "up", "bug", "users", "clock", "boxcheck", "search", "pinoff", "star",
+         "grip", "chart", "layout", "bolt"]
 SHEET = Image.open(os.path.join(ROOT, "Waypost", "Media", "Icons.tga")).convert("RGBA")
 LOGO = Image.open(os.path.join(ROOT, "Waypost", "Media", "Logo.tga")).convert("RGBA")
 

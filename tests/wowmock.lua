@@ -67,6 +67,7 @@ function real:SetScale(s) self._scale = s end
 function real:SetAlpha(a) self._alpha = a end
 function real:GetAlpha() return self._alpha end
 function real:GetParent() return self._parent end
+function real:SetParent(p) self._parent = p end
 function real:GetName() return self._name end
 function real:GetFrameLevel() return 1 end
 function real:SetAttribute(k, v) self._attrs[k] = v end
@@ -199,7 +200,7 @@ function M.install()
 	G.GetNumSubgroupMembers = function() return 0 end
 	G.GetCVar = function() return "0" end
 	G.IsIndoors = function() return false end
-	G.GetCursorPosition = function() return 0, 0 end
+	G.GetCursorPosition = function() return M.cursorX or 0, M.cursorY or 0 end
 	G.GetBindingKey = function() return nil end
 	G.GetQuestID = function() return M.questFrameID or 0 end
 	G.AcceptQuest = function() M.selected[#M.selected + 1] = "accept:" .. tostring(M.questFrameID) end

@@ -18,7 +18,8 @@ The automated tests run the addon against a mock of the game API. These checks n
 - [ ] Counts and ticks update during combat. With "Keep updating during combat" off, the window
       waits and catches up when combat ends.
 - [ ] The Now card shows distance and direction, and they change as you move.
-- [ ] Esc shows a Waypost button under the game menu; it opens the guide list.
+- [ ] Esc shows a Waypost button inside the menu, in its own section after Options/Shop; it opens
+      settings, right-click opens the guide list. The menu's other buttons are not moved or broken.
 - [ ] Reward choices are not picked for you.
 - [ ] The quest item button appears for a "use" step and its key binding works.
 - [ ] The target button targets the step's enemy.
@@ -33,6 +34,14 @@ The automated tests run the addon against a mock of the game API. These checks n
 - [ ] Step titles and window titles are in the quest-log title font; "Heading font" in settings switches it.
 - [ ] Drag the window and the arrow; `/reload`; both stay where they were.
 - [ ] Settings search finds "arrow".
+
+## Layouts, resizing, XP tracker
+
+- [ ] Simple, Standard and Detailed (... menu) each look right; ticking a part in Settings makes Custom.
+- [ ] Drag the guide window's corner: it gets wider and narrower. Drag the step list's bottom edge.
+- [ ] Every other window resizes from its corner and keeps the size after closing; double-click resets.
+- [ ] `/waypost tracker`: the countdown ticks every second, XP/h rises on kills and falls while idle,
+      "+N" pops over the bar, the per-minute bars fill from the right.
 
 ## Level-up and chart
 

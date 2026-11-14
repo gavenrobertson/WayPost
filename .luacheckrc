@@ -33,4 +33,4 @@ read_globals = {
 	"WorldMapFrame", "YES", "geterrorhandler", "hash_SlashCmdList", "hooksecurefunc", "issecretvalue", "strsplit",
 	"time", "tinsert",
 }
-files["tests/run.lua"] = { globals = { "WaypostFrame", "WaypostArrow", "WaypostItemButton", "WorldMapFrame", "C_AddOns", "GameMenuFrame" } }
+files["tests/run.lua"] = { globals = { "WaypostFrame", "WaypostArrow", "WaypostItemButton", "WorldMapFrame", "C_AddOns", "GameMenuFrame", "WaypostPicker", "WaypostOptions", "WaypostXPTracker" } }

@@ -21,7 +21,9 @@ local HELP = {
 	{ "announce <text>", "officers: send a notice to the guild" },
 	{ "orphans", "quests in your log the route won't finish" },
 	{ "talents", "talent guide" },
+	{ "tracker", "the live XP tracker" },
 	{ "xp", "leveling speed, with a graph of the time each level took" },
+	{ "layout simple|standard|detailed", "how much the guide window shows" },
 	{ "ding", "preview the level-up animation" },
 	{ "editor", "write, import or export a guide" },
 	{ "record start|stop", "record your route as a draft guide" },
@@ -92,6 +94,16 @@ local function handle(msg)
 		W.Orphans.Toggle(true)
 	elseif cmd == "talents" or cmd == "talent" then
 		W.Talents.Toggle(true)
+	elseif cmd == "tracker" or cmd == "xptracker" then
+		W.Tracker.Toggle()
+	elseif cmd == "layout" then
+		local name = (rest or ""):lower()
+		if W.StepFrame.PRESETS[name] then
+			W.StepFrame.SetLayout(name)
+			W.StepFrame.Toggle(true)
+		else
+			W.Print(L["Usage: /waypost layout simple | standard | detailed"])
+		end
 	elseif cmd == "xp" or cmd == "stats" then
 		W.XP.ToggleWindow(true)
 	elseif cmd == "editor" or cmd == "edit" or cmd == "import" or cmd == "export" then
