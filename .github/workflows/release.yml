@@ -14,7 +14,9 @@ jobs:
       - name: Tests
         run: python3 tools/check_toc.py && lua5.1 tests/run.lua
       - name: Tag must match the TOC version
-        run: test "v$(sed -n 's/^## Version: //p' Waypost/Waypost.toc)" = "${GITHUB_REF_NAME}"
+        run: |
+          version="$(sed -n 's/^## Version: //p' Waypost/Waypost.toc)"
+          test "v${version}" = "${GITHUB_REF_NAME}"
       - name: Package
         run: tools/package.sh "${GITHUB_REF_NAME#v}"
       - name: GitHub release
